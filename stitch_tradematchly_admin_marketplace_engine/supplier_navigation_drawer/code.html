@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Navigation Drawer - TradeMatchly</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-primary": "#bec6e0",
+                        "primary-fixed-dim": "#bec6e0",
+                        "on-surface-variant": "#45464d",
+                        "outline": "#76777d",
+                        "on-primary-fixed": "#131b2e",
+                        "risk-amber": "#d97706",
+                        "risk-red": "#dc2626",
+                        "on-error-container": "#93000a",
+                        "inverse-surface": "#2d3133",
+                        "surface-container": "#eceef0",
+                        "on-secondary-fixed-variant": "#3322cc",
+                        "surface-container-low": "#f2f4f6",
+                        "surface-dim": "#d8dadc",
+                        "tertiary-container": "#0b1c30",
+                        "surface-container-highest": "#e0e3e5",
+                        "primary-fixed": "#dae2fd",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "verified-emerald": "#059669",
+                        "secondary-fixed-dim": "#c3c0ff",
+                        "on-tertiary-fixed-variant": "#38485d",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed": "#0f0069",
+                        "tertiary-fixed-dim": "#b7c8e1",
+                        "tertiary-fixed": "#d3e4fe",
+                        "on-primary-container": "#7c839b",
+                        "on-error": "#ffffff",
+                        "on-surface": "#191c1e",
+                        "on-primary": "#ffffff",
+                        "background": "#f7f9fb",
+                        "inverse-on-surface": "#eff1f3",
+                        "secondary-fixed": "#e2dfff",
+                        "on-secondary-container": "#fffbff",
+                        "tertiary": "#000000",
+                        "error-container": "#ffdad6",
+                        "outline-variant": "#c6c6cd",
+                        "primary": "#000000",
+                        "surface-tint": "#565e74",
+                        "on-tertiary": "#ffffff",
+                        "in-progress-blue": "#2563eb",
+                        "surface-container-high": "#e6e8ea",
+                        "primary-container": "#131b2e",
+                        "surface-border": "#e2e8f0",
+                        "surface": "#f7f9fb",
+                        "on-tertiary-fixed": "#0b1c30",
+                        "on-tertiary-container": "#75859d",
+                        "surface-bright": "#f7f9fb",
+                        "surface-variant": "#e0e3e5",
+                        "on-secondary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-container": "#655dfb",
+                        "secondary": "#4b41e1",
+                        "on-background": "#191c1e"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-sm": "0.5rem",
+                        "stack-lg": "1.5rem",
+                        "gutter-mobile": "0.75rem",
+                        "stack-md": "1rem",
+                        "margin-mobile": "1rem",
+                        "touch-target": "2.75rem"
+                    },
+                    "fontFamily": {
+                        "headline-sm": ["Inter"],
+                        "data-mono": ["JetBrains Mono"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "data-mono": ["13px", { "lineHeight": "18px", "fontWeight": "500" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-lg": ["28px", { "lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+                        "label-md": ["11px", { "lineHeight": "16px", "letterSpacing": "0.06em", "fontWeight": "700" }],
+                        "headline-md": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-fill {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Hide scrollbar for clean UI */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md h-screen w-full overflow-hidden flex relative">
+<!-- Scrim/Backdrop (simulated for drawer context) -->
+<div class="absolute inset-0 bg-primary/20 z-40"></div>
+<!-- Navigation Drawer -->
+<aside class="fixed left-0 top-0 h-full w-[85%] max-w-sm bg-surface-container-lowest shadow-md z-50 flex flex-col transform transition-transform duration-300 ease-in-out">
+<!-- Header: Company & Logo -->
+<div class="px-margin-mobile py-stack-lg border-b border-surface-border bg-surface-container-low flex justify-between items-start">
+<div class="flex items-center gap-3">
+<img alt="Company Logo" class="w-12 h-12 rounded-lg object-cover shadow-sm bg-surface" src="https://lh3.googleusercontent.com/aida/AEtjO1W2hoULEk30BGtol6rhIl18X5SesW7dFpNggDZ41PvGvFx-IwybXt0RyRuZmgDG5_GnGN5DCdkpFmn-34_eXZQ9GZm8tF5n7-3YA1yaShAVXhWehUuMVTuKtbPGgRk-gL5qwV93YU5t7FFhi8IBXXSojp6h81-7M2pL8oSxMkHQH2tCDeG-GBD1GX2hwPrH3_3kcba_9trw0hEt31p4fAB1emsyPzSq3TrQVq_zdSr-Z1zTLndHnuTDeA"/>
+<div>
+<h2 class="text-headline-sm font-headline-sm text-primary">ABC Spices Pvt. Ltd.</h2>
+<div class="flex items-center gap-1 mt-1 bg-verified-emerald/10 text-verified-emerald px-2 py-0.5 rounded-full w-fit">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+<span class="text-label-md font-label-md">Trade Verified</span>
+</div>
+</div>
+</div>
+<button class="h-touch-target w-touch-target flex items-center justify-center text-on-surface-variant hover:bg-surface-variant rounded-full transition-colors active:scale-95">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+</div>
+<!-- Profile Section -->
+<div class="px-margin-mobile py-stack-md border-b border-surface-border">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-bold text-headline-sm">
+                    SJ
+                </div>
+<div>
+<div class="text-body-md font-body-md font-semibold text-primary">Sarah Jenkins</div>
+<div class="text-body-sm font-body-sm text-on-surface-variant">Export Manager</div>
+</div>
+</div>
+</div>
+<!-- Scrollable Navigation Links -->
+<nav class="flex-1 overflow-y-auto no-scrollbar py-stack-sm px-2">
+<!-- Main Group -->
+<div class="mb-stack-lg">
+<div class="px-4 py-2 text-label-md font-label-md text-on-surface-variant uppercase tracking-wider">Main</div>
+<a class="flex items-center justify-between px-4 py-3 rounded-lg text-primary hover:bg-surface-container transition-colors active:bg-surface-variant" href="#">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant">dashboard</span>
+<span class="text-body-md font-body-md">Dashboard</span>
+</div>
+</a>
+<a class="flex items-center justify-between px-4 py-3 rounded-lg text-primary hover:bg-surface-container transition-colors active:bg-surface-variant" href="#">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant">insights</span>
+<span class="text-body-md font-body-md">Opportunities</span>
+</div>
+<span class="bg-primary text-on-primary text-label-md font-label-md px-2 py-0.5 rounded-full">12</span>
+</a>
+<a class="flex items-center justify-between px-4 py-3 rounded-lg text-primary hover:bg-surface-container transition-colors active:bg-surface-variant" href="#">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant">request_quote</span>
+<span class="text-body-md font-body-md">RFQs</span>
+</div>
+<span class="bg-surface-container-high text-primary text-label-md font-label-md px-2 py-0.5 rounded-full">8</span>
+</a>
+<a class="flex items-center justify-between px-4 py-3 rounded-lg text-primary hover:bg-surface-container transition-colors active:bg-surface-variant" href="#">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant">chat_bubble</span>
+<span class="text-body-md font-body-md">Messages</span>
+</div>
+<span class="bg-secondary text-on-secondary text-label-md font-label-md px-2 py-0.5 rounded-full">3</span>
+</a>
+</div>
+<!-- Business Group -->
+<div class="mb-stack-lg">
+<div class="px-4 py-2 text-label-md font-label-md text-on-surface-variant uppercase tracking-wider">Business</div>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-primary hover:bg-surface-container transition-colors active:bg-surface-variant" href="#">
+<span class="material-symbols-outlined text-on-surface-variant">inventory_2</span>
+<span class="text-body-md font-body-md">My Products</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-primary hover:bg-surface-container transition-colors active:bg-surface-variant" href="#">
+<span class="material-symbols-outlined text-on-surface-variant">store</span>
+<span class="text-body-md font-body-md">My Company</span>
+</a>
+<a class="flex items-center justify-between px-4 py-3 rounded-lg text-primary hover:bg-surface-container transition-colors active:bg-surface-variant" href="#">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant">verified_user</span>
+<span class="text-body-md font-body-md">Verification Center</span>
+</div>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-primary hover:bg-surface-container transition-colors active:bg-surface-variant" href="#">
+<span class="material-symbols-outlined text-on-surface-variant">description</span>
+<span class="text-body-md font-body-md">Documents</span>
+</a>
+</div>
+<!-- Performance Group -->
+<div class="mb-stack-lg">
+<div class="px-4 py-2 text-label-md font-label-md text-on-surface-variant uppercase tracking-wider">Performance</div>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-primary hover:bg-surface-container transition-colors active:bg-surface-variant" href="#">
+<span class="material-symbols-outlined text-on-surface-variant">analytics</span>
+<span class="text-body-md font-body-md">Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-primary hover:bg-surface-container transition-colors active:bg-surface-variant" href="#">
+<span class="material-symbols-outlined text-on-surface-variant">star_rate</span>
+<span class="text-body-md font-body-md">Reputation &amp; Reviews</span>
+</a>
+</div>
+<!-- System Group -->
+<div class="mb-stack-lg">
+<div class="px-4 py-2 text-label-md font-label-md text-on-surface-variant uppercase tracking-wider">System</div>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-primary hover:bg-surface-container transition-colors active:bg-surface-variant" href="#">
+<span class="material-symbols-outlined text-on-surface-variant">group</span>
+<span class="text-body-md font-body-md">Team Management</span>
+</a>
+<a class="flex items-center justify-between px-4 py-3 rounded-lg text-primary hover:bg-surface-container transition-colors active:bg-surface-variant" href="#">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant">credit_card</span>
+<span class="text-body-md font-body-md">Subscription</span>
+</div>
+<span class="text-body-sm font-body-sm text-on-surface-variant">Business Plan</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-primary hover:bg-surface-container transition-colors active:bg-surface-variant bg-primary-container/10" href="#">
+<span class="material-symbols-outlined icon-fill text-primary">settings</span>
+<span class="text-body-md font-body-md font-semibold">Settings</span>
+</a>
+</div>
+</nav>
+<!-- Bottom Actions -->
+<div class="p-4 border-t border-surface-border bg-surface-container-lowest">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-primary hover:bg-surface-container transition-colors active:bg-surface-variant" href="#">
+<span class="material-symbols-outlined text-on-surface-variant">help</span>
+<span class="text-body-md font-body-md">Help &amp; Support</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-risk-red hover:bg-error-container/50 transition-colors active:bg-error-container" href="#">
+<span class="material-symbols-outlined text-risk-red">logout</span>
+<span class="text-body-md font-body-md">Log Out</span>
+</a>
+</div>
+</aside>
+</body></html>

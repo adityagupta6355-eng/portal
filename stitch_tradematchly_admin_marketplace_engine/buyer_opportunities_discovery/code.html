@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TradeMatchly - Buyer Opportunities</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container-low": "#f6f3f5",
+                      "error": "#ba1a1a",
+                      "surface-dim": "#dcd9db",
+                      "on-primary": "#ffffff",
+                      "tertiary-container": "#271901",
+                      "inverse-surface": "#303032",
+                      "on-surface": "#1b1b1d",
+                      "on-background": "#1b1b1d",
+                      "surface-container-high": "#eae7e9",
+                      "primary-fixed-dim": "#bec6e0",
+                      "on-secondary": "#ffffff",
+                      "on-secondary-fixed-variant": "#3322cc",
+                      "outline": "#76777d",
+                      "primary": "#000000",
+                      "tertiary": "#000000",
+                      "inverse-primary": "#bec6e0",
+                      "on-tertiary-container": "#98805d",
+                      "tertiary-fixed-dim": "#dec29a",
+                      "secondary-container": "#655dfb",
+                      "inverse-on-surface": "#f3f0f2",
+                      "surface-variant": "#e4e2e4",
+                      "verified-emerald": "#059669",
+                      "secondary": "#4b41e1",
+                      "primary-container": "#131b2e",
+                      "data-text": "#1e293b",
+                      "on-secondary-fixed": "#0f0069",
+                      "surface-tint": "#565e74",
+                      "on-primary-container": "#7c839b",
+                      "surface-bright": "#fcf8fa",
+                      "outline-variant": "#c6c6cd",
+                      "secondary-fixed": "#e2dfff",
+                      "on-tertiary-fixed": "#271901",
+                      "error-container": "#ffdad6",
+                      "primary-fixed": "#dae2fd",
+                      "surface-container-highest": "#e4e2e4",
+                      "background": "#fcf8fa",
+                      "in-progress-blue": "#2563eb",
+                      "secondary-fixed-dim": "#c3c0ff",
+                      "surface-container": "#f0edef",
+                      "on-primary-fixed-variant": "#3f465c",
+                      "tertiary-fixed": "#fcdeb5",
+                      "risk-red": "#dc2626",
+                      "risk-amber": "#d97706",
+                      "surface-container-lowest": "#ffffff",
+                      "on-secondary-container": "#fffbff",
+                      "on-error": "#ffffff",
+                      "on-error-container": "#93000a",
+                      "on-tertiary-fixed-variant": "#574425",
+                      "on-surface-variant": "#45464d",
+                      "surface": "#fcf8fa",
+                      "surface-border": "#e2e8f0",
+                      "on-primary-fixed": "#131b2e",
+                      "on-tertiary": "#ffffff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "gutter": "16px",
+                      "container-padding": "24px",
+                      "section-gap": "32px",
+                      "sidebar-width": "260px",
+                      "base": "4px",
+                      "table-cell-padding": "12px"
+              },
+              "fontFamily": {
+                      "headline-md": ["Inter"],
+                      "body-sm": ["Inter"],
+                      "headline-lg": ["Inter"],
+                      "headline-sm": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "label-lg": ["Inter"],
+                      "data-mono": ["jetbrainsMono"],
+                      "body-md": ["Inter"],
+                      "display-lg": ["Inter"],
+                      "label-md": ["Inter"]
+              },
+              "fontSize": {
+                      "headline-md": ["22px", {"lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "body-sm": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+                      "headline-lg": ["28px", {"lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-sm": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+                      "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "label-lg": ["14px", {"lineHeight": "20px", "fontWeight": "600"}],
+                      "data-mono": ["13px", {"lineHeight": "18px", "fontWeight": "500"}],
+                      "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "display-lg": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600"}]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        body { background-color: theme('colors.background'); }
+    </style>
+</head>
+<body class="font-body-md text-on-surface antialiased bg-background">
+<!-- SideNavBar -->
+<nav class="fixed left-0 top-0 h-screen w-sidebar-width bg-primary-container dark:bg-primary-container flex flex-col z-50">
+<div class="p-container-padding flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-secondary flex items-center justify-center text-on-secondary font-headline-sm">T</div>
+<div>
+<h1 class="font-headline-sm text-headline-sm font-bold text-on-primary">TradeMatchly</h1>
+<p class="font-body-sm text-body-sm text-on-primary-container">Supplier Portal</p>
+</div>
+</div>
+<div class="flex flex-col h-full overflow-y-auto mt-4 px-2">
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary-container/70 hover:bg-surface-container-highest/5 hover:text-on-primary transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-body-sm text-body-sm">Overview</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-surface-container-highest/10 border-l-4 border-secondary text-on-primary font-bold hover:bg-surface-container-highest/5 hover:text-on-primary transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="explore">explore</span>
+<span class="font-body-sm text-body-sm">Opportunities</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary-container/70 hover:bg-surface-container-highest/5 hover:text-on-primary transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="request_quote">request_quote</span>
+<span class="font-body-sm text-body-sm">RFQs</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary-container/70 hover:bg-surface-container-highest/5 hover:text-on-primary transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+<span class="font-body-sm text-body-sm">Quotes</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary-container/70 hover:bg-surface-container-highest/5 hover:text-on-primary transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="handshake">handshake</span>
+<span class="font-body-sm text-body-sm">Negotiations</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary-container/70 hover:bg-surface-container-highest/5 hover:text-on-primary transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="handshake">handshake</span>
+<span class="font-body-sm text-body-sm">Deals</span>
+</a>
+<div class="mt-4 mb-2 px-4 font-label-md text-label-md text-on-primary-container uppercase tracking-wider">Management</div>
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary-container/70 hover:bg-surface-container-highest/5 hover:text-on-primary transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="font-body-sm text-body-sm">Products</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary-container/70 hover:bg-surface-container-highest/5 hover:text-on-primary transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="groups">groups</span>
+<span class="font-body-sm text-body-sm">Buyers</span>
+</a>
+</div>
+<div class="mt-auto p-4 border-t border-surface-container-highest/10">
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary-container/70 hover:bg-surface-container-highest/5 hover:text-on-primary transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-body-sm text-body-sm">Settings</span>
+</a>
+</div>
+</nav>
+<!-- TopNavBar -->
+<header class="fixed top-0 right-0 h-16 w-[calc(100%-260px)] z-40 bg-surface dark:bg-surface shadow-sm dark:shadow-none flex justify-between items-center px-container-padding">
+<div class="flex-1 flex items-center">
+<div class="relative w-96">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant" data-icon="search">search</span>
+<input class="w-full h-10 pl-10 pr-4 rounded bg-surface-container-low border border-surface-border text-body-md focus:border-secondary focus:ring-1 focus:ring-secondary outline-none transition-all" placeholder="Search opportunities..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-low rounded-full transition-colors relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-low rounded-full transition-colors">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+</button>
+<button class="flex items-center gap-2 bg-secondary/10 text-secondary px-4 py-2 rounded font-label-lg text-label-lg hover:bg-secondary/20 transition-colors">
+<span class="material-symbols-outlined" data-icon="psychology">psychology</span>
+                Mesh AI
+            </button>
+<button class="w-8 h-8 rounded-full overflow-hidden border border-surface-border ml-2">
+<img alt="User Avatar" class="w-full h-full object-cover" data-alt="Professional corporate headshot of a diverse user in a modern office setting. High key lighting, clean background, conveying trust and professionalism." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGBlhB_C4iNiLU730Z3j2H0PhZiUOabvmMvoUxEIJnRNOxn1MBkg_EUc2MbuTdySKwk5e-Y4_HXgjusFjWRq2dFs7Wqump3tzqqhpIst27_racLEIE8OJAbupOJJUN3sXGXjiCpq9e45aeLGke9sn8UmgNNRnU9NMwZh2FEkcZgAj0R4_1A38GnxZRN-Qn9hWm1O1yAWju6fbu7Lb7xB4_QRxa7ZiD71Xznuinxh4Cst9r4CkDW5CH"/>
+</button>
+</div>
+</header>
+<!-- Main Content -->
+<main class="ml-sidebar-width pt-16 min-h-screen p-container-padding">
+<!-- Header Section -->
+<div class="mb-section-gap">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-2">Buyer Opportunities</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">AI-matched requirements from buyers looking for products like yours.</p>
+</div>
+<!-- Controls & Tabs -->
+<div class="bg-surface-container-lowest rounded-xl border border-surface-border shadow-[0_1px_3px_rgba(0,0,0,0.05)] overflow-hidden">
+<!-- Tabs -->
+<div class="flex border-b border-surface-border px-6">
+<button class="px-4 py-4 text-primary font-bold border-b-2 border-secondary font-label-lg text-label-lg">Recommended</button>
+<button class="px-4 py-4 text-on-surface-variant font-medium hover:bg-surface-container-low transition-colors font-label-lg text-label-lg">New <span class="ml-1 bg-primary-fixed text-on-primary-fixed px-2 py-0.5 rounded-full text-[10px]">12</span></button>
+<button class="px-4 py-4 text-on-surface-variant font-medium hover:bg-surface-container-low transition-colors font-label-lg text-label-lg">Viewed</button>
+<button class="px-4 py-4 text-on-surface-variant font-medium hover:bg-surface-container-low transition-colors font-label-lg text-label-lg">Saved</button>
+<button class="px-4 py-4 text-on-surface-variant font-medium hover:bg-surface-container-low transition-colors font-label-lg text-label-lg">Expiring</button>
+</div>
+<!-- Filters Bar -->
+<div class="p-4 bg-surface flex items-center justify-between border-b border-surface-border gap-4">
+<div class="flex items-center gap-3 flex-wrap">
+<div class="relative">
+<select class="h-8 pl-3 pr-8 rounded border border-surface-border bg-surface-container-lowest text-body-sm focus:border-secondary focus:ring-1 focus:ring-secondary appearance-none">
+<option>Product Category</option>
+<option>Spices &amp; Herbs</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none text-sm" data-icon="arrow_drop_down">arrow_drop_down</span>
+</div>
+<div class="relative">
+<select class="h-8 pl-3 pr-8 rounded border border-surface-border bg-surface-container-lowest text-body-sm focus:border-secondary focus:ring-1 focus:ring-secondary appearance-none">
+<option>Destination Country</option>
+<option>Netherlands</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none text-sm" data-icon="arrow_drop_down">arrow_drop_down</span>
+</div>
+<div class="relative">
+<select class="h-8 pl-3 pr-8 rounded border border-surface-border bg-surface-container-lowest text-body-sm focus:border-secondary focus:ring-1 focus:ring-secondary appearance-none">
+<option>Match Score</option>
+<option>&gt; 90%</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none text-sm" data-icon="arrow_drop_down">arrow_drop_down</span>
+</div>
+<button class="h-8 px-3 rounded border border-surface-border bg-surface-container-lowest text-body-sm hover:bg-surface-container-low transition-colors flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm" data-icon="tune">tune</span> More Filters
+                    </button>
+</div>
+<div>
+<button class="h-8 px-3 rounded border border-surface-border bg-surface-container-lowest text-body-sm hover:bg-surface-container-low transition-colors flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm" data-icon="sort">sort</span> Sort by: Match Score
+                    </button>
+</div>
+</div>
+<!-- Table -->
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-surface-border bg-surface-container-lowest font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">
+<th class="p-table-cell-padding font-semibold">Product</th>
+<th class="p-table-cell-padding font-semibold">Buyer</th>
+<th class="p-table-cell-padding font-semibold">Quantity</th>
+<th class="p-table-cell-padding font-semibold">Destination</th>
+<th class="p-table-cell-padding font-semibold">Match Score</th>
+<th class="p-table-cell-padding font-semibold">Deadline</th>
+<th class="p-table-cell-padding font-semibold">Status</th>
+<th class="p-table-cell-padding font-semibold text-right">Action</th>
+</tr>
+</thead>
+<tbody class="font-body-sm text-body-sm text-on-surface">
+<!-- Row 1 -->
+<tr class="border-b border-surface-border hover:bg-surface-container-low transition-colors group">
+<td class="p-table-cell-padding font-medium">Turmeric Powder</td>
+<td class="p-table-cell-padding">
+<div class="flex items-center gap-1.5">
+                                    ABC Imports
+                                    <span class="material-symbols-outlined text-verified-emerald text-[16px]" data-icon="verified" title="Verified Buyer">verified</span>
+</div>
+</td>
+<td class="p-table-cell-padding font-data-mono text-data-mono text-data-text">500 MT</td>
+<td class="p-table-cell-padding">Rotterdam</td>
+<td class="p-table-cell-padding">
+<div class="flex items-center gap-2">
+<span class="font-data-mono text-data-mono text-verified-emerald font-bold">94%</span>
+<div class="w-16 h-1.5 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-verified-emerald" style="width: 94%"></div>
+</div>
+</div>
+</td>
+<td class="p-table-cell-padding text-risk-red">3 days</td>
+<td class="p-table-cell-padding">
+<span class="px-2 py-1 rounded bg-secondary/10 text-secondary font-label-md text-label-md inline-flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> New
+                                </span>
+</td>
+<td class="p-table-cell-padding text-right">
+<button class="h-8 px-4 bg-primary text-on-primary rounded font-label-md text-label-md hover:bg-primary/90 transition-colors opacity-0 group-hover:opacity-100 focus:opacity-100">Review</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="border-b border-surface-border hover:bg-surface-container-low transition-colors group">
+<td class="p-table-cell-padding font-medium">Organic Black Pepper</td>
+<td class="p-table-cell-padding">
+<div class="flex items-center gap-1.5">
+                                    Spice Global Ltd
+                                    <span class="material-symbols-outlined text-verified-emerald text-[16px]" data-icon="verified">verified</span>
+</div>
+</td>
+<td class="p-table-cell-padding font-data-mono text-data-mono text-data-text">200 MT</td>
+<td class="p-table-cell-padding">Hamburg</td>
+<td class="p-table-cell-padding">
+<div class="flex items-center gap-2">
+<span class="font-data-mono text-data-mono text-verified-emerald font-bold">88%</span>
+<div class="w-16 h-1.5 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-verified-emerald" style="width: 88%"></div>
+</div>
+</div>
+</td>
+<td class="p-table-cell-padding">12 days</td>
+<td class="p-table-cell-padding">
+<span class="px-2 py-1 rounded bg-surface-variant text-on-surface-variant font-label-md text-label-md inline-flex items-center gap-1">
+                                    Viewed
+                                </span>
+</td>
+<td class="p-table-cell-padding text-right">
+<button class="h-8 px-4 bg-primary text-on-primary rounded font-label-md text-label-md hover:bg-primary/90 transition-colors opacity-0 group-hover:opacity-100 focus:opacity-100">Review</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="p-4 border-t border-surface-border flex items-center justify-between text-body-sm text-on-surface-variant bg-surface">
+<div>Showing 1 to 2 of 24 entries</div>
+<div class="flex items-center gap-2">
+<button class="w-8 h-8 flex items-center justify-center rounded border border-surface-border hover:bg-surface-container-low disabled:opacity-50"><span class="material-symbols-outlined text-sm" data-icon="chevron_left">chevron_left</span></button>
+<button class="w-8 h-8 flex items-center justify-center rounded bg-secondary text-on-secondary">1</button>
+<button class="w-8 h-8 flex items-center justify-center rounded border border-surface-border hover:bg-surface-container-low">2</button>
+<button class="w-8 h-8 flex items-center justify-center rounded border border-surface-border hover:bg-surface-container-low"><span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span></button>
+</div>
+</div>
+</div>
+</main>
+</body></html>

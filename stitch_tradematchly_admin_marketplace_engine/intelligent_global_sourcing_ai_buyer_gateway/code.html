@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TradeMatchly - AI Sourcing</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-bright": "#fcf8fa",
+                      "on-error": "#ffffff",
+                      "surface-container-lowest": "#ffffff",
+                      "outline-variant": "#c6c6cd",
+                      "tertiary-container": "#271901",
+                      "on-primary-fixed-variant": "#3f465c",
+                      "inverse-primary": "#bec6e0",
+                      "risk-amber": "#d97706",
+                      "in-progress-blue": "#2563eb",
+                      "background": "#fcf8fa",
+                      "on-secondary-container": "#fffbff",
+                      "on-primary": "#ffffff",
+                      "on-background": "#1b1b1d",
+                      "on-secondary-fixed-variant": "#3322cc",
+                      "secondary-fixed": "#e2dfff",
+                      "secondary-container": "#655dfb",
+                      "primary-container": "#131b2e",
+                      "data-text": "#1e293b",
+                      "primary": "#000000",
+                      "tertiary-fixed-dim": "#dec29a",
+                      "surface-dim": "#dcd9db",
+                      "on-tertiary": "#ffffff",
+                      "on-tertiary-container": "#98805d",
+                      "on-surface": "#1b1b1d",
+                      "primary-fixed": "#dae2fd",
+                      "surface-border": "#e2e8f0",
+                      "outline": "#76777d",
+                      "inverse-on-surface": "#f3f0f2",
+                      "on-surface-variant": "#45464d",
+                      "error": "#ba1a1a",
+                      "on-tertiary-fixed-variant": "#574425",
+                      "surface-container-high": "#eae7e9",
+                      "error-container": "#ffdad6",
+                      "surface-container-highest": "#e4e2e4",
+                      "secondary": "#4b41e1",
+                      "primary-fixed-dim": "#bec6e0",
+                      "surface-container-low": "#f6f3f5",
+                      "on-error-container": "#93000a",
+                      "on-tertiary-fixed": "#271901",
+                      "surface": "#fcf8fa",
+                      "tertiary-fixed": "#fcdeb5",
+                      "surface-tint": "#565e74",
+                      "surface-variant": "#e4e2e4",
+                      "on-primary-fixed": "#131b2e",
+                      "on-primary-container": "#7c839b",
+                      "inverse-surface": "#303032",
+                      "secondary-fixed-dim": "#c3c0ff",
+                      "verified-emerald": "#059669",
+                      "tertiary": "#000000",
+                      "on-secondary-fixed": "#0f0069",
+                      "surface-container": "#f0edef",
+                      "risk-red": "#dc2626",
+                      "on-secondary": "#ffffff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "table-cell-padding": "12px",
+                      "gutter": "16px",
+                      "sidebar-width": "260px",
+                      "base": "4px",
+                      "container-padding": "24px",
+                      "section-gap": "32px"
+              },
+              "fontFamily": {
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "label-md": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "headline-lg": [
+                              "Inter"
+                      ],
+                      "headline-sm": [
+                              "Inter"
+                      ],
+                      "body-sm": [
+                              "Inter"
+                      ],
+                      "display-lg": [
+                              "Inter"
+                      ],
+                      "label-lg": [
+                              "Inter"
+                      ],
+                      "data-mono": [
+                              "jetbrainsMono"
+                      ],
+                      "headline-md": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "body-lg": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-md": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.02em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg": [
+                              "28px",
+                              {
+                                      "lineHeight": "34px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-sm": [
+                              "18px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-sm": [
+                              "13px",
+                              {
+                                      "lineHeight": "18px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-lg": [
+                              "36px",
+                              {
+                                      "lineHeight": "44px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-lg": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "data-mono": [
+                              "13px",
+                              {
+                                      "lineHeight": "18px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-md": [
+                              "22px",
+                              {
+                                      "lineHeight": "28px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+</head>
+<body class="bg-surface-bright text-on-surface font-body-md min-h-screen flex">
+<!-- Side NavBar -->
+<aside class="hidden lg:flex flex-col fixed left-0 top-0 h-full py-6 w-sidebar-width bg-primary-container dark:bg-primary-container shadow-sm z-40 text-on-primary-fixed dark:text-on-primary-fixed-variant">
+<div class="px-6 mb-8 flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-tint overflow-hidden flex items-center justify-center shrink-0">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a corporate buyer looking confident in a modern office setting. Subtle blue and white lighting reflects the high-tech, corporate modern UI style of the platform. Shot in a minimalist style, keeping distractions low." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRRgHcLmkFtt0c8tBqMor7Q2zTKepzW2NQqTIvqdKTMiV3t3YU2VAmh5qKWKTj5fLTqlqI22pWi_vMwzFbsCMprJMgOZU95QEYW_25RHwUS3fJB_5SjE3XQGSGoDU6mulEh8vQLymJ2BaL4tbkjwa7mfQZGjtZ69PbksaDVBsfK7iwkv0jk07AstsR6gDLUrJiPLhpy4I61JHxUsOktgwoR7GP-svjpOBgljgpY0c7jc_A71Kn2qRj"/>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-primary-container">Global Sourcing</h2>
+<p class="font-label-md text-label-md text-on-primary-container/70">Enterprise Tier</p>
+</div>
+</div>
+<nav class="flex-1 space-y-2">
+<a class="flex items-center gap-3 bg-white/10 text-white border-l-4 border-secondary p-3" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">psychology</span>
+<span class="font-label-md text-label-md">AI Sourcing</span>
+</a>
+<a class="flex items-center gap-3 text-on-primary-container/70 hover:text-white p-3 hover:bg-white/5 transition-all duration-200 cursor-pointer" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">factory</span>
+<span class="font-label-md text-label-md">Suppliers</span>
+</a>
+<a class="flex items-center gap-3 text-on-primary-container/70 hover:text-white p-3 hover:bg-white/5 transition-all duration-200 cursor-pointer" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">local_shipping</span>
+<span class="font-label-md text-label-md">Shipments</span>
+</a>
+<a class="flex items-center gap-3 text-on-primary-container/70 hover:text-white p-3 hover:bg-white/5 transition-all duration-200 cursor-pointer" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">receipt_long</span>
+<span class="font-label-md text-label-md">Invoices</span>
+</a>
+<a class="flex items-center gap-3 text-on-primary-container/70 hover:text-white p-3 hover:bg-white/5 transition-all duration-200 cursor-pointer" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">insert_chart</span>
+<span class="font-label-md text-label-md">Analytics</span>
+</a>
+</nav>
+<div class="px-6 mb-6">
+<button class="w-full h-10 bg-secondary text-white font-label-md text-label-md rounded flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-[18px]">add</span>
+                New Request
+            </button>
+</div>
+<div class="space-y-2 border-t border-white/10 pt-4 mt-auto px-2">
+<a class="flex items-center gap-3 text-on-primary-container/70 hover:text-white p-3 hover:bg-white/5 transition-all duration-200 cursor-pointer" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+<a class="flex items-center gap-3 text-on-primary-container/70 hover:text-white p-3 hover:bg-white/5 transition-all duration-200 cursor-pointer" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">help</span>
+<span class="font-label-md text-label-md">Support</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 lg:ml-sidebar-width min-h-screen flex flex-col">
+<!-- TopAppBar Contextual Suppression -->
+<!-- Suppressed as per semantic shell mandate: Sidebar is present, TopNavBar is hidden on desktop when SideNavBar is full. But instructions say use TopNavBar for top-level destination. Let's include it for mobile or hybrid views as defined in the JSON. But typically we don't mix both on desktop unless it's a global header. I will add a mobile-only top bar based on JSON structure.-->
+<header class="flex lg:hidden justify-between items-center px-container-padding h-16 w-full max-w-[1440px] mx-auto bg-surface-bright dark:bg-surface-container-lowest border-b border-outline-variant dark:border-surface-border fixed top-0 z-50">
+<div class="font-headline-md text-headline-md font-bold text-primary dark:text-on-surface">TradeMatchly</div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-primary cursor-pointer active:scale-95 transition-transform hover:opacity-80 transition-opacity duration-200">menu</span>
+</div>
+</header>
+<div class="p-container-padding pt-24 lg:pt-container-padding max-w-[1440px] mx-auto w-full grid grid-cols-1 xl:grid-cols-12 gap-gutter mt-section-gap">
+<!-- Hero / Input Section -->
+<section class="xl:col-span-7 flex flex-col gap-6">
+<div>
+<h1 class="font-display-lg text-display-lg text-primary mb-2">Tell us what you need.</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Our AI Engine will instantly extract specifications, match you with verified global suppliers, and calculate logistics feasibility.</p>
+</div>
+<div class="bg-surface-container-lowest rounded-lg border border-surface-border shadow-[0_1px_3px_rgba(0,0,0,0.05)] p-6 flex flex-col gap-4 relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 flex gap-3">
+<div class="flex items-center gap-2 bg-surface-container-low px-3 py-1 rounded-full border border-surface-border">
+<div class="w-2 h-2 rounded-full bg-in-progress-blue animate-pulse"></div>
+<span class="font-label-md text-label-md text-on-surface-variant">AI Active</span>
+</div>
+</div>
+<label class="font-headline-sm text-headline-sm text-primary" for="ai-sourcing-input">Describe your requirements</label>
+<textarea class="w-full min-h-[160px] border border-surface-border rounded p-4 font-body-lg text-body-lg focus:border-secondary focus:ring-2 focus:ring-secondary/20 resize-y transition-all bg-transparent z-10 relative" id="ai-sourcing-input" oninput="simulateAIExtraction(this.value)" placeholder="e.g., I need 10,000 liters of synthetic industrial lubricants, specifically high-temperature resistant, for delivery to Mumbai by Q4."></textarea>
+<div class="flex justify-between items-center mt-2">
+<div class="flex items-center gap-4">
+<button class="h-10 px-6 bg-primary text-white font-label-md text-label-md rounded hover:bg-primary/90 transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">magic_button</span>
+                                Process Request
+                            </button>
+<button class="h-10 px-4 border border-surface-border text-primary font-label-md text-label-md rounded hover:bg-surface-container transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">upload_file</span>
+                                Attach Specs
+                            </button>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="font-label-md text-label-md">Try a demo:</span>
+<button class="text-secondary font-label-md text-label-md hover:underline" onclick="document.getElementById('ai-sourcing-input').value = 'Looking for 500 MT of prime grade aluminum ingots, purity &gt;99.7%, CIF Rotterdam. Need shipment to start first week of next month. Supplier must be Transaction Verified.'; simulateAIExtraction('demo')">Aluminum</button>
+<span class="text-surface-border">|</span>
+<button class="text-secondary font-label-md text-label-md hover:underline" onclick="document.getElementById('ai-sourcing-input').value = 'Require 20,000 units of custom injection molded ABS plastic casings for consumer electronics. Strict RoHS compliance needed. EXW Shenzhen.'; simulateAIExtraction('demo')">Plastics</button>
+</div>
+</div>
+</div>
+<!-- Trust Indicators -->
+<div class="mt-4 flex gap-6 overflow-x-auto pb-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-verified-emerald text-[24px]">verified</span>
+<div>
+<p class="font-label-md text-label-md text-primary">Transaction Verified</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Financials audited</p>
+</div>
+</div>
+<div class="w-px h-10 bg-surface-border hidden md:block"></div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-in-progress-blue text-[24px]">fact_check</span>
+<div>
+<p class="font-label-md text-label-md text-primary">Basic Verified</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Business Reg checked</p>
+</div>
+</div>
+<div class="w-px h-10 bg-surface-border hidden md:block"></div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-outline text-[24px]">shield</span>
+<div>
+<p class="font-label-md text-label-md text-primary">Secure Escrow</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Funds protected</p>
+</div>
+</div>
+</div>
+</section>
+<!-- AI Extraction Panel -->
+<section class="xl:col-span-5">
+<div class="bg-surface-container-lowest rounded-lg border border-surface-border shadow-[0_1px_3px_rgba(0,0,0,0.05)] h-full flex flex-col">
+<div class="p-6 border-b border-surface-border flex justify-between items-center bg-surface-bright/50">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">memory</span>
+<h3 class="font-headline-sm text-headline-sm text-primary">AI Extraction Engine</h3>
+</div>
+<span class="font-data-mono text-data-mono text-on-surface-variant" id="extraction-status">Waiting for input...</span>
+</div>
+<div class="p-6 flex-1 flex flex-col gap-4 overflow-y-auto bg-surface-bright/20" id="extraction-fields">
+<!-- Empty State -->
+<div class="flex-1 flex flex-col items-center justify-center text-center opacity-100 transition-opacity duration-300" id="empty-state">
+<span class="material-symbols-outlined text-[48px] text-surface-border mb-4">document_scanner</span>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-[250px]">As you describe your requirements, the AI will structure the data here automatically.</p>
+</div>
+<!-- Structured Data (Hidden initially) -->
+<div class="hidden flex-col gap-4" id="structured-data">
+<div class="grid grid-cols-2 gap-4">
+<div class="space-y-1">
+<label class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Product Category</label>
+<div class="h-10 border-b border-surface-border flex items-center font-body-md text-body-md text-primary" id="ext-product">--</div>
+</div>
+<div class="space-y-1">
+<label class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Quantity / Volume</label>
+<div class="h-10 border-b border-surface-border flex items-center font-data-mono text-data-mono text-primary" id="ext-qty">--</div>
+</div>
+</div>
+<div class="space-y-1">
+<label class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Key Specifications</label>
+<div class="min-h-[40px] border-b border-surface-border flex items-center font-body-md text-body-md text-primary py-2" id="ext-specs">--</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="space-y-1">
+<label class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Destination</label>
+<div class="h-10 border-b border-surface-border flex items-center font-body-md text-body-md text-primary" id="ext-dest">--</div>
+</div>
+<div class="space-y-1">
+<label class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Timeline</label>
+<div class="h-10 border-b border-surface-border flex items-center font-body-md text-body-md text-primary" id="ext-time">--</div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="space-y-1">
+<label class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Incoterms</label>
+<div class="h-10 border-b border-surface-border flex items-center font-data-mono text-data-mono text-primary" id="ext-inco">--</div>
+</div>
+<div class="space-y-1">
+<label class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Supplier Req.</label>
+<div class="h-10 border-b border-surface-border flex items-center font-body-md text-body-md text-primary" id="ext-sup">--</div>
+</div>
+</div>
+<div class="mt-4 pt-4 border-t border-surface-border">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-md text-label-md text-primary">Confidence Score</span>
+<span class="font-data-mono text-data-mono text-verified-emerald">94%</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-verified-emerald w-[94%]"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<script>
+        function simulateAIExtraction(val) {
+            const emptyState = document.getElementById('empty-state');
+            const structuredData = document.getElementById('structured-data');
+            const status = document.getElementById('extraction-status');
+            
+            if (val.length > 5) {
+                emptyState.classList.add('hidden');
+                structuredData.classList.remove('hidden');
+                structuredData.classList.add('flex');
+                status.innerText = "Extracting...";
+                status.classList.add('text-secondary', 'animate-pulse');
+                
+                // Simulate delay
+                setTimeout(() => {
+                    status.innerText = "Data Extracted";
+                    status.classList.remove('text-secondary', 'animate-pulse');
+                    status.classList.add('text-verified-emerald');
+                    
+                    if (val === 'demo') {
+                         document.getElementById('ext-product').innerHTML = '<span class="bg-secondary/10 text-secondary px-2 py-0.5 rounded text-[12px] font-semibold mr-2">Identified</span> Aluminum Ingots';
+                         document.getElementById('ext-qty').innerText = '500 MT';
+                         document.getElementById('ext-specs').innerText = 'Prime grade, purity >99.7%';
+                         document.getElementById('ext-dest').innerText = 'Rotterdam (NLRTM)';
+                         document.getElementById('ext-time').innerText = 'Early next month';
+                         document.getElementById('ext-inco').innerText = 'CIF';
+                         document.getElementById('ext-sup').innerHTML = '<span class="bg-verified-emerald/10 text-verified-emerald px-2 py-0.5 rounded text-[12px] font-semibold">Transaction Verified</span>';
+                    }
+                }, 800);
+            } else {
+                emptyState.classList.remove('hidden');
+                structuredData.classList.add('hidden');
+                structuredData.classList.remove('flex');
+                status.innerText = "Waiting for input...";
+                status.classList.remove('text-verified-emerald', 'text-secondary', 'animate-pulse');
+            }
+        }
+    </script>
+</body></html>

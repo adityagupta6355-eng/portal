@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TradeMatchly - Buyer Requirement RFQ #TM-10482</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-low": "#f6f3f5",
+                        "error": "#ba1a1a",
+                        "surface-dim": "#dcd9db",
+                        "on-primary": "#ffffff",
+                        "tertiary-container": "#271901",
+                        "inverse-surface": "#303032",
+                        "on-surface": "#1b1b1d",
+                        "on-background": "#1b1b1d",
+                        "surface-container-high": "#eae7e9",
+                        "primary-fixed-dim": "#bec6e0",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-fixed-variant": "#3322cc",
+                        "outline": "#76777d",
+                        "primary": "#000000",
+                        "tertiary": "#000000",
+                        "inverse-primary": "#bec6e0",
+                        "on-tertiary-container": "#98805d",
+                        "tertiary-fixed-dim": "#dec29a",
+                        "secondary-container": "#655dfb",
+                        "inverse-on-surface": "#f3f0f2",
+                        "surface-variant": "#e4e2e4",
+                        "verified-emerald": "#059669",
+                        "secondary": "#4b41e1",
+                        "primary-container": "#131b2e",
+                        "data-text": "#1e293b",
+                        "on-secondary-fixed": "#0f0069",
+                        "surface-tint": "#565e74",
+                        "on-primary-container": "#7c839b",
+                        "surface-bright": "#fcf8fa",
+                        "outline-variant": "#c6c6cd",
+                        "secondary-fixed": "#e2dfff",
+                        "on-tertiary-fixed": "#271901",
+                        "error-container": "#ffdad6",
+                        "primary-fixed": "#dae2fd",
+                        "surface-container-highest": "#e4e2e4",
+                        "background": "#fcf8fa",
+                        "in-progress-blue": "#2563eb",
+                        "secondary-fixed-dim": "#c3c0ff",
+                        "surface-container": "#f0edef",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "tertiary-fixed": "#fcdeb5",
+                        "risk-red": "#dc2626",
+                        "risk-amber": "#d97706",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-container": "#fffbff",
+                        "on-error": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed-variant": "#574425",
+                        "on-surface-variant": "#45464d",
+                        "surface": "#fcf8fa",
+                        "surface-border": "#e2e8f0",
+                        "on-primary-fixed": "#131b2e",
+                        "on-tertiary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "16px",
+                        "container-padding": "24px",
+                        "section-gap": "32px",
+                        "sidebar-width": "260px",
+                        "base": "4px",
+                        "table-cell-padding": "12px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-lg": ["Inter"],
+                        "data-mono": ["jetbrainsMono"],
+                        "body-md": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "label-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+                        "headline-lg": ["28px", { "lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-lg": ["14px", { "lineHeight": "20px", "fontWeight": "600" }],
+                        "data-mono": ["13px", { "lineHeight": "18px", "fontWeight": "500" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "display-lg": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .jetbrains-mono { font-family: 'JetBrains Mono', monospace; }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface antialiased">
+<!-- SideNavBar -->
+<nav class="fixed left-0 top-0 h-screen w-sidebar-width bg-primary-container text-on-primary-container font-body-sm text-body-sm flex flex-col z-50">
+<div class="p-6">
+<h1 class="font-headline-sm text-headline-sm font-bold text-on-primary">TradeMatchly</h1>
+<p class="text-on-primary-container/70 mt-1">Supplier Portal</p>
+</div>
+<div class="flex-1 overflow-y-auto px-4 py-2 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary-container/70 hover:bg-surface-container-highest/5 hover:text-on-primary transition-colors rounded" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Overview</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary-container/70 hover:bg-surface-container-highest/5 hover:text-on-primary transition-colors rounded" href="#">
+<span class="material-symbols-outlined" data-icon="explore">explore</span>
+<span>Opportunities</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-surface-container-highest/10 border-l-4 border-secondary text-on-primary font-bold hover:bg-surface-container-highest/5 hover:text-on-primary transition-colors rounded" href="#">
+<span class="material-symbols-outlined" data-icon="request_quote" style="font-variation-settings: 'FILL' 1;">request_quote</span>
+<span>RFQs</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary-container/70 hover:bg-surface-container-highest/5 hover:text-on-primary transition-colors rounded" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+<span>Quotes</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary-container/70 hover:bg-surface-container-highest/5 hover:text-on-primary transition-colors rounded" href="#">
+<span class="material-symbols-outlined" data-icon="handshake">handshake</span>
+<span>Negotiations</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary-container/70 hover:bg-surface-container-highest/5 hover:text-on-primary transition-colors rounded" href="#">
+<span class="material-symbols-outlined" data-icon="handshake">handshake</span>
+<span>Deals</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary-container/70 hover:bg-surface-container-highest/5 hover:text-on-primary transition-colors rounded" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span>Products</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary-container/70 hover:bg-surface-container-highest/5 hover:text-on-primary transition-colors rounded" href="#">
+<span class="material-symbols-outlined" data-icon="groups">groups</span>
+<span>Buyers</span>
+</a>
+<div class="my-4 border-t border-surface-container-highest/10"></div>
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary-container/70 hover:bg-surface-container-highest/5 hover:text-on-primary transition-colors rounded" href="#">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+<span>Profile</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary-container/70 hover:bg-surface-container-highest/5 hover:text-on-primary transition-colors rounded" href="#">
+<span class="material-symbols-outlined" data-icon="verified">verified</span>
+<span>Verification</span>
+</a>
+</div>
+</nav>
+<!-- TopNavBar -->
+<header class="fixed top-0 right-0 h-16 w-[calc(100%-260px)] z-40 bg-surface border-b border-outline-variant shadow-sm flex justify-between items-center px-container-padding font-label-lg text-label-lg">
+<div class="flex items-center gap-4">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container-low border border-surface-border rounded-lg text-body-md font-body-md focus:ring-2 focus:ring-secondary/20 focus:border-secondary outline-none w-64 transition-all" placeholder="Search RFQs..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4 text-on-surface-variant">
+<button class="hover:text-primary transition-colors relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button class="hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+</button>
+</div>
+<div class="flex items-center gap-4">
+<button class="flex items-center gap-2 bg-secondary/10 text-secondary px-3 py-1.5 rounded-lg hover:bg-secondary/20 transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="psychology">psychology</span>
+<span>Mesh AI</span>
+</button>
+<button class="hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-3xl" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="ml-sidebar-width pt-16 min-h-screen p-container-padding">
+<div class="max-w-[1152px] mx-auto space-y-6">
+<!-- Header Section -->
+<div class="flex justify-between items-start">
+<div>
+<div class="flex items-center gap-3 mb-2">
+<span class="px-2 py-1 bg-secondary/10 text-secondary rounded font-label-md text-label-md">New</span>
+<span class="text-on-surface-variant font-body-sm text-body-sm">Posted 2 hours ago</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-primary">Buyer Requirement</h1>
+<p class="font-data-mono text-data-mono text-on-surface-variant mt-1">RFQ #TM-10482</p>
+</div>
+<div class="flex gap-3">
+<button class="px-4 py-2 border border-surface-border bg-surface rounded-lg font-label-lg text-label-lg hover:bg-surface-container-low transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="bookmark">bookmark</span>
+                        Save Opportunity
+                    </button>
+<button class="px-4 py-2 border border-surface-border bg-surface rounded-lg font-label-lg text-label-lg hover:bg-surface-container-low transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="chat">chat</span>
+                        Message Buyer
+                    </button>
+<button class="px-6 py-2 bg-primary text-on-primary rounded-lg font-label-lg text-label-lg hover:bg-primary/90 transition-colors shadow-sm">
+                        Respond to RFQ
+                    </button>
+</div>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-12 gap-6">
+<!-- Left Column: Details & Match -->
+<div class="col-span-12 lg:col-span-8 space-y-6">
+<!-- Match Panel -->
+<div class="bg-gradient-to-br from-secondary/5 to-surface-container-low border border-secondary/20 rounded-xl p-6 relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-secondary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+<div class="flex items-center justify-between mb-6 relative z-10">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary text-3xl" data-icon="psychology">psychology</span>
+<h2 class="font-headline-sm text-headline-sm text-primary">Mesh AI Match Analysis</h2>
+</div>
+<div class="flex items-baseline gap-1">
+<span class="font-display-lg text-display-lg text-verified-emerald">94%</span>
+<span class="font-label-md text-label-md text-on-surface-variant uppercase">Match Score</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-x-8 gap-y-4 relative z-10">
+<div>
+<div class="flex justify-between font-label-md text-label-md mb-1">
+<span class="text-on-surface-variant">Product Compatibility</span>
+<span class="text-verified-emerald font-data-mono">98%</span>
+</div>
+<div class="w-full bg-surface-variant rounded-full h-1.5">
+<div class="bg-verified-emerald h-1.5 rounded-full" style="width: 98%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between font-label-md text-label-md mb-1">
+<span class="text-on-surface-variant">Quantity Capacity</span>
+<span class="text-verified-emerald font-data-mono">95%</span>
+</div>
+<div class="w-full bg-surface-variant rounded-full h-1.5">
+<div class="bg-verified-emerald h-1.5 rounded-full" style="width: 95%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between font-label-md text-label-md mb-1">
+<span class="text-on-surface-variant">Destination Experience</span>
+<span class="text-verified-emerald font-data-mono">93%</span>
+</div>
+<div class="w-full bg-surface-variant rounded-full h-1.5">
+<div class="bg-verified-emerald h-1.5 rounded-full" style="width: 93%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between font-label-md text-label-md mb-1">
+<span class="text-on-surface-variant">Certifications Alignment</span>
+<span class="text-verified-emerald font-data-mono">94%</span>
+</div>
+<div class="w-full bg-surface-variant rounded-full h-1.5">
+<div class="bg-verified-emerald h-1.5 rounded-full" style="width: 94%"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Summary Panel -->
+<div class="bg-surface-container-lowest border border-surface-border rounded-xl p-6 shadow-sm">
+<h3 class="font-headline-sm text-headline-sm text-primary mb-6">Requirement Overview</h3>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+<div>
+<p class="font-label-md text-label-md text-on-surface-variant uppercase mb-1">Product</p>
+<p class="font-body-md text-body-md text-primary font-medium">Turmeric Powder</p>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface-variant uppercase mb-1">Quantity</p>
+<p class="font-data-mono text-data-mono text-primary">500 MT</p>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface-variant uppercase mb-1">Specification</p>
+<p class="font-body-md text-body-md text-primary">Food Grade</p>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface-variant uppercase mb-1">Delivery Time</p>
+<p class="font-body-md text-body-md text-primary">Oct 2024</p>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface-variant uppercase mb-1">Origin Required</p>
+<p class="font-body-md text-body-md text-primary">India</p>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface-variant uppercase mb-1">Destination</p>
+<p class="font-body-md text-body-md text-primary">Rotterdam, NL</p>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface-variant uppercase mb-1">Incoterm</p>
+<p class="font-body-md text-body-md text-primary">CIF</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Buyer Info & Checklist -->
+<div class="col-span-12 lg:col-span-4 space-y-6">
+<!-- Buyer Info -->
+<div class="bg-surface-container-lowest border border-surface-border rounded-xl p-6 shadow-sm">
+<h3 class="font-headline-sm text-headline-sm text-primary mb-4">Buyer Profile</h3>
+<div class="flex items-center gap-4 mb-6">
+<div class="w-12 h-12 bg-primary-container rounded-lg flex items-center justify-center text-on-primary font-headline-sm">
+                                GV
+                            </div>
+<div>
+<h4 class="font-label-lg text-label-lg text-primary">Global Spice Ventures B.V.</h4>
+<div class="flex items-center gap-1 mt-1 text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span>
+<span>Netherlands</span>
+</div>
+</div>
+</div>
+<div class="space-y-3">
+<div class="flex items-center justify-between p-3 bg-surface-container-low rounded-lg">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-verified-emerald text-lg" data-icon="verified">verified</span>
+<span class="font-body-sm text-body-sm text-primary">Identity Verified</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-sm" data-icon="check_circle">check_circle</span>
+</div>
+<div class="flex justify-between items-center py-2 border-b border-surface-variant">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Member Since</span>
+<span class="font-data-mono text-data-mono text-primary">2021</span>
+</div>
+<div class="flex justify-between items-center py-2 border-b border-surface-variant">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Active RFQs</span>
+<span class="font-data-mono text-data-mono text-primary">12</span>
+</div>
+<div class="flex justify-between items-center py-2 border-b border-surface-variant">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Response Rate</span>
+<span class="font-data-mono text-data-mono text-verified-emerald">94%</span>
+</div>
+</div>
+</div>
+<!-- Capability Checklist -->
+<div class="bg-surface-container-lowest border border-surface-border rounded-xl p-6 shadow-sm">
+<h3 class="font-headline-sm text-headline-sm text-primary mb-4">Why You Match</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4">Based on your supplier profile and past transactions.</p>
+<ul class="space-y-3">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-verified-emerald mt-0.5" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<div>
+<p class="font-label-md text-label-md text-primary">Verified Origin</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Your operations in India meet requirements.</p>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-verified-emerald mt-0.5" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<div>
+<p class="font-label-md text-label-md text-primary">FSSAI Certified</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Active Food Grade certification on file.</p>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-verified-emerald mt-0.5" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<div>
+<p class="font-label-md text-label-md text-primary">EU Export History</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Successfully delivered 5+ shipments to NL.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

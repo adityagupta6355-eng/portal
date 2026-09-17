@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dashboard Overview | TradeMatchly</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-low": "#f6f3f5",
+                        "error": "#ba1a1a",
+                        "surface-dim": "#dcd9db",
+                        "on-primary": "#ffffff",
+                        "tertiary-container": "#271901",
+                        "inverse-surface": "#303032",
+                        "on-surface": "#1b1b1d",
+                        "on-background": "#1b1b1d",
+                        "surface-container-high": "#eae7e9",
+                        "primary-fixed-dim": "#bec6e0",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-fixed-variant": "#3322cc",
+                        "outline": "#76777d",
+                        "primary": "#000000",
+                        "tertiary": "#000000",
+                        "inverse-primary": "#bec6e0",
+                        "on-tertiary-container": "#98805d",
+                        "tertiary-fixed-dim": "#dec29a",
+                        "secondary-container": "#655dfb",
+                        "inverse-on-surface": "#f3f0f2",
+                        "surface-variant": "#e4e2e4",
+                        "verified-emerald": "#059669",
+                        "secondary": "#4b41e1",
+                        "primary-container": "#131b2e",
+                        "data-text": "#1e293b",
+                        "on-secondary-fixed": "#0f0069",
+                        "surface-tint": "#565e74",
+                        "on-primary-container": "#7c839b",
+                        "surface-bright": "#fcf8fa",
+                        "outline-variant": "#c6c6cd",
+                        "secondary-fixed": "#e2dfff",
+                        "on-tertiary-fixed": "#271901",
+                        "error-container": "#ffdad6",
+                        "primary-fixed": "#dae2fd",
+                        "surface-container-highest": "#e4e2e4",
+                        "background": "#fcf8fa",
+                        "in-progress-blue": "#2563eb",
+                        "secondary-fixed-dim": "#c3c0ff",
+                        "surface-container": "#f0edef",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "tertiary-fixed": "#fcdeb5",
+                        "risk-red": "#dc2626",
+                        "risk-amber": "#d97706",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-container": "#fffbff",
+                        "on-error": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed-variant": "#574425",
+                        "on-surface-variant": "#45464d",
+                        "surface": "#fcf8fa",
+                        "surface-border": "#e2e8f0",
+                        "on-primary-fixed": "#131b2e",
+                        "on-tertiary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "16px",
+                        "container-padding": "24px",
+                        "section-gap": "32px",
+                        "sidebar-width": "260px",
+                        "base": "4px",
+                        "table-cell-padding": "12px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-lg": ["Inter"],
+                        "data-mono": ["jetbrainsMono"],
+                        "body-md": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "label-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+                        "headline-lg": ["28px", { "lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-lg": ["14px", { "lineHeight": "20px", "fontWeight": "600" }],
+                        "data-mono": ["13px", { "lineHeight": "18px", "fontWeight": "500" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "display-lg": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { background-color: #f8fafc; color: #1b1b1d; }
+    </style>
+</head>
+<body class="font-body-md text-on-surface bg-background flex">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-screen w-sidebar-width bg-primary-container text-on-primary-container font-body-sm text-body-sm flex flex-col z-50">
+<div class="p-6">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-secondary flex items-center justify-center text-on-secondary font-bold">TM</div>
+<div>
+<h1 class="font-headline-sm text-headline-sm font-bold text-on-primary">TradeMatchly</h1>
+<span class="text-xs opacity-70">Supplier Portal</span>
+</div>
+</div>
+</div>
+<nav class="flex-1 overflow-y-auto mt-4 px-2">
+<ul class="space-y-1">
+<li>
+<a class="flex items-center gap-3 px-4 py-3 bg-surface-container-highest/10 border-l-4 border-secondary text-on-primary font-bold hover:bg-surface-container-highest/5 hover:text-on-primary transition-colors opacity-100 scale-[0.99] transition-all rounded-r" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                        Overview
+                    </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary-container/70 hover:bg-surface-container-highest/5 hover:text-on-primary transition-colors rounded-r" href="#">
+<span class="material-symbols-outlined" data-icon="explore">explore</span>
+                        Opportunities
+                    </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary-container/70 hover:bg-surface-container-highest/5 hover:text-on-primary transition-colors rounded-r" href="#">
+<span class="material-symbols-outlined" data-icon="request_quote">request_quote</span>
+                        RFQs
+                    </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary-container/70 hover:bg-surface-container-highest/5 hover:text-on-primary transition-colors rounded-r" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+                        Quotes
+                    </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary-container/70 hover:bg-surface-container-highest/5 hover:text-on-primary transition-colors rounded-r" href="#">
+<span class="material-symbols-outlined" data-icon="handshake">handshake</span>
+                        Negotiations
+                    </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary-container/70 hover:bg-surface-container-highest/5 hover:text-on-primary transition-colors rounded-r" href="#">
+<span class="material-symbols-outlined" data-icon="handshake">handshake</span>
+                        Deals
+                    </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary-container/70 hover:bg-surface-container-highest/5 hover:text-on-primary transition-colors rounded-r" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+                        Products
+                    </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary-container/70 hover:bg-surface-container-highest/5 hover:text-on-primary transition-colors rounded-r" href="#">
+<span class="material-symbols-outlined" data-icon="groups">groups</span>
+                        Buyers
+                    </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary-container/70 hover:bg-surface-container-highest/5 hover:text-on-primary transition-colors rounded-r" href="#">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+                        Profile
+                    </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary-container/70 hover:bg-surface-container-highest/5 hover:text-on-primary transition-colors rounded-r" href="#">
+<span class="material-symbols-outlined" data-icon="verified">verified</span>
+                        Verification
+                    </a>
+</li>
+</ul>
+</nav>
+<div class="p-4 border-t border-surface-container-highest/20 mt-auto">
+<ul class="space-y-1">
+<li>
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary-container/70 hover:bg-surface-container-highest/5 hover:text-on-primary transition-colors rounded-r" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+                        Settings
+                    </a>
+</li>
+</ul>
+</div>
+</aside>
+<!-- Main Content Wrapper -->
+<div class="flex-1 ml-sidebar-width flex flex-col min-h-screen">
+<!-- TopNavBar -->
+<header class="fixed top-0 right-0 h-16 w-[calc(100%-260px)] z-40 bg-surface text-primary font-label-lg text-label-lg border-b border-outline-variant shadow-sm flex justify-between items-center px-container-padding">
+<div class="flex items-center bg-surface-container-low rounded-lg px-3 py-2 w-96 border border-surface-border">
+<span class="material-symbols-outlined text-on-surface-variant mr-2" data-icon="search">search</span>
+<input class="bg-transparent border-none outline-none w-full text-body-sm p-0 focus:ring-0 text-on-surface" placeholder="Search opportunities, buyers, or RFQs..." type="text"/>
+</div>
+<div class="flex items-center gap-4">
+<button class="bg-secondary-container text-on-secondary-fixed flex items-center gap-2 px-4 py-2 rounded-full font-label-lg transition-colors hover:bg-secondary/10">
+<span class="material-symbols-outlined text-sm" data-icon="psychology">psychology</span>
+                    Mesh AI
+                </button>
+<div class="flex items-center gap-2 border-l border-outline-variant pl-4">
+<button class="w-10 h-10 rounded-full hover:bg-surface-container-low flex items-center justify-center transition-colors text-on-surface-variant relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-risk-red rounded-full"></span>
+</button>
+<button class="w-10 h-10 rounded-full hover:bg-surface-container-low flex items-center justify-center transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+</button>
+<button class="w-10 h-10 rounded-full hover:bg-surface-container-low flex items-center justify-center transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="flex-1 mt-16 p-container-padding">
+<!-- Welcome Header & Progress -->
+<div class="flex flex-col xl:flex-row justify-between items-start gap-6 mb-section-gap">
+<div>
+<h2 class="font-display-lg text-display-lg text-on-surface mb-2">Good morning, Sarah</h2>
+<div class="flex items-center gap-3">
+<span class="font-headline-sm text-headline-sm text-on-surface-variant">ABC Spices Pvt. Ltd.</span>
+<div class="flex items-center gap-1 px-2 py-1 bg-verified-emerald/10 text-verified-emerald rounded-full font-label-md text-label-md border border-verified-emerald/20">
+<span class="material-symbols-outlined text-[14px]" data-icon="verified">verified</span>
+                            TradeMatchly Verified
+                        </div>
+</div>
+</div>
+<!-- Profile Completion -->
+<div class="bg-surface-container-lowest border border-surface-border rounded-xl p-4 shadow-sm w-full xl:w-96 flex-shrink-0">
+<div class="flex justify-between items-center mb-3">
+<span class="font-label-lg text-label-lg text-on-surface">Profile Completion</span>
+<span class="font-headline-md text-headline-md text-primary">78%</span>
+</div>
+<div class="w-full bg-surface-container-high rounded-full h-2 mb-4">
+<div class="bg-secondary h-2 rounded-full" style="width: 78%"></div>
+</div>
+<ul class="font-body-sm text-body-sm text-on-surface-variant space-y-2">
+<li class="flex items-center gap-2 text-risk-amber">
+<span class="material-symbols-outlined text-[16px]" data-icon="info">info</span>
+                            Add company description (+5%)
+                        </li>
+<li class="flex items-center gap-2 text-risk-amber">
+<span class="material-symbols-outlined text-[16px]" data-icon="info">info</span>
+                            Add 2 more products (+10%)
+                        </li>
+</ul>
+</div>
+</div>
+<!-- KPI Cards Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-5 gap-4 mb-section-gap">
+<div class="bg-surface-container-lowest border border-surface-border rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow relative overflow-hidden">
+<div class="flex justify-between items-start mb-2">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">New Opportunities</span>
+<span class="material-symbols-outlined text-secondary" data-icon="explore">explore</span>
+</div>
+<div class="flex items-end gap-3">
+<span class="font-display-lg text-display-lg text-on-surface">12</span>
+<span class="font-label-md text-label-md text-verified-emerald flex items-center mb-1 bg-verified-emerald/10 px-1 rounded">
+<span class="material-symbols-outlined text-[12px]" data-icon="trending_up">trending_up</span> +3%
+                        </span>
+</div>
+<div class="absolute bottom-0 left-0 w-full h-1 bg-secondary"></div>
+</div>
+<div class="bg-surface-container-lowest border border-surface-border rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow relative overflow-hidden">
+<div class="flex justify-between items-start mb-2">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Active RFQs</span>
+<span class="material-symbols-outlined text-in-progress-blue" data-icon="request_quote">request_quote</span>
+</div>
+<div class="flex items-end gap-3">
+<span class="font-display-lg text-display-lg text-on-surface">8</span>
+<span class="font-label-md text-label-md text-on-surface-variant flex items-center mb-1">
+                            Same as last wk
+                        </span>
+</div>
+<div class="absolute bottom-0 left-0 w-full h-1 bg-in-progress-blue"></div>
+</div>
+<div class="bg-surface-container-lowest border border-surface-border rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow relative overflow-hidden">
+<div class="flex justify-between items-start mb-2">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Quotes Submitted</span>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="description">description</span>
+</div>
+<div class="flex items-end gap-3">
+<span class="font-display-lg text-display-lg text-on-surface">24</span>
+<span class="font-label-md text-label-md text-verified-emerald flex items-center mb-1 bg-verified-emerald/10 px-1 rounded">
+<span class="material-symbols-outlined text-[12px]" data-icon="trending_up">trending_up</span> +15%
+                        </span>
+</div>
+</div>
+<div class="bg-surface-container-lowest border border-surface-border rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow relative overflow-hidden">
+<div class="flex justify-between items-start mb-2">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Negotiations</span>
+<span class="material-symbols-outlined text-risk-amber" data-icon="handshake">handshake</span>
+</div>
+<div class="flex items-end gap-3">
+<span class="font-display-lg text-display-lg text-on-surface">4</span>
+</div>
+<div class="absolute bottom-0 left-0 w-full h-1 bg-risk-amber"></div>
+</div>
+<div class="bg-surface-container-lowest border border-surface-border rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow relative overflow-hidden">
+<div class="flex justify-between items-start mb-2">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Deals Won (MTD)</span>
+<span class="material-symbols-outlined text-verified-emerald" data-icon="military_tech">military_tech</span>
+</div>
+<div class="flex items-end gap-3">
+<span class="font-display-lg text-display-lg text-on-surface">6</span>
+</div>
+<div class="absolute bottom-0 left-0 w-full h-1 bg-verified-emerald"></div>
+</div>
+</div>
+<!-- Main Content Area: Bento Layout -->
+<div class="grid grid-cols-1 xl:grid-cols-3 gap-6">
+<!-- Left Column (AI Opps + Timeline) -->
+<div class="xl:col-span-2 space-y-6">
+<!-- AI Matched Opportunities -->
+<div class="bg-surface-container-lowest border border-surface-border rounded-xl shadow-sm overflow-hidden">
+<div class="p-5 border-b border-surface-border flex justify-between items-center bg-gradient-to-r from-secondary-container/10 to-transparent">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary" data-icon="psychology">psychology</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">AI-Matched Buyer Opportunities</h3>
+</div>
+<button class="text-secondary font-label-md text-label-md hover:underline">View All</button>
+</div>
+<div class="p-0">
+<!-- Opp 1 -->
+<div class="p-5 border-b border-surface-border hover:bg-surface-container-low transition-colors flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div class="flex-1">
+<div class="flex items-center gap-3 mb-1">
+<h4 class="font-label-lg text-label-lg text-on-surface">Turmeric Powder (Alleppey Finger)</h4>
+<span class="bg-secondary/10 text-secondary border border-secondary/20 px-2 py-0.5 rounded font-label-md text-[10px] uppercase tracking-wider flex items-center gap-1">
+                                            94% Match
+                                        </span>
+</div>
+<div class="flex items-center gap-4 text-on-surface-variant font-body-sm text-body-sm mb-2">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]" data-icon="weight">weight</span> 500 MT</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]" data-icon="location_on">location_on</span> Rotterdam, NL</span>
+</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-2">
+<span class="font-label-md text-label-md text-on-surface">Why matched:</span>
+<span class="bg-surface-variant px-2 py-0.5 rounded-sm text-[11px]">Product Line</span>
+<span class="bg-surface-variant px-2 py-0.5 rounded-sm text-[11px]">Quantity Cap</span>
+<span class="bg-surface-variant px-2 py-0.5 rounded-sm text-[11px]">EU Export Hist</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="px-4 py-2 bg-white border border-surface-border text-on-surface rounded font-label-md text-label-md hover:bg-surface-container-low transition-colors shadow-sm">Dismiss</button>
+<button class="px-4 py-2 bg-primary-container text-on-primary rounded font-label-md text-label-md hover:bg-primary transition-colors shadow-sm">View Details</button>
+</div>
+</div>
+<!-- Opp 2 -->
+<div class="p-5 hover:bg-surface-container-low transition-colors flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div class="flex-1">
+<div class="flex items-center gap-3 mb-1">
+<h4 class="font-label-lg text-label-lg text-on-surface">Black Pepper (Tellicherry Garbled)</h4>
+<span class="bg-secondary/10 text-secondary border border-secondary/20 px-2 py-0.5 rounded font-label-md text-[10px] uppercase tracking-wider flex items-center gap-1">
+                                            88% Match
+                                        </span>
+</div>
+<div class="flex items-center gap-4 text-on-surface-variant font-body-sm text-body-sm mb-2">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]" data-icon="weight">weight</span> 200 MT</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]" data-icon="location_on">location_on</span> Dubai, UAE</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="px-4 py-2 bg-white border border-surface-border text-on-surface rounded font-label-md text-label-md hover:bg-surface-container-low transition-colors shadow-sm">Dismiss</button>
+<button class="px-4 py-2 bg-primary-container text-on-primary rounded font-label-md text-label-md hover:bg-primary transition-colors shadow-sm">View Details</button>
+</div>
+</div>
+</div>
+</div>
+<!-- RFQ Pipeline Visual -->
+<div class="bg-surface-container-lowest border border-surface-border rounded-xl shadow-sm p-5">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-4">RFQ Pipeline</h3>
+<div class="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-2">
+<!-- Stage 1 -->
+<div class="flex-1 bg-surface-container-low border border-surface-border rounded p-3 text-center relative group hover:border-secondary transition-colors">
+<div class="font-display-lg text-display-lg text-on-surface mb-1">12</div>
+<div class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">New</div>
+<div class="hidden md:block absolute -right-3 top-1/2 -translate-y-1/2 z-10 text-outline-variant group-hover:text-secondary">
+<span class="material-symbols-outlined text-[24px]" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+<!-- Stage 2 -->
+<div class="flex-1 bg-surface-container-low border border-surface-border rounded p-3 text-center relative group hover:border-secondary transition-colors">
+<div class="font-display-lg text-display-lg text-on-surface mb-1">8</div>
+<div class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Viewed</div>
+<div class="hidden md:block absolute -right-3 top-1/2 -translate-y-1/2 z-10 text-outline-variant group-hover:text-secondary">
+<span class="material-symbols-outlined text-[24px]" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+<!-- Stage 3 -->
+<div class="flex-1 bg-surface-container-low border border-surface-border rounded p-3 text-center relative group hover:border-secondary transition-colors">
+<div class="font-display-lg text-display-lg text-on-surface mb-1">6</div>
+<div class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Responded</div>
+<div class="hidden md:block absolute -right-3 top-1/2 -translate-y-1/2 z-10 text-outline-variant group-hover:text-secondary">
+<span class="material-symbols-outlined text-[24px]" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+<!-- Stage 4 -->
+<div class="flex-1 bg-surface-container-low border border-surface-border rounded p-3 text-center relative group hover:border-secondary transition-colors border-l-2 border-l-risk-amber">
+<div class="font-display-lg text-display-lg text-on-surface mb-1">4</div>
+<div class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Negotiating</div>
+<div class="hidden md:block absolute -right-3 top-1/2 -translate-y-1/2 z-10 text-outline-variant group-hover:text-secondary">
+<span class="material-symbols-outlined text-[24px]" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+<!-- Stage 5 -->
+<div class="flex-1 bg-verified-emerald/5 border border-verified-emerald/20 rounded p-3 text-center relative border-l-2 border-l-verified-emerald">
+<div class="font-display-lg text-display-lg text-verified-emerald mb-1">2</div>
+<div class="font-label-md text-label-md text-verified-emerald uppercase tracking-wider">Won (Week)</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column (Activity Timeline) -->
+<div class="bg-surface-container-lowest border border-surface-border rounded-xl shadow-sm p-5 flex flex-col h-full">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Recent Activity</h3>
+<button class="w-8 h-8 rounded-full hover:bg-surface-container-low flex items-center justify-center transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+<div class="flex-1 relative">
+<!-- Vertical Line -->
+<div class="absolute left-4 top-2 bottom-2 w-px bg-surface-border"></div>
+<div class="space-y-6 relative">
+<!-- Item 1 -->
+<div class="flex gap-4 relative">
+<div class="w-8 h-8 rounded-full bg-verified-emerald/10 border border-verified-emerald/20 flex items-center justify-center z-10 shrink-0 text-verified-emerald">
+<span class="material-symbols-outlined text-[16px]" data-icon="check_circle">check_circle</span>
+</div>
+<div>
+<div class="font-label-md text-label-md text-on-surface-variant mb-1">2 hours ago</div>
+<div class="font-label-lg text-label-lg text-on-surface">Deal Won: Cumin Seeds</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant mt-1">Contract signed with EuroFoods Gmbh for 100 MT.</div>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="flex gap-4 relative">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest border border-outline-variant flex items-center justify-center z-10 shrink-0 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]" data-icon="chat">chat</span>
+</div>
+<div>
+<div class="font-label-md text-label-md text-on-surface-variant mb-1">4 hours ago</div>
+<div class="font-label-lg text-label-lg text-on-surface">New Message from Buyer</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant mt-1">Regarding RFQ-2023-11A (Cardamom).</div>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="flex gap-4 relative">
+<div class="w-8 h-8 rounded-full bg-secondary/10 border border-secondary/20 flex items-center justify-center z-10 shrink-0 text-secondary">
+<span class="material-symbols-outlined text-[16px]" data-icon="psychology">psychology</span>
+</div>
+<div>
+<div class="font-label-md text-label-md text-on-surface-variant mb-1">Yesterday</div>
+<div class="font-label-lg text-label-lg text-on-surface">3 New Matches Found</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant mt-1">Mesh AI identified new buyers in the UK market.</div>
+</div>
+</div>
+<!-- Item 4 -->
+<div class="flex gap-4 relative">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest border border-outline-variant flex items-center justify-center z-10 shrink-0 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]" data-icon="description">description</span>
+</div>
+<div>
+<div class="font-label-md text-label-md text-on-surface-variant mb-1">Yesterday</div>
+<div class="font-label-lg text-label-lg text-on-surface">Quote Submitted</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant mt-1">Submitted quote for 50 MT Coriander to Global Spice Co.</div>
+</div>
+</div>
+</div>
+</div>
+<button class="mt-4 w-full py-2 bg-surface border border-surface-border text-on-surface rounded font-label-md text-label-md hover:bg-surface-container-low transition-colors shadow-sm">View All Activity</button>
+</div>
+</div>
+</main>
+</div>
+</body></html>

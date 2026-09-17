@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Quotes Management - Global Supplier Portal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "tertiary-fixed-dim": "#dec29a",
+                      "on-tertiary-container": "#98805d",
+                      "in-progress-blue": "#2563eb",
+                      "verified-emerald": "#059669",
+                      "primary-fixed-dim": "#bec6e0",
+                      "surface-container": "#f0edef",
+                      "secondary-container": "#655dfb",
+                      "on-error": "#ffffff",
+                      "on-secondary-fixed-variant": "#3322cc",
+                      "surface-border": "#e2e8f0",
+                      "on-background": "#1b1b1d",
+                      "secondary-fixed-dim": "#c3c0ff",
+                      "data-text": "#1e293b",
+                      "on-primary": "#ffffff",
+                      "primary": "#000000",
+                      "on-primary-fixed-variant": "#3f465c",
+                      "on-surface-variant": "#45464d",
+                      "inverse-primary": "#bec6e0",
+                      "surface-container-highest": "#e4e2e4",
+                      "outline-variant": "#c6c6cd",
+                      "risk-amber": "#d97706",
+                      "on-tertiary-fixed-variant": "#574425",
+                      "primary-fixed": "#dae2fd",
+                      "background": "#fcf8fa",
+                      "on-tertiary-fixed": "#271901",
+                      "outline": "#76777d",
+                      "surface-container-low": "#f6f3f5",
+                      "tertiary-container": "#271901",
+                      "error": "#ba1a1a",
+                      "secondary-fixed": "#e2dfff",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-bright": "#fcf8fa",
+                      "error-container": "#ffdad6",
+                      "on-error-container": "#93000a",
+                      "inverse-surface": "#303032",
+                      "secondary": "#4b41e1",
+                      "surface-variant": "#e4e2e4",
+                      "surface-tint": "#565e74",
+                      "on-primary-fixed": "#131b2e",
+                      "on-secondary": "#ffffff",
+                      "on-tertiary": "#ffffff",
+                      "on-primary-container": "#7c839b",
+                      "on-secondary-fixed": "#0f0069",
+                      "primary-container": "#131b2e",
+                      "tertiary-fixed": "#fcdeb5",
+                      "on-secondary-container": "#fffbff",
+                      "on-surface": "#1b1b1d",
+                      "surface-container-high": "#eae7e9",
+                      "inverse-on-surface": "#f3f0f2",
+                      "surface-dim": "#dcd9db",
+                      "tertiary": "#000000",
+                      "risk-red": "#dc2626",
+                      "surface": "#fcf8fa"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "table-cell-padding": "12px",
+                      "base": "4px",
+                      "sidebar-width": "260px",
+                      "section-gap": "32px",
+                      "gutter": "16px",
+                      "container-padding": "24px"
+              },
+              "fontFamily": {
+                      "body-sm": ["Inter"],
+                      "label-md": ["Inter"],
+                      "display-lg": ["Inter"],
+                      "headline-md": ["Inter"],
+                      "data-mono": ["JetBrains Mono"],
+                      "label-lg": ["Inter"],
+                      "body-md": ["Inter"],
+                      "headline-lg": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "headline-sm": ["Inter"]
+              },
+              "fontSize": {
+                      "body-sm": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+                      "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                      "display-lg": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-md": ["22px", {"lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "data-mono": ["13px", {"lineHeight": "18px", "fontWeight": "500"}],
+                      "label-lg": ["14px", {"lineHeight": "20px", "fontWeight": "600"}],
+                      "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "headline-lg": ["28px", {"lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "headline-sm": ["18px", {"lineHeight": "24px", "fontWeight": "600"}]
+              }
+            }
+          }
+        }
+      </script>
+<style>
+          .ambient-shadow-sm { box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+          .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+      </style>
+</head>
+<body class="bg-background text-on-background min-h-screen font-body-md flex">
+<!-- SideNavBar -->
+<nav class="w-[260px] h-full fixed left-0 top-0 bg-primary-container dark:bg-primary-container shadow-sm flex flex-col py-6 px-4 z-50">
+<div class="flex items-center gap-3 mb-8 px-2">
+<div class="w-10 h-10 rounded bg-white/10 flex items-center justify-center shrink-0 overflow-hidden">
+<span class="material-symbols-outlined text-white" data-icon="deployed_code" data-weight="fill">deployed_code</span>
+</div>
+<div>
+<h1 class="font-headline-sm text-headline-sm text-white truncate">Global Supplier Portal</h1>
+<p class="text-on-primary-container/70 text-[11px] uppercase tracking-wider font-semibold">Enterprise Logistics</p>
+</div>
+</div>
+<div class="flex-1 flex flex-col gap-1 overflow-y-auto">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-DEFAULT text-on-primary-container/70 font-body-md hover:bg-white/5 hover:text-white transition-colors active:scale-95 duration-100 group" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Overview</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-DEFAULT text-on-primary-container/70 font-body-md hover:bg-white/5 hover:text-white transition-colors active:scale-95 duration-100 group" href="#">
+<span class="material-symbols-outlined" data-icon="lightbulb">lightbulb</span>
+<span>Opportunities</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-DEFAULT text-on-primary-container/70 font-body-md hover:bg-white/5 hover:text-white transition-colors active:scale-95 duration-100 group" href="#">
+<span class="material-symbols-outlined" data-icon="request_quote">request_quote</span>
+<span>RFQs</span>
+</a>
+<!-- Active Tab -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-DEFAULT border-l-4 border-secondary-container bg-white/10 text-white font-bold active:scale-95 duration-100 group" href="#">
+<span class="material-symbols-outlined text-secondary-container" data-icon="description" data-weight="fill">description</span>
+<span>Quotes</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-DEFAULT text-on-primary-container/70 font-body-md hover:bg-white/5 hover:text-white transition-colors active:scale-95 duration-100 group" href="#">
+<span class="material-symbols-outlined" data-icon="handshake">handshake</span>
+<span>Negotiations</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-DEFAULT text-on-primary-container/70 font-body-md hover:bg-white/5 hover:text-white transition-colors active:scale-95 duration-100 group" href="#">
+<span class="material-symbols-outlined" data-icon="handshake">handshake</span>
+<span>Deals</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Wrapper -->
+<div class="flex-1 ml-[260px] flex flex-col min-h-screen">
+<!-- TopNavBar -->
+<header class="h-16 sticky top-0 z-40 bg-surface dark:bg-background border-b border-outline-variant flex justify-between items-center px-gutter w-full">
+<div class="flex items-center gap-4">
+<h2 class="font-headline-md text-headline-md font-bold text-primary">Quotes Management</h2>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden md:block w-64">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[20px]" data-icon="search">search</span>
+<input class="w-full h-[32px] pl-9 pr-3 rounded bg-surface-container-low border border-surface-border text-body-sm focus:border-secondary-container focus:ring-1 focus:ring-secondary-container focus:outline-none transition-all placeholder:text-outline" placeholder="Search quotes..." type="text"/>
+</div>
+<button class="w-8 h-8 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container-high transition-colors active:opacity-80">
+<span class="material-symbols-outlined text-[20px]" data-icon="notifications">notifications</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container-high transition-colors active:opacity-80">
+<span class="material-symbols-outlined text-[20px]" data-icon="settings">settings</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-surface-container-high border border-surface-border overflow-hidden cursor-pointer hover:ring-2 hover:ring-secondary-container transition-all">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="A professional headshot of a corporate logistics manager in a bright, modern office setting with subtle architectural details in the background. The lighting is soft and neutral, enhancing a clean, trustworthy appearance. Deep navy and white tones dominate." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBg3WHXbVgr9TSfFcr_oWPQXMD5edbEIgoXy7f9tJxaelSXLw0gRYMe9ULo7YkQB_uejIcr8Q8l6jqf2q4VtX-mX0qfX_Vj6V7C0ayt0jTNUdHsXnJUX5tn3hJ8O3OUl9f2ct-yA7hBWKuQ9o_HzdkwIWTuW6eOtT7PPUGe0200lWS-s-lZoe72nsMGMOOLA8QbqU9JXT8WhNCoC7_9iw8GSMfKl6GEYXXUMmRn4inwXM9VNEfKCaPm"/>
+</div>
+</div>
+</header>
+<!-- Page Content -->
+<main class="flex-1 p-container-padding max-w-[1440px] mx-auto w-full">
+<!-- Page Header -->
+<div class="mb-section-gap flex justify-between items-end">
+<div>
+<h1 class="font-headline-lg text-headline-lg text-primary mb-1">Quotes Overview</h1>
+<p class="text-body-md text-on-surface-variant">Track and manage your submitted and draft quotes.</p>
+</div>
+<button class="h-10 px-4 bg-primary-container text-white rounded font-label-md flex items-center gap-2 hover:bg-primary-container/90 transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="add">add</span>
+                    Create Quote
+                </button>
+</div>
+<!-- KPI Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter mb-section-gap">
+<div class="bg-surface-container-lowest rounded-lg border border-surface-border p-4 ambient-shadow-sm flex flex-col justify-between">
+<div class="flex justify-between items-start mb-4">
+<span class="font-label-md text-on-surface-variant uppercase tracking-wider">Total Quotes</span>
+<div class="w-8 h-8 rounded bg-surface-container flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-[18px]" data-icon="description">description</span>
+</div>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-display-lg text-display-lg text-primary">42</span>
+<span class="text-label-md text-on-surface-variant">(MTD)</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-lg border border-surface-border p-4 ambient-shadow-sm flex flex-col justify-between">
+<div class="flex justify-between items-start mb-4">
+<span class="font-label-md text-on-surface-variant uppercase tracking-wider">Pending Buyer Review</span>
+<div class="w-8 h-8 rounded bg-surface-container flex items-center justify-center text-in-progress-blue">
+<span class="material-symbols-outlined text-[18px]" data-icon="pending_actions">pending_actions</span>
+</div>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-display-lg text-display-lg text-primary">8</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-lg border border-surface-border p-4 ambient-shadow-sm flex flex-col justify-between">
+<div class="flex justify-between items-start mb-4">
+<span class="font-label-md text-on-surface-variant uppercase tracking-wider">Accepted Quotes</span>
+<div class="w-8 h-8 rounded bg-surface-container flex items-center justify-center text-verified-emerald">
+<span class="material-symbols-outlined text-[18px]" data-icon="task_alt">task_alt</span>
+</div>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-display-lg text-display-lg text-primary">15</span>
+<span class="flex items-center text-verified-emerald font-label-md bg-verified-emerald/10 px-1.5 py-0.5 rounded">
+<span class="material-symbols-outlined text-[14px]" data-icon="trending_up">trending_up</span>
+                            12%
+                        </span>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-lg border border-surface-border p-4 ambient-shadow-sm flex flex-col justify-between">
+<div class="flex justify-between items-start mb-4">
+<span class="font-label-md text-on-surface-variant uppercase tracking-wider">Avg Response Time</span>
+<div class="w-8 h-8 rounded bg-surface-container flex items-center justify-center text-risk-amber">
+<span class="material-symbols-outlined text-[18px]" data-icon="timer">timer</span>
+</div>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-display-lg text-display-lg text-primary">4.2h</span>
+</div>
+</div>
+</div>
+<!-- Quotes Table Section -->
+<div class="bg-surface-container-lowest rounded-lg border border-surface-border ambient-shadow-sm overflow-hidden flex flex-col">
+<!-- Filter Bar -->
+<div class="p-4 border-b border-surface-border bg-surface flex flex-wrap items-center justify-between gap-4">
+<div class="flex items-center gap-3 flex-1 min-w-[300px]">
+<div class="relative flex-1 max-w-[400px]">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[20px]" data-icon="search">search</span>
+<input class="w-full h-10 pl-10 pr-3 rounded border border-surface-border text-body-sm focus:border-secondary-container focus:ring-1 focus:ring-secondary-container focus:outline-none transition-all placeholder:text-outline bg-white" placeholder="Search quotes, buyers, or RFQs..." type="text"/>
+</div>
+<div class="relative">
+<select class="h-10 pl-3 pr-8 rounded border border-surface-border text-body-sm focus:border-secondary-container focus:ring-1 focus:ring-secondary-container focus:outline-none bg-white appearance-none cursor-pointer">
+<option>Status: All</option>
+<option>Draft</option>
+<option>Submitted</option>
+<option>Negotiating</option>
+<option>Accepted</option>
+<option>Rejected</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 top-1/2 -translate-y-1/2 text-outline text-[20px] pointer-events-none" data-icon="arrow_drop_down">arrow_drop_down</span>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="relative">
+<button class="h-10 px-3 rounded border border-surface-border text-body-sm flex items-center gap-2 bg-white hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-[18px] text-outline" data-icon="calendar_today">calendar_today</span>
+                                Date Range
+                                <span class="material-symbols-outlined text-[20px] text-outline" data-icon="arrow_drop_down">arrow_drop_down</span>
+</button>
+</div>
+<button class="w-10 h-10 rounded border border-surface-border flex items-center justify-center bg-white hover:bg-surface-container-low transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]" data-icon="tune">tune</span>
+</button>
+</div>
+</div>
+<!-- Table -->
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low border-b border-surface-border">
+<th class="p-table-cell-padding font-label-md text-on-surface-variant uppercase tracking-wider whitespace-nowrap">Quote ID</th>
+<th class="p-table-cell-padding font-label-md text-on-surface-variant uppercase tracking-wider whitespace-nowrap">RFQ Ref</th>
+<th class="p-table-cell-padding font-label-md text-on-surface-variant uppercase tracking-wider whitespace-nowrap">Buyer</th>
+<th class="p-table-cell-padding font-label-md text-on-surface-variant uppercase tracking-wider whitespace-nowrap">Product</th>
+<th class="p-table-cell-padding font-label-md text-on-surface-variant uppercase tracking-wider text-right whitespace-nowrap">Value</th>
+<th class="p-table-cell-padding font-label-md text-on-surface-variant uppercase tracking-wider whitespace-nowrap">Status</th>
+<th class="p-table-cell-padding font-label-md text-on-surface-variant uppercase tracking-wider whitespace-nowrap">Last Updated</th>
+<th class="p-table-cell-padding font-label-md text-on-surface-variant uppercase tracking-wider text-center whitespace-nowrap w-16">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-border bg-surface-container-lowest">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors group">
+<td class="p-table-cell-padding">
+<a class="font-data-mono text-data-mono text-secondary-container hover:underline" href="#">Q-8821</a>
+</td>
+<td class="p-table-cell-padding font-data-mono text-data-mono text-outline">RFQ-10482</td>
+<td class="p-table-cell-padding">
+<div class="font-body-sm text-data-text font-medium">Global Spice Ventures B.V.</div>
+</td>
+<td class="p-table-cell-padding font-body-sm text-on-surface-variant">Turmeric Powder</td>
+<td class="p-table-cell-padding font-data-mono text-data-mono text-data-text text-right">$125,000</td>
+<td class="p-table-cell-padding">
+<span class="inline-flex items-center gap-1.5 px-2 py-1 rounded bg-risk-amber/10 text-risk-amber font-label-md">
+<span class="w-1.5 h-1.5 rounded-full bg-risk-amber"></span>
+                                        Negotiating
+                                    </span>
+</td>
+<td class="p-table-cell-padding font-body-sm text-outline">2h ago</td>
+<td class="p-table-cell-padding text-center">
+<button class="w-8 h-8 rounded hover:bg-surface-border flex items-center justify-center text-outline group-hover:text-primary transition-colors mx-auto">
+<span class="material-symbols-outlined text-[20px]" data-icon="more_vert">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors group">
+<td class="p-table-cell-padding">
+<a class="font-data-mono text-data-mono text-secondary-container hover:underline" href="#">Q-8790</a>
+</td>
+<td class="p-table-cell-padding font-data-mono text-data-mono text-outline">RFQ-10355</td>
+<td class="p-table-cell-padding">
+<div class="font-body-sm text-data-text font-medium">Rotterdam Foods Ltd</div>
+</td>
+<td class="p-table-cell-padding font-body-sm text-on-surface-variant">Basmati Rice</td>
+<td class="p-table-cell-padding font-data-mono text-data-mono text-data-text text-right">$85,400</td>
+<td class="p-table-cell-padding">
+<span class="inline-flex items-center gap-1.5 px-2 py-1 rounded bg-verified-emerald/10 text-verified-emerald font-label-md">
+<span class="w-1.5 h-1.5 rounded-full bg-verified-emerald"></span>
+                                        Accepted
+                                    </span>
+</td>
+<td class="p-table-cell-padding font-body-sm text-outline">Yesterday</td>
+<td class="p-table-cell-padding text-center">
+<button class="w-8 h-8 rounded hover:bg-surface-border flex items-center justify-center text-outline group-hover:text-primary transition-colors mx-auto">
+<span class="material-symbols-outlined text-[20px]" data-icon="more_vert">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors group">
+<td class="p-table-cell-padding">
+<a class="font-data-mono text-data-mono text-secondary-container hover:underline" href="#">Q-8755</a>
+</td>
+<td class="p-table-cell-padding font-data-mono text-data-mono text-outline">RFQ-10211</td>
+<td class="p-table-cell-padding">
+<div class="font-body-sm text-data-text font-medium">Nordic Imports</div>
+</td>
+<td class="p-table-cell-padding font-body-sm text-on-surface-variant">Black Pepper</td>
+<td class="p-table-cell-padding font-data-mono text-data-mono text-data-text text-right">$42,000</td>
+<td class="p-table-cell-padding">
+<span class="inline-flex items-center gap-1.5 px-2 py-1 rounded bg-in-progress-blue/10 text-in-progress-blue font-label-md">
+<span class="w-1.5 h-1.5 rounded-full bg-in-progress-blue"></span>
+                                        Submitted
+                                    </span>
+</td>
+<td class="p-table-cell-padding font-body-sm text-outline">2 days ago</td>
+<td class="p-table-cell-padding text-center">
+<button class="w-8 h-8 rounded hover:bg-surface-border flex items-center justify-center text-outline group-hover:text-primary transition-colors mx-auto">
+<span class="material-symbols-outlined text-[20px]" data-icon="more_vert">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors group">
+<td class="p-table-cell-padding">
+<a class="font-data-mono text-data-mono text-secondary-container hover:underline" href="#">Q-8612</a>
+</td>
+<td class="p-table-cell-padding font-data-mono text-data-mono text-outline">RFQ-10101</td>
+<td class="p-table-cell-padding">
+<div class="font-body-sm text-data-text font-medium">EuroSpice GmbH</div>
+</td>
+<td class="p-table-cell-padding font-body-sm text-on-surface-variant">Cumin Seeds</td>
+<td class="p-table-cell-padding font-data-mono text-data-mono text-data-text text-right">$12,500</td>
+<td class="p-table-cell-padding">
+<span class="inline-flex items-center gap-1.5 px-2 py-1 rounded bg-surface-border text-on-surface-variant font-label-md">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+                                        Draft
+                                    </span>
+</td>
+<td class="p-table-cell-padding font-body-sm text-outline">3 days ago</td>
+<td class="p-table-cell-padding text-center">
+<button class="w-8 h-8 rounded hover:bg-surface-border flex items-center justify-center text-outline group-hover:text-primary transition-colors mx-auto">
+<span class="material-symbols-outlined text-[20px]" data-icon="more_vert">more_vert</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination Footer -->
+<div class="p-4 border-t border-surface-border bg-surface flex items-center justify-between">
+<span class="font-body-sm text-outline">Showing 1-4 of 42 quotes</span>
+<div class="flex items-center gap-2">
+<button class="w-8 h-8 rounded border border-surface-border flex items-center justify-center bg-surface-container-lowest text-outline hover:bg-surface-container-low transition-colors disabled:opacity-50" disabled="">
+<span class="material-symbols-outlined text-[20px]" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="w-8 h-8 rounded border border-surface-border flex items-center justify-center bg-surface-container-lowest text-outline hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-[20px]" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

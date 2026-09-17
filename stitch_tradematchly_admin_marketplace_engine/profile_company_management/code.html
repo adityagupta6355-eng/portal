@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Profile &amp; Company Management - TradeMatchly</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-primary": "#bec6e0",
+                        "surface-border": "#e2e8f0",
+                        "on-primary-fixed": "#131b2e",
+                        "on-secondary-fixed-variant": "#3322cc",
+                        "on-tertiary-fixed": "#0b1c30",
+                        "on-surface": "#191c1e",
+                        "secondary-fixed-dim": "#c3c0ff",
+                        "outline": "#76777d",
+                        "surface-dim": "#d8dadc",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-container": "#75859d",
+                        "on-error-container": "#93000a",
+                        "tertiary-container": "#0b1c30",
+                        "secondary": "#4b41e1",
+                        "primary-fixed-dim": "#bec6e0",
+                        "on-background": "#191c1e",
+                        "surface-container-highest": "#e0e3e5",
+                        "surface-container-low": "#f2f4f6",
+                        "surface-tint": "#565e74",
+                        "surface-variant": "#e0e3e5",
+                        "primary-container": "#131b2e",
+                        "secondary-fixed": "#e2dfff",
+                        "tertiary-fixed": "#d3e4fe",
+                        "primary": "#000000",
+                        "on-secondary-container": "#fffbff",
+                        "surface": "#f7f9fb",
+                        "tertiary": "#000000",
+                        "on-secondary-fixed": "#0f0069",
+                        "on-primary-container": "#7c839b",
+                        "background": "#f7f9fb",
+                        "error": "#ba1a1a",
+                        "on-primary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "inverse-on-surface": "#eff1f3",
+                        "secondary-container": "#655dfb",
+                        "primary-fixed": "#dae2fd",
+                        "risk-amber": "#d97706",
+                        "on-error": "#ffffff",
+                        "risk-red": "#dc2626",
+                        "tertiary-fixed-dim": "#b7c8e1",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "surface-container-lowest": "#ffffff",
+                        "verified-emerald": "#059669",
+                        "surface-container-high": "#e6e8ea",
+                        "surface-container": "#eceef0",
+                        "outline-variant": "#c6c6cd",
+                        "surface-bright": "#f7f9fb",
+                        "in-progress-blue": "#2563eb",
+                        "on-secondary": "#ffffff",
+                        "on-surface-variant": "#45464d",
+                        "inverse-surface": "#2d3133",
+                        "on-tertiary-fixed-variant": "#38485d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "1rem",
+                        "stack-md": "1rem",
+                        "gutter-mobile": "0.75rem",
+                        "stack-lg": "1.5rem",
+                        "touch-target": "2.75rem",
+                        "stack-sm": "0.5rem"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "label-md": ["Inter"],
+                        "data-mono": ["JetBrains Mono"],
+                        "headline-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md-mobile": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+                        "headline-md": ["22px", {"lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                        "label-md": ["11px", {"lineHeight": "16px", "letterSpacing": "0.06em", "fontWeight": "700"}],
+                        "data-mono": ["13px", {"lineHeight": "18px", "fontWeight": "500"}],
+                        "headline-sm-mobile": ["16px", {"lineHeight": "22px", "fontWeight": "600"}],
+                        "headline-sm": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "30px", "fontWeight": "700"}],
+                        "headline-lg": ["28px", {"lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style type="text/tailwindcss">
+        @layer utilities {
+            .no-scrollbar::-webkit-scrollbar {
+                display: none;
+            }
+            .no-scrollbar {
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+            }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body-md antialiased min-h-screen flex flex-col md:flex-row pb-[80px] md:pb-0 pt-[64px]">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-on-primary-fixed fixed top-0 w-full z-50 transition-colors duration-200 ease-in-out flex justify-between items-center px-margin-mobile h-touch-target w-full" style="box-shadow: none; border-bottom: none;">
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-low dark:hover:bg-surface-variant p-2 rounded-full flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">language</span>
+</button>
+<h1 class="font-headline-md text-headline-md-mobile text-primary dark:text-inverse-primary font-bold tracking-tight">TradeMatchly</h1>
+</div>
+<button class="text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-low dark:hover:bg-surface-variant p-2 rounded-full flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">notifications</span>
+</button>
+</header>
+<!-- Main Canvas -->
+<main class="flex-1 w-full max-w-4xl mx-auto px-margin-mobile py-stack-lg flex flex-col gap-stack-lg">
+<!-- Profile Header Bento -->
+<section class="bg-surface-container-lowest border border-surface-border rounded-xl p-4 flex flex-row items-center gap-4 shadow-sm relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-surface-container-lowest to-surface-container-low opacity-50 pointer-events-none"></div>
+<img alt="Sarah Jenkins" class="w-[80px] h-[80px] rounded-full object-cover border-2 border-surface-border relative z-10" data-alt="A professional headshot of a confident businesswoman with dark hair tied back, wearing a sharp navy blue blazer over a crisp white shirt. The background is a brightly lit, modern corporate office interior with subtle light mode aesthetics. Soft, natural light highlights her professional demeanor, evoking trust and authority in a B2B setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaxUyhbk5PYGKOK10MvenAeWdvWAqO8jF1AfGeOgQ-WIr1h38v1e4eDdNUDCQIJobl3xC1KlNXM3oXqUO2ciEAxyxnMQtKDJlJ_NnFajdK4FlYgGvsWp84U6_484olYRt51t43eYf94pmTBHuzfrS6z3NNrNedknyHuJUwkngkubjLb0V_B7v-i1oWgTbr_aLYV4_dCkm9s8eCIbZukPhBqOVe_3DEoMC0R0gvV7xhTFvi4IWKsnJ1"/>
+<div class="flex flex-col relative z-10 flex-1">
+<h2 class="font-headline-lg text-headline-lg-mobile text-primary">Sarah Jenkins</h2>
+<p class="font-body-md text-on-surface-variant">Export Manager</p>
+<div class="flex items-center gap-2 mt-1">
+<span class="material-symbols-outlined text-outline text-[16px]">business</span>
+<span class="font-body-md text-on-surface">AgriCorp Global</span>
+</div>
+</div>
+<button class="absolute top-4 right-4 p-2 text-on-surface-variant bg-surface-container hover:bg-surface-container-high rounded-full transition-colors z-10">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+</section>
+<!-- Dynamic Dashboard Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-stack-md">
+<!-- Verification Status -->
+<div class="bg-surface-container-lowest border border-surface-border rounded-xl p-4 flex flex-col gap-4 shadow-sm">
+<div class="flex justify-between items-start">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Status</span>
+<div class="flex items-center gap-2 mt-1">
+<span class="material-symbols-outlined text-verified-emerald" style="font-variation-settings: 'FILL' 1;">verified</span>
+<h3 class="font-headline-sm text-headline-sm-mobile text-primary">Trade Verified</h3>
+</div>
+</div>
+<div class="bg-verified-emerald/10 text-verified-emerald px-2 py-1 rounded font-label-md text-label-md">Tier 1</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Your business identity has been verified. Unlock more features by completing additional tiers.</p>
+<div class="flex flex-col gap-2 mt-auto">
+<div class="flex items-center gap-3 opacity-50">
+<span class="material-symbols-outlined text-outline">description</span>
+<span class="font-body-sm text-body-sm flex-1">Document Verified</span>
+<span class="material-symbols-outlined text-[16px] text-outline">lock</span>
+</div>
+<div class="flex items-center gap-3 opacity-50">
+<span class="material-symbols-outlined text-outline">payments</span>
+<span class="font-body-sm text-body-sm flex-1">Transaction Verified</span>
+<span class="material-symbols-outlined text-[16px] text-outline">lock</span>
+</div>
+</div>
+<button class="w-full bg-primary text-on-primary py-3 rounded-lg font-headline-sm text-headline-sm-mobile mt-2 hover:bg-primary/90 transition-colors h-touch-target">
+                    Verify More
+                </button>
+</div>
+<!-- Trust Score -->
+<div class="bg-surface-container-lowest border border-surface-border rounded-xl p-4 flex flex-col gap-4 shadow-sm relative overflow-hidden">
+<div class="flex justify-between items-center z-10 relative">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Company Trust Score</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer text-[18px]">info</span>
+</div>
+<div class="flex items-end gap-2 z-10 relative mt-2">
+<span class="font-headline-lg text-headline-lg-mobile text-primary leading-none text-4xl">91</span>
+<span class="font-body-md text-on-surface-variant mb-1">/100</span>
+<div class="ml-auto bg-verified-emerald/10 text-verified-emerald px-2 py-1 rounded font-label-md text-label-md flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">trending_up</span> Excellent
+                    </div>
+</div>
+<!-- KPI Gauge -->
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden mt-2 z-10 relative">
+<div class="h-full bg-verified-emerald rounded-full w-[91%]"></div>
+</div>
+<div class="flex flex-col gap-2 mt-4 z-10 relative">
+<div class="flex justify-between items-center border-b border-surface-border pb-2 last:border-0 last:pb-0">
+<span class="font-body-sm text-body-sm text-on-surface">Business Verification</span>
+<span class="font-data-mono text-data-mono text-primary">30/30</span>
+</div>
+<div class="flex justify-between items-center border-b border-surface-border pb-2 last:border-0 last:pb-0">
+<span class="font-body-sm text-body-sm text-on-surface">Trade Credentials</span>
+<span class="font-data-mono text-data-mono text-primary">45/50</span>
+</div>
+<div class="flex justify-between items-center border-b border-surface-border pb-2 last:border-0 last:pb-0">
+<span class="font-body-sm text-body-sm text-on-surface">Platform Activity</span>
+<span class="font-data-mono text-data-mono text-primary">16/20</span>
+</div>
+</div>
+<!-- Decorative background elements -->
+<div class="absolute -right-12 -bottom-12 w-48 h-48 bg-verified-emerald/5 rounded-full blur-2xl pointer-events-none"></div>
+</div>
+</div>
+<!-- Reputation Summary -->
+<section class="flex gap-2 overflow-x-auto no-scrollbar py-1">
+<div class="flex-none bg-surface-container-lowest border border-surface-border rounded-full px-3 py-1.5 flex items-center gap-1.5 shadow-sm">
+<span class="material-symbols-outlined text-risk-amber text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-md text-label-md text-primary">Top Supplier</span>
+</div>
+<div class="flex-none bg-surface-container-lowest border border-surface-border rounded-full px-3 py-1.5 flex items-center gap-1.5 shadow-sm">
+<span class="material-symbols-outlined text-in-progress-blue text-[16px]" style="font-variation-settings: 'FILL' 1;">forum</span>
+<span class="font-label-md text-label-md text-primary">98% Response Rate</span>
+</div>
+<div class="flex-none bg-surface-container-lowest border border-surface-border rounded-full px-3 py-1.5 flex items-center gap-1.5 shadow-sm">
+<span class="material-symbols-outlined text-secondary text-[16px]" style="font-variation-settings: 'FILL' 1;">group</span>
+<span class="font-label-md text-label-md text-primary">14 Repeat Buyers</span>
+</div>
+</section>
+<!-- Settings Navigation List -->
+<nav class="bg-surface-container-lowest border border-surface-border rounded-xl shadow-sm flex flex-col overflow-hidden">
+<a class="flex items-center gap-4 p-4 hover:bg-surface-container-low transition-colors border-b border-surface-border min-h-[56px]" href="#">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">storefront</span>
+</div>
+<div class="flex-1 flex flex-col">
+<span class="font-headline-sm text-headline-sm-mobile text-primary">Business Profile</span>
+</div>
+<span class="material-symbols-outlined text-outline">chevron_right</span>
+</a>
+<a class="flex items-center gap-4 p-4 hover:bg-surface-container-low transition-colors border-b border-surface-border min-h-[56px]" href="#">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">inventory_2</span>
+</div>
+<div class="flex-1 flex flex-col">
+<span class="font-headline-sm text-headline-sm-mobile text-primary">Product Catalog</span>
+</div>
+<span class="material-symbols-outlined text-outline">chevron_right</span>
+</a>
+<a class="flex items-center gap-4 p-4 hover:bg-surface-container-low transition-colors border-b border-surface-border min-h-[56px]" href="#">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">folder_special</span>
+</div>
+<div class="flex-1 flex flex-col">
+<span class="font-headline-sm text-headline-sm-mobile text-primary">Trade Documents</span>
+</div>
+<span class="material-symbols-outlined text-outline">chevron_right</span>
+</a>
+<a class="flex items-center gap-4 p-4 hover:bg-surface-container-low transition-colors border-b border-surface-border min-h-[56px]" href="#">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">badge</span>
+</div>
+<div class="flex-1 flex flex-col">
+<span class="font-headline-sm text-headline-sm-mobile text-primary">Team Management</span>
+</div>
+<span class="material-symbols-outlined text-outline">chevron_right</span>
+</a>
+<a class="flex items-center gap-4 p-4 hover:bg-surface-container-low transition-colors border-b border-surface-border min-h-[56px]" href="#">
+<div class="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined">workspace_premium</span>
+</div>
+<div class="flex-1 flex flex-col">
+<span class="font-headline-sm text-headline-sm-mobile text-primary">Subscription Plan</span>
+</div>
+<div class="bg-secondary text-on-secondary px-2 py-0.5 rounded font-label-md text-label-md mr-2">PRO</div>
+<span class="material-symbols-outlined text-outline">chevron_right</span>
+</a>
+<a class="flex items-center gap-4 p-4 hover:bg-surface-container-low transition-colors min-h-[56px]" href="#">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined">settings</span>
+</div>
+<div class="flex-1 flex flex-col">
+<span class="font-headline-sm text-headline-sm-mobile text-primary">App Settings</span>
+</div>
+<span class="material-symbols-outlined text-outline">chevron_right</span>
+</a>
+</nav>
+<!-- Logout Action -->
+<button class="w-full bg-surface-container-lowest border border-surface-border text-on-surface py-3 rounded-lg font-headline-sm text-headline-sm-mobile mt-4 mb-8 hover:bg-surface-container-low transition-colors h-touch-target flex items-center justify-center gap-2 shadow-sm">
+<span class="material-symbols-outlined text-on-surface-variant">logout</span>
+            Logout
+        </button>
+</main>
+<!-- BottomNavBar -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-gutter-mobile py-stack-sm bg-surface dark:bg-on-primary-fixed z-50 rounded-t-lg shadow-sm" style="border-top: none;">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant p-2 hover:bg-surface-container-high dark:hover:bg-surface-variant active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-md text-label-md mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant p-2 hover:bg-surface-container-high dark:hover:bg-surface-variant active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined">explore</span>
+<span class="font-label-md text-label-md mt-1">Opportunities</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant p-2 hover:bg-surface-container-high dark:hover:bg-surface-variant active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined">description</span>
+<span class="font-label-md text-label-md mt-1">RFQs</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant p-2 hover:bg-surface-container-high dark:hover:bg-surface-variant active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined">chat_bubble</span>
+<span class="font-label-md text-label-md mt-1">Messages</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim bg-secondary-fixed dark:bg-secondary-container rounded-full px-4 py-1 active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-label-md text-label-md mt-1">Profile</span>
+</a>
+</nav>
+<!-- Web/Desktop Navigation Sidebar placeholder (Hidden on mobile) -->
+<aside class="hidden md:flex flex-col w-64 bg-surface dark:bg-on-primary-fixed border-r border-surface-border h-screen fixed left-0 top-0 pt-[64px] px-4">
+<!-- Replicating bottom nav items for desktop sidebar context -->
+<nav class="flex flex-col gap-2 mt-8">
+<a class="flex items-center gap-3 text-on-surface-variant p-3 rounded-lg hover:bg-surface-container-low transition-colors" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-headline-sm text-headline-sm">Home</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant p-3 rounded-lg hover:bg-surface-container-low transition-colors" href="#">
+<span class="material-symbols-outlined">explore</span>
+<span class="font-headline-sm text-headline-sm">Opportunities</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant p-3 rounded-lg hover:bg-surface-container-low transition-colors" href="#">
+<span class="material-symbols-outlined">description</span>
+<span class="font-headline-sm text-headline-sm">RFQs</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant p-3 rounded-lg hover:bg-surface-container-low transition-colors" href="#">
+<span class="material-symbols-outlined">chat_bubble</span>
+<span class="font-headline-sm text-headline-sm">Messages</span>
+</a>
+<a class="flex items-center gap-3 text-secondary bg-secondary-fixed p-3 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-headline-sm text-headline-sm">Profile</span>
+</a>
+</nav>
+</aside>
+<!-- Add margin to main content to offset sidebar on desktop -->
+<style>
+        @media (min-width: 768px) {
+            main {
+                margin-left: 256px;
+            }
+        }
+    </style>
+</body></html>

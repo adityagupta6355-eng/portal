@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Verification Center - TradeMatchly</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "inverse-on-surface": "#eff1f3",
+                      "on-primary": "#ffffff",
+                      "background": "#f7f9fb",
+                      "on-secondary-fixed": "#0f0069",
+                      "surface-container": "#eceef0",
+                      "error-container": "#ffdad6",
+                      "tertiary-fixed-dim": "#b7c8e1",
+                      "inverse-primary": "#bec6e0",
+                      "on-tertiary": "#ffffff",
+                      "risk-amber": "#d97706",
+                      "primary-fixed": "#dae2fd",
+                      "verified-emerald": "#059669",
+                      "tertiary-fixed": "#d3e4fe",
+                      "on-surface-variant": "#45464d",
+                      "secondary-container": "#655dfb",
+                      "primary": "#000000",
+                      "on-secondary-fixed-variant": "#3322cc",
+                      "secondary": "#4b41e1",
+                      "in-progress-blue": "#2563eb",
+                      "surface": "#f7f9fb",
+                      "surface-variant": "#e0e3e5",
+                      "on-primary-container": "#7c839b",
+                      "on-tertiary-fixed-variant": "#38485d",
+                      "surface-tint": "#565e74",
+                      "surface-bright": "#f7f9fb",
+                      "error": "#ba1a1a",
+                      "surface-dim": "#d8dadc",
+                      "on-primary-fixed": "#131b2e",
+                      "primary-fixed-dim": "#bec6e0",
+                      "on-primary-fixed-variant": "#3f465c",
+                      "surface-container-lowest": "#ffffff",
+                      "on-surface": "#191c1e",
+                      "tertiary": "#000000",
+                      "risk-red": "#dc2626",
+                      "primary-container": "#131b2e",
+                      "secondary-fixed": "#e2dfff",
+                      "on-tertiary-container": "#75859d",
+                      "on-secondary-container": "#fffbff",
+                      "on-error": "#ffffff",
+                      "surface-border": "#e2e8f0",
+                      "on-tertiary-fixed": "#0b1c30",
+                      "on-background": "#191c1e",
+                      "on-secondary": "#ffffff",
+                      "secondary-fixed-dim": "#c3c0ff",
+                      "inverse-surface": "#2d3133",
+                      "on-error-container": "#93000a",
+                      "tertiary-container": "#0b1c30",
+                      "outline-variant": "#c6c6cd",
+                      "surface-container-low": "#f2f4f6",
+                      "outline": "#76777d",
+                      "surface-container-high": "#e6e8ea",
+                      "surface-container-highest": "#e0e3e5"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "stack-sm": "0.5rem",
+                      "margin-mobile": "1rem",
+                      "stack-lg": "1.5rem",
+                      "gutter-mobile": "0.75rem",
+                      "touch-target": "2.75rem",
+                      "stack-md": "1rem"
+              },
+              "fontFamily": {
+                      "body-sm": [
+                              "Inter"
+                      ],
+                      "label-md": [
+                              "Inter"
+                      ],
+                      "data-mono": [
+                              "JetBrains Mono"
+                      ],
+                      "headline-md": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "headline-lg": [
+                              "Inter"
+                      ],
+                      "headline-sm": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "body-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-md": [
+                              "11px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.06em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "data-mono": [
+                              "13px",
+                              {
+                                      "lineHeight": "18px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-md": [
+                              "22px",
+                              {
+                                      "lineHeight": "28px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg": [
+                              "28px",
+                              {
+                                      "lineHeight": "34px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-sm": [
+                              "18px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-lg": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background min-h-screen text-on-background font-body-md flex flex-col">
+<!-- TopAppBar -->
+<header class="bg-background text-primary docked full-width top-0 bg-background flat no shadows flex justify-between items-center px-margin-mobile h-touch-target w-full z-40 sticky">
+<button aria-label="Go back" class="h-touch-target w-touch-target flex items-center justify-center -ml-2 text-primary scale-95 active:opacity-80 transition-all hover:bg-surface-container-low transition-colors rounded-full">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="text-headline-sm font-headline-sm font-bold text-primary flex-1 text-center truncate pr-touch-target">Verification Center</h1>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 px-margin-mobile pb-24 pt-stack-sm flex flex-col gap-stack-lg">
+<!-- Verification Progress Card -->
+<section class="bg-surface-container-lowest border border-surface-border rounded-xl p-4 flex flex-col gap-stack-md shadow-sm">
+<h2 class="text-label-md font-label-md text-on-surface-variant uppercase">Current Status</h2>
+<div class="flex items-center justify-between text-body-sm font-body-sm text-on-surface-variant">
+<span>Basic</span>
+<span class="font-semibold text-primary">Trade Verified</span>
+<span>Transaction Verified</span>
+</div>
+<!-- Progress Gauge -->
+<div class="w-full h-2 bg-surface-container-high rounded-full flex overflow-hidden">
+<div class="h-full bg-verified-emerald w-3/5 rounded-full"></div>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Step 3 of 5 completed.</p>
+</section>
+<!-- Section: Required for Business Verified -->
+<section class="flex flex-col gap-stack-sm">
+<h3 class="text-label-md font-label-md text-on-surface-variant uppercase px-2">Required for Business Verified</h3>
+<!-- Item 1 -->
+<div class="bg-surface-container-lowest border border-surface-border rounded-lg p-4 flex items-center justify-between min-h-[56px] active:bg-surface-container-low transition-colors">
+<div class="flex flex-col">
+<span class="text-body-md font-body-md font-medium text-on-surface">Business License</span>
+<span class="text-data-mono font-data-mono text-on-surface-variant mt-1">DOC-4921</span>
+</div>
+<div class="bg-verified-emerald/10 text-verified-emerald px-2 py-1 rounded-md flex items-center gap-1 border border-verified-emerald/20">
+<span class="material-symbols-outlined text-[16px]" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-label-md font-label-md uppercase">Approved</span>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="bg-surface-container-lowest border border-surface-border rounded-lg p-4 flex items-center justify-between min-h-[56px] active:bg-surface-container-low transition-colors">
+<div class="flex flex-col">
+<span class="text-body-md font-body-md font-medium text-on-surface">Tax ID (GST/VAT)</span>
+<span class="text-data-mono font-data-mono text-on-surface-variant mt-1">DOC-4922</span>
+</div>
+<div class="bg-verified-emerald/10 text-verified-emerald px-2 py-1 rounded-md flex items-center gap-1 border border-verified-emerald/20">
+<span class="material-symbols-outlined text-[16px]" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-label-md font-label-md uppercase">Approved</span>
+</div>
+</div>
+</section>
+<!-- Section: Action Required for Trade Verified -->
+<section class="flex flex-col gap-stack-sm">
+<h3 class="text-label-md font-label-md text-on-surface-variant uppercase px-2">Action Required for Trade Verified</h3>
+<!-- Item 3 -->
+<div class="bg-surface-container-lowest border border-surface-border rounded-lg p-4 flex items-center justify-between min-h-[56px] active:bg-surface-container-low transition-colors">
+<div class="flex flex-col">
+<span class="text-body-md font-body-md font-medium text-on-surface">Trade License/Export Permit</span>
+<span class="text-data-mono font-data-mono text-on-surface-variant mt-1">DOC-4925</span>
+</div>
+<div class="bg-risk-amber/10 text-risk-amber px-2 py-1 rounded-md flex items-center gap-1 border border-risk-amber/20">
+<span class="material-symbols-outlined text-[16px]" data-icon="pending">pending</span>
+<span class="text-label-md font-label-md uppercase">Under Review</span>
+</div>
+</div>
+<!-- Item 4 -->
+<div class="bg-surface-container-lowest border border-risk-amber/50 rounded-lg p-4 flex flex-col gap-3 min-h-[56px]">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="text-body-md font-body-md font-medium text-on-surface">ISO 22000 Certification</span>
+</div>
+<div class="bg-in-progress-blue/10 text-in-progress-blue px-2 py-1 rounded-md flex items-center gap-1 border border-in-progress-blue/20">
+<span class="material-symbols-outlined text-[16px]" data-icon="error">error</span>
+<span class="text-label-md font-label-md uppercase">Action Required</span>
+</div>
+</div>
+<button class="w-full bg-surface text-in-progress-blue border border-surface-border h-10 rounded-lg flex items-center justify-center gap-2 text-body-md font-body-md font-medium hover:bg-surface-container-low active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[18px]" data-icon="upload">upload</span>
+                    Upload Document
+                </button>
+</div>
+</section>
+<!-- Section: Upcoming / Optional -->
+<section class="flex flex-col gap-stack-sm opacity-70">
+<h3 class="text-label-md font-label-md text-on-surface-variant uppercase px-2">Upcoming / Optional</h3>
+<div class="bg-surface-container-lowest border border-surface-border border-dashed rounded-lg p-4 flex items-center justify-between min-h-[56px]">
+<span class="text-body-md font-body-md text-on-surface-variant">Product Certifications</span>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="chevron_right">chevron_right</span>
+</div>
+<div class="bg-surface-container-lowest border border-surface-border border-dashed rounded-lg p-4 flex items-center justify-between min-h-[56px]">
+<span class="text-body-md font-body-md text-on-surface-variant">Bank Reference Letter</span>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="chevron_right">chevron_right</span>
+</div>
+</section>
+</main>
+<!-- Floating Action Button Container (Fixed at bottom) -->
+<div class="fixed bottom-0 left-0 w-full px-margin-mobile py-4 bg-gradient-to-t from-background via-background to-transparent z-40">
+<button class="w-full h-12 bg-primary text-on-primary rounded-lg flex items-center justify-center gap-2 text-body-md font-body-md font-medium shadow-md active:scale-95 transition-transform hover:bg-inverse-surface">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+            Upload New Document
+        </button>
+</div>
+</body></html>

@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>For Buyers - TradeMatchly</title>
+<!-- Fonts & Icons -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container-lowest": "#ffffff",
+                      "risk-red": "#dc2626",
+                      "on-secondary-container": "#fffbff",
+                      "surface-tint": "#565e74",
+                      "on-primary-fixed": "#131b2e",
+                      "verified-emerald": "#059669",
+                      "on-surface": "#1b1b1d",
+                      "primary-fixed-dim": "#bec6e0",
+                      "tertiary-container": "#271901",
+                      "on-secondary": "#ffffff",
+                      "on-background": "#1b1b1d",
+                      "on-tertiary-container": "#98805d",
+                      "surface-variant": "#e4e2e4",
+                      "on-secondary-fixed-variant": "#3322cc",
+                      "surface-container-highest": "#e4e2e4",
+                      "data-text": "#1e293b",
+                      "primary-container": "#131b2e",
+                      "surface-container-low": "#f6f3f5",
+                      "error": "#ba1a1a",
+                      "on-tertiary-fixed-variant": "#574425",
+                      "secondary-fixed": "#e2dfff",
+                      "on-secondary-fixed": "#0f0069",
+                      "primary-fixed": "#dae2fd",
+                      "on-error-container": "#93000a",
+                      "primary": "#000000",
+                      "outline-variant": "#c6c6cd",
+                      "surface-dim": "#dcd9db",
+                      "on-tertiary": "#ffffff",
+                      "inverse-surface": "#303032",
+                      "risk-amber": "#d97706",
+                      "background": "#fcf8fa",
+                      "on-primary-fixed-variant": "#3f465c",
+                      "tertiary-fixed": "#fcdeb5",
+                      "on-tertiary-fixed": "#271901",
+                      "on-primary": "#ffffff",
+                      "on-error": "#ffffff",
+                      "on-surface-variant": "#45464d",
+                      "surface-bright": "#fcf8fa",
+                      "secondary-fixed-dim": "#c3c0ff",
+                      "tertiary-fixed-dim": "#dec29a",
+                      "inverse-primary": "#bec6e0",
+                      "surface-border": "#e2e8f0",
+                      "error-container": "#ffdad6",
+                      "inverse-on-surface": "#f3f0f2",
+                      "secondary": "#4b41e1",
+                      "tertiary": "#000000",
+                      "secondary-container": "#655dfb",
+                      "outline": "#76777d",
+                      "surface": "#fcf8fa",
+                      "surface-container-high": "#eae7e9",
+                      "in-progress-blue": "#2563eb",
+                      "surface-container": "#f0edef",
+                      "on-primary-container": "#7c839b"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "base": "4px",
+                      "container-padding": "24px",
+                      "section-gap": "32px",
+                      "gutter": "16px",
+                      "table-cell-padding": "12px",
+                      "sidebar-width": "260px"
+              },
+              "fontFamily": {
+                      "body-md": ["Inter"],
+                      "headline-md": ["Inter"],
+                      "label-lg": ["Inter"],
+                      "label-md": ["Inter"],
+                      "data-mono": ["jetbrainsMono"],
+                      "headline-lg": ["Inter"],
+                      "headline-sm": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "display-lg": ["Inter"],
+                      "body-sm": ["Inter"]
+              },
+              "fontSize": {
+                      "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "headline-md": ["22px", {"lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "label-lg": ["14px", {"lineHeight": "20px", "fontWeight": "600"}],
+                      "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                      "data-mono": ["13px", {"lineHeight": "18px", "fontWeight": "500"}],
+                      "headline-lg": ["28px", {"lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-sm": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+                      "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "display-lg": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-sm": ["13px", {"lineHeight": "18px", "fontWeight": "400"}]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        .typing-cursor::after {
+            content: '|';
+            animation: blink 1s step-end infinite;
+        }
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+        .reveal-item {
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+        }
+        .reveal-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md flex h-screen overflow-hidden">
+<!-- Shared Component: SideNavBar -->
+<nav class="bg-primary-container dark:bg-primary-container border-r border-outline-variant fixed left-0 top-0 h-full w-[260px] flex flex-col z-50 overflow-y-auto">
+<!-- Brand Header -->
+<div class="px-6 py-8 flex flex-col gap-2">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-secondary flex items-center justify-center shrink-0">
+<img alt="TradeMatchly Corporate Logo" class="w-5 h-5 object-contain" data-alt="A minimalist abstract corporate logo icon consisting of interlocking geometric shapes in pure white against a vibrant purple background. Professional, modern, and crisp." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZp44dJ_wVY-jlsQMCJJTpZ4yWzJ-cJCCdUxBMdFNKpasIDRP8cnE8mfHCcMzeR87pjHuGK_AkImdDuoWt8hxdCn5hph9r8sGeDm0EDuiJpj2gUVqkmnPWj-thhE5rUEWjIdF0cVVNT3fIZXygUQIKqOMXzOnQdVTS9yQKqjrtFIWr65A_2qbKTP1OLadup4Q4T0b5TxJLgyptWTfbyjvXDz97y2UTatYaJE5SYoI0NZpkTfs1iIrx"/>
+</div>
+<div class="flex flex-col">
+<span class="text-headline-md font-headline-md text-on-primary dark:text-on-primary font-bold tracking-tight">TradeMatchly</span>
+<span class="text-label-md font-label-md text-on-primary-container">Supplier Portal</span>
+</div>
+</div>
+</div>
+<!-- Main Navigation -->
+<div class="flex-1 px-3 flex flex-col gap-1 mt-4">
+<a class="flex items-center gap-3 text-on-primary-container hover:bg-white/5 hover:text-white px-4 py-3 transition-colors rounded" href="#">
+<span class="material-symbols-outlined text-[20px]">dashboard</span>
+<span class="text-body-md font-body-md">Dashboard</span>
+</a>
+<!-- Active State Navigation -->
+<a class="flex items-center gap-3 bg-white/10 text-white border-l-4 border-secondary-container px-4 py-3 opacity-100 transition-opacity rounded-r" href="#">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">handshake</span>
+<span class="text-body-md font-body-md font-medium">Trade Matching</span>
+</a>
+<a class="flex items-center gap-3 text-on-primary-container hover:bg-white/5 hover:text-white px-4 py-3 transition-colors rounded" href="#">
+<span class="material-symbols-outlined text-[20px]">inventory_2</span>
+<span class="text-body-md font-body-md">Inventory</span>
+</a>
+<a class="flex items-center gap-3 text-on-primary-container hover:bg-white/5 hover:text-white px-4 py-3 transition-colors rounded" href="#">
+<span class="material-symbols-outlined text-[20px]">shopping_cart</span>
+<span class="text-body-md font-body-md">Orders</span>
+</a>
+<a class="flex items-center gap-3 text-on-primary-container hover:bg-white/5 hover:text-white px-4 py-3 transition-colors rounded" href="#">
+<span class="material-symbols-outlined text-[20px]">bar_chart</span>
+<span class="text-body-md font-body-md">Analytics</span>
+</a>
+<a class="flex items-center gap-3 text-on-primary-container hover:bg-white/5 hover:text-white px-4 py-3 transition-colors rounded" href="#">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+<span class="text-body-md font-body-md">Settings</span>
+</a>
+</div>
+<!-- Footer Navigation -->
+<div class="p-4 mt-auto border-t border-white/10">
+<div class="flex flex-col gap-1">
+<a class="flex items-center gap-3 text-on-primary-container hover:bg-white/5 hover:text-white px-4 py-3 transition-colors rounded" href="#">
+<span class="material-symbols-outlined text-[20px]">help</span>
+<span class="text-body-md font-body-md">Support</span>
+</a>
+<a class="flex items-center gap-3 text-on-primary-container hover:bg-white/5 hover:text-white px-4 py-3 transition-colors rounded" href="#">
+<span class="material-symbols-outlined text-[20px]">logout</span>
+<span class="text-body-md font-body-md">Logout</span>
+</a>
+</div>
+</div>
+</nav>
+<!-- Shared Component: TopNavBar -->
+<header class="bg-surface-container-lowest dark:bg-surface-container-lowest border-b border-outline-variant fixed top-0 right-0 w-[calc(100%-260px)] shadow-sm flex justify-between items-center px-6 h-16 z-40 ml-[260px]">
+<!-- Left Side: Product Name -->
+<div class="flex items-center gap-6">
+<span class="text-headline-sm font-headline-sm font-bold text-primary dark:text-primary">TradeMatchly Supplier Portal</span>
+<!-- In-App Navigation Links -->
+<nav class="hidden md:flex gap-6 ml-6">
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200 text-label-md font-label-md flex items-center h-16" href="#">Directory</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200 text-label-md font-label-md flex items-center h-16" href="#">Help Center</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200 text-label-md font-label-md flex items-center h-16" href="#">API</a>
+</nav>
+</div>
+<!-- Right Side: Actions & Profile -->
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="w-px h-6 bg-outline-variant mx-2"></div>
+<button class="bg-primary text-on-primary px-4 py-2 h-8 rounded text-label-md font-label-md hover:opacity-90 transition-opacity active:scale-95 duration-100 flex items-center">
+                Save Changes
+            </button>
+<img alt="User Profile Avatar" class="w-8 h-8 rounded-full border border-surface-border object-cover ml-2" data-alt="A professional headshot of a corporate user, smiling subtly. The lighting is studio-quality soft white, highlighting a modern professional attire against a clean, neutral gray background. High resolution and polished." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuVnAOuvpse9R22OJKIxBG-hs-HHmINk0IG-8-y6vnN368WcLlvr4UdYA7sEvVcrUYyAhgUcDiTKhfi3UkHu_M2Lu444FYlHPlSxaTWiikWBP3T6ETlzPF5oMrAkbkooa8M_eB2vTOxgrDpy8feZCCqb0o1kbA5r-ZeTn90cT59KLy_C_Es2qSsasJnIA4zrCzYDnSBjhqwUR5MQmiCHW65fw_4jIQ3lKPhcnA6xWc8_jk89iJHgH9"/>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 ml-[260px] mt-[64px] h-[calc(100vh-64px)] overflow-y-auto bg-surface relative">
+<!-- Atmospheric Background Pattern -->
+<div class="absolute inset-0 pointer-events-none opacity-40 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-primary-fixed/20 via-transparent to-transparent"></div>
+<div class="max-w-[1280px] mx-auto p-container-padding flex flex-col gap-section-gap relative z-10 pb-24">
+<!-- Hero Section -->
+<section class="text-center pt-12 pb-8 flex flex-col items-center gap-6">
+<h1 class="text-display-lg font-display-lg text-primary max-w-3xl leading-tight">
+                    Tell us what you need. <br/>
+<span class="text-secondary">We'll find the right supplier.</span>
+</h1>
+<p class="text-body-lg font-body-lg text-on-surface-variant max-w-2xl">
+                    Skip the endless searches. Our AI-driven sourcing engine interprets your exact requirements and matches you with verified global suppliers in minutes, not weeks.
+                </p>
+<div class="pt-4">
+<button class="bg-primary text-on-primary px-8 py-3 h-10 rounded text-label-lg font-label-lg hover:bg-inverse-surface transition-colors flex items-center gap-2">
+                        Start Sourcing Now
+                        <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</section>
+<!-- Interactive Demo Section (Bento Style) -->
+<section class="bg-surface-container-lowest border border-surface-border rounded-xl shadow-[0_1px_3px_rgba(0,0,0,0.05)] overflow-hidden">
+<div class="border-b border-surface-border bg-surface-container-low px-6 py-4 flex items-center justify-between">
+<h2 class="text-headline-sm font-headline-sm text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">memory</span>
+                        AI Extraction Engine
+                    </h2>
+<span class="text-label-md font-label-md text-on-surface-variant bg-surface-dim px-2 py-1 rounded">Live Demo</span>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2">
+<!-- Left: Natural Language Input -->
+<div class="p-8 border-r border-surface-border flex flex-col bg-surface-bright">
+<label class="text-label-md font-label-md text-on-surface-variant mb-3 flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">chat</span>
+                            Your Request
+                        </label>
+<div class="relative flex-1">
+<div class="absolute -left-3 -top-3 w-8 h-8 rounded-full bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed shadow-sm">
+<span class="material-symbols-outlined text-[16px]">person</span>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant rounded-lg p-5 shadow-sm text-body-lg font-body-lg text-data-text min-h-[160px] leading-relaxed relative ml-2">
+<span class="typing-cursor" id="typing-text"></span>
+</div>
+</div>
+</div>
+<!-- Right: Structured Output -->
+<div class="p-8 bg-surface-container-low flex flex-col">
+<label class="text-label-md font-label-md text-on-surface-variant mb-3 flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]">data_object</span>
+                            Structured Trade Data
+                        </label>
+<div class="bg-surface-container-lowest border border-outline-variant rounded-lg p-5 shadow-sm flex-1 flex flex-col gap-3 font-data-mono text-data-mono">
+<div class="flex items-start justify-between border-b border-surface-border pb-2 reveal-item" id="field-1">
+<span class="text-outline">Product Category</span>
+<span class="text-primary font-medium bg-primary-fixed text-on-primary-fixed px-2 py-0.5 rounded">Industrial Lubricants</span>
+</div>
+<div class="flex items-start justify-between border-b border-surface-border pb-2 reveal-item" id="field-2">
+<span class="text-outline">Specification</span>
+<span class="text-primary text-right">Synthetic, High-temp grade, ISO VG 46</span>
+</div>
+<div class="flex items-start justify-between border-b border-surface-border pb-2 reveal-item" id="field-3">
+<span class="text-outline">Volume / Qty</span>
+<span class="text-primary">10,000 Liters</span>
+</div>
+<div class="flex items-start justify-between border-b border-surface-border pb-2 reveal-item" id="field-4">
+<span class="text-outline">Target Origin</span>
+<div class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[14px]">location_on</span>
+                                    Germany or USA
+                                </div>
+</div>
+<div class="flex items-start justify-between border-b border-surface-border pb-2 reveal-item" id="field-5">
+<span class="text-outline">Certifications Reqd</span>
+<div class="flex gap-1">
+<span class="bg-surface-variant text-on-surface-variant px-1.5 py-0.5 rounded text-[11px]">ISO 9001</span>
+<span class="bg-surface-variant text-on-surface-variant px-1.5 py-0.5 rounded text-[11px]">REACH</span>
+</div>
+</div>
+<div class="flex items-start justify-between mt-auto pt-4 reveal-item" id="field-6">
+<span class="text-outline">Matching Confidence</span>
+<span class="text-verified-emerald font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+                                    98% Data Clarity
+                                </span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Features Grid -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter pt-8">
+<!-- Feature 1 -->
+<div class="bg-surface-container-lowest border border-surface-border rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow group cursor-pointer">
+<div class="w-10 h-10 rounded bg-primary-fixed flex items-center justify-center text-on-primary-fixed mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[20px]">manage_search</span>
+</div>
+<h3 class="text-headline-sm font-headline-sm text-primary mb-2">AI Sourcing</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant leading-relaxed">
+                        Translate complex engineering specs or rough descriptions into standardized procurement queries instantly.
+                    </p>
+</div>
+<!-- Feature 2 -->
+<div class="bg-surface-container-lowest border border-surface-border rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow group cursor-pointer">
+<div class="w-10 h-10 rounded bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[20px]">hub</span>
+</div>
+<h3 class="text-headline-sm font-headline-sm text-primary mb-2">Smart Supplier Matching</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant leading-relaxed">
+                        Our algorithm ranks suppliers based on historical performance, capacity, and geographic proximity.
+                    </p>
+</div>
+<!-- Feature 3 -->
+<div class="bg-surface-container-lowest border border-surface-border rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow group cursor-pointer">
+<div class="w-10 h-10 rounded bg-surface-variant text-verified-emerald flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[20px]">verified_user</span>
+</div>
+<h3 class="text-headline-sm font-headline-sm text-primary mb-2">Supplier Verification</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant leading-relaxed">
+                        Every match comes with comprehensive background checks, compliance data, and financial health scores.
+                    </p>
+</div>
+<!-- Feature 4 -->
+<div class="bg-surface-container-lowest border border-surface-border rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow group cursor-pointer">
+<div class="w-10 h-10 rounded bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[20px]">compare_arrows</span>
+</div>
+<h3 class="text-headline-sm font-headline-sm text-primary mb-2">Quote Comparison</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant leading-relaxed">
+                        Normalize bids across different currencies, incoterms, and unit metrics for true apples-to-apples evaluation.
+                    </p>
+</div>
+<!-- Feature 5 -->
+<div class="bg-surface-container-lowest border border-surface-border rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow group cursor-pointer">
+<div class="w-10 h-10 rounded bg-error-container text-on-error-container flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[20px]">insights</span>
+</div>
+<h3 class="text-headline-sm font-headline-sm text-primary mb-2">AI Quote Analysis</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant leading-relaxed">
+                        Automatically identify hidden costs, risky clauses, or deviations from your standard procurement terms.
+                    </p>
+</div>
+<!-- Feature 6 -->
+<div class="bg-surface-container-lowest border border-surface-border rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow group cursor-pointer">
+<div class="w-10 h-10 rounded bg-surface-container-high text-on-surface flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[20px]">workspaces</span>
+</div>
+<h3 class="text-headline-sm font-headline-sm text-primary mb-2">Deal Workspace</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant leading-relaxed">
+                        Centralize communications, file sharing, and contract redlining in one secure, auditable environment.
+                    </p>
+</div>
+</section>
+<!-- Visual Component: Supplier Comparison Table -->
+<section class="bg-surface-container-lowest border border-surface-border rounded-xl shadow-[0_1px_3px_rgba(0,0,0,0.05)] overflow-hidden mt-8">
+<div class="px-6 py-5 border-b border-surface-border flex justify-between items-center">
+<div>
+<h2 class="text-headline-sm font-headline-sm text-primary">Intelligent Quote Comparison</h2>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1">Evaluating top 4 matched suppliers for "Industrial Lubricants"</p>
+</div>
+<div class="flex gap-2">
+<button class="px-3 py-1.5 border border-outline-variant rounded text-label-md font-label-md text-on-surface-variant hover:bg-surface-container-low transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">filter_list</span>
+                            Filter
+                        </button>
+<button class="px-3 py-1.5 border border-outline-variant rounded text-label-md font-label-md text-on-surface-variant hover:bg-surface-container-low transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">download</span>
+                            Export
+                        </button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low text-label-md font-label-md text-on-surface-variant border-b border-surface-border">
+<th class="p-table-cell-padding font-medium">Supplier Entity</th>
+<th class="p-table-cell-padding font-medium">Match Score</th>
+<th class="p-table-cell-padding font-medium">Trust Rating</th>
+<th class="p-table-cell-padding font-medium">Est. Unit Price (USD)</th>
+<th class="p-table-cell-padding font-medium">Lead Time</th>
+<th class="p-table-cell-padding font-medium">Action</th>
+</tr>
+</thead>
+<tbody class="text-body-sm font-body-sm text-data-text divide-y divide-surface-border">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-lowest/50 transition-colors bg-secondary-fixed/10">
+<td class="p-table-cell-padding">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-surface-variant flex items-center justify-center font-bold text-primary">T</div>
+<div>
+<div class="font-medium text-primary">Teutonic Chem GmbH</div>
+<div class="text-[11px] text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[12px]">location_on</span> Germany</div>
+</div>
+</div>
+</td>
+<td class="p-table-cell-padding">
+<div class="flex items-center gap-2">
+<div class="w-12 h-1.5 bg-surface-variant rounded-full overflow-hidden">
+<div class="w-[96%] h-full bg-secondary"></div>
+</div>
+<span class="text-data-mono font-data-mono font-bold text-secondary">96%</span>
+</div>
+</td>
+<td class="p-table-cell-padding">
+<span class="inline-flex items-center gap-1 bg-verified-emerald/10 text-verified-emerald px-2 py-0.5 rounded text-label-md">
+<span class="material-symbols-outlined text-[14px]">shield</span> A+
+                                    </span>
+</td>
+<td class="p-table-cell-padding text-data-mono font-data-mono">$1.45 / L</td>
+<td class="p-table-cell-padding text-data-mono font-data-mono">14 Days</td>
+<td class="p-table-cell-padding">
+<button class="text-secondary hover:text-on-secondary-fixed-variant text-label-md font-label-md font-medium transition-colors">Review Bid</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-lowest/50 transition-colors">
+<td class="p-table-cell-padding">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-surface-variant flex items-center justify-center font-bold text-primary">A</div>
+<div>
+<div class="font-medium text-primary">Apex Industrial LLC</div>
+<div class="text-[11px] text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[12px]">location_on</span> USA</div>
+</div>
+</div>
+</td>
+<td class="p-table-cell-padding">
+<div class="flex items-center gap-2">
+<div class="w-12 h-1.5 bg-surface-variant rounded-full overflow-hidden">
+<div class="w-[88%] h-full bg-in-progress-blue"></div>
+</div>
+<span class="text-data-mono font-data-mono">88%</span>
+</div>
+</td>
+<td class="p-table-cell-padding">
+<span class="inline-flex items-center gap-1 bg-verified-emerald/10 text-verified-emerald px-2 py-0.5 rounded text-label-md">
+<span class="material-symbols-outlined text-[14px]">shield</span> A
+                                    </span>
+</td>
+<td class="p-table-cell-padding text-data-mono font-data-mono">$1.60 / L</td>
+<td class="p-table-cell-padding text-data-mono font-data-mono">10 Days</td>
+<td class="p-table-cell-padding">
+<button class="text-secondary hover:text-on-secondary-fixed-variant text-label-md font-label-md font-medium transition-colors">Review Bid</button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-lowest/50 transition-colors">
+<td class="p-table-cell-padding">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-surface-variant flex items-center justify-center font-bold text-primary">G</div>
+<div>
+<div class="font-medium text-primary">Global ChemWorks Ltd</div>
+<div class="text-[11px] text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[12px]">location_on</span> UK</div>
+</div>
+</div>
+</td>
+<td class="p-table-cell-padding">
+<div class="flex items-center gap-2">
+<div class="w-12 h-1.5 bg-surface-variant rounded-full overflow-hidden">
+<div class="w-[82%] h-full bg-in-progress-blue"></div>
+</div>
+<span class="text-data-mono font-data-mono">82%</span>
+</div>
+</td>
+<td class="p-table-cell-padding">
+<span class="inline-flex items-center gap-1 bg-surface-variant text-on-surface-variant px-2 py-0.5 rounded text-label-md">
+<span class="material-symbols-outlined text-[14px]">remove_moderator</span> B+
+                                    </span>
+</td>
+<td class="p-table-cell-padding text-data-mono font-data-mono">$1.35 / L</td>
+<td class="p-table-cell-padding text-data-mono font-data-mono">21 Days</td>
+<td class="p-table-cell-padding">
+<button class="text-secondary hover:text-on-secondary-fixed-variant text-label-md font-label-md font-medium transition-colors">Review Bid</button>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container-lowest/50 transition-colors opacity-70">
+<td class="p-table-cell-padding">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-surface-variant flex items-center justify-center font-bold text-primary">O</div>
+<div>
+<div class="font-medium text-primary flex items-center gap-2">
+                                                Omni Supply
+                                                <span class="bg-risk-amber/10 text-risk-amber text-[10px] px-1 rounded border border-risk-amber/20">Missing Certs</span>
+</div>
+<div class="text-[11px] text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[12px]">location_on</span> Poland</div>
+</div>
+</div>
+</td>
+<td class="p-table-cell-padding">
+<div class="flex items-center gap-2">
+<div class="w-12 h-1.5 bg-surface-variant rounded-full overflow-hidden">
+<div class="w-[65%] h-full bg-risk-amber"></div>
+</div>
+<span class="text-data-mono font-data-mono">65%</span>
+</div>
+</td>
+<td class="p-table-cell-padding">
+<span class="inline-flex items-center gap-1 bg-surface-variant text-on-surface-variant px-2 py-0.5 rounded text-label-md">
+<span class="material-symbols-outlined text-[14px]">warning</span> C
+                                    </span>
+</td>
+<td class="p-table-cell-padding text-data-mono font-data-mono">$1.20 / L</td>
+<td class="p-table-cell-padding text-data-mono font-data-mono">30 Days</td>
+<td class="p-table-cell-padding">
+<button class="text-outline hover:text-primary text-label-md font-label-md font-medium transition-colors">Review Bid</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</div>
+</main>
+<script>
+        // Simple JS for the "AI Extraction" typing effect
+        const textToType = "We require 10,000 liters of synthetic industrial lubricants, specifically high-temperature grade ISO VG 46. Sourcing preference is from manufacturers in Germany or the USA. Must possess active ISO 9001 and REACH certifications.";
+        const typingElement = document.getElementById('typing-text');
+        const revealItems = document.querySelectorAll('.reveal-item');
+        
+        let i = 0;
+        function typeWriter() {
+            if (i < textToType.length) {
+                typingElement.innerHTML += textToType.charAt(i);
+                i++;
+                setTimeout(typeWriter, 30); // typing speed
+            } else {
+                // Remove cursor blink class after typing
+                typingElement.classList.remove('typing-cursor');
+                // Trigger extraction reveals
+                triggerExtraction();
+            }
+        }
+
+        function triggerExtraction() {
+            let delay = 500;
+            revealItems.forEach((item, index) => {
+                setTimeout(() => {
+                    item.classList.add('visible');
+                }, delay + (index * 400)); // stagger reveal
+            });
+        }
+
+        // Start typing after a short delay
+        setTimeout(typeWriter, 1000);
+    </script>
+</body></html>

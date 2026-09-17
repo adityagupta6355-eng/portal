@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Opportunity Detail</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-container": "#fffbff",
+                        "tertiary-fixed": "#d3e4fe",
+                        "background": "#f7f9fb",
+                        "inverse-primary": "#bec6e0",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "secondary": "#4b41e1",
+                        "on-tertiary-fixed-variant": "#38485d",
+                        "in-progress-blue": "#2563eb",
+                        "primary": "#000000",
+                        "outline": "#76777d",
+                        "surface-bright": "#f7f9fb",
+                        "primary-fixed": "#dae2fd",
+                        "inverse-surface": "#2d3133",
+                        "surface-border": "#e2e8f0",
+                        "on-error-container": "#93000a",
+                        "risk-red": "#dc2626",
+                        "on-error": "#ffffff",
+                        "surface-container": "#eceef0",
+                        "on-secondary-fixed-variant": "#3322cc",
+                        "surface-dim": "#d8dadc",
+                        "on-primary-fixed": "#131b2e",
+                        "risk-amber": "#d97706",
+                        "surface-variant": "#e0e3e5",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-highest": "#e0e3e5",
+                        "error": "#ba1a1a",
+                        "on-surface-variant": "#45464d",
+                        "on-tertiary-fixed": "#0b1c30",
+                        "secondary-container": "#655dfb",
+                        "secondary-fixed-dim": "#c3c0ff",
+                        "primary-container": "#131b2e",
+                        "tertiary-container": "#0b1c30",
+                        "on-primary-container": "#7c839b",
+                        "surface-container-low": "#f2f4f6",
+                        "tertiary": "#000000",
+                        "outline-variant": "#c6c6cd",
+                        "on-tertiary-container": "#75859d",
+                        "secondary-fixed": "#e2dfff",
+                        "error-container": "#ffdad6",
+                        "on-tertiary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "on-surface": "#191c1e",
+                        "on-background": "#191c1e",
+                        "verified-emerald": "#059669",
+                        "surface-container-high": "#e6e8ea",
+                        "inverse-on-surface": "#eff1f3",
+                        "surface-tint": "#565e74",
+                        "tertiary-fixed-dim": "#b7c8e1",
+                        "on-secondary-fixed": "#0f0069",
+                        "surface": "#f7f9fb",
+                        "primary-fixed-dim": "#bec6e0"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter-mobile": "0.75rem",
+                        "margin-mobile": "1rem",
+                        "touch-target": "2.75rem",
+                        "stack-md": "1rem",
+                        "stack-sm": "0.5rem",
+                        "stack-lg": "1.5rem"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "label-md": ["Inter"],
+                        "data-mono": ["JetBrains Mono"],
+                        "headline-sm": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-md": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "headline-lg": ["28px", { "lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+                        "label-md": ["11px", { "lineHeight": "16px", "letterSpacing": "0.06em", "fontWeight": "700" }],
+                        "data-mono": ["13px", { "lineHeight": "18px", "fontWeight": "500" }],
+                        "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-fill {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background antialiased min-h-screen pb-[100px] pt-[80px]">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-40 bg-background dark:bg-background flex justify-between items-center px-margin-mobile h-touch-target scale-95 active:opacity-80 transition-all">
+<!-- Leading: Avatar -->
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full overflow-hidden bg-surface-container-high border border-surface-border shrink-0">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of an executive in a modern office environment, high quality, corporate lighting, soft shadows, sharp focus on face." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSj_IcEr5txwlKj5LkBBrJw7eHBUaT7i29OCnk2VUf59NC2gxCEF7BTpazC6JNZQmY-EN510j_lpaNXrEvysFjjjxywqc03YrQX63ucd0RGUviNOIcwIuL9E3ahsp6cK-OIydq3mL6Y9SYCk41kx3OEfKIbAUdWLr3HxQdWk6eXGR8TpJymND-LS6vrGVUiuyjyb8AMsNiWGCo8Y3EQ2cDTGSJ7qt2lCQophV5YFGT52oi09Vqf4lO"/>
+</div>
+</div>
+<!-- Headline -->
+<div class="absolute left-1/2 -translate-x-1/2">
+<span class="text-headline-md font-headline-md font-bold text-primary dark:text-on-background tracking-tight">GlobalTrade</span>
+</div>
+<!-- Trailing: Icon -->
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-low transition-colors text-on-surface-variant dark:text-on-surface-variant">
+<span class="material-symbols-outlined text-[24px]">notifications</span>
+</button>
+</header>
+<!-- Main Content -->
+<main class="px-margin-mobile space-y-stack-lg max-w-2xl mx-auto">
+<!-- Hero Title & Context -->
+<div class="space-y-2 pt-2">
+<div class="flex items-center gap-2 text-label-md font-label-md text-secondary uppercase tracking-widest">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+<span>Netherlands Buyer</span>
+</div>
+<h1 class="text-headline-lg font-headline-lg text-primary leading-tight">500 MT Turmeric Powder</h1>
+<p class="text-body-md font-body-md text-on-surface-variant">RFQ ID: <span class="font-data-mono text-data-mono text-primary">TRQ-8992-NL</span></p>
+</div>
+<!-- Match Score Bento Card -->
+<div class="bg-surface-container-lowest rounded-xl border border-surface-border p-5 shadow-[0_4px_24px_rgba(0,0,0,0.03)] relative overflow-hidden">
+<!-- Decorative background element -->
+<div class="absolute -right-10 -top-10 w-32 h-32 bg-secondary/5 rounded-full blur-2xl pointer-events-none"></div>
+<div class="flex flex-col gap-6">
+<!-- Overall Score -->
+<div class="flex items-end justify-between border-b border-surface-border pb-4">
+<div>
+<h2 class="text-label-md font-label-md text-on-surface-variant uppercase tracking-wider mb-1">Compatibility Score</h2>
+<div class="flex items-baseline gap-2">
+<span class="text-[42px] leading-none font-bold text-primary tracking-tighter">94%</span>
+<span class="text-body-md font-body-md text-verified-emerald font-medium flex items-center">
+<span class="material-symbols-outlined text-[16px] mr-1">trending_up</span> High Match
+                            </span>
+</div>
+</div>
+<div class="w-12 h-12 rounded-full bg-verified-emerald/10 flex items-center justify-center text-verified-emerald">
+<span class="material-symbols-outlined icon-fill text-[28px]">check_circle</span>
+</div>
+</div>
+<!-- Breakdown Bars -->
+<div class="space-y-4">
+<!-- Product Bar -->
+<div>
+<div class="flex justify-between text-body-sm font-body-sm mb-1.5">
+<span class="text-on-surface font-medium">Product Specification</span>
+<span class="text-data-mono font-data-mono">98%</span>
+</div>
+<div class="h-2 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-verified-emerald rounded-full" style="width: 98%;"></div>
+</div>
+</div>
+<!-- Quantity Bar -->
+<div>
+<div class="flex justify-between text-body-sm font-body-sm mb-1.5">
+<span class="text-on-surface font-medium">Volume Capability</span>
+<span class="text-data-mono font-data-mono">95%</span>
+</div>
+<div class="h-2 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-in-progress-blue rounded-full" style="width: 95%;"></div>
+</div>
+</div>
+<!-- Relevance Bar -->
+<div>
+<div class="flex justify-between text-body-sm font-body-sm mb-1.5">
+<span class="text-on-surface font-medium">Trade Relevance</span>
+<span class="text-data-mono font-data-mono">96%</span>
+</div>
+<div class="h-2 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-secondary rounded-full" style="width: 96%;"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Requirements Bento Grid -->
+<div>
+<h3 class="text-headline-sm font-headline-sm text-primary mb-4">Core Requirements</h3>
+<div class="grid grid-cols-2 gap-3">
+<!-- Incoterms -->
+<div class="bg-surface-container-lowest border border-surface-border rounded-lg p-4 flex flex-col justify-between">
+<span class="material-symbols-outlined text-outline mb-2">directions_boat</span>
+<div>
+<p class="text-label-md font-label-md text-on-surface-variant uppercase">Incoterms</p>
+<p class="text-body-lg font-body-lg text-primary font-medium mt-1">CIF</p>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-0.5">Rotterdam Port</p>
+</div>
+</div>
+<!-- Packaging -->
+<div class="bg-surface-container-lowest border border-surface-border rounded-lg p-4 flex flex-col justify-between">
+<span class="material-symbols-outlined text-outline mb-2">inventory_2</span>
+<div>
+<p class="text-label-md font-label-md text-on-surface-variant uppercase">Packaging</p>
+<p class="text-body-lg font-body-lg text-primary font-medium mt-1">25kg Bags</p>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-0.5">Multi-wall paper</p>
+</div>
+</div>
+<!-- Certifications (Spans full width) -->
+<div class="col-span-2 bg-surface-container-lowest border border-surface-border rounded-lg p-4 flex items-center justify-between">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-outline mt-0.5">verified</span>
+<div>
+<p class="text-label-md font-label-md text-on-surface-variant uppercase">Required Certifications</p>
+<div class="flex flex-wrap gap-2 mt-2">
+<span class="px-2 py-1 bg-surface-container-high text-on-surface text-body-sm font-body-sm rounded-md font-medium">Organic EU</span>
+<span class="px-2 py-1 bg-surface-container-high text-on-surface text-body-sm font-body-sm rounded-md font-medium">ISO 22000</span>
+<span class="px-2 py-1 bg-surface-container-high text-on-surface text-body-sm font-body-sm rounded-md font-medium">HACCP</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Buyer Profile -->
+<div class="bg-surface-container-low rounded-xl p-4 border border-surface-border">
+<h3 class="text-label-md font-label-md text-on-surface-variant uppercase tracking-wider mb-4">Buyer Intelligence</h3>
+<div class="flex items-center gap-4">
+<div class="w-14 h-14 bg-surface-container-lowest rounded-lg border border-surface-border flex items-center justify-center shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[28px] text-primary">domain</span>
+</div>
+<div class="flex-1">
+<h4 class="text-body-lg font-body-lg font-medium text-primary flex items-center gap-1">
+                        Dutch Spice Imports B.V.
+                        <span class="material-symbols-outlined icon-fill text-[16px] text-verified-emerald ml-1" title="Verified Buyer">verified</span>
+</h4>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1 flex items-center gap-2">
+<span class="flex items-center text-risk-amber"><span class="material-symbols-outlined icon-fill text-[14px] mr-0.5">star</span> 4.9 Rating</span>
+<span>•</span>
+<span>Member since 2018</span>
+</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Fixed Bottom Action Bar -->
+<div class="fixed bottom-0 w-full z-50 glass-panel border-t border-surface-border px-margin-mobile py-4 pb-6">
+<button class="w-full bg-secondary hover:bg-secondary-container transition-colors text-on-secondary rounded-lg h-touch-target flex items-center justify-center gap-2 tap-highlight-transparent active:scale-[0.98]">
+<span class="text-label-md font-label-md uppercase tracking-wider">Respond to RFQ</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</body></html>

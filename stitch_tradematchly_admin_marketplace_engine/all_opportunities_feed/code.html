@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TradeMatchly Supplier - All Opportunities</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-surface": "#2d3133",
+                        "on-tertiary-fixed-variant": "#38485d",
+                        "surface-container-high": "#e6e8ea",
+                        "surface-container-highest": "#e0e3e5",
+                        "outline": "#76777d",
+                        "on-tertiary-fixed": "#0b1c30",
+                        "error-container": "#ffdad6",
+                        "surface": "#f7f9fb",
+                        "on-primary": "#ffffff",
+                        "inverse-primary": "#bec6e0",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "background": "#f7f9fb",
+                        "risk-amber": "#d97706",
+                        "tertiary": "#000000",
+                        "on-surface-variant": "#45464d",
+                        "surface-container": "#eceef0",
+                        "in-progress-blue": "#2563eb",
+                        "surface-border": "#e2e8f0",
+                        "surface-bright": "#f7f9fb",
+                        "on-error": "#ffffff",
+                        "inverse-on-surface": "#eff1f3",
+                        "tertiary-fixed": "#d3e4fe",
+                        "tertiary-fixed-dim": "#b7c8e1",
+                        "primary": "#000000",
+                        "primary-fixed-dim": "#bec6e0",
+                        "surface-container-lowest": "#ffffff",
+                        "verified-emerald": "#059669",
+                        "on-surface": "#191c1e",
+                        "on-tertiary-container": "#75859d",
+                        "secondary-container": "#655dfb",
+                        "on-error-container": "#93000a",
+                        "surface-variant": "#e0e3e5",
+                        "primary-fixed": "#dae2fd",
+                        "on-primary-fixed": "#131b2e",
+                        "error": "#ba1a1a",
+                        "secondary": "#4b41e1",
+                        "on-secondary-fixed": "#0f0069",
+                        "on-primary-container": "#7c839b",
+                        "surface-container-low": "#f2f4f6",
+                        "on-secondary-container": "#fffbff",
+                        "on-secondary-fixed-variant": "#3322cc",
+                        "surface-dim": "#d8dadc",
+                        "secondary-fixed": "#e2dfff",
+                        "surface-tint": "#565e74",
+                        "primary-container": "#131b2e",
+                        "secondary-fixed-dim": "#c3c0ff",
+                        "outline-variant": "#c6c6cd",
+                        "on-background": "#191c1e",
+                        "tertiary-container": "#0b1c30",
+                        "risk-red": "#dc2626",
+                        "on-secondary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-sm": "0.5rem",
+                        "gutter-mobile": "0.75rem",
+                        "margin-mobile": "1rem",
+                        "stack-lg": "1.5rem",
+                        "touch-target": "2.75rem",
+                        "stack-md": "1rem"
+                    },
+                    "fontFamily": {
+                        "data-mono": ["JetBrains Mono"],
+                        "headline-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "body-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "data-mono": ["13px", { "lineHeight": "18px", "fontWeight": "500" }],
+                        "headline-lg": ["28px", { "lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-md": ["11px", { "lineHeight": "16px", "letterSpacing": "0.06em", "fontWeight": "700" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-md": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md antialiased pb-24 pt-16">
+<!-- TopAppBar (From JSON) -->
+<header class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-margin-mobile h-touch-target bg-surface text-primary font-headline-sm text-headline-sm border-b border-surface-border">
+<button class="h-touch-target w-touch-target flex items-center justify-center -ml-2 text-primary hover:bg-surface-container-low rounded-full transition-colors duration-200">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="font-headline-sm text-headline-sm truncate flex-1 text-center font-bold">New Opportunities</h1>
+<button class="h-touch-target w-touch-target flex items-center justify-center -mr-2 text-primary hover:bg-surface-container-low rounded-full transition-colors duration-200">
+<span class="material-symbols-outlined">search</span>
+</button>
+</header>
+<main class="w-full max-w-md mx-auto">
+<!-- Categories Tab Bar -->
+<div class="sticky top-16 z-40 bg-surface/95 backdrop-blur-sm border-b border-surface-border py-2 px-margin-mobile overflow-x-auto whitespace-nowrap hide-scrollbar">
+<div class="flex gap-stack-sm">
+<button class="px-4 py-2 rounded-full bg-primary text-on-primary font-label-md text-label-md transition-colors">Recommended</button>
+<button class="px-4 py-2 rounded-full border border-outline-variant text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-low transition-colors">New</button>
+<button class="px-4 py-2 rounded-full border border-outline-variant text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-low transition-colors">Saved</button>
+<button class="px-4 py-2 rounded-full border border-outline-variant text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-low transition-colors">Expiring</button>
+</div>
+</div>
+<!-- Filter Chips -->
+<div class="px-margin-mobile py-stack-md flex gap-stack-sm overflow-x-auto hide-scrollbar">
+<button class="flex items-center gap-1 px-3 py-1.5 rounded bg-surface-container-low text-on-surface font-body-sm text-body-sm border border-surface-border">
+<span class="material-symbols-outlined text-[16px]">filter_list</span>
+                Filters
+            </button>
+<button class="flex items-center gap-1 px-3 py-1.5 rounded bg-surface-container-low text-on-surface font-body-sm text-body-sm border border-surface-border">
+                Product Type <span class="material-symbols-outlined text-[16px]">arrow_drop_down</span>
+</button>
+<button class="flex items-center gap-1 px-3 py-1.5 rounded bg-tertiary-fixed text-on-tertiary-fixed font-body-sm text-body-sm border border-tertiary-fixed-dim">
+                Score &gt; 90% <span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</div>
+<!-- Opportunity Cards List -->
+<div class="px-margin-mobile space-y-stack-md pb-stack-lg">
+<!-- Card 1 -->
+<div class="bg-surface border border-surface-border rounded-lg p-4 shadow-sm relative overflow-hidden group hover:shadow-md transition-shadow active:shadow-inner">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-primary">Premium Basmati Rice</h2>
+<div class="flex items-center gap-1 text-verified-emerald mt-1 bg-verified-emerald/10 px-2 py-0.5 rounded-sm inline-flex">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+<span class="font-label-md text-label-md">Verified Buyer</span>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-headline-md text-headline-md text-verified-emerald">93%</span>
+<span class="font-label-md text-label-md text-on-surface-variant">Match</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-y-2 mt-4 text-body-sm">
+<div>
+<p class="text-on-surface-variant font-label-md">Req Volume</p>
+<p class="font-data-mono text-data-mono text-on-surface mt-0.5">500 MT / Month</p>
+</div>
+<div>
+<p class="text-on-surface-variant font-label-md">Destination</p>
+<p class="font-body-md text-body-md text-on-surface mt-0.5">Dubai, UAE</p>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-surface-border flex justify-between items-center text-secondary hover:text-secondary-container transition-colors">
+<span class="font-label-md text-label-md uppercase">View Details</span>
+<span class="material-symbols-outlined">chevron_right</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface border border-surface-border rounded-lg p-4 shadow-sm relative overflow-hidden group hover:shadow-md transition-shadow active:shadow-inner">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-primary">Organic Soybeans</h2>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-headline-md text-headline-md text-in-progress-blue">88%</span>
+<span class="font-label-md text-label-md text-on-surface-variant">Match</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-y-2 mt-4 text-body-sm">
+<div>
+<p class="text-on-surface-variant font-label-md">Req Volume</p>
+<p class="font-data-mono text-data-mono text-on-surface mt-0.5">250 MT / One-time</p>
+</div>
+<div>
+<p class="text-on-surface-variant font-label-md">Destination</p>
+<p class="font-body-md text-body-md text-on-surface mt-0.5">Rotterdam, NLD</p>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-surface-border flex justify-between items-center text-secondary hover:text-secondary-container transition-colors">
+<span class="font-label-md text-label-md uppercase">View Details</span>
+<span class="material-symbols-outlined">chevron_right</span>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface border border-surface-border rounded-lg p-4 shadow-sm relative overflow-hidden group hover:shadow-md transition-shadow active:shadow-inner">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-primary">Turmeric Powder</h2>
+<div class="flex items-center gap-1 text-verified-emerald mt-1 bg-verified-emerald/10 px-2 py-0.5 rounded-sm inline-flex">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+<span class="font-label-md text-label-md">Verified Buyer</span>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-headline-md text-headline-md text-verified-emerald">95%</span>
+<span class="font-label-md text-label-md text-on-surface-variant">Match</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-y-2 mt-4 text-body-sm">
+<div>
+<p class="text-on-surface-variant font-label-md">Req Volume</p>
+<p class="font-data-mono text-data-mono text-on-surface mt-0.5">50 MT / Month</p>
+</div>
+<div>
+<p class="text-on-surface-variant font-label-md">Destination</p>
+<p class="font-body-md text-body-md text-on-surface mt-0.5">London, UK</p>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-surface-border flex justify-between items-center text-secondary hover:text-secondary-container transition-colors">
+<span class="font-label-md text-label-md uppercase">View Details</span>
+<span class="material-symbols-outlined">chevron_right</span>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="bg-surface border border-surface-border rounded-lg p-4 shadow-sm relative overflow-hidden group hover:shadow-md transition-shadow active:shadow-inner">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-primary">Yellow Maize</h2>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-headline-md text-headline-md text-on-primary-container">82%</span>
+<span class="font-label-md text-label-md text-on-surface-variant">Match</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-y-2 mt-4 text-body-sm">
+<div>
+<p class="text-on-surface-variant font-label-md">Req Volume</p>
+<p class="font-data-mono text-data-mono text-on-surface mt-0.5">1000 MT / Qtr</p>
+</div>
+<div>
+<p class="text-on-surface-variant font-label-md">Destination</p>
+<p class="font-body-md text-body-md text-on-surface mt-0.5">Mumbai, India</p>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-surface-border flex justify-between items-center text-secondary hover:text-secondary-container transition-colors">
+<span class="font-label-md text-label-md uppercase">View Details</span>
+<span class="material-symbols-outlined">chevron_right</span>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (From JSON) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 bg-surface px-margin-mobile border-t border-surface-border pb-safe">
+<!-- Home (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant w-16 h-full hover:bg-surface-container-low transition-colors duration-200" href="#">
+<span class="material-symbols-outlined mb-1">home</span>
+<span class="font-label-md text-label-md">Home</span>
+</a>
+<!-- Opps (Active - since we are viewing New Opportunities) -->
+<a class="flex flex-col items-center justify-center text-secondary font-bold w-16 h-full scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">handshake</span>
+<span class="font-label-md text-label-md">Opps</span>
+</a>
+<!-- RFQs (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant w-16 h-full hover:bg-surface-container-low transition-colors duration-200" href="#">
+<span class="material-symbols-outlined mb-1">request_quote</span>
+<span class="font-label-md text-label-md">RFQs</span>
+</a>
+<!-- Messages (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant w-16 h-full hover:bg-surface-container-low transition-colors duration-200" href="#">
+<span class="material-symbols-outlined mb-1">chat_bubble</span>
+<span class="font-label-md text-label-md">Messages</span>
+</a>
+<!-- Profile (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant w-16 h-full hover:bg-surface-container-low transition-colors duration-200" href="#">
+<span class="material-symbols-outlined mb-1">person</span>
+<span class="font-label-md text-label-md">Profile</span>
+</a>
+</nav>
+<style>
+        /* Utility for hiding scrollbar but allowing scrolling */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        /* Safe area handling for iOS */
+        @supports (padding-bottom: env(safe-area-inset-bottom)) {
+            .pb-safe {
+                padding-bottom: env(safe-area-inset-bottom);
+            }
+        }
+    </style>
+</body></html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Resources - GlobalTrade B2B</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed": "#e2dfff",
+                        "surface": "#fcf8fa",
+                        "surface-container": "#f0edef",
+                        "surface-container-lowest": "#ffffff",
+                        "background": "#fcf8fa",
+                        "surface-container-highest": "#e4e2e4",
+                        "primary": "#000000",
+                        "surface-tint": "#565e74",
+                        "surface-container-low": "#f6f3f5",
+                        "inverse-on-surface": "#f3f0f2",
+                        "on-secondary-fixed": "#0f0069",
+                        "on-surface-variant": "#45464d",
+                        "tertiary-fixed-dim": "#dec29a",
+                        "data-text": "#1e293b",
+                        "on-background": "#1b1b1d",
+                        "inverse-surface": "#303032",
+                        "primary-fixed": "#dae2fd",
+                        "tertiary": "#000000",
+                        "inverse-primary": "#bec6e0",
+                        "on-tertiary-fixed-variant": "#574425",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-fixed": "#271901",
+                        "on-secondary": "#ffffff",
+                        "outline": "#76777d",
+                        "outline-variant": "#c6c6cd",
+                        "on-error-container": "#93000a",
+                        "error-container": "#ffdad6",
+                        "on-secondary-container": "#fffbff",
+                        "on-tertiary-container": "#98805d",
+                        "risk-red": "#dc2626",
+                        "surface-border": "#e2e8f0",
+                        "on-surface": "#1b1b1d",
+                        "verified-emerald": "#059669",
+                        "surface-container-high": "#eae7e9",
+                        "on-primary-container": "#7c839b",
+                        "on-primary-fixed": "#131b2e",
+                        "tertiary-container": "#271901",
+                        "surface-dim": "#dcd9db",
+                        "tertiary-fixed": "#fcdeb5",
+                        "risk-amber": "#d97706",
+                        "in-progress-blue": "#2563eb",
+                        "primary-container": "#131b2e",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "on-secondary-fixed-variant": "#3322cc",
+                        "surface-bright": "#fcf8fa",
+                        "on-primary": "#ffffff",
+                        "secondary-container": "#655dfb",
+                        "secondary-fixed-dim": "#c3c0ff",
+                        "secondary": "#4b41e1",
+                        "error": "#ba1a1a",
+                        "surface-variant": "#e4e2e4",
+                        "on-error": "#ffffff",
+                        "primary-fixed-dim": "#bec6e0"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "4px",
+                        "gutter": "16px",
+                        "sidebar-width": "260px",
+                        "table-cell-padding": "12px",
+                        "section-gap": "32px",
+                        "container-padding": "24px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "label-lg": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "data-mono": ["jetbrainsMono"],
+                        "display-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+                        "label-lg": ["14px", { "lineHeight": "20px", "fontWeight": "600" }],
+                        "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+                        "data-mono": ["13px", { "lineHeight": "18px", "fontWeight": "500" }],
+                        "display-lg": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-md": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg": ["28px", { "lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-fill {
+            font-variation-settings: 'FILL' 1;
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen flex flex-col pt-16">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-inverse-surface/80 backdrop-blur-md border-b border-outline-variant/30 dark:border-outline/20 shadow-sm transition-all duration-200 ease-in-out">
+<div class="max-w-[1440px] mx-auto px-gutter flex justify-between items-center h-16">
+<div class="flex items-center gap-8">
+<a class="font-headline-sm text-headline-sm font-bold text-primary dark:text-primary-fixed" href="#">
+                    GlobalTrade B2B
+                </a>
+<div class="hidden md:flex gap-6">
+<a class="text-on-surface-variant dark:text-on-secondary-fixed-variant hover:text-primary transition-colors font-label-lg text-label-lg hover:opacity-80 transition-all" href="#">Platform</a>
+<a class="text-on-surface-variant dark:text-on-secondary-fixed-variant hover:text-primary transition-colors font-label-lg text-label-lg hover:opacity-80 transition-all" href="#">For Buyers</a>
+<a class="text-on-surface-variant dark:text-on-secondary-fixed-variant hover:text-primary transition-colors font-label-lg text-label-lg hover:opacity-80 transition-all" href="#">For Suppliers</a>
+<a class="text-on-surface-variant dark:text-on-secondary-fixed-variant hover:text-primary transition-colors font-label-lg text-label-lg hover:opacity-80 transition-all" href="#">Intelligence</a>
+<a class="text-secondary dark:text-secondary-fixed-dim border-b-2 border-secondary pb-1 font-label-lg text-label-lg hover:opacity-80 transition-all" href="#">Resources</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors">Sign In</button>
+<button class="bg-[#0f172a] text-white px-4 py-2 rounded font-label-lg text-label-lg hover:bg-opacity-90 transition-colors h-10 flex items-center justify-center">Get Started</button>
+</div>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="flex-grow">
+<!-- Hero Section -->
+<section class="max-w-[1152px] mx-auto px-container-padding py-16 flex flex-col items-center text-center">
+<h1 class="font-display-lg text-display-lg text-[#0f172a] mb-6">Global Trade Resources</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mb-10">Expert insights, comprehensive guides, and the latest intelligence to optimize your global supply chain and B2B operations.</p>
+<div class="w-full max-w-2xl relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full h-[56px] pl-12 pr-4 rounded bg-surface-container-lowest border border-surface-border focus:border-secondary focus:ring-2 focus:ring-secondary/20 font-body-md text-body-md text-on-surface placeholder-on-surface-variant outline-none transition-all shadow-[0_1px_3px_rgba(0,0,0,0.05)]" placeholder="Search guides, articles, and documentation" type="text"/>
+</div>
+</section>
+<!-- Featured Resources (Bento Grid) -->
+<section class="max-w-[1152px] mx-auto px-container-padding py-section-gap">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Sourcing Guides -->
+<div class="md:col-span-2 bg-surface-container-lowest rounded-xl border border-surface-border p-8 shadow-[0_1px_3px_rgba(0,0,0,0.05)] flex flex-col justify-between relative overflow-hidden group cursor-pointer hover:shadow-[0_10px_15px_rgba(0,0,0,0.1)] transition-all duration-300">
+<div class="absolute inset-0 bg-gradient-to-br from-surface-container-lowest via-surface-container-lowest to-surface-container-low z-0"></div>
+<div class="relative z-10 flex flex-col h-full">
+<div class="w-12 h-12 bg-secondary/10 rounded flex items-center justify-center mb-6 text-secondary">
+<span class="material-symbols-outlined">explore</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-[#0f172a] mb-2">Sourcing Guides</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 max-w-md">Comprehensive blueprints for identifying, evaluating, and securing high-quality international suppliers across major industrial sectors.</p>
+<div class="mt-auto flex items-center text-secondary font-label-lg text-label-lg group-hover:underline">
+                            Explore guides <span class="material-symbols-outlined ml-1 text-[18px]">arrow_forward</span>
+</div>
+</div>
+</div>
+<!-- Import/Export Handbooks -->
+<div class="bg-[#0f172a] text-white rounded-xl border border-[#1e293b] p-8 shadow-[0_1px_3px_rgba(0,0,0,0.05)] flex flex-col relative overflow-hidden group cursor-pointer hover:shadow-[0_10px_15px_rgba(0,0,0,0.2)] transition-all duration-300">
+<div class="absolute top-0 right-0 w-32 h-32 bg-secondary/20 rounded-bl-full blur-2xl z-0"></div>
+<div class="relative z-10 flex flex-col h-full">
+<div class="w-10 h-10 bg-white/10 rounded flex items-center justify-center mb-4 text-white">
+<span class="material-symbols-outlined">menu_book</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-2">Import/Export Handbooks</h3>
+<p class="font-body-sm text-body-sm text-white/70 mb-6">Essential documentation frameworks and procedural checklists for cross-border logistics.</p>
+<div class="mt-auto flex items-center text-white font-label-lg text-label-lg group-hover:underline">
+                            View handbooks <span class="material-symbols-outlined ml-1 text-[18px]">arrow_forward</span>
+</div>
+</div>
+</div>
+<!-- Supplier Verification -->
+<div class="bg-surface-container-lowest rounded-xl border border-surface-border p-8 shadow-[0_1px_3px_rgba(0,0,0,0.05)] flex flex-col relative overflow-hidden group cursor-pointer hover:shadow-[0_10px_15px_rgba(0,0,0,0.1)] transition-all duration-300">
+<div class="relative z-10 flex flex-col h-full">
+<div class="w-10 h-10 bg-verified-emerald/10 rounded flex items-center justify-center mb-4 text-verified-emerald">
+<span class="material-symbols-outlined">verified</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-[#0f172a] mb-2">Supplier Verification</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-6">Protocols for conducting rigorous due diligence, compliance checks, and factory audits.</p>
+<div class="mt-auto flex items-center text-secondary font-label-lg text-label-lg group-hover:underline">
+                            Read protocols <span class="material-symbols-outlined ml-1 text-[18px]">arrow_forward</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Categories -->
+<section class="max-w-[1152px] mx-auto px-container-padding py-section-gap border-t border-surface-border">
+<h2 class="font-headline-md text-headline-md text-[#0f172a] mb-8">Browse by Topic</h2>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<a class="bg-surface-container-lowest border border-surface-border rounded-lg p-4 flex items-center gap-3 hover:border-secondary hover:shadow-[0_1px_3px_rgba(0,0,0,0.05)] transition-all" href="#">
+<span class="material-symbols-outlined text-outline">description</span>
+<span class="font-label-lg text-label-lg text-on-surface">Incoterms 2020</span>
+</a>
+<a class="bg-surface-container-lowest border border-surface-border rounded-lg p-4 flex items-center gap-3 hover:border-secondary hover:shadow-[0_1px_3px_rgba(0,0,0,0.05)] transition-all" href="#">
+<span class="material-symbols-outlined text-outline">assignment</span>
+<span class="font-label-lg text-label-lg text-on-surface">RFQ Best Practices</span>
+</a>
+<a class="bg-surface-container-lowest border border-surface-border rounded-lg p-4 flex items-center gap-3 hover:border-secondary hover:shadow-[0_1px_3px_rgba(0,0,0,0.05)] transition-all" href="#">
+<span class="material-symbols-outlined text-outline">monitoring</span>
+<span class="font-label-lg text-label-lg text-on-surface">Market Intelligence</span>
+</a>
+<a class="bg-surface-container-lowest border border-surface-border rounded-lg p-4 flex items-center gap-3 hover:border-secondary hover:shadow-[0_1px_3px_rgba(0,0,0,0.05)] transition-all" href="#">
+<span class="material-symbols-outlined text-outline">gavel</span>
+<span class="font-label-lg text-label-lg text-on-surface">Trade Compliance</span>
+</a>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-section-gap bg-surface-container-highest dark:bg-inverse-surface border-t border-outline-variant dark:border-outline transition-all duration-150">
+<div class="max-w-[1440px] mx-auto px-gutter grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8">
+<div class="col-span-2 lg:col-span-1">
+<div class="font-headline-sm text-headline-sm font-bold text-primary dark:text-primary-fixed mb-4">
+                    GlobalTrade B2B
+                </div>
+<div class="font-body-sm text-body-sm text-on-surface-variant dark:text-outline mt-8">
+                    © 2024 GlobalTrade Intelligence. All rights reserved.
+                </div>
+</div>
+<div class="flex flex-col gap-3">
+<a class="font-body-sm text-body-sm text-on-surface-variant dark:text-outline hover:text-primary transition-colors hover:underline decoration-secondary" href="#">Company</a>
+</div>
+<div class="flex flex-col gap-3">
+<a class="font-body-sm text-body-sm text-on-surface-variant dark:text-outline hover:text-primary transition-colors hover:underline decoration-secondary" href="#">Platform Features</a>
+</div>
+<div class="flex flex-col gap-3">
+<a class="font-body-sm text-body-sm text-on-surface-variant dark:text-outline hover:text-primary transition-colors hover:underline decoration-secondary" href="#">Legal Information</a>
+</div>
+<div class="flex flex-col gap-3">
+<a class="font-body-sm text-body-sm text-on-surface-variant dark:text-outline hover:text-primary transition-colors hover:underline decoration-secondary" href="#">Documentation</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant dark:text-outline hover:text-primary transition-colors hover:underline decoration-secondary" href="#">Contact Support</a>
+</div>
+</div>
+</footer>
+</body></html>

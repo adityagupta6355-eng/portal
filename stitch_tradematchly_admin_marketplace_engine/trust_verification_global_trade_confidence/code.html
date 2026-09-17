@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Trust &amp; Verification - TradeMatchly</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container-lowest": "#ffffff",
+                      "risk-red": "#dc2626",
+                      "on-secondary-container": "#fffbff",
+                      "surface-tint": "#565e74",
+                      "on-primary-fixed": "#131b2e",
+                      "verified-emerald": "#059669",
+                      "on-surface": "#1b1b1d",
+                      "primary-fixed-dim": "#bec6e0",
+                      "tertiary-container": "#271901",
+                      "on-secondary": "#ffffff",
+                      "on-background": "#1b1b1d",
+                      "on-tertiary-container": "#98805d",
+                      "surface-variant": "#e4e2e4",
+                      "on-secondary-fixed-variant": "#3322cc",
+                      "surface-container-highest": "#e4e2e4",
+                      "data-text": "#1e293b",
+                      "primary-container": "#131b2e",
+                      "surface-container-low": "#f6f3f5",
+                      "error": "#ba1a1a",
+                      "on-tertiary-fixed-variant": "#574425",
+                      "secondary-fixed": "#e2dfff",
+                      "on-secondary-fixed": "#0f0069",
+                      "primary-fixed": "#dae2fd",
+                      "on-error-container": "#93000a",
+                      "primary": "#000000",
+                      "outline-variant": "#c6c6cd",
+                      "surface-dim": "#dcd9db",
+                      "on-tertiary": "#ffffff",
+                      "inverse-surface": "#303032",
+                      "risk-amber": "#d97706",
+                      "background": "#fcf8fa",
+                      "on-primary-fixed-variant": "#3f465c",
+                      "tertiary-fixed": "#fcdeb5",
+                      "on-tertiary-fixed": "#271901",
+                      "on-primary": "#ffffff",
+                      "on-error": "#ffffff",
+                      "on-surface-variant": "#45464d",
+                      "surface-bright": "#fcf8fa",
+                      "secondary-fixed-dim": "#c3c0ff",
+                      "tertiary-fixed-dim": "#dec29a",
+                      "inverse-primary": "#bec6e0",
+                      "surface-border": "#e2e8f0",
+                      "error-container": "#ffdad6",
+                      "inverse-on-surface": "#f3f0f2",
+                      "secondary": "#4b41e1",
+                      "tertiary": "#000000",
+                      "secondary-container": "#655dfb",
+                      "outline": "#76777d",
+                      "surface": "#fcf8fa",
+                      "surface-container-high": "#eae7e9",
+                      "in-progress-blue": "#2563eb",
+                      "surface-container": "#f0edef",
+                      "on-primary-container": "#7c839b"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "base": "4px",
+                      "container-padding": "24px",
+                      "section-gap": "32px",
+                      "gutter": "16px",
+                      "table-cell-padding": "12px",
+                      "sidebar-width": "260px"
+              },
+              "fontFamily": {
+                      "body-md": ["Inter"],
+                      "headline-md": ["Inter"],
+                      "label-lg": ["Inter"],
+                      "label-md": ["Inter"],
+                      "data-mono": ["jetbrainsMono"],
+                      "headline-lg": ["Inter"],
+                      "headline-sm": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "display-lg": ["Inter"],
+                      "body-sm": ["Inter"]
+              },
+              "fontSize": {
+                      "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "headline-md": ["22px", {"lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "label-lg": ["14px", {"lineHeight": "20px", "fontWeight": "600"}],
+                      "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                      "data-mono": ["13px", {"lineHeight": "18px", "fontWeight": "500"}],
+                      "headline-lg": ["28px", {"lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-sm": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+                      "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "display-lg": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-sm": ["13px", {"lineHeight": "18px", "fontWeight": "400"}]
+              }
+            }
+          }
+        }
+      </script>
+</head>
+<body class="bg-background text-on-background antialiased flex">
+<!-- Content Canvas (Full width for marketing page) -->
+<div class="flex-1 min-h-screen flex flex-col pt-16">
+<!-- Header / Nav (Simplified marketing nav) -->
+<header class="fixed top-0 left-0 right-0 h-16 bg-surface-container-lowest border-b border-outline-variant shadow-sm z-40 flex items-center justify-between px-6">
+<div class="flex items-center gap-4">
+<span class="text-headline-sm font-headline-sm font-bold text-primary">TradeMatchly</span>
+</div>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-on-surface-variant font-medium text-label-lg font-label-lg hover:text-primary transition-colors" href="#">Platform</a>
+<a class="text-secondary font-bold text-label-lg font-label-lg border-b-2 border-secondary pb-1" href="#">Trust &amp; Verification</a>
+<a class="text-on-surface-variant font-medium text-label-lg font-label-lg hover:text-primary transition-colors" href="#">Resources</a>
+</nav>
+<div class="flex items-center gap-4">
+<a class="text-label-md font-label-md text-primary font-medium hover:text-secondary transition-colors" href="#">Log In</a>
+<button class="bg-primary text-on-primary h-10 px-4 rounded font-label-md text-label-md hover:bg-inverse-surface transition-colors">Sign Up</button>
+</div>
+</header>
+<main class="flex-1 max-w-[1440px] mx-auto w-full px-container-padding py-section-gap flex flex-col gap-section-gap">
+<!-- Hero Section -->
+<section class="flex flex-col md:flex-row items-center gap-section-gap mt-8">
+<div class="flex-1 flex flex-col gap-6">
+<h1 class="text-display-lg font-display-lg text-primary">Know who you're trading with.</h1>
+<p class="text-body-lg font-body-lg text-on-surface-variant max-w-2xl">
+                        In global logistics, trust is your most valuable currency. TradeMatchly's rigorous 5-level verification process ensures you only connect with vetted, reliable partners, reducing risk and accelerating growth.
+                    </p>
+<div class="pt-4">
+<button class="bg-primary text-on-primary h-[40px] px-6 rounded font-label-lg text-label-lg hover:bg-inverse-surface transition-colors shadow-sm">
+                            Create Your Verified Profile
+                        </button>
+</div>
+</div>
+<div class="flex-1 relative w-full h-[400px] bg-white rounded-lg border border-surface-border shadow-sm p-8 flex flex-col justify-between">
+<h3 class="text-headline-sm font-headline-sm text-primary mb-6">The 5-Level Verification Ladder</h3>
+<div class="flex flex-col gap-3 relative">
+<!-- Connecting Line -->
+<div class="absolute left-[24px] top-[24px] bottom-[24px] w-0.5 bg-surface-container-high z-0"></div>
+<!-- Levels -->
+<div class="flex items-center gap-4 relative z-10 opacity-50">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center border-2 border-white">
+<span class="material-symbols-outlined text-outline">account_circle</span>
+</div>
+<div>
+<h4 class="text-label-lg font-label-lg text-on-surface">1. Basic Profile</h4>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Email &amp; Phone verification</p>
+</div>
+</div>
+<div class="flex items-center gap-4 relative z-10 opacity-70">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center border-2 border-white">
+<span class="material-symbols-outlined text-outline">storefront</span>
+</div>
+<div>
+<h4 class="text-label-lg font-label-lg text-on-surface">2. Identity Verified</h4>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Govt ID &amp; Address verification</p>
+</div>
+</div>
+<div class="flex items-center gap-4 relative z-10">
+<div class="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center border-2 border-white">
+<span class="material-symbols-outlined text-secondary">business_center</span>
+</div>
+<div>
+<h4 class="text-label-lg font-label-lg text-primary">3. Business Verified</h4>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Company registration &amp; Tax ID confirmed</p>
+</div>
+</div>
+<div class="flex items-center gap-4 relative z-10">
+<div class="w-12 h-12 rounded-full bg-primary-fixed flex items-center justify-center border-2 border-white">
+<span class="material-symbols-outlined text-secondary">verified_user</span>
+</div>
+<div>
+<h4 class="text-label-lg font-label-lg text-primary">4. Trade Credentials</h4>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Industry licenses &amp; certificates validated</p>
+</div>
+</div>
+<div class="flex items-center gap-4 relative z-10">
+<div class="w-12 h-12 rounded-full bg-verified-emerald/10 flex items-center justify-center border-2 border-white shadow-[0_0_15px_rgba(5,150,105,0.2)]">
+<span class="material-symbols-outlined text-verified-emerald" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+</div>
+<div>
+<h4 class="text-label-lg font-label-lg text-verified-emerald">5. Transaction Verified</h4>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Consistent history of successful platform trades</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer Spacer -->
+<div class="h-16"></div>
+</div>
+</body></html>

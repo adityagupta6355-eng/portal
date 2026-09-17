@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Trade Intelligence - TradeMatchly</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-container": "#131b2e",
+                        "tertiary-fixed-dim": "#dec29a",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-border": "#e2e8f0",
+                        "outline-variant": "#c6c6cd",
+                        "on-tertiary": "#ffffff",
+                        "surface": "#fcf8fa",
+                        "on-tertiary-fixed": "#271901",
+                        "risk-red": "#dc2626",
+                        "background": "#fcf8fa",
+                        "verified-emerald": "#059669",
+                        "on-surface": "#1b1b1d",
+                        "surface-container-highest": "#e4e2e4",
+                        "secondary-fixed-dim": "#c3c0ff",
+                        "on-surface-variant": "#45464d",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "surface-tint": "#565e74",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed": "#e2dfff",
+                        "on-tertiary-container": "#98805d",
+                        "on-tertiary-fixed-variant": "#574425",
+                        "primary-fixed": "#dae2fd",
+                        "inverse-on-surface": "#f3f0f2",
+                        "on-background": "#1b1b1d",
+                        "surface-dim": "#dcd9db",
+                        "tertiary-fixed": "#fcdeb5",
+                        "surface-container": "#f0edef",
+                        "tertiary-container": "#271901",
+                        "surface-container-high": "#eae7e9",
+                        "risk-amber": "#d97706",
+                        "inverse-surface": "#303032",
+                        "surface-bright": "#fcf8fa",
+                        "inverse-primary": "#bec6e0",
+                        "secondary-container": "#655dfb",
+                        "on-secondary-container": "#fffbff",
+                        "error": "#ba1a1a",
+                        "primary": "#000000",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed": "#131b2e",
+                        "surface-variant": "#e4e2e4",
+                        "on-primary": "#ffffff",
+                        "on-secondary-fixed-variant": "#3322cc",
+                        "tertiary": "#000000",
+                        "surface-container-low": "#f6f3f5",
+                        "on-secondary-fixed": "#0f0069",
+                        "data-text": "#1e293b",
+                        "in-progress-blue": "#2563eb",
+                        "primary-fixed-dim": "#bec6e0",
+                        "on-primary-container": "#7c839b",
+                        "on-error-container": "#93000a",
+                        "error-container": "#ffdad6",
+                        "secondary": "#4b41e1",
+                        "outline": "#76777d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-gap": "32px",
+                        "gutter": "16px",
+                        "table-cell-padding": "12px",
+                        "base": "4px",
+                        "sidebar-width": "260px",
+                        "container-padding": "24px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "label-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "data-mono": ["jetbrainsMono"],
+                        "display-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-lg": ["14px", { "lineHeight": "20px", "fontWeight": "600" }],
+                        "headline-lg": ["28px", { "lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+                        "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "headline-md": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "data-mono": ["13px", { "lineHeight": "18px", "fontWeight": "500" }],
+                        "display-lg": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hero-pattern {
+            background-color: #fcf8fa;
+            background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="bg-surface dark:bg-primary-container sticky top-0 w-full z-50 border-b border-outline-variant dark:border-outline shadow-sm dark:shadow-none transition-all duration-200 ease-in-out">
+<div class="flex justify-between items-center max-w-[1440px] mx-auto px-container-padding h-[64px]">
+<div class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed">
+                TradeMatchly
+            </div>
+<nav class="hidden md:flex gap-6">
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-primary-container hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors" href="#">Platform</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-primary-container hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors" href="#">For Buyers</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-primary-container hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors" href="#">For Suppliers</a>
+<a class="font-body-md text-body-md text-primary dark:text-secondary-fixed font-bold border-b-2 border-secondary hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors" href="#">Intelligence</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-on-primary-container hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors" href="#">Resources</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="font-label-lg text-label-lg text-primary hover:text-secondary transition-colors">Login</button>
+<button class="font-label-lg text-label-lg bg-primary-container text-white px-4 py-2 rounded hover:bg-opacity-90 transition-opacity h-10">Get Started</button>
+</div>
+</div>
+</header>
+<main class="flex-grow">
+<!-- Hero Section -->
+<section class="relative pt-24 pb-32 overflow-hidden hero-pattern">
+<div class="max-w-[1440px] mx-auto px-container-padding relative z-10 text-center">
+<h1 class="font-display-lg text-display-lg text-primary mb-6 max-w-4xl mx-auto tracking-tight">
+                    Global Trade Intelligence at Your Fingertips.
+                </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-2xl mx-auto">
+                    Make data-driven decisions with real-time insights into market demand, supply chain trends, and global trade flows. Built on the industry's most robust data foundation.
+                </p>
+<div class="flex justify-center gap-4">
+<button class="bg-primary-container text-white font-label-lg text-label-lg px-6 py-3 rounded-lg shadow-sm hover:bg-opacity-90 transition-all h-12 flex items-center">
+                        Explore Insights Dashboard
+                    </button>
+</div>
+</div>
+</section>
+<!-- Interactive Market Map Placeholder -->
+<section class="py-section-gap bg-white border-t border-b border-surface-border">
+<div class="max-w-[1440px] mx-auto px-container-padding">
+<div class="flex items-center justify-between mb-8">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-primary">Live Trade Flows</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">Visualizing real-time movement and volume heatmaps.</p>
+</div>
+<div class="flex gap-2">
+<span class="inline-flex items-center gap-1 bg-surface-container-low px-3 py-1 rounded-full font-label-md text-label-md text-on-surface">
+<span class="w-2 h-2 rounded-full bg-verified-emerald"></span> Live Data
+                        </span>
+</div>
+</div>
+<div class="relative w-full h-[600px] bg-surface-container rounded-xl overflow-hidden shadow-sm border border-surface-border">
+<!-- Abstract representation of a map -->
+<div class="absolute inset-0 bg-[url('placeholder')] bg-cover bg-center opacity-80" data-alt="A highly detailed, professional UI mockup of a dark-themed global map showing glowing data visualization lines representing trade routes. Heatmap dots indicate supply volume in major ports. The style is modern, technical, and precise, using deep navy blues and glowing cyan and amber accents. The map looks like a sophisticated enterprise software dashboard."></div>
+<!-- Overlay UI Elements to make it look like a mockup -->
+<div class="absolute top-4 left-4 glass-card p-4 rounded-lg w-64 shadow-md">
+<h3 class="font-headline-sm text-headline-sm mb-2 text-primary">Pacific Corridor</h3>
+<div class="flex justify-between font-data-mono text-data-mono mb-1">
+<span class="text-on-surface-variant">Volume</span>
+<span class="text-risk-amber">+14.2%</span>
+</div>
+<div class="flex justify-between font-data-mono text-data-mono">
+<span class="text-on-surface-variant">Congestion</span>
+<span class="text-risk-red">High</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Product Intelligence Cards (Bento Grid) -->
+<section class="py-20 bg-background">
+<div class="max-w-[1440px] mx-auto px-container-padding">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-12 text-center">Comprehensive Intelligence Suites</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Card 1: Market Demand -->
+<div class="bg-white rounded-xl p-6 border border-surface-border shadow-[0_1px_3px_rgba(0,0,0,0.05)] hover:shadow-[0_10px_15px_rgba(0,0,0,0.1)] transition-all duration-300 relative overflow-hidden group">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-primary text-2xl" data-icon="monitoring">monitoring</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-3">Market Demand</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-6">Track emerging trends and forecast demand spikes for specific commodities across key regions.</p>
+<div class="mt-auto">
+<div class="h-24 bg-surface-container-low rounded border border-surface-border relative overflow-hidden">
+<!-- Abstract chart placeholder -->
+<div class="absolute bottom-0 left-0 w-full h-full bg-gradient-to-t from-primary-fixed-dim/20 to-transparent"></div>
+<svg class="absolute bottom-0 w-full h-16" preserveaspectratio="none" viewbox="0 0 100 100">
+<path d="M0 100 L0 50 Q25 20 50 60 T100 30 L100 100 Z" fill="none" stroke="#2563eb" stroke-width="2"></path>
+</svg>
+</div>
+</div>
+</div>
+<!-- Card 2: Supply Availability -->
+<div class="bg-white rounded-xl p-6 border border-surface-border shadow-[0_1px_3px_rgba(0,0,0,0.05)] hover:shadow-[0_10px_15px_rgba(0,0,0,0.1)] transition-all duration-300 relative overflow-hidden group">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-primary text-2xl" data-icon="inventory_2">inventory_2</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-3">Supply Availability</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-6">Analyze global supplier density, production capacity constraints, and alternative sourcing options.</p>
+<div class="mt-auto grid grid-cols-2 gap-2">
+<div class="bg-surface-container-low p-2 rounded border border-surface-border">
+<div class="font-label-md text-label-md text-on-surface-variant">Active Suppliers</div>
+<div class="font-data-mono text-data-mono text-primary font-bold">14,205</div>
+</div>
+<div class="bg-surface-container-low p-2 rounded border border-surface-border">
+<div class="font-label-md text-label-md text-on-surface-variant">Avg Capacity</div>
+<div class="font-data-mono text-data-mono text-verified-emerald font-bold">87%</div>
+</div>
+</div>
+</div>
+<!-- Card 3: Pricing Indices -->
+<div class="bg-white rounded-xl p-6 border border-surface-border shadow-[0_1px_3px_rgba(0,0,0,0.05)] hover:shadow-[0_10px_15px_rgba(0,0,0,0.1)] transition-all duration-300 relative overflow-hidden group">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-primary text-2xl" data-icon="price_change">price_change</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-3">Pricing Indices</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-6">Access historical pricing data, current market rates, and AI-predicted forward pricing models.</p>
+<div class="mt-auto">
+<div class="space-y-2">
+<div class="flex justify-between items-center p-2 bg-surface-container-low rounded border border-surface-border">
+<span class="font-label-md text-label-md text-on-surface">Steel (Raw)</span>
+<span class="font-data-mono text-data-mono text-risk-red flex items-center gap-1"><span class="material-symbols-outlined text-[16px]" data-icon="arrow_upward">arrow_upward</span> 2.4%</span>
+</div>
+<div class="flex justify-between items-center p-2 bg-surface-container-low rounded border border-surface-border">
+<span class="font-label-md text-label-md text-on-surface">Semiconductors</span>
+<span class="font-data-mono text-data-mono text-verified-emerald flex items-center gap-1"><span class="material-symbols-outlined text-[16px]" data-icon="arrow_downward">arrow_downward</span> 1.1%</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Mesh AI Insights Section (Asymmetric Layout) -->
+<section class="py-20 bg-primary-container text-white relative overflow-hidden">
+<!-- Decorative background elements -->
+<div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-bl from-secondary-container/20 to-transparent pointer-events-none"></div>
+<div class="max-w-[1440px] mx-auto px-container-padding relative z-10">
+<div class="flex flex-col lg:flex-row gap-16 items-center">
+<div class="w-full lg:w-5/12">
+<span class="inline-flex items-center gap-2 bg-surface-tint/30 px-3 py-1 rounded-full font-label-md text-label-md text-on-primary-fixed mb-6 border border-surface-tint/50">
+<span class="material-symbols-outlined text-[16px]" data-icon="memory">memory</span> Powered by TradeMatchly AI
+                        </span>
+<h2 class="font-headline-lg text-headline-lg mb-6">Predictive Analytics &amp; Risk Modeling</h2>
+<p class="font-body-lg text-body-lg text-on-primary-container mb-8">
+                            Our proprietary Mesh AI continually analyzes millions of data points to identify emerging markets before they peak and highlights subtle supply chain vulnerabilities before they become disruptions.
+                        </p>
+<div class="space-y-6">
+<div class="flex items-start gap-4">
+<div class="w-8 h-8 rounded-full bg-secondary-container/20 flex items-center justify-center shrink-0 border border-secondary-container/50">
+<span class="material-symbols-outlined text-secondary-fixed text-[18px]" data-icon="radar">radar</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm mb-1">Emerging Market Detection</h4>
+<p class="font-body-sm text-body-sm text-on-primary-container">Identify nascent trade corridors based on shifting regulatory and investment signals.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="w-8 h-8 rounded-full bg-risk-red/20 flex items-center justify-center shrink-0 border border-risk-red/50">
+<span class="material-symbols-outlined text-risk-red text-[18px]" data-icon="warning">warning</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm mb-1">Supply Chain Risk Analysis</h4>
+<p class="font-body-sm text-body-sm text-on-primary-container">Automated alerts for geopolitical, weather-related, or financial risks affecting your critical supplier tiers.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="w-full lg:w-7/12 relative">
+<!-- Glassmorphism Mockup Stack -->
+<div class="relative w-full aspect-video rounded-xl overflow-hidden shadow-[0_20px_40px_rgba(0,0,0,0.4)] border border-surface-tint/30 bg-[#0f172a]">
+<!-- Main Dashboard Mockup -->
+<div class="absolute inset-0 p-6 flex flex-col">
+<div class="flex justify-between items-center border-b border-surface-tint/30 pb-4 mb-4">
+<div class="font-headline-sm text-headline-sm text-white">Risk Dashboard</div>
+<div class="font-label-md text-label-md text-on-primary-container">Updated: Just Now</div>
+</div>
+<div class="flex-grow grid grid-cols-2 gap-4">
+<div class="bg-surface-tint/20 rounded-lg border border-surface-tint/30 p-4">
+<div class="font-label-md text-label-md text-on-primary-container mb-2">High Risk Nodes</div>
+<div class="flex items-end gap-2">
+<span class="font-display-lg text-display-lg text-risk-red">3</span>
+<span class="font-body-sm text-body-sm text-on-primary-container pb-1">Tier 1 Suppliers</span>
+</div>
+</div>
+<div class="bg-surface-tint/20 rounded-lg border border-surface-tint/30 p-4">
+<div class="font-label-md text-label-md text-on-primary-container mb-2">Market Stability</div>
+<div class="w-full h-2 bg-surface-tint/40 rounded-full mt-4 overflow-hidden">
+<div class="h-full bg-verified-emerald w-3/4"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Final CTA & Transparency Note -->
+<section class="py-24 bg-surface text-center">
+<div class="max-w-3xl mx-auto px-container-padding">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-6">Unlock Deeper Insights with TradeMatchly Pro</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-10">
+                    Gain exclusive access to premium forecasting models, unlimited historical data exports, and dedicated analyst support.
+                </p>
+<button class="bg-primary-container text-white font-label-lg text-label-lg px-8 py-3 rounded-lg shadow-sm hover:bg-opacity-90 transition-all h-12 mb-12">
+                    Upgrade to Pro
+                </button>
+<!-- Transparency Note -->
+<div class="max-w-xl mx-auto p-4 border border-surface-border rounded-lg bg-white shadow-sm flex items-start gap-4 text-left">
+<span class="material-symbols-outlined text-on-primary-container" data-icon="policy">policy</span>
+<div>
+<h4 class="font-label-lg text-label-lg text-primary mb-1">Data Transparency Commitment</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                            All insights are generated from verified platform data, aggregated global trade signals, and reputable third-party logistics APIs. We prioritize data integrity and anonymize individual participant transactions.
+                        </p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-primary-container dark:bg-black w-full py-section-gap border-t border-on-primary-fixed-variant grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-gutter max-w-[1440px] mx-auto px-container-padding">
+<div class="col-span-2 lg:col-span-2 mb-6 lg:mb-0">
+<div class="font-headline-sm text-headline-sm font-bold text-primary-fixed mb-4">TradeMatchly</div>
+<p class="font-body-sm text-body-sm text-on-primary-container">
+                © 2024 TradeMatchly AI. Global Trade Intelligence.
+            </p>
+</div>
+<div class="col-span-1">
+<a class="font-body-sm text-body-sm text-on-primary-container hover:text-secondary-fixed transition-colors opacity-90 hover:opacity-100 block mb-2" href="#">Platform</a>
+</div>
+<div class="col-span-1">
+<a class="font-body-sm text-body-sm text-on-primary-container hover:text-secondary-fixed transition-colors opacity-90 hover:opacity-100 block mb-2" href="#">For Buyers</a>
+</div>
+<div class="col-span-1">
+<a class="font-body-sm text-body-sm text-on-primary-container hover:text-secondary-fixed transition-colors opacity-90 hover:opacity-100 block mb-2" href="#">For Suppliers</a>
+</div>
+<div class="col-span-1">
+<a class="font-body-sm text-body-sm text-primary-fixed font-bold hover:text-secondary-fixed transition-colors opacity-90 hover:opacity-100 block mb-2" href="#">Intelligence</a>
+</div>
+<div class="col-span-1">
+<a class="font-body-sm text-body-sm text-on-primary-container hover:text-secondary-fixed transition-colors opacity-90 hover:opacity-100 block mb-2" href="#">Resources</a>
+</div>
+<div class="col-span-1">
+<a class="font-body-sm text-body-sm text-on-primary-container hover:text-secondary-fixed transition-colors opacity-90 hover:opacity-100 block mb-2" href="#">Privacy Policy</a>
+</div>
+<div class="col-span-1">
+<a class="font-body-sm text-body-sm text-on-primary-container hover:text-secondary-fixed transition-colors opacity-90 hover:opacity-100 block mb-2" href="#">Terms of Service</a>
+</div>
+<div class="col-span-1">
+<a class="font-body-sm text-body-sm text-on-primary-container hover:text-secondary-fixed transition-colors opacity-90 hover:opacity-100 block mb-2" href="#">Contact Support</a>
+</div>
+</footer>
+</body></html>

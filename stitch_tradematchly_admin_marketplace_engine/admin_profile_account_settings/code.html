@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TradeMatchly Supplier Portal - Account Settings</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "risk-red": "#dc2626",
+                    "on-error": "#ffffff",
+                    "on-background": "#1b1b1d",
+                    "surface-container-low": "#f6f3f5",
+                    "risk-amber": "#d97706",
+                    "error": "#ba1a1a",
+                    "surface-dim": "#dcd9db",
+                    "on-primary-fixed-variant": "#3f465c",
+                    "tertiary": "#000000",
+                    "surface-tint": "#565e74",
+                    "on-tertiary-fixed": "#271901",
+                    "surface-variant": "#e4e2e4",
+                    "verified-emerald": "#059669",
+                    "in-progress-blue": "#2563eb",
+                    "on-primary-fixed": "#131b2e",
+                    "surface-bright": "#fcf8fa",
+                    "on-primary": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "background": "#fcf8fa",
+                    "tertiary-container": "#271901",
+                    "surface-container": "#f0edef",
+                    "primary": "#000000",
+                    "primary-fixed-dim": "#bec6e0",
+                    "on-secondary-fixed": "#0f0069",
+                    "inverse-on-surface": "#f3f0f2",
+                    "on-tertiary-container": "#98805d",
+                    "on-tertiary-fixed-variant": "#574425",
+                    "on-secondary": "#ffffff",
+                    "inverse-surface": "#303032",
+                    "on-surface-variant": "#45464d",
+                    "on-error-container": "#93000a",
+                    "primary-container": "#131b2e",
+                    "surface-container-highest": "#e4e2e4",
+                    "inverse-primary": "#bec6e0",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-high": "#eae7e9",
+                    "surface-border": "#e2e8f0",
+                    "error-container": "#ffdad6",
+                    "on-secondary-container": "#fffbff",
+                    "secondary-fixed-dim": "#c3c0ff",
+                    "on-secondary-fixed-variant": "#3322cc",
+                    "secondary-fixed": "#e2dfff",
+                    "on-surface": "#1b1b1d",
+                    "on-primary-container": "#7c839b",
+                    "outline-variant": "#c6c6cd",
+                    "data-text": "#1e293b",
+                    "primary-fixed": "#dae2fd",
+                    "secondary": "#4b41e1",
+                    "surface": "#fcf8fa",
+                    "tertiary-fixed-dim": "#dec29a",
+                    "tertiary-fixed": "#fcdeb5",
+                    "secondary-container": "#655dfb",
+                    "outline": "#76777d"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "table-cell-padding": "12px",
+                    "container-padding": "24px",
+                    "section-gap": "32px",
+                    "sidebar-width": "260px",
+                    "base": "4px",
+                    "gutter": "16px"
+            },
+            "fontFamily": {
+                    "label-md": [
+                            "Inter"
+                    ],
+                    "body-lg": [
+                            "Inter"
+                    ],
+                    "body-sm": [
+                            "Inter"
+                    ],
+                    "label-lg": [
+                            "Inter"
+                    ],
+                    "body-md": [
+                            "Inter"
+                    ],
+                    "display-lg": [
+                            "Inter"
+                    ],
+                    "headline-sm": [
+                            "Inter"
+                    ],
+                    "data-mono": [
+                            "jetbrainsMono"
+                    ],
+                    "headline-lg": [
+                            "Inter"
+                    ],
+                    "headline-md": [
+                            "Inter"
+                    ]
+            },
+            "fontSize": {
+                    "label-md": [
+                            "12px",
+                            {
+                                    "lineHeight": "16px",
+                                    "letterSpacing": "0.02em",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "body-lg": [
+                            "16px",
+                            {
+                                    "lineHeight": "24px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "body-sm": [
+                            "13px",
+                            {
+                                    "lineHeight": "18px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "label-lg": [
+                            "14px",
+                            {
+                                    "lineHeight": "20px",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "body-md": [
+                            "14px",
+                            {
+                                    "lineHeight": "20px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "display-lg": [
+                            "36px",
+                            {
+                                    "lineHeight": "44px",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "headline-sm": [
+                            "18px",
+                            {
+                                    "lineHeight": "24px",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "data-mono": [
+                            "13px",
+                            {
+                                    "lineHeight": "18px",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "headline-lg": [
+                            "28px",
+                            {
+                                    "lineHeight": "34px",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "headline-md": [
+                            "22px",
+                            {
+                                    "lineHeight": "28px",
+                                    "letterSpacing": "-0.01em",
+                                    "fontWeight": "600"
+                            }
+                    ]
+            }
+    },
+        },
+      }
+    </script>
+<style type="text/tailwindcss">
+        @layer utilities {
+            .glass-panel {
+                @apply bg-surface-container-lowest border border-surface-border shadow-[0_1px_3px_rgba(0,0,0,0.05)];
+            }
+            .input-field {
+                @apply w-full h-10 px-3 border border-surface-border rounded bg-surface-container-lowest text-on-surface font-body-sm focus:outline-none focus:ring-2 focus:ring-secondary/20 focus:border-secondary transition-all;
+            }
+            .btn-primary {
+                @apply h-10 px-6 bg-primary-container text-on-primary font-label-md rounded flex items-center justify-center gap-2 hover:bg-primary-container/90 transition-colors;
+            }
+            .btn-outline {
+                @apply h-10 px-6 border border-outline-variant text-on-surface font-label-md rounded flex items-center justify-center gap-2 hover:bg-surface-container-low transition-colors;
+            }
+        }
+    </style>
+</head>
+<body class="bg-background font-body-md text-on-surface antialiased min-h-screen flex">
+<!-- TopNavBar -->
+<nav class="bg-surface dark:bg-surface fixed top-0 right-0 h-16 w-[calc(100%-260px)] z-40 border-b border-outline-variant dark:border-outline shadow-sm dark:shadow-none flex justify-between items-center px-container-padding transition-all focus:ring-2 focus:ring-secondary/20 ml-sidebar-width hidden md:flex">
+<div class="flex-1"></div>
+<div class="flex items-center gap-4">
+<button class="w-8 h-8 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-[20px]" data-icon="notifications">notifications</span>
+</button>
+<button class="w-8 h-8 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-[20px]" data-icon="help">help</span>
+</button>
+<button class="w-8 h-8 rounded-full flex items-center justify-center text-primary font-bold hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-[24px]" data-icon="account_circle" style="font-variation-settings: 'FILL' 1;">account_circle</span>
+</button>
+<button class="ml-2 h-8 px-4 bg-primary-container text-on-primary font-label-md rounded flex items-center gap-2 hover:bg-primary-container/90 transition-colors">
+<span>Mesh AI</span>
+</button>
+</div>
+</nav>
+<!-- SideNavBar -->
+<aside class="bg-primary-container dark:bg-primary-container fixed left-0 top-0 h-screen w-sidebar-width flex flex-col h-full overflow-y-auto hidden md:flex z-50">
+<div class="p-6 flex items-center gap-3">
+<div class="w-8 h-8 bg-on-primary rounded flex items-center justify-center text-primary-container font-bold">TM</div>
+<div>
+<h1 class="font-headline-sm text-headline-sm font-bold text-on-primary">TradeMatchly</h1>
+<p class="font-label-md text-label-md text-on-primary-container/70">Supplier Portal</p>
+</div>
+</div>
+<nav class="flex-1 px-3 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary-container/70 hover:bg-surface-container-highest/5 hover:text-on-primary transition-colors rounded" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="dashboard">dashboard</span>
+<span class="font-body-sm text-body-sm">Overview</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary-container/70 hover:bg-surface-container-highest/5 hover:text-on-primary transition-colors rounded" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="explore">explore</span>
+<span class="font-body-sm text-body-sm">Opportunities</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary-container/70 hover:bg-surface-container-highest/5 hover:text-on-primary transition-colors rounded" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="request_quote">request_quote</span>
+<span class="font-body-sm text-body-sm">RFQs</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary-container/70 hover:bg-surface-container-highest/5 hover:text-on-primary transition-colors rounded" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="description">description</span>
+<span class="font-body-sm text-body-sm">Quotes</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary-container/70 hover:bg-surface-container-highest/5 hover:text-on-primary transition-colors rounded" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="handshake">handshake</span>
+<span class="font-body-sm text-body-sm">Negotiations</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary-container/70 hover:bg-surface-container-highest/5 hover:text-on-primary transition-colors rounded" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="handshake">handshake</span>
+<span class="font-body-sm text-body-sm">Deals</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary-container/70 hover:bg-surface-container-highest/5 hover:text-on-primary transition-colors rounded" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="inventory_2">inventory_2</span>
+<span class="font-body-sm text-body-sm">Products</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary-container/70 hover:bg-surface-container-highest/5 hover:text-on-primary transition-colors rounded" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="groups">groups</span>
+<span class="font-body-sm text-body-sm">Buyers</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-surface-container-highest/10 border-l-4 border-secondary text-on-primary font-bold opacity-100 scale-[0.99] transition-all rounded-r" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="account_circle" style="font-variation-settings: 'FILL' 1;">account_circle</span>
+<span class="font-body-sm text-body-sm">Profile</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary-container/70 hover:bg-surface-container-highest/5 hover:text-on-primary transition-colors rounded" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="verified">verified</span>
+<span class="font-body-sm text-body-sm">Verification</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary-container/70 hover:bg-surface-container-highest/5 hover:text-on-primary transition-colors rounded" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="folder_open">folder_open</span>
+<span class="font-body-sm text-body-sm">Documents</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary-container/70 hover:bg-surface-container-highest/5 hover:text-on-primary transition-colors rounded" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="analytics">analytics</span>
+<span class="font-body-sm text-body-sm">Analytics</span>
+</a>
+</nav>
+<div class="p-4 border-t border-surface-container-highest/20 mt-auto">
+<a class="flex items-center gap-3 px-4 py-2 text-on-primary-container/70 hover:bg-surface-container-highest/5 hover:text-on-primary transition-colors rounded" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="card_membership">card_membership</span>
+<span class="font-body-sm text-body-sm">Subscription</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-on-primary-container/70 hover:bg-surface-container-highest/5 hover:text-on-primary transition-colors rounded" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="settings">settings</span>
+<span class="font-body-sm text-body-sm">Settings</span>
+</a>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 ml-0 md:ml-sidebar-width mt-0 md:mt-16 p-4 md:p-container-padding max-w-[1440px] mx-auto w-full">
+<!-- Header Section -->
+<div class="mb-section-gap flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-primary mb-1">Account Settings</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Manage your personal profile, security, and account preferences.</p>
+</div>
+<div class="flex items-center gap-3">
+<button class="btn-outline text-risk-red border-risk-red/30 hover:bg-error-container/20">
+<span class="material-symbols-outlined text-[18px]">logout</span>
+                    Log Out
+                </button>
+<button class="btn-primary">
+                    Save Changes
+                </button>
+</div>
+</div>
+<div class="flex flex-col lg:flex-row gap-gutter">
+<!-- Left Column: Settings Navigation -->
+<div class="w-full lg:w-64 shrink-0 flex flex-col gap-2">
+<button class="flex items-center gap-3 w-full text-left px-4 py-3 rounded bg-secondary/10 text-secondary font-label-md">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">person</span>
+                    Personal Information
+                </button>
+<button class="flex items-center gap-3 w-full text-left px-4 py-3 rounded hover:bg-surface-container-low text-on-surface font-body-sm transition-colors">
+<span class="material-symbols-outlined text-[20px]">badge</span>
+                    Professional Identity
+                </button>
+<button class="flex items-center gap-3 w-full text-left px-4 py-3 rounded hover:bg-surface-container-low text-on-surface font-body-sm transition-colors">
+<span class="material-symbols-outlined text-[20px]">security</span>
+                    Security
+                </button>
+<button class="flex items-center gap-3 w-full text-left px-4 py-3 rounded hover:bg-surface-container-low text-on-surface font-body-sm transition-colors">
+<span class="material-symbols-outlined text-[20px]">notifications</span>
+                    Notifications
+                </button>
+<button class="flex items-center gap-3 w-full text-left px-4 py-3 rounded hover:bg-surface-container-low text-on-surface font-body-sm transition-colors">
+<span class="material-symbols-outlined text-[20px]">tune</span>
+                    Preferences
+                </button>
+<div class="mt-8 pt-4 border-t border-surface-border">
+<button class="flex items-center gap-3 w-full text-left px-4 py-3 rounded hover:bg-surface-container-low text-on-surface font-body-sm transition-colors">
+<span class="material-symbols-outlined text-[20px]">swap_horiz</span>
+                        Switch to Buyer Account
+                    </button>
+</div>
+</div>
+<!-- Right Column: Content Area -->
+<div class="flex-1 flex flex-col gap-gutter">
+<!-- Profile Overview & Strength -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Profile Card -->
+<div class="md:col-span-2 glass-panel rounded-lg p-6 flex flex-col sm:flex-row items-center sm:items-start gap-6">
+<div class="relative">
+<img class="w-24 h-24 rounded-full object-cover border-2 border-surface-border" data-alt="A professional headshot of a business woman in a modern corporate setting, clean lighting, high resolution, wearing a navy blazer." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBW3SoU5d4q2P9i7rC9tdTSBjVDaZkts7ZFyTjWfTebbWGfqSU9Iq9pRERYVs1UPqO9vwH2oRnfGBFX5Y_Tky7gLq5rT3Pp4y7P30SqjIfPEvFEMetgnGiMfG8khI-TDIfiW9cPUJPUgYxScKF6u5FQmzx8L2DXNtHZqTobw4WyGU-MOpvDee3Cq8jOCSSlkhjsWwMkCtvPbsjEI8alqU1KZ8NPvHZRyHlDDS94AUFDPuwU4joe4ODT"/>
+<button class="absolute bottom-0 right-0 w-8 h-8 bg-surface-container-lowest border border-surface-border rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container-low shadow-sm">
+<span class="material-symbols-outlined text-[16px]">edit</span>
+</button>
+</div>
+<div class="flex-1 text-center sm:text-left">
+<div class="flex flex-col sm:flex-row sm:items-center gap-2 mb-1">
+<h3 class="font-headline-md text-headline-md text-primary">Sarah Jenkins</h3>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-verified-emerald/10 text-verified-emerald font-label-md text-[11px]">
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                    Verified Supplier
+                                </span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Export Manager at ABC Spices Pvt. Ltd.</p>
+<div class="flex flex-wrap items-center justify-center sm:justify-start gap-4">
+<div class="flex items-center gap-2 text-on-surface-variant font-body-sm">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+                                    Mumbai, India
+                                </div>
+<div class="flex items-center gap-2 text-on-surface-variant font-body-sm">
+<span class="material-symbols-outlined text-[16px]">language</span>
+                                    English, Hindi
+                                </div>
+</div>
+</div>
+</div>
+<!-- Profile Strength -->
+<div class="glass-panel rounded-lg p-6 flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-center mb-2">
+<h4 class="font-label-lg text-label-lg text-primary">Profile Strength</h4>
+<span class="font-label-md text-label-md text-secondary">78%</span>
+</div>
+<div class="w-full h-2 bg-surface-variant rounded-full overflow-hidden mb-4">
+<div class="h-full bg-secondary rounded-full" style="width: 78%;"></div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4">Complete your profile to increase visibility to global buyers.</p>
+</div>
+<button class="w-full text-left flex items-center justify-between p-2 rounded bg-surface-container-low hover:bg-surface-container hover:text-primary transition-colors font-body-sm text-secondary">
+<span>Add Tax ID Document</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Personal Information Form -->
+<div class="glass-panel rounded-lg p-6">
+<h3 class="font-headline-sm text-headline-sm text-primary mb-6">Personal Information</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-label-md text-on-surface-variant">First Name</label>
+<input class="input-field" type="text" value="Sarah"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-label-md text-on-surface-variant">Last Name</label>
+<input class="input-field" type="text" value="Jenkins"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-label-md text-on-surface-variant">Email Address</label>
+<div class="relative">
+<input class="input-field pl-9" type="email" value="sarah.j@abcspices.com"/>
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px]">mail</span>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-label-md text-on-surface-variant">Phone Number</label>
+<div class="relative">
+<input class="input-field pl-9" type="tel" value="+91 98765 43210"/>
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px]">phone</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-2 mb-6">
+<label class="font-label-md text-label-md text-on-surface-variant">Professional Bio</label>
+<textarea class="w-full p-3 border border-surface-border rounded bg-surface-container-lowest text-on-surface font-body-sm focus:outline-none focus:ring-2 focus:ring-secondary/20 focus:border-secondary transition-all resize-y min-h-[100px]">Over 10 years of experience in managing international spice exports. Specialized in compliance, international logistics, and building long-term buyer relationships across Europe and North America.</textarea>
+</div>
+<div class="pt-6 border-t border-surface-border flex justify-end gap-3">
+<button class="btn-outline">Cancel</button>
+<button class="btn-primary">Save Changes</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

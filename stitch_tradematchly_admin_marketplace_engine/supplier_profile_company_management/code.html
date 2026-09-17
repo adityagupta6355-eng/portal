@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Supplier Profile Management - TradeMatchly</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-background": "#1b1b1d",
+                        "secondary-container": "#655dfb",
+                        "surface-container-low": "#f6f3f5",
+                        "primary": "#0f172a",
+                        "secondary-fixed": "#e2dfff",
+                        "outline-variant": "#e2e8f0",
+                        "on-secondary-fixed": "#0f0069",
+                        "on-tertiary": "#ffffff",
+                        "surface-border": "#e2e8f0",
+                        "tertiary-fixed-dim": "#dec29a",
+                        "tertiary-fixed": "#fcdeb5",
+                        "on-primary-container": "#7c839b",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-container": "#271901",
+                        "on-tertiary-container": "#98805d",
+                        "primary-fixed": "#dae2fd",
+                        "background": "#f8fafc",
+                        "surface-container": "#f0edef",
+                        "inverse-primary": "#bec6e0",
+                        "on-secondary-container": "#fffbff",
+                        "inverse-surface": "#303032",
+                        "error-container": "#ffdad6",
+                        "on-secondary-fixed-variant": "#3322cc",
+                        "outline": "#94a3b8",
+                        "data-text": "#1e293b",
+                        "surface-variant": "#f1f5f9",
+                        "on-surface-variant": "#475569",
+                        "surface-container-high": "#eae7e9",
+                        "on-error": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "surface-bright": "#f8fafc",
+                        "on-tertiary-fixed": "#271901",
+                        "secondary-fixed-dim": "#c3c0ff",
+                        "surface": "#ffffff",
+                        "on-primary-fixed": "#131b2e",
+                        "verified-emerald": "#059669",
+                        "surface-container-highest": "#e4e2e4",
+                        "tertiary": "#000000",
+                        "secondary": "#2563eb",
+                        "risk-red": "#dc2626",
+                        "surface-dim": "#dcd9db",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "on-error-container": "#93000a",
+                        "in-progress-blue": "#2563eb",
+                        "primary-fixed-dim": "#bec6e0",
+                        "on-secondary": "#ffffff",
+                        "risk-amber": "#d97706",
+                        "surface-tint": "#565e74",
+                        "inverse-on-surface": "#f3f0f2",
+                        "on-surface": "#0f172a",
+                        "on-tertiary-fixed-variant": "#574425",
+                        "primary-container": "#0f172a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-gap": "32px",
+                        "gutter": "16px",
+                        "table-cell-padding": "12px",
+                        "base": "4px",
+                        "sidebar-width": "260px",
+                        "container-padding": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-sm": ["Inter"],
+                        "label-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "label-lg": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "data-mono": ["JetBrains Mono"],
+                        "body-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-md": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg": ["28px", { "lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-lg": ["14px", { "lineHeight": "20px", "fontWeight": "600" }],
+                        "display-lg": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "data-mono": ["13px", { "lineHeight": "18px", "fontWeight": "500" }],
+                        "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .fill-icon {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen flex">
+<!-- SideNavBar -->
+<nav class="fixed left-0 top-0 h-screen w-sidebar-width bg-primary-container flex flex-col z-50">
+<div class="p-container-padding flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-secondary flex items-center justify-center text-on-primary font-bold">TM</div>
+<div>
+<div class="font-headline-sm text-on-primary">TradeMatchly</div>
+<div class="text-[11px] text-on-primary-container font-medium uppercase tracking-wider">Supplier Portal</div>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto py-4 px-2 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 rounded-md text-on-primary-container/70 hover:bg-surface-container-highest/5 hover:text-on-primary transition-colors font-body-sm" href="#">
+<span class="material-symbols-outlined text-[20px]">dashboard</span> Overview
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-md text-on-primary-container/70 hover:bg-surface-container-highest/5 hover:text-on-primary transition-colors font-body-sm" href="#">
+<span class="material-symbols-outlined text-[20px]">explore</span> Opportunities
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-md text-on-primary-container/70 hover:bg-surface-container-highest/5 hover:text-on-primary transition-colors font-body-sm" href="#">
+<span class="material-symbols-outlined text-[20px]">request_quote</span> RFQs
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-md text-on-primary-container/70 hover:bg-surface-container-highest/5 hover:text-on-primary transition-colors font-body-sm" href="#">
+<span class="material-symbols-outlined text-[20px]">description</span> Quotes
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-md text-on-primary-container/70 hover:bg-surface-container-highest/5 hover:text-on-primary transition-colors font-body-sm" href="#">
+<span class="material-symbols-outlined text-[20px]">handshake</span> Negotiations
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-md text-on-primary-container/70 hover:bg-surface-container-highest/5 hover:text-on-primary transition-colors font-body-sm" href="#">
+<span class="material-symbols-outlined text-[20px]">handshake</span> Deals
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-md text-on-primary-container/70 hover:bg-surface-container-highest/5 hover:text-on-primary transition-colors font-body-sm" href="#">
+<span class="material-symbols-outlined text-[20px]">inventory_2</span> Products
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-md text-on-primary-container/70 hover:bg-surface-container-highest/5 hover:text-on-primary transition-colors font-body-sm" href="#">
+<span class="material-symbols-outlined text-[20px]">groups</span> Buyers
+            </a>
+<!-- Active Profile Tab -->
+<a class="flex items-center gap-3 px-4 py-3 bg-surface-container-highest/10 border-l-4 border-secondary text-on-primary font-bold rounded-r-md" href="#">
+<span class="material-symbols-outlined text-[20px] fill-icon">account_circle</span> Profile
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-md text-on-primary-container/70 hover:bg-surface-container-highest/5 hover:text-on-primary transition-colors font-body-sm" href="#">
+<span class="material-symbols-outlined text-[20px]">verified</span> Verification
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-md text-on-primary-container/70 hover:bg-surface-container-highest/5 hover:text-on-primary transition-colors font-body-sm" href="#">
+<span class="material-symbols-outlined text-[20px]">folder_open</span> Documents
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-md text-on-primary-container/70 hover:bg-surface-container-highest/5 hover:text-on-primary transition-colors font-body-sm" href="#">
+<span class="material-symbols-outlined text-[20px]">analytics</span> Analytics
+            </a>
+</div>
+<div class="mt-auto p-2 border-t border-surface-container-highest/10 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 rounded-md text-on-primary-container/70 hover:bg-surface-container-highest/5 hover:text-on-primary transition-colors font-body-sm" href="#">
+<span class="material-symbols-outlined text-[20px]">settings</span> Settings
+            </a>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="ml-sidebar-width flex-1 flex flex-col min-h-screen">
+<!-- TopAppBar -->
+<header class="h-16 bg-surface border-b border-surface-border flex items-center justify-between px-container-padding sticky top-0 z-40">
+<div class="font-headline-sm text-on-surface">Supplier Profile</div>
+<div class="flex items-center gap-4">
+<button class="h-8 w-8 rounded-full hover:bg-surface-variant flex items-center justify-center text-on-surface-variant transition-colors">
+<span class="material-symbols-outlined text-[20px]">notifications</span>
+</button>
+<div class="h-8 w-8 rounded-full bg-secondary text-on-primary flex items-center justify-center font-label-md">AB</div>
+</div>
+</header>
+<!-- Content Canvas -->
+<div class="p-container-padding flex-1 space-y-section-gap max-w-[1200px] w-full mx-auto">
+<!-- Profile Header Card -->
+<div class="bg-surface rounded-xl border border-surface-border shadow-sm p-6">
+<div class="flex flex-col md:flex-row md:items-start justify-between gap-6">
+<div class="flex items-start gap-6">
+<div class="w-24 h-24 rounded-lg bg-surface-variant border border-surface-border flex items-center justify-center overflow-hidden shrink-0">
+<span class="material-symbols-outlined text-4xl text-on-surface-variant">storefront</span>
+</div>
+<div>
+<div class="flex items-center gap-3 mb-2">
+<h1 class="font-headline-lg text-on-surface">ABC Spices Pvt. Ltd.</h1>
+<span class="inline-flex items-center gap-1 bg-verified-emerald/10 text-verified-emerald font-label-md px-2 py-1 rounded-full">
+<span class="material-symbols-outlined text-[14px] fill-icon">verified</span>
+                                    Trade Verified
+                                </span>
+</div>
+<p class="font-body-md text-on-surface-variant mb-4">Premium exporter of authentic Indian spices and agricultural commodities.</p>
+<div class="flex flex-wrap items-center gap-6">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">military_tech</span>
+<div>
+<div class="font-label-md text-on-surface-variant">Trust Score</div>
+<div class="font-headline-sm text-on-surface">91<span class="font-body-sm text-on-surface-variant">/100</span></div>
+</div>
+</div>
+<div class="h-8 w-px bg-surface-border"></div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">calendar_today</span>
+<div>
+<div class="font-label-md text-on-surface-variant">Member Since</div>
+<div class="font-headline-sm text-on-surface">2018</div>
+</div>
+</div>
+<div class="h-8 w-px bg-surface-border"></div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">public</span>
+<div>
+<div class="font-label-md text-on-surface-variant">Global Trade Tier</div>
+<div class="font-headline-sm text-on-surface">Tier 1</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<button class="shrink-0 h-10 px-4 bg-primary text-on-primary rounded-md font-label-lg hover:bg-primary/90 transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+                        Edit Public Profile
+                    </button>
+</div>
+<!-- Tabs -->
+<div class="flex border-b border-surface-border mt-8 gap-8">
+<button class="pb-3 border-b-2 border-secondary font-label-lg text-primary">Overview</button>
+<button class="pb-3 border-b-2 border-transparent font-label-lg text-on-surface-variant hover:text-on-surface transition-colors">Business Info</button>
+<button class="pb-3 border-b-2 border-transparent font-label-lg text-on-surface-variant hover:text-on-surface transition-colors">Trade Profile</button>
+<button class="pb-3 border-b-2 border-transparent font-label-lg text-on-surface-variant hover:text-on-surface transition-colors">Verification</button>
+</div>
+</div>
+<!-- Bento Grid Content -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<!-- Trust Score Breakdown -->
+<div class="bg-surface rounded-xl border border-surface-border shadow-sm p-5 lg:col-span-1">
+<h2 class="font-headline-sm text-on-surface mb-4">Trust Score Breakdown</h2>
+<div class="flex flex-col items-center">
+<!-- Simulated Circular Chart -->
+<div class="relative w-32 h-32 mb-6">
+<svg class="w-full h-full transform -rotate-90" viewbox="0 0 36 36">
+<path class="text-surface-variant" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3"></path>
+<path class="text-secondary" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="91, 100" stroke-width="3"></path>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="font-display-lg text-on-surface">91</span>
+</div>
+</div>
+<div class="w-full space-y-3">
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-on-surface-variant">Business Identity</span>
+<span class="font-data-mono text-on-surface font-semibold">100%</span>
+</div>
+<div class="w-full h-1.5 bg-surface-variant rounded-full overflow-hidden"><div class="h-full bg-verified-emerald w-[100%]"></div></div>
+<div class="flex items-center justify-between">
+<span class="font-body-sm text-on-surface-variant">Trade History</span>
+<span class="font-data-mono text-on-surface font-semibold">85%</span>
+</div>
+<div class="w-full h-1.5 bg-surface-variant rounded-full overflow-hidden"><div class="h-full bg-secondary w-[85%]"></div></div>
+</div>
+</div>
+</div>
+<!-- Middle Column: Verification & Strength -->
+<div class="lg:col-span-2 space-y-6 flex flex-col">
+<!-- Verification Progress -->
+<div class="bg-surface rounded-xl border border-surface-border shadow-sm p-5 flex-1">
+<h2 class="font-headline-sm text-on-surface mb-6">Verification Progress</h2>
+<div class="relative flex items-center justify-between max-w-2xl mx-auto px-4">
+<!-- Line -->
+<div class="absolute left-8 right-8 top-1/2 h-0.5 bg-surface-variant -z-10 -translate-y-1/2"></div>
+<div class="absolute left-8 w-[50%] top-1/2 h-0.5 bg-verified-emerald -z-10 -translate-y-1/2"></div>
+<!-- Steps -->
+<div class="flex flex-col items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-verified-emerald text-white flex items-center justify-center"><span class="material-symbols-outlined text-[16px]">check</span></div>
+<span class="font-label-md text-on-surface">Basic</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-verified-emerald text-white flex items-center justify-center ring-4 ring-verified-emerald/20"><span class="material-symbols-outlined text-[16px]">check</span></div>
+<span class="font-label-md text-verified-emerald font-bold">Trade Verified</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-surface text-outline border-2 border-outline-variant flex items-center justify-center"><span class="material-symbols-outlined text-[16px]">lock</span></div>
+<span class="font-label-md text-on-surface-variant">Transaction</span>
+</div>
+</div>
+</div>
+<!-- Profile Strength -->
+<div class="bg-surface rounded-xl border border-surface-border shadow-sm p-5 flex-1">
+<div class="flex items-center justify-between mb-2">
+<h2 class="font-headline-sm text-on-surface">Company Strength</h2>
+<span class="font-headline-sm text-secondary">78%</span>
+</div>
+<div class="w-full h-2 bg-surface-variant rounded-full overflow-hidden mb-4">
+<div class="h-full bg-secondary w-[78%]"></div>
+</div>
+<div class="bg-surface-variant rounded-lg p-3 flex items-start gap-3 border border-surface-border">
+<span class="material-symbols-outlined text-risk-amber mt-0.5">lightbulb</span>
+<div>
+<div class="font-label-md text-on-surface">Action Required: Reach 100%</div>
+<div class="font-body-sm text-on-surface-variant mt-1">Add product certifications and update warehouse photos to improve buyer confidence.</div>
+</div>
+<button class="ml-auto text-secondary font-label-md hover:underline">Update Now</button>
+</div>
+</div>
+</div>
+<!-- Business Info Summary -->
+<div class="bg-surface rounded-xl border border-surface-border shadow-sm p-5 lg:col-span-2">
+<h2 class="font-headline-sm text-on-surface mb-4">Business Information</h2>
+<div class="grid grid-cols-2 gap-y-4 gap-x-8">
+<div>
+<div class="font-label-md text-on-surface-variant">Legal Name</div>
+<div class="font-body-md text-on-surface">ABC Spices Private Limited</div>
+</div>
+<div>
+<div class="font-label-md text-on-surface-variant">Registration No.</div>
+<div class="font-data-mono text-on-surface">U74999MH2018PTC123456</div>
+</div>
+<div>
+<div class="font-label-md text-on-surface-variant">Established Date</div>
+<div class="font-body-md text-on-surface">March 15, 2018</div>
+</div>
+<div>
+<div class="font-label-md text-on-surface-variant">Headquarters</div>
+<div class="font-body-md text-on-surface">Mumbai, Maharashtra, India</div>
+</div>
+</div>
+</div>
+<!-- Map Area -->
+<div class="bg-surface rounded-xl border border-surface-border shadow-sm overflow-hidden lg:col-span-1 min-h-[200px] relative">
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="A clean, minimalist digital map interface centered on Mumbai, India. The style is modern corporate, using light grays and off-whites for the landmass, with subtle blue accents for water. A single, distinct deep blue location pin marks Mumbai. The overall aesthetic is professional B2B software, high-contrast, and uncluttered." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGzIL89uUSHawZtPQaJpyycwHLVUPjAJhCKy0Qm_RGpA2eEECVd0NBmLP0ooHH3fLjYxFf9UFvyIdFId-7qJAzzTh8TujjmvNtmKsXz00VAzFC3tuY2ANHtk91lRcn4KrWRATOmWJ2MF67fu-ALq-9o0DTbAeKQ0fNyZfc4jO9hlUArfvkfTvhq9TTi8MCET90fpFG9YyUY9u8J5JBp-RacGGzTf5izJoSFBvR1oLL-vekrIIxDtgI"/>
+</div>
+</div>
+</div>
+</main>
+</body></html>

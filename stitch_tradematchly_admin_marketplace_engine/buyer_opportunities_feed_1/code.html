@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>GlobalTrade - Buyer Opportunities</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-container": "#fffbff",
+                        "tertiary-fixed": "#d3e4fe",
+                        "background": "#f7f9fb",
+                        "inverse-primary": "#bec6e0",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "secondary": "#4b41e1",
+                        "on-tertiary-fixed-variant": "#38485d",
+                        "in-progress-blue": "#2563eb",
+                        "primary": "#000000",
+                        "outline": "#76777d",
+                        "surface-bright": "#f7f9fb",
+                        "primary-fixed": "#dae2fd",
+                        "inverse-surface": "#2d3133",
+                        "surface-border": "#e2e8f0",
+                        "on-error-container": "#93000a",
+                        "risk-red": "#dc2626",
+                        "on-error": "#ffffff",
+                        "surface-container": "#eceef0",
+                        "on-secondary-fixed-variant": "#3322cc",
+                        "surface-dim": "#d8dadc",
+                        "on-primary-fixed": "#131b2e",
+                        "risk-amber": "#d97706",
+                        "surface-variant": "#e0e3e5",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-highest": "#e0e3e5",
+                        "error": "#ba1a1a",
+                        "on-surface-variant": "#45464d",
+                        "on-tertiary-fixed": "#0b1c30",
+                        "secondary-container": "#655dfb",
+                        "secondary-fixed-dim": "#c3c0ff",
+                        "primary-container": "#131b2e",
+                        "tertiary-container": "#0b1c30",
+                        "on-primary-container": "#7c839b",
+                        "surface-container-low": "#f2f4f6",
+                        "tertiary": "#000000",
+                        "outline-variant": "#c6c6cd",
+                        "on-tertiary-container": "#75859d",
+                        "secondary-fixed": "#e2dfff",
+                        "error-container": "#ffdad6",
+                        "on-tertiary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "on-surface": "#191c1e",
+                        "on-background": "#191c1e",
+                        "verified-emerald": "#059669",
+                        "surface-container-high": "#e6e8ea",
+                        "inverse-on-surface": "#eff1f3",
+                        "surface-tint": "#565e74",
+                        "tertiary-fixed-dim": "#b7c8e1",
+                        "on-secondary-fixed": "#0f0069",
+                        "surface": "#f7f9fb",
+                        "primary-fixed-dim": "#bec6e0"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter-mobile": "0.75rem",
+                        "margin-mobile": "1rem",
+                        "touch-target": "2.75rem",
+                        "stack-md": "1rem",
+                        "stack-sm": "0.5rem",
+                        "stack-lg": "1.5rem"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "label-md": ["Inter"],
+                        "data-mono": ["JetBrains Mono"],
+                        "headline-sm": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-md": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "headline-lg": ["28px", { "lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+                        "label-md": ["11px", { "lineHeight": "16px", "letterSpacing": "0.06em", "fontWeight": "700" }],
+                        "data-mono": ["13px", { "lineHeight": "18px", "fontWeight": "500" }],
+                        "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-fill {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Custom scrollbar for horizontal lists */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen pb-[80px]">
+<!-- TopAppBar -->
+<header class="bg-background dark:bg-background docked full-width top-0 z-40 sticky">
+<div class="flex justify-between items-center px-margin-mobile h-touch-target w-full bg-background dark:bg-background flat no shadows">
+<div class="flex items-center gap-2 hover:bg-surface-container-low transition-colors rounded-full p-1 scale-95 active:opacity-80 transition-all cursor-pointer">
+<img alt="Executive Profile" class="w-8 h-8 rounded-full object-cover border border-surface-border" data-alt="A professional headshot of an executive in a modern corporate setting, natural lighting, high quality, 4k resolution, clean minimal background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVS_OfLNZ6l61i9Cqj1prCndEn_01vRidKfCmRUoRcCC8Sispc6kTe6fPB_gTx2I4ORcz07sXQ351wQhTW4AjxToO88AjovPYaMfRZ9TPOgduHlwO4889YAsZWhAYY6VwfUxMvLU5yCL7e_48psjdGnzLucLf9yWh2ml1srnQn5XLGe34r_CHFhXoUTC3kzhK1Wpbb-uzjrNqELC3-MrRbPQtNKPHkoJ77jVJu9u1TF8f5549maIH0"/>
+</div>
+<div class="text-headline-md font-headline-md font-bold text-primary dark:text-on-background">
+                GlobalTrade
+            </div>
+<div class="flex items-center hover:bg-surface-container-low transition-colors rounded-full p-2 scale-95 active:opacity-80 transition-all cursor-pointer text-primary dark:text-on-background">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="px-margin-mobile pt-stack-md flex flex-col gap-stack-lg max-w-4xl mx-auto">
+<!-- Page Header & Tabs -->
+<section class="flex flex-col gap-stack-sm">
+<h1 class="text-headline-lg font-headline-lg text-primary">Buyer Opportunities</h1>
+<div class="flex gap-4 overflow-x-auto no-scrollbar py-2 border-b border-surface-border">
+<button class="text-label-md font-label-md text-primary border-b-2 border-primary pb-2 px-1 whitespace-nowrap">Recommended</button>
+<button class="text-label-md font-label-md text-on-surface-variant pb-2 px-1 whitespace-nowrap hover:text-primary transition-colors">New</button>
+<button class="text-label-md font-label-md text-on-surface-variant pb-2 px-1 whitespace-nowrap hover:text-primary transition-colors">Saved</button>
+</div>
+</section>
+<!-- Opportunities Feed (Bento/Card Layout) -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-stack-md">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest rounded-xl border border-surface-border p-4 flex flex-col gap-stack-md hover:shadow-[0_4px_16px_rgba(0,0,0,0.04)] transition-shadow cursor-pointer relative overflow-hidden group">
+<!-- Match Score Badge -->
+<div class="absolute top-4 right-4 bg-verified-emerald/10 text-verified-emerald px-2 py-1 rounded text-label-md font-label-md flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="check_circle">check_circle</span>
+                    94% Match
+                </div>
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary text-2xl" data-icon="eco">eco</span>
+</div>
+<div>
+<h3 class="text-headline-sm font-headline-sm text-primary">Turmeric Powder</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">REQ-8472-A</p>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 bg-surface-container-low rounded-lg p-3">
+<div>
+<div class="text-label-md font-label-md text-on-surface-variant mb-1">QUANTITY</div>
+<div class="text-data-mono font-data-mono text-primary">500 MT</div>
+</div>
+<div>
+<div class="text-label-md font-label-md text-on-surface-variant mb-1">DESTINATION</div>
+<div class="text-body-md font-body-md text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="location_on">location_on</span>
+                            Rotterdam
+                        </div>
+</div>
+</div>
+<button class="w-full bg-primary text-on-primary py-3 rounded-lg text-label-md font-label-md uppercase tracking-wider hover:bg-opacity-90 transition-colors flex items-center justify-center gap-2 mt-auto">
+                    View Requirement
+                    <span class="material-symbols-outlined text-[18px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest rounded-xl border border-surface-border p-4 flex flex-col gap-stack-md hover:shadow-[0_4px_16px_rgba(0,0,0,0.04)] transition-shadow cursor-pointer relative overflow-hidden group">
+<div class="absolute top-4 right-4 bg-verified-emerald/10 text-verified-emerald px-2 py-1 rounded text-label-md font-label-md flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="check_circle">check_circle</span>
+                    88% Match
+                </div>
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary text-2xl" data-icon="precision_manufacturing">precision_manufacturing</span>
+</div>
+<div>
+<h3 class="text-headline-sm font-headline-sm text-primary">Steel Billets</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">REQ-9102-C</p>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 bg-surface-container-low rounded-lg p-3">
+<div>
+<div class="text-label-md font-label-md text-on-surface-variant mb-1">QUANTITY</div>
+<div class="text-data-mono font-data-mono text-primary">10,000 MT</div>
+</div>
+<div>
+<div class="text-label-md font-label-md text-on-surface-variant mb-1">DESTINATION</div>
+<div class="text-body-md font-body-md text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="location_on">location_on</span>
+                            Dubai
+                        </div>
+</div>
+</div>
+<button class="w-full bg-surface-container-lowest border border-surface-border text-primary py-3 rounded-lg text-label-md font-label-md uppercase tracking-wider hover:bg-surface-container-low transition-colors flex items-center justify-center gap-2 mt-auto">
+                    View Requirement
+                    <span class="material-symbols-outlined text-[18px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-lowest rounded-xl border border-surface-border p-4 flex flex-col gap-stack-md hover:shadow-[0_4px_16px_rgba(0,0,0,0.04)] transition-shadow cursor-pointer relative overflow-hidden group">
+<div class="absolute top-4 right-4 bg-verified-emerald/10 text-verified-emerald px-2 py-1 rounded text-label-md font-label-md flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="check_circle">check_circle</span>
+                    91% Match
+                </div>
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary text-2xl" data-icon="coffee">coffee</span>
+</div>
+<div>
+<h3 class="text-headline-sm font-headline-sm text-primary">Arabica Coffee Beans</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">REQ-7741-B</p>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 bg-surface-container-low rounded-lg p-3">
+<div>
+<div class="text-label-md font-label-md text-on-surface-variant mb-1">QUANTITY</div>
+<div class="text-data-mono font-data-mono text-primary">250 MT</div>
+</div>
+<div>
+<div class="text-label-md font-label-md text-on-surface-variant mb-1">DESTINATION</div>
+<div class="text-body-md font-body-md text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="location_on">location_on</span>
+                            Hamburg
+                        </div>
+</div>
+</div>
+<button class="w-full bg-surface-container-lowest border border-surface-border text-primary py-3 rounded-lg text-label-md font-label-md uppercase tracking-wider hover:bg-surface-container-low transition-colors flex items-center justify-center gap-2 mt-auto">
+                    View Requirement
+                    <span class="material-symbols-outlined text-[18px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 flex justify-around items-center px-2 py-2 bg-surface-container-lowest dark:bg-surface-container-lowest flat no shadows">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-2 py-1 hover:bg-surface-container-high transition-colors tap-highlight-transparent active:scale-90 transition-transform rounded-xl" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="text-label-md font-label-md mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim bg-secondary-container/10 rounded-xl px-2 py-1 hover:bg-surface-container-high transition-colors tap-highlight-transparent active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined icon-fill" data-icon="insights" data-weight="fill">insights</span>
+<span class="text-label-md font-label-md mt-1">Opps</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-2 py-1 hover:bg-surface-container-high transition-colors tap-highlight-transparent active:scale-90 transition-transform rounded-xl" href="#">
+<span class="material-symbols-outlined" data-icon="request_quote">request_quote</span>
+<span class="text-label-md font-label-md mt-1">RFQs</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-2 py-1 hover:bg-surface-container-high transition-colors tap-highlight-transparent active:scale-90 transition-transform rounded-xl" href="#">
+<span class="material-symbols-outlined" data-icon="chat_bubble">chat_bubble</span>
+<span class="text-label-md font-label-md mt-1">Messages</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-2 py-1 hover:bg-surface-container-high transition-colors tap-highlight-transparent active:scale-90 transition-transform rounded-xl" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-label-md font-label-md mt-1">Profile</span>
+</a>
+</nav>
+<!-- Desktop Sidebar (Hidden on mobile) -->
+<nav class="hidden md:flex flex-col fixed left-0 top-0 h-full w-64 bg-surface-container-lowest border-r border-surface-border pt-[80px] px-4 z-30">
+<div class="flex flex-col gap-2 mt-4">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="text-body-md font-body-md font-medium">Home</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg bg-secondary-container/10 text-secondary" href="#">
+<span class="material-symbols-outlined icon-fill" data-icon="insights" data-weight="fill">insights</span>
+<span class="text-body-md font-body-md font-medium">Buyer Opportunities</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="request_quote">request_quote</span>
+<span class="text-body-md font-body-md font-medium">RFQs</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="chat_bubble">chat_bubble</span>
+<span class="text-body-md font-body-md font-medium">Messages</span>
+</a>
+</div>
+</nav>
+<!-- Adjust main content padding for desktop sidebar -->
+<style>
+        @media (min-width: 768px) {
+            main {
+                padding-left: calc(16rem + 1rem); /* 64 + margin */
+                max-width: 100%;
+            }
+        }
+    </style>
+</body></html>

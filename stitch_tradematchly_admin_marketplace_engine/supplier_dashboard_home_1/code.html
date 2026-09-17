@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Supplier Dashboard - GlobalTrade</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-container": "#fffbff",
+                        "tertiary-fixed": "#d3e4fe",
+                        "background": "#f7f9fb",
+                        "inverse-primary": "#bec6e0",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "secondary": "#4b41e1",
+                        "on-tertiary-fixed-variant": "#38485d",
+                        "in-progress-blue": "#2563eb",
+                        "primary": "#000000",
+                        "outline": "#76777d",
+                        "surface-bright": "#f7f9fb",
+                        "primary-fixed": "#dae2fd",
+                        "inverse-surface": "#2d3133",
+                        "surface-border": "#e2e8f0",
+                        "on-error-container": "#93000a",
+                        "risk-red": "#dc2626",
+                        "on-error": "#ffffff",
+                        "surface-container": "#eceef0",
+                        "on-secondary-fixed-variant": "#3322cc",
+                        "surface-dim": "#d8dadc",
+                        "on-primary-fixed": "#131b2e",
+                        "risk-amber": "#d97706",
+                        "surface-variant": "#e0e3e5",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-highest": "#e0e3e5",
+                        "error": "#ba1a1a",
+                        "on-surface-variant": "#45464d",
+                        "on-tertiary-fixed": "#0b1c30",
+                        "secondary-container": "#655dfb",
+                        "secondary-fixed-dim": "#c3c0ff",
+                        "primary-container": "#131b2e",
+                        "tertiary-container": "#0b1c30",
+                        "on-primary-container": "#7c839b",
+                        "surface-container-low": "#f2f4f6",
+                        "tertiary": "#000000",
+                        "outline-variant": "#c6c6cd",
+                        "on-tertiary-container": "#75859d",
+                        "secondary-fixed": "#e2dfff",
+                        "error-container": "#ffdad6",
+                        "on-tertiary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "on-surface": "#191c1e",
+                        "on-background": "#191c1e",
+                        "verified-emerald": "#059669",
+                        "surface-container-high": "#e6e8ea",
+                        "inverse-on-surface": "#eff1f3",
+                        "surface-tint": "#565e74",
+                        "tertiary-fixed-dim": "#b7c8e1",
+                        "on-secondary-fixed": "#0f0069",
+                        "surface": "#f7f9fb",
+                        "primary-fixed-dim": "#bec6e0"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter-mobile": "0.75rem",
+                        "margin-mobile": "1rem",
+                        "touch-target": "2.75rem",
+                        "stack-md": "1rem",
+                        "stack-sm": "0.5rem",
+                        "stack-lg": "1.5rem"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "label-md": ["Inter"],
+                        "data-mono": ["JetBrains Mono"],
+                        "headline-sm": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "headline-md": ["22px", {"lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "headline-lg": ["28px", {"lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                        "label-md": ["11px", {"lineHeight": "16px", "letterSpacing": "0.06em", "fontWeight": "700"}],
+                        "data-mono": ["13px", {"lineHeight": "18px", "fontWeight": "500"}],
+                        "headline-sm": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        /* Hide scrollbar for horizontal scroll areas */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md antialiased pb-24 selection:bg-primary selection:text-on-primary">
+<!-- TopAppBar Shared Component -->
+<header class="bg-background dark:bg-background flex justify-between items-center px-margin-mobile h-touch-target w-full z-40 sticky top-0">
+<div class="flex items-center gap-3">
+<button class="hover:bg-surface-container-low transition-colors p-2 -ml-2 rounded-full scale-95 active:opacity-80 transition-all flex items-center justify-center">
+<span class="material-symbols-outlined text-primary dark:text-on-background">menu</span>
+</button>
+<span class="text-headline-md font-headline-md font-bold text-primary dark:text-on-background tracking-tight">GlobalTrade</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="hover:bg-surface-container-low transition-colors p-2 rounded-full scale-95 active:opacity-80 transition-all flex items-center justify-center relative">
+<span class="material-symbols-outlined text-primary dark:text-on-background">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-risk-red rounded-full"></span>
+</button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-surface-border">
+<img alt="Profile" class="w-full h-full object-cover" data-alt="A professional headshot of a female executive in her mid-30s. She has dark hair styled neatly, wearing a crisp white blouse and a subtle dark navy blazer. The lighting is studio-quality, bright and corporate, set against a pristine, soft light slate grey background. The image evokes authority, precision, and modern business professionalism, aligning perfectly with a premium B2B corporate aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSN1d-bi0j6A4PdaXT1DLXdn2PXMJvSZrTeF-GySPSrz2apCP6smo0gYb6u6AIuV_7mFOoj8ygekeT7XES05V5eV6XIT3RrtrlAkdmSGc0Zys008WRo6ZkGPCj9x2FHkdMtzVsIbyCeKSe6dOH7Olu-s3EOxVIeOm2FJDc4B3md1nLpHtqXjDkmpLCYZLZueOeH7ZtSmcC3CCOZ8-iWq6N_K5zOS_qLfee1XXnyZ1rjQ-vxHp7t5CA"/>
+</div>
+</div>
+</header>
+<main class="flex flex-col gap-stack-lg pt-stack-sm">
+<!-- Header & Status -->
+<section class="px-margin-mobile flex flex-col gap-stack-sm">
+<div class="flex items-center justify-between">
+<h1 class="text-headline-lg font-headline-lg text-on-background">Good morning, Sarah</h1>
+</div>
+<div class="inline-flex">
+<span class="bg-verified-emerald/10 text-verified-emerald text-label-md font-label-md px-2 py-1 rounded-md flex items-center gap-1.5 w-fit border border-verified-emerald/20">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+                    Trade Verified
+                </span>
+</div>
+</section>
+<!-- KPI Grid -->
+<section class="px-margin-mobile grid grid-cols-2 gap-4">
+<!-- Profile Completion Card -->
+<div class="col-span-2 bg-surface-container-lowest border border-surface-border rounded-xl p-4 flex flex-col gap-3">
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant text-[20px]">assignment_ind</span>
+<span class="text-body-md font-body-md font-semibold text-on-background">Profile Completion</span>
+</div>
+<span class="text-data-mono font-data-mono text-primary font-bold">78%</span>
+</div>
+<div class="w-full bg-surface-container h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full transition-all duration-1000 ease-out" style="width: 78%"></div>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Complete your tax details to reach 100% and unlock premium RFQs.</p>
+</div>
+<!-- Metric Cards -->
+<div class="bg-surface-container-lowest border border-surface-border rounded-xl p-4 flex flex-col gap-2">
+<div class="w-8 h-8 rounded-full bg-in-progress-blue/10 flex items-center justify-center mb-1">
+<span class="material-symbols-outlined text-in-progress-blue text-[18px]">insights</span>
+</div>
+<span class="text-headline-lg font-headline-lg text-on-background">12</span>
+<span class="text-label-md font-label-md text-on-surface-variant uppercase tracking-wider">New Opps</span>
+</div>
+<div class="bg-surface-container-lowest border border-surface-border rounded-xl p-4 flex flex-col gap-2">
+<div class="w-8 h-8 rounded-full bg-risk-amber/10 flex items-center justify-center mb-1">
+<span class="material-symbols-outlined text-risk-amber text-[18px]">request_quote</span>
+</div>
+<span class="text-headline-lg font-headline-lg text-on-background">8</span>
+<span class="text-label-md font-label-md text-on-surface-variant uppercase tracking-wider">Active RFQs</span>
+</div>
+<div class="bg-surface-container-lowest border border-surface-border rounded-xl p-4 flex flex-col gap-2 col-span-2 sm:col-span-1">
+<div class="w-8 h-8 rounded-full bg-verified-emerald/10 flex items-center justify-center mb-1">
+<span class="material-symbols-outlined text-verified-emerald text-[18px]">handshake</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="text-headline-lg font-headline-lg text-on-background">6</span>
+<span class="text-body-sm font-body-sm text-verified-emerald flex items-center"><span class="material-symbols-outlined text-[12px]">trending_up</span> +2 this week</span>
+</div>
+<span class="text-label-md font-label-md text-on-surface-variant uppercase tracking-wider">Deals Closed</span>
+</div>
+</section>
+<!-- Quick Actions -->
+<section class="px-margin-mobile flex gap-3">
+<button class="flex-1 bg-primary text-on-primary h-touch-target rounded-lg flex items-center justify-center gap-2 text-body-md font-body-md font-semibold active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[20px]">add_circle</span>
+                Add Product
+            </button>
+<button class="flex-1 bg-surface-container-lowest border border-surface-border text-primary h-touch-target rounded-lg flex items-center justify-center gap-2 text-body-md font-body-md font-semibold active:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-[20px]">security</span>
+                Verify Docs
+            </button>
+</section>
+<!-- Horizontal Scroll Section -->
+<section class="flex flex-col gap-stack-md pt-stack-sm overflow-hidden">
+<div class="px-margin-mobile flex justify-between items-end">
+<h2 class="text-headline-sm font-headline-sm text-on-background font-bold">New Opportunities</h2>
+<a class="text-label-md font-label-md text-secondary uppercase tracking-wider hover:underline" href="#">View All</a>
+</div>
+<div class="flex gap-4 overflow-x-auto hide-scrollbar px-margin-mobile snap-x snap-mandatory pb-2">
+<!-- Opportunity Card 1 -->
+<div class="min-w-[260px] max-w-[280px] bg-surface-container-lowest border border-surface-border rounded-xl p-4 flex flex-col gap-4 snap-center shrink-0">
+<div class="flex justify-between items-start">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center overflow-hidden border border-surface-border">
+<img class="w-full h-full object-cover" data-alt="A macro, high-resolution photo of premium long-grain Basmati rice, perfectly illuminated to show the texture and purity of the grains. The image is set against a clean, minimalist white background to align with a modern corporate catalog style. The lighting is crisp and bright, ensuring maximum clarity for B2B product evaluation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDc2L6IcV7tuKCJE96SVuPnWKMQlsSAI35YxrzOEmtJu0hUS4FMUhp18Sc43INQNUHQjOy99istnWNad0OkcnIsaITmnuwZLEEVJ347-V0brq8dLpnJCX8X1WOfazhtumgnpfkILIR7gnFNLdvsECDWvmkScyrbIrPojSIuezEEcBKDQgmMZjsxcISoIF48rJxI16jjEVCBPtl5ConDQMb733NXEeGq6e9__bKQFbgs4IgNxMTbkF-a"/>
+</div>
+<span class="bg-verified-emerald/10 text-verified-emerald text-label-md font-label-md px-2 py-1 rounded border border-verified-emerald/20 flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">radar</span> 93% Match
+                        </span>
+</div>
+<div>
+<h3 class="text-body-lg font-body-lg text-on-background font-semibold">Premium Basmati Rice</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1 line-clamp-1">Req: 500 MT / Month</p>
+</div>
+<div class="pt-3 border-t border-surface-border flex justify-between items-center">
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+<span class="text-data-mono font-data-mono text-[12px]">Dubai, UAE</span>
+</div>
+<button class="text-primary hover:bg-surface-container-low rounded-full p-1 transition-colors">
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Opportunity Card 2 -->
+<div class="min-w-[260px] max-w-[280px] bg-surface-container-lowest border border-surface-border rounded-xl p-4 flex flex-col gap-4 snap-center shrink-0">
+<div class="flex justify-between items-start">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center overflow-hidden border border-surface-border">
+<img class="w-full h-full object-cover" data-alt="A clean, industrial-style photo of organic soybeans in a modern metallic scoop. The background is a stark, minimal slate grey, emphasizing the agricultural commodity. The lighting is bright and evenly distributed, highlighting the quality of the product in a professional, no-nonsense manner suitable for a B2B trade platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMglH8V_Td9y_obbgpG7roI5-FKqSYnh4WPq3LTmdSX_iLR7JqHR7XwFJwcrUY5MKbRkYXdkLWqP-XERfry5UNRoeoYAkMDMTX4fdgGdceh9VkSp54iAXbJaOF6Ctr4cdbK7L5JVa6K7TIMbwQE9SyugvY68AxE0hgz0YiXxxVNNNJLGQnvGWeBp-OhgB7HvQHa_NVpWY_SBCorjg4hfoF-fQiXv0njSnnAex-UgUEKQRwwabKAyzb"/>
+</div>
+<span class="bg-verified-emerald/10 text-verified-emerald text-label-md font-label-md px-2 py-1 rounded border border-verified-emerald/20 flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">radar</span> 88% Match
+                        </span>
+</div>
+<div>
+<h3 class="text-body-lg font-body-lg text-on-background font-semibold">Organic Soybeans</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1 line-clamp-1">Req: 250 MT / Spot</p>
+</div>
+<div class="pt-3 border-t border-surface-border flex justify-between items-center">
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+<span class="text-data-mono font-data-mono text-[12px]">Rotterdam, NL</span>
+</div>
+<button class="text-primary hover:bg-surface-container-low rounded-full p-1 transition-colors">
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Recent Activity Timeline -->
+<section class="px-margin-mobile flex flex-col gap-stack-md pt-stack-sm pb-stack-lg">
+<h2 class="text-headline-sm font-headline-sm text-on-background font-bold">Recent Activity</h2>
+<div class="relative border-l border-surface-border ml-3 mt-2 flex flex-col gap-6 pl-6">
+<!-- Timeline Item 1 -->
+<div class="relative">
+<div class="absolute -left-[29px] top-1 w-[11px] h-[11px] bg-in-progress-blue rounded-full ring-[4px] ring-background"></div>
+<p class="text-body-md font-body-md text-on-background leading-tight">Submitted quote for <span class="font-semibold">RFQ-2023-892</span></p>
+<p class="text-label-md font-label-md text-on-surface-variant mt-1">2 HOURS AGO</p>
+</div>
+<!-- Timeline Item 2 -->
+<div class="relative">
+<div class="absolute -left-[29px] top-1 w-[11px] h-[11px] bg-surface-border rounded-full ring-[4px] ring-background"></div>
+<p class="text-body-md font-body-md text-on-background leading-tight">Buyer <span class="font-semibold">AgriCorp Global</span> viewed your profile</p>
+<p class="text-label-md font-label-md text-on-surface-variant mt-1">YESTERDAY, 14:30</p>
+</div>
+<!-- Timeline Item 3 -->
+<div class="relative">
+<div class="absolute -left-[29px] top-1 w-[11px] h-[11px] bg-verified-emerald rounded-full ring-[4px] ring-background"></div>
+<p class="text-body-md font-body-md text-on-background leading-tight">Verification documents approved</p>
+<p class="text-label-md font-label-md text-on-surface-variant mt-1">OCT 24, 09:15</p>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar Shared Component -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center px-2 py-2 bg-surface-container-lowest border-t-0 shadow-[0_-4px_20px_-10px_rgba(0,0,0,0.05)] pb-[env(safe-area-inset-bottom,0.5rem)]">
+<!-- Active Tab: Home -->
+<button class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim bg-secondary-container/10 rounded-xl px-4 py-1 tap-highlight-transparent active:scale-90 transition-transform w-[64px]">
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="text-label-md font-label-md mt-1">Home</span>
+</button>
+<!-- Inactive Tabs -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-2 py-1 tap-highlight-transparent hover:bg-surface-container-high transition-colors active:scale-90 rounded-xl w-[64px]">
+<span class="material-symbols-outlined text-[24px]">insights</span>
+<span class="text-label-md font-label-md mt-1">Opps</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-2 py-1 tap-highlight-transparent hover:bg-surface-container-high transition-colors active:scale-90 rounded-xl w-[64px]">
+<span class="material-symbols-outlined text-[24px]">request_quote</span>
+<span class="text-label-md font-label-md mt-1">RFQs</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-2 py-1 tap-highlight-transparent hover:bg-surface-container-high transition-colors active:scale-90 rounded-xl w-[64px]">
+<div class="relative">
+<span class="material-symbols-outlined text-[24px]">chat_bubble</span>
+<span class="absolute -top-1 -right-1 w-2.5 h-2.5 bg-risk-red rounded-full border-2 border-surface-container-lowest"></span>
+</div>
+<span class="text-label-md font-label-md mt-1">Messages</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-2 py-1 tap-highlight-transparent hover:bg-surface-container-high transition-colors active:scale-90 rounded-xl w-[64px]">
+<span class="material-symbols-outlined text-[24px]">person</span>
+<span class="text-label-md font-label-md mt-1">Profile</span>
+</button>
+</nav>
+</body></html>

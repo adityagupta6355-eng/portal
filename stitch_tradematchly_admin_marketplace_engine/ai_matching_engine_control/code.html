@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TradeMatchly - AI Matching Engine Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#002113",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed-dim": "#4edea3",
+                        "primary-fixed-dim": "#bec6e0",
+                        "on-background": "#191c1e",
+                        "error": "#ba1a1a",
+                        "secondary-fixed": "#dbe1ff",
+                        "surface-tint": "#565e74",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "on-primary-fixed": "#131b2e",
+                        "inverse-on-surface": "#eff1f3",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-low": "#f2f4f6",
+                        "on-primary-container": "#7c839b",
+                        "outline-variant": "#c6c6cd",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-fixed": "#002113",
+                        "on-tertiary": "#ffffff",
+                        "on-surface-variant": "#45464d",
+                        "surface-container-high": "#e6e8ea",
+                        "secondary-fixed-dim": "#b4c5ff",
+                        "on-secondary-fixed": "#00174b",
+                        "surface-dim": "#d8dadc",
+                        "on-tertiary-fixed-variant": "#005236",
+                        "primary-fixed": "#dae2fd",
+                        "on-tertiary-container": "#009668",
+                        "primary": "#000000",
+                        "inverse-surface": "#2d3133",
+                        "on-error-container": "#93000a",
+                        "surface-container-highest": "#e0e3e5",
+                        "tertiary": "#000000",
+                        "surface-container": "#eceef0",
+                        "on-primary": "#ffffff",
+                        "outline": "#76777d",
+                        "on-secondary-container": "#fefcff",
+                        "secondary-container": "#316bf3",
+                        "surface": "#f7f9fb",
+                        "surface-variant": "#e0e3e5",
+                        "on-surface": "#191c1e",
+                        "surface-bright": "#f7f9fb",
+                        "inverse-primary": "#bec6e0",
+                        "on-secondary-fixed-variant": "#003ea8",
+                        "error-container": "#ffdad6",
+                        "primary-container": "#131b2e",
+                        "background": "#f7f9fb",
+                        "tertiary-fixed": "#6ffbbe",
+                        "secondary": "#0051d5"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "16px",
+                        "container-padding": "24px",
+                        "row-height-standard": "56px",
+                        "unit": "4px",
+                        "row-height-dense": "40px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "label-bold": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "label-mono": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "display-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "label-bold": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "label-mono": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+                        "display-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        /* Custom scrollbar for data tables */
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #c6c6cd; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #76777d; }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen antialiased">
+<!-- SideNavBar Component -->
+<nav class="bg-surface dark:bg-surface-container-lowest fixed left-0 top-0 h-screen w-[240px] border-r border-outline-variant dark:border-outline flat no shadows flex flex-col h-full py-container-padding z-50">
+<div class="px-container-padding mb-8">
+<h1 class="font-headline-sm text-headline-sm font-bold text-on-surface dark:text-on-primary-fixed">TradeMatchly</h1>
+<p class="font-label-mono text-label-mono text-on-surface-variant mt-1">Admin Terminal</p>
+</div>
+<div class="flex-1 overflow-y-auto px-unit">
+<ul class="space-y-1">
+<!-- Operations -->
+<li>
+<a class="flex items-center gap-3 px-4 py-3 font-body-md text-body-md text-on-surface-variant dark:text-outline hover:text-secondary hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-colors duration-200 ease-in-out rounded" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                        Operations
+                    </a>
+</li>
+<!-- Trade -->
+<li>
+<a class="flex items-center gap-3 px-4 py-3 font-body-md text-body-md text-on-surface-variant dark:text-outline hover:text-secondary hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-colors duration-200 ease-in-out rounded" href="#">
+<span class="material-symbols-outlined" data-icon="handshake">handshake</span>
+                        Trade
+                    </a>
+</li>
+<!-- AI Intelligence (ACTIVE) -->
+<li>
+<a class="flex items-center gap-3 px-4 py-3 font-body-md text-body-md text-secondary font-bold border-r-4 border-secondary dark:text-secondary-fixed dark:border-secondary-fixed hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-colors duration-200 ease-in-out rounded bg-secondary-fixed-dim/10" href="#">
+<span class="material-symbols-outlined" data-icon="psychology" style="font-variation-settings: 'FILL' 1;">psychology</span>
+                        AI Intelligence
+                    </a>
+</li>
+<!-- Revenue -->
+<li>
+<a class="flex items-center gap-3 px-4 py-3 font-body-md text-body-md text-on-surface-variant dark:text-outline hover:text-secondary hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-colors duration-200 ease-in-out rounded" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+                        Revenue
+                    </a>
+</li>
+<!-- Support -->
+<li>
+<a class="flex items-center gap-3 px-4 py-3 font-body-md text-body-md text-on-surface-variant dark:text-outline hover:text-secondary hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-colors duration-200 ease-in-out rounded" href="#">
+<span class="material-symbols-outlined" data-icon="support_agent">support_agent</span>
+                        Support
+                    </a>
+</li>
+<!-- System -->
+<li>
+<a class="flex items-center gap-3 px-4 py-3 font-body-md text-body-md text-on-surface-variant dark:text-outline hover:text-secondary hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-colors duration-200 ease-in-out rounded" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+                        System
+                    </a>
+</li>
+</ul>
+</div>
+<div class="mt-auto px-unit pt-4 border-t border-outline-variant/50">
+<button class="w-full bg-secondary text-on-secondary font-label-bold text-label-bold py-2 rounded-lg hover:opacity-90 transition-opacity mb-4">
+                Quick Action
+            </button>
+<ul class="space-y-1">
+<li>
+<a class="flex items-center gap-3 px-4 py-2 font-body-sm text-body-sm text-on-surface-variant hover:text-secondary transition-colors duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined text-[18px]" data-icon="help">help</span>
+                        Help Center
+                    </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-2 font-body-sm text-body-sm text-on-surface-variant hover:text-secondary transition-colors duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined text-[18px]" data-icon="settings">settings</span>
+                        Settings
+                    </a>
+</li>
+</ul>
+</div>
+</nav>
+<!-- Main Content Wrapper -->
+<main class="ml-[240px] w-[calc(100%-240px)] min-h-screen flex flex-col">
+<!-- TopNavBar Component -->
+<header class="bg-white dark:bg-surface-container-low docked full-width top-0 border-b border-outline-variant dark:border-outline flat no shadows flex justify-between items-center h-row-height-standard px-gutter z-40 sticky top-0">
+<div class="flex items-center w-1/3">
+<!-- Search bar on left as per JSON, but visual implementation -->
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full pl-10 pr-4 py-1.5 bg-surface-container-low border border-outline-variant rounded font-body-sm text-body-sm focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-all" placeholder="Search matches, RFQs..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="font-label-bold text-label-bold text-secondary hover:text-secondary-fixed transition-all active:opacity-80">
+                    Create New
+                </button>
+<div class="w-px h-6 bg-outline-variant mx-2"></div>
+<div class="flex items-center gap-3 text-on-surface-variant">
+<button class="hover:text-secondary transition-all active:opacity-80 relative">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+</button>
+<button class="hover:text-secondary transition-all active:opacity-80 relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button class="hover:text-secondary transition-all active:opacity-80 flex items-center gap-2">
+<img alt="Admin User" class="w-8 h-8 rounded-full border border-outline-variant object-cover" data-alt="A small, professional headshot avatar of an admin user in a corporate setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmjoQ88nSjyuahlFx-3n11wotcMMdpdI5ui6LN9jZ7j1GkEqGlXXC9v7D5PSHvyIImhn4sBNzOGufguzUuZs-LLz1-OiyORd1UpkRhiT54J2tB3BxBjj6loUbKq3a6UBOHtaVwFlCilVsuahz5SiQ4-GBkiH0x_tNX8bJeZKV8Fxn7dqnhAv15NjtWWZSaLsZWfotG2iWmOI-_H7RaEKfvN4Kc5q40Cz9BzsyBdkL0BmWw85OUHX8C"/>
+</button>
+</div>
+</div>
+</header>
+<!-- Dashboard Content -->
+<div class="flex-1 p-container-padding bg-background">
+<div class="mb-6 flex justify-between items-end">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-background mb-1">AI Matching Engine</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Monitor and configure algorithmic matchmaking across global RFQs.</p>
+</div>
+<button class="flex items-center gap-2 bg-surface border border-outline-variant px-4 py-2 rounded-lg font-label-bold text-label-bold text-on-surface hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-[18px]">download</span>
+                    Export Log
+                </button>
+</div>
+<!-- Matching Stats Row -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter mb-container-padding">
+<!-- Stat 1 -->
+<div class="bg-surface-container-lowest border border-outline-variant p-4 rounded-lg flex flex-col justify-between">
+<div class="flex justify-between items-start mb-2">
+<span class="font-label-bold text-label-bold text-on-surface-variant">SUCCESSFUL MATCHES</span>
+<span class="material-symbols-outlined text-tertiary-fixed-dim">check_circle</span>
+</div>
+<div class="flex items-end gap-2">
+<span class="font-display-lg text-display-lg text-on-background">78%</span>
+<span class="font-label-mono text-label-mono text-tertiary-fixed-dim mb-1 flex items-center"><span class="material-symbols-outlined text-[14px]">arrow_upward</span> 2.4%</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-2 border-t border-outline-variant/30 pt-2">Trailing 30 days</p>
+</div>
+<!-- Stat 2 -->
+<div class="bg-surface-container-lowest border border-outline-variant p-4 rounded-lg flex flex-col justify-between">
+<div class="flex justify-between items-start mb-2">
+<span class="font-label-bold text-label-bold text-on-surface-variant">MATCH-TO-DEAL CONVERSION</span>
+<span class="material-symbols-outlined text-secondary">handshake</span>
+</div>
+<div class="flex items-end gap-2">
+<span class="font-display-lg text-display-lg text-on-background">12%</span>
+<span class="font-label-mono text-label-mono text-tertiary-fixed-dim mb-1 flex items-center"><span class="material-symbols-outlined text-[14px]">arrow_upward</span> 0.8%</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-2 border-t border-outline-variant/30 pt-2">Global volume</p>
+</div>
+<!-- Stat 3 -->
+<div class="bg-surface-container-lowest border border-outline-variant p-4 rounded-lg flex flex-col justify-between">
+<div class="flex justify-between items-start mb-2">
+<span class="font-label-bold text-label-bold text-on-surface-variant">ACTIVE RFQS PROCESSING</span>
+<span class="material-symbols-outlined text-on-primary-container">memory</span>
+</div>
+<div class="flex items-end gap-2">
+<span class="font-display-lg text-display-lg text-on-background">1,492</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-2 border-t border-outline-variant/30 pt-2">Real-time queue</p>
+</div>
+</div>
+<!-- Main Layout Grid -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-container-padding">
+<!-- Left Column: Active Match Queue (Data Density) -->
+<div class="xl:col-span-8 flex flex-col">
+<div class="bg-surface-container-lowest border border-outline-variant rounded-lg flex-1 overflow-hidden flex flex-col">
+<div class="p-4 border-b border-outline-variant flex justify-between items-center bg-surface/50">
+<h3 class="font-headline-sm text-headline-sm text-on-background flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">queue_play_next</span>
+                                Active Match Queue
+                            </h3>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-on-surface">filter_list</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse min-w-[700px]">
+<thead>
+<tr class="border-b border-outline-variant bg-surface-container-low h-row-height-dense">
+<th class="px-4 py-2 font-label-bold text-label-bold text-on-surface-variant whitespace-nowrap">RFQ ID</th>
+<th class="px-4 py-2 font-label-bold text-label-bold text-on-surface-variant">BUYER</th>
+<th class="px-4 py-2 font-label-bold text-label-bold text-on-surface-variant">TOP MATCHED SUPPLIER</th>
+<th class="px-4 py-2 font-label-bold text-label-bold text-on-surface-variant text-right">MATCH SCORE</th>
+<th class="px-4 py-2 font-label-bold text-label-bold text-on-surface-variant">EXPLANATION</th>
+<th class="px-4 py-2 w-10"></th>
+</tr>
+</thead>
+<tbody>
+<!-- Row 1 -->
+<tr class="border-b border-outline-variant/50 h-row-height-dense hover:bg-surface-container-low transition-colors group">
+<td class="px-4 py-2 font-label-mono text-label-mono text-secondary">#RFQ-992A</td>
+<td class="px-4 py-2 font-body-sm text-body-sm text-on-background">Stark Industries</td>
+<td class="px-4 py-2 font-body-sm text-body-sm text-on-background flex items-center gap-2">
+                                            Nexus Materials Corp.
+                                            <span class="material-symbols-outlined text-[14px] text-tertiary-fixed-dim" title="Verified Vendor">verified</span>
+</td>
+<td class="px-4 py-2 text-right">
+<div class="inline-flex items-center gap-2">
+<div class="w-16 h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-tertiary-container w-[98%]"></div>
+</div>
+<span class="font-label-mono text-label-mono text-tertiary-container font-bold">98%</span>
+</div>
+</td>
+<td class="px-4 py-2">
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-tertiary-container/10 text-on-tertiary-container font-label-mono text-[10px] whitespace-nowrap">Perfect Spec + Origin Match</span>
+</td>
+<td class="px-4 py-2 text-right">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-on-surface opacity-0 group-hover:opacity-100 transition-opacity">more_vert</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="border-b border-outline-variant/50 h-row-height-dense hover:bg-surface-container-low transition-colors group">
+<td class="px-4 py-2 font-label-mono text-label-mono text-secondary">#RFQ-988B</td>
+<td class="px-4 py-2 font-body-sm text-body-sm text-on-background">Wayne Enterprises</td>
+<td class="px-4 py-2 font-body-sm text-body-sm text-on-background flex items-center gap-2">
+                                            Gotham Logistics
+                                        </td>
+<td class="px-4 py-2 text-right">
+<div class="inline-flex items-center gap-2">
+<div class="w-16 h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-[85%]"></div>
+</div>
+<span class="font-label-mono text-label-mono text-on-background">85%</span>
+</div>
+</td>
+<td class="px-4 py-2">
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-label-mono text-[10px] whitespace-nowrap">Quantity Match, Spec Variance</span>
+</td>
+<td class="px-4 py-2 text-right">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-on-surface opacity-0 group-hover:opacity-100 transition-opacity">more_vert</button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="border-b border-outline-variant/50 h-row-height-dense hover:bg-surface-container-low transition-colors group">
+<td class="px-4 py-2 font-label-mono text-label-mono text-secondary">#RFQ-985C</td>
+<td class="px-4 py-2 font-body-sm text-body-sm text-on-background">Oscorp Ind.</td>
+<td class="px-4 py-2 font-body-sm text-body-sm text-on-background flex items-center gap-2">
+                                            Global BioTech
+                                        </td>
+<td class="px-4 py-2 text-right">
+<div class="inline-flex items-center gap-2">
+<div class="w-16 h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-error w-[42%]"></div>
+</div>
+<span class="font-label-mono text-label-mono text-error">42%</span>
+</div>
+</td>
+<td class="px-4 py-2">
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-error-container/30 text-on-error-container font-label-mono text-[10px] whitespace-nowrap">High Risk: History Mismatch</span>
+</td>
+<td class="px-4 py-2 text-right">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-on-surface opacity-0 group-hover:opacity-100 transition-opacity">more_vert</button>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="border-b border-outline-variant/50 h-row-height-dense hover:bg-surface-container-low transition-colors group">
+<td class="px-4 py-2 font-label-mono text-label-mono text-secondary">#RFQ-980D</td>
+<td class="px-4 py-2 font-body-sm text-body-sm text-on-background">LexCorp</td>
+<td class="px-4 py-2 font-body-sm text-body-sm text-on-background flex items-center gap-2">
+                                            Metropolis Steel
+                                            <span class="material-symbols-outlined text-[14px] text-tertiary-fixed-dim" title="Verified Vendor">verified</span>
+</td>
+<td class="px-4 py-2 text-right">
+<div class="inline-flex items-center gap-2">
+<div class="w-16 h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-[91%]"></div>
+</div>
+<span class="font-label-mono text-label-mono text-on-background">91%</span>
+</div>
+</td>
+<td class="px-4 py-2">
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-label-mono text-[10px] whitespace-nowrap">Strong Trade History</span>
+</td>
+<td class="px-4 py-2 text-right">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-on-surface opacity-0 group-hover:opacity-100 transition-opacity">more_vert</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-2 bg-surface flex justify-center border-t border-outline-variant">
+<button class="font-label-bold text-label-bold text-secondary hover:underline">View All Active Queue</button>
+</div>
+</div>
+</div>
+<!-- Right Column: Configuration & Settings -->
+<div class="xl:col-span-4 flex flex-col gap-container-padding">
+<!-- AI Confidence Threshold -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-lg p-5">
+<div class="flex justify-between items-center mb-4">
+<h3 class="font-headline-sm text-headline-sm text-on-background flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">tune</span>
+                                AI Confidence Threshold
+                            </h3>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4">Minimum score required to automatically suggest a match to the buyer.</p>
+<div class="flex items-center gap-4">
+<div class="flex-1">
+<input class="w-full h-1 bg-surface-container-highest rounded-lg appearance-none cursor-pointer accent-secondary" max="100" min="0" type="range" value="85"/>
+</div>
+<div class="w-12 text-right">
+<span class="font-label-mono text-label-mono font-bold text-on-background">85%</span>
+</div>
+</div>
+<div class="flex justify-between mt-2 font-label-mono text-[10px] text-outline">
+<span>Loose (50%)</span>
+<span>Strict (95%+)</span>
+</div>
+</div>
+<!-- Matching Factor Configuration -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-lg p-5 flex-1">
+<h3 class="font-headline-sm text-headline-sm text-on-background flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-secondary text-[20px]">weight</span>
+                            Factor Weights
+                        </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-6 pb-4 border-b border-outline-variant/50">Adjust the relative importance of attributes in the matching algorithm.</p>
+<div class="space-y-5">
+<!-- Factor 1 -->
+<div>
+<div class="flex justify-between items-end mb-1">
+<label class="font-label-bold text-label-bold text-on-background">Product Spec Match</label>
+<span class="font-label-mono text-label-mono text-secondary">40%</span>
+</div>
+<div class="relative w-full h-2 bg-surface-container-highest rounded overflow-hidden">
+<div class="absolute top-0 left-0 h-full bg-secondary rounded" style="width: 40%;"></div>
+</div>
+</div>
+<!-- Factor 2 -->
+<div>
+<div class="flex justify-between items-end mb-1">
+<label class="font-label-bold text-label-bold text-on-background">Trade History & Trust</label>
+<span class="font-label-mono text-label-mono text-secondary">30%</span>
+</div>
+<div class="relative w-full h-2 bg-surface-container-highest rounded overflow-hidden">
+<div class="absolute top-0 left-0 h-full bg-secondary rounded" style="width: 30%;"></div>
+</div>
+</div>
+<!-- Factor 3 -->
+<div>
+<div class="flex justify-between items-end mb-1">
+<label class="font-label-bold text-label-bold text-on-background">Quantity Fulfillment</label>
+<span class="font-label-mono text-label-mono text-secondary">20%</span>
+</div>
+<div class="relative w-full h-2 bg-surface-container-highest rounded overflow-hidden">
+<div class="absolute top-0 left-0 h-full bg-secondary rounded" style="width: 20%;"></div>
+</div>
+</div>
+<!-- Factor 4 -->
+<div>
+<div class="flex justify-between items-end mb-1">
+<label class="font-label-bold text-label-bold text-on-background">Geographic Origin</label>
+<span class="font-label-mono text-label-mono text-secondary">10%</span>
+</div>
+<div class="relative w-full h-2 bg-surface-container-highest rounded overflow-hidden">
+<div class="absolute top-0 left-0 h-full bg-secondary rounded" style="width: 10%;"></div>
+</div>
+</div>
+</div>
+<div class="mt-8 pt-4 border-t border-outline-variant/50 flex justify-end gap-3">
+<button class="px-4 py-2 font-label-bold text-label-bold text-on-surface-variant hover:text-on-surface transition-colors">Reset</button>
+<button class="px-4 py-2 bg-secondary text-on-secondary font-label-bold text-label-bold rounded hover:opacity-90 transition-opacity">Apply Weights</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

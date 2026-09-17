@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TradeMatchly - Verification Center Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=JetBrains+Mono:wght@400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary": "#ffffff",
+                        "surface-tint": "#565e74",
+                        "tertiary-fixed-dim": "#dec29a",
+                        "surface-dim": "#dcd9db",
+                        "on-secondary": "#ffffff",
+                        "on-primary-container": "#7c839b",
+                        "surface": "#fcf8fa",
+                        "on-error-container": "#93000a",
+                        "secondary-container": "#645efb",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed": "#271901",
+                        "tertiary-container": "#271901",
+                        "primary": "#000000",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed-dim": "#c3c0ff",
+                        "on-tertiary-fixed-variant": "#574425",
+                        "surface-container-high": "#eae7e9",
+                        "primary-fixed": "#dae2fd",
+                        "error-container": "#ffdad6",
+                        "inverse-surface": "#303032",
+                        "inverse-on-surface": "#f3f0f2",
+                        "surface-container-low": "#f6f3f5",
+                        "outline": "#76777d",
+                        "error": "#ba1a1a",
+                        "inverse-primary": "#bec6e0",
+                        "surface-bright": "#fcf8fa",
+                        "on-primary-fixed": "#131b2e",
+                        "on-secondary-fixed-variant": "#3323cc",
+                        "on-secondary-container": "#fffbff",
+                        "tertiary-fixed": "#fcdeb5",
+                        "on-background": "#1b1b1d",
+                        "on-tertiary-container": "#98805d",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "on-surface": "#1b1b1d",
+                        "background": "#fcf8fa",
+                        "on-surface-variant": "#45464d",
+                        "tertiary": "#000000",
+                        "surface-variant": "#e4e2e4",
+                        "outline-variant": "#c6c6cd",
+                        "secondary-fixed": "#e2dfff",
+                        "surface-container-highest": "#e4e2e4",
+                        "surface-container": "#f0edef",
+                        "primary-fixed-dim": "#bec6e0",
+                        "on-secondary-fixed": "#0f0069",
+                        "secondary": "#4b41e1",
+                        "primary-container": "#131b2e",
+                        "on-error": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-max": "1440px",
+                        "sm": "8px",
+                        "xl": "32px",
+                        "lg": "24px",
+                        "md": "16px",
+                        "gutter": "20px",
+                        "xs": "4px",
+                        "base": "4px"
+                    },
+                    "fontFamily": {
+                        "body-sm": ["Inter"],
+                        "data-mono": ["jetbrainsMono"],
+                        "headline-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "label-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+                        "data-mono": ["13px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "display-lg": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md h-screen flex overflow-hidden selection:bg-secondary/20 selection:text-secondary">
+<!-- SideNavBar Component -->
+<nav class="bg-surface-container dark:bg-surface-container-high w-64 h-screen fixed left-0 top-0 border-r border-outline-variant dark:border-outline flex flex-col h-full overflow-y-auto z-50">
+<div class="p-lg border-b border-outline-variant dark:border-outline">
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded bg-primary text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined font-label-md" style="font-variation-settings: 'FILL' 1;">security</span>
+</div>
+<div>
+<h1 class="font-headline-sm text-headline-sm font-bold text-primary dark:text-on-primary-fixed">TradeMatchly</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Enterprise Admin</p>
+</div>
+</div>
+</div>
+<div class="flex-1 py-md overflow-y-auto">
+<ul class="space-y-xs px-sm">
+<li>
+<a class="text-on-surface-variant dark:text-on-surface-variant flex items-center gap-3 px-4 py-2 hover:bg-surface-variant dark:hover:bg-surface-container-highest transition-colors rounded" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-body-md text-body-md">Dashboard</span>
+</a>
+</li>
+<li>
+<a class="text-on-surface-variant dark:text-on-surface-variant flex items-center gap-3 px-4 py-2 hover:bg-surface-variant dark:hover:bg-surface-container-highest transition-colors rounded" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-body-md text-body-md">Users</span>
+</a>
+</li>
+<li>
+<a class="text-on-surface-variant dark:text-on-surface-variant flex items-center gap-3 px-4 py-2 hover:bg-surface-variant dark:hover:bg-surface-container-highest transition-colors rounded" href="#">
+<span class="material-symbols-outlined">business</span>
+<span class="font-body-md text-body-md">Companies</span>
+</a>
+</li>
+<li>
+<a class="text-secondary dark:text-secondary-fixed-dim font-bold border-r-4 border-secondary bg-surface-variant/50 flex items-center gap-3 px-4 py-2 transition-opacity" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="font-body-md text-body-md">Verification</span>
+</a>
+</li>
+<li>
+<a class="text-on-surface-variant dark:text-on-surface-variant flex items-center gap-3 px-4 py-2 hover:bg-surface-variant dark:hover:bg-surface-container-highest transition-colors rounded" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="font-body-md text-body-md">Products</span>
+</a>
+</li>
+<li>
+<a class="text-on-surface-variant dark:text-on-surface-variant flex items-center gap-3 px-4 py-2 hover:bg-surface-variant dark:hover:bg-surface-container-highest transition-colors rounded" href="#">
+<span class="material-symbols-outlined">handshake</span>
+<span class="font-body-md text-body-md">Trade</span>
+</a>
+</li>
+<li>
+<a class="text-on-surface-variant dark:text-on-surface-variant flex items-center gap-3 px-4 py-2 hover:bg-surface-variant dark:hover:bg-surface-container-highest transition-colors rounded" href="#">
+<span class="material-symbols-outlined">security</span>
+<span class="font-body-md text-body-md">Trust &amp; Risk</span>
+</a>
+</li>
+</ul>
+</div>
+</nav>
+<!-- Main Content Wrapper -->
+<div class="flex-1 ml-64 flex flex-col h-screen">
+<!-- TopAppBar Component -->
+<header class="bg-surface dark:bg-surface-dim docked full-width top-0 h-16 shadow-sm border-b border-outline-variant dark:border-outline fixed top-0 right-0 left-64 flex justify-between items-center px-lg z-40">
+<div class="flex items-center gap-md">
+<h2 class="font-headline-md text-headline-md font-black text-primary dark:text-on-primary-fixed">TradeMatchly Dashboard</h2>
+<div class="ml-lg relative group focus-within:ring-2 focus-within:ring-secondary/20 rounded-full">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none">search</span>
+<input class="w-64 pl-10 pr-4 py-2 bg-surface-container-lowest border border-outline-variant rounded-full font-body-md text-body-md text-on-surface focus:border-secondary focus:outline-none transition-all focus:w-80 placeholder:text-on-surface-variant/50" placeholder="Search verification ID, company..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-sm">
+<button class="text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-container-high rounded-full p-2 transition-colors relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 bg-error rounded-full border border-surface"></span>
+</button>
+<button class="text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-container-high rounded-full p-2 transition-colors">
+<span class="material-symbols-outlined">help</span>
+</button>
+<button class="text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-container-high rounded-full p-2 transition-colors ml-xs">
+<img alt="Admin User Profile" class="w-8 h-8 rounded-full object-cover border border-outline-variant" data-alt="A professional headshot of a corporate administrator in a modern office setting. Sharp focus, bright lighting, conveying trust and authority in a clean, minimalist environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8AdcP1h3X7cVaEsKp3bmH7zYOfw6MOPYlWIbiWWDpbe3Fqxo_qN_a1fRJgiWdAFpP7BVh72AkA6HMHa7dh9mWR7OGVxn_hLdYMyrggIn5e7ru5aciz6h4R0BogQz2_R4bziLwbEvEBbP3J5-YZoX9LabmLT0YtoJJ8QUZzluLjxcUPFRvbAlGf7ht1vEKUJp4sQntsqf9ljJfM9W69Cs3lUkXArYLo7q61LKUUPjrwpWTxem4ZgdL"/>
+</button>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="flex-1 mt-16 p-lg overflow-y-auto bg-surface-bright">
+<div class="max-w-container-max mx-auto space-y-lg">
+<!-- Page Header -->
+<div class="flex items-end justify-between">
+<div>
+<h1 class="font-display-lg text-display-lg text-primary tracking-tight">Verification Center</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-xs">Audit and manage marketplace trust and compliance queue.</p>
+</div>
+<div class="flex gap-sm">
+<button class="px-4 py-2 bg-surface-container-lowest border border-outline-variant text-primary font-label-md text-label-md rounded hover:bg-surface-variant transition-colors flex items-center gap-2 shadow-sm">
+<span class="material-symbols-outlined text-[18px]">download</span> Export Report
+                        </button>
+<button class="px-4 py-2 bg-secondary text-on-secondary font-label-md text-label-md rounded hover:bg-secondary/90 transition-colors flex items-center gap-2 shadow-sm shadow-secondary/20">
+<span class="material-symbols-outlined text-[18px]">add</span> New Audit
+                        </button>
+</div>
+</div>
+<!-- KPI Overview Grid -->
+<div class="grid grid-cols-5 gap-md">
+<!-- Pending -->
+<div class="bg-surface-container-lowest border border-outline-variant/50 rounded-lg p-md shadow-sm relative overflow-hidden group hover:border-secondary/30 transition-colors">
+<div class="absolute top-0 left-0 w-1 h-full bg-secondary"></div>
+<div class="flex justify-between items-start mb-sm">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Pending</span>
+<span class="material-symbols-outlined text-secondary bg-secondary/10 p-1 rounded">hourglass_empty</span>
+</div>
+<div class="font-headline-md text-headline-md text-primary">142</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant mt-1 flex items-center gap-1">
+<span class="text-error flex items-center"><span class="material-symbols-outlined text-[14px]">arrow_upward</span> 12%</span> vs last week
+                        </div>
+</div>
+<!-- Approved -->
+<div class="bg-surface-container-lowest border border-outline-variant/50 rounded-lg p-md shadow-sm relative overflow-hidden group hover:border-[#10b981]/30 transition-colors">
+<div class="absolute top-0 left-0 w-1 h-full bg-[#10b981]"></div>
+<div class="flex justify-between items-start mb-sm">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Approved</span>
+<span class="material-symbols-outlined text-[#10b981] bg-[#10b981]/10 p-1 rounded">check_circle</span>
+</div>
+<div class="font-headline-md text-headline-md text-primary">894</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant mt-1 flex items-center gap-1">
+<span class="text-[#10b981] flex items-center"><span class="material-symbols-outlined text-[14px]">arrow_upward</span> 4%</span> vs last week
+                        </div>
+</div>
+<!-- Rejected -->
+<div class="bg-surface-container-lowest border border-outline-variant/50 rounded-lg p-md shadow-sm relative overflow-hidden group hover:border-error/30 transition-colors">
+<div class="absolute top-0 left-0 w-1 h-full bg-error"></div>
+<div class="flex justify-between items-start mb-sm">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Rejected</span>
+<span class="material-symbols-outlined text-error bg-error/10 p-1 rounded">cancel</span>
+</div>
+<div class="font-headline-md text-headline-md text-primary">28</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant mt-1 flex items-center gap-1">
+<span class="text-on-surface-variant flex items-center"><span class="material-symbols-outlined text-[14px]">remove</span> 0%</span> vs last week
+                        </div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

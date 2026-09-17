@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>New Investigation Case - TradeMatchly</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&amp;family=JetBrains+Mono:wght@400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary": "#ffffff",
+                        "surface-dim": "#dcd9db",
+                        "surface-variant": "#e4e2e4",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "surface": "#fcf8fa",
+                        "on-background": "#1b1b1d",
+                        "surface-bright": "#fcf8fa",
+                        "surface-container-highest": "#e4e2e4",
+                        "on-error": "#ffffff",
+                        "primary-fixed-dim": "#bec6e0",
+                        "secondary-container": "#645efb",
+                        "on-secondary-fixed": "#0f0069",
+                        "on-secondary": "#ffffff",
+                        "surface-container": "#f0edef",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-low": "#f6f3f5",
+                        "outline-variant": "#c6c6cd",
+                        "tertiary-fixed-dim": "#dec29a",
+                        "surface-container-high": "#eae7e9",
+                        "primary-container": "#131b2e",
+                        "on-tertiary-container": "#98805d",
+                        "tertiary": "#000000",
+                        "secondary-fixed-dim": "#c3c0ff",
+                        "inverse-on-surface": "#f3f0f2",
+                        "background": "#fcf8fa",
+                        "tertiary-fixed": "#fcdeb5",
+                        "on-secondary-container": "#fffbff",
+                        "outline": "#76777d",
+                        "error-container": "#ffdad6",
+                        "primary": "#000000",
+                        "on-surface-variant": "#45464d",
+                        "tertiary-container": "#271901",
+                        "on-primary-container": "#7c839b",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface": "#1b1b1d",
+                        "on-tertiary-fixed-variant": "#574425",
+                        "on-primary-fixed": "#131b2e",
+                        "surface-tint": "#565e74",
+                        "secondary-fixed": "#e2dfff",
+                        "on-error-container": "#93000a",
+                        "inverse-surface": "#303032",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed": "#271901",
+                        "on-secondary-fixed-variant": "#3323cc",
+                        "secondary": "#4b41e1",
+                        "primary-fixed": "#dae2fd",
+                        "inverse-primary": "#bec6e0"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "4px",
+                        "sm": "8px",
+                        "md": "16px",
+                        "lg": "24px",
+                        "container-max": "1440px",
+                        "xl": "32px",
+                        "xs": "4px",
+                        "gutter": "20px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "data-mono": ["jetbrainsMono"],
+                        "display-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "headline-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "data-mono": ["13px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "display-lg": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+                        "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background-color: #c6c6cd; border-radius: 9999px; }
+        
+        .segmented-control-input:checked + label {
+            background-color: #4b41e1;
+            color: white;
+            border-color: #4b41e1;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+        
+        .segmented-control-input[value="high"]:checked + label { background-color: #ba1a1a; border-color: #ba1a1a; }
+        .segmented-control-input[value="critical"]:checked + label { background-color: #93000a; border-color: #93000a; }
+        
+        /* Modal background blur */
+        .modal-backdrop { backdrop-filter: blur(4px); }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex antialiased">
+<!-- SideNavBar -->
+<nav class="w-64 h-screen fixed left-0 top-0 bg-surface-container dark:bg-surface-container-high border-r border-outline-variant dark:border-outline flex flex-col z-30">
+<div class="p-6">
+<h1 class="font-headline-sm text-headline-sm font-bold text-primary dark:text-on-primary-fixed">TradeMatchly</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Enterprise Admin</p>
+</div>
+<div class="flex flex-col h-full overflow-y-auto custom-scrollbar pt-2 pb-6">
+<a class="text-on-surface-variant dark:text-on-surface-variant flex items-center gap-3 px-4 py-2 hover:bg-surface-variant dark:hover:bg-surface-container-highest transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant flex items-center gap-3 px-4 py-2 hover:bg-surface-variant dark:hover:bg-surface-container-highest transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span>Users</span>
+</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant flex items-center gap-3 px-4 py-2 hover:bg-surface-variant dark:hover:bg-surface-container-highest transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="business">business</span>
+<span>Companies</span>
+</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant flex items-center gap-3 px-4 py-2 hover:bg-surface-variant dark:hover:bg-surface-container-highest transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="verified">verified</span>
+<span>Verification</span>
+</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant flex items-center gap-3 px-4 py-2 hover:bg-surface-variant dark:hover:bg-surface-container-highest transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span>Products</span>
+</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant flex items-center gap-3 px-4 py-2 hover:bg-surface-variant dark:hover:bg-surface-container-highest transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="handshake">handshake</span>
+<span>Trade</span>
+</a>
+<a class="text-secondary dark:text-secondary-fixed-dim font-bold border-r-4 border-secondary flex items-center gap-3 px-4 py-2 hover:bg-surface-variant dark:hover:bg-surface-container-highest transition-colors opacity-80" href="#">
+<span class="material-symbols-outlined" data-icon="security" style="font-variation-settings: 'FILL' 1;">security</span>
+<span>Trust &amp; Risk</span>
+</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant flex items-center gap-3 px-4 py-2 hover:bg-surface-variant dark:hover:bg-surface-container-highest transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+<span>Documents</span>
+</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant flex items-center gap-3 px-4 py-2 hover:bg-surface-variant dark:hover:bg-surface-container-highest transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="forum">forum</span>
+<span>Communication</span>
+</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant flex items-center gap-3 px-4 py-2 hover:bg-surface-variant dark:hover:bg-surface-container-highest transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="hub">hub</span>
+<span>Mesh AI</span>
+</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant flex items-center gap-3 px-4 py-2 hover:bg-surface-variant dark:hover:bg-surface-container-highest transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="insights">insights</span>
+<span>Intelligence</span>
+</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant flex items-center gap-3 px-4 py-2 hover:bg-surface-variant dark:hover:bg-surface-container-highest transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span>Revenue</span>
+</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant flex items-center gap-3 px-4 py-2 hover:bg-surface-variant dark:hover:bg-surface-container-highest transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="support_agent">support_agent</span>
+<span>Support</span>
+</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant flex items-center gap-3 px-4 py-2 hover:bg-surface-variant dark:hover:bg-surface-container-highest transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="article">article</span>
+<span>Content</span>
+</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant flex items-center gap-3 px-4 py-2 hover:bg-surface-variant dark:hover:bg-surface-container-highest transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Administration</span>
+</a>
+</div>
+</nav>
+<!-- TopAppBar -->
+<header class="fixed top-0 right-0 left-64 flex justify-between items-center px-lg h-16 z-20 bg-surface dark:bg-surface-dim border-b border-outline-variant shadow-sm transition-all focus-within:ring-2 focus-within:ring-secondary/20">
+<div class="flex items-center gap-4 w-1/3">
+<!-- Search placeholder to match search_bar: on_left -->
+<div class="relative w-full max-w-md hidden md:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">search</span>
+<input class="w-full bg-surface-container-low border border-outline-variant rounded-full py-2 pl-10 pr-4 font-body-sm text-body-sm focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-shadow" placeholder="Search across TradeMatchly..." type="text"/>
+</div>
+</div>
+<div class="font-headline-md text-headline-md font-black text-primary dark:text-on-primary-fixed truncate px-4">
+            TradeMatchly Dashboard
+        </div>
+<div class="flex items-center gap-2">
+<button class="text-on-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-container-high rounded-full p-2 transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-container-high rounded-full p-2 transition-colors">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+</button>
+<button class="text-on-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-container-high rounded-full p-2 transition-colors ml-2">
+<img alt="Admin User Profile" class="w-8 h-8 rounded-full border border-outline-variant object-cover" data-alt="A small, professional headshot avatar of an enterprise administrator in a corporate setting, with soft neutral background lighting. Corporate modern aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqt5xrsTb3rFg4B24bpe53gQdt0fD4EtM6M9W3vCc83wVsdxOx_gD_y8GG5PS_fp2eNfUE5Heox8b51VfyU1o93sR3pGwr19L8H5FH-qO3hZVHP42Kq3BVP7by7_AgnU_E0owcVN8f_S1VBcH0Nmidmu-KDm2wKnrZR5edZgwNOWbsFXL7TC1cwOLW9tX0pgXKcgDfcEVs2ZMl-TxT8qwXH4FYNOrGYibmmuJZ8ls-uhGX0if-DqQD"/>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas (Background) -->
+<main class="ml-64 mt-16 flex-1 bg-surface-container-low min-h-[calc(100vh-64px)] relative p-lg">
+<!-- Underlying content that would be visible beneath the modal overlay -->
+<div class="max-w-container-max mx-auto opacity-40 select-none pointer-events-none">
+<div class="flex justify-between items-end mb-8">
+<div>
+<h2 class="font-display-lg text-display-lg text-primary mb-2">Risk &amp; Trust Center</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Active investigation pipeline and global threat metrics.</p>
+</div>
+</div>
+<div class="grid grid-cols-4 gap-6 mb-8">
+<!-- Mock KPI Cards -->
+<div class="bg-surface border border-outline-variant rounded-lg p-6">
+<p class="font-label-md text-label-md text-on-surface-variant mb-2 uppercase tracking-wider">Active Cases</p>
+<div class="font-display-lg text-display-lg text-primary">142</div>
+</div>
+<div class="bg-surface border border-outline-variant rounded-lg p-6">
+<p class="font-label-md text-label-md text-on-surface-variant mb-2 uppercase tracking-wider">High Priority</p>
+<div class="font-display-lg text-display-lg text-error">28</div>
+</div>
+</div>
+<div class="bg-surface border border-outline-variant rounded-lg h-96 w-full"></div>
+</div>
+</main>
+<!-- Overlay / Side Panel for 'New Investigation Case' -->
+<!-- Using a centered overlay/modal approach as requested for focused creation -->
+<div class="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 lg:p-8 modal-backdrop bg-on-background/20">
+<div class="bg-surface w-full max-w-3xl max-h-full rounded-xl border border-outline-variant shadow-lg flex flex-col overflow-hidden shadow-[0_12px_24px_rgba(0,0,0,0.08)]">
+<!-- Modal Header -->
+<div class="flex items-center justify-between px-6 py-5 border-b border-outline-variant bg-surface-bright">
+<div>
+<h2 class="font-headline-md text-headline-md text-primary">New Investigation Case</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Open a manual trust &amp; risk inquiry</p>
+</div>
+<button class="text-on-surface-variant hover:bg-surface-container rounded-full p-2 transition-colors">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+</div>
+<!-- Modal Body (Scrollable) -->
+<div class="flex-1 overflow-y-auto custom-scrollbar p-6 bg-surface">
+<form class="space-y-8">
+<!-- Basic Info Section -->
+<div class="space-y-6">
+<h3 class="font-label-md text-label-md text-primary uppercase tracking-wider border-b border-outline-variant pb-2">Case Details</h3>
+<!-- Case Title -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-2" for="caseTitle">Case Title / Subject</label>
+<input class="w-full bg-surface border border-outline-variant rounded-md px-4 py-2.5 font-body-md text-body-md text-primary placeholder-on-surface-variant/50 focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary/20 transition-all" id="caseTitle" placeholder="e.g., Suspicious Activity Report - Acme Corp" type="text"/>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Risk Category -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-2" for="riskCategory">Risk Category</label>
+<div class="relative">
+<select class="w-full bg-surface border border-outline-variant rounded-md px-4 py-2.5 font-body-md text-body-md text-primary appearance-none focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary/20 transition-all" id="riskCategory">
+<option disabled="" selected="" value="">Select category...</option>
+<option value="fraud">Fraud</option>
+<option value="identity_theft">Identity Theft</option>
+<option value="sanctions">Sanctions Compliance</option>
+<option value="document">Document Discrepancy</option>
+<option value="payment">Payment Failure / Chargeback</option>
+<option value="other">Other</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none">expand_more</span>
+</div>
+</div>
+<!-- Assignee -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-2" for="assignee">Assignee</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px]">search</span>
+<input class="w-full bg-surface border border-outline-variant rounded-md pl-10 pr-4 py-2.5 font-body-md text-body-md text-primary placeholder-on-surface-variant/50 focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary/20 transition-all" id="assignee" placeholder="Search Risk Agents..." type="text"/>
+</div>
+</div>
+</div>
+<!-- Priority (Segmented Control) -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-2">Priority Level</label>
+<div class="flex p-1 bg-surface-container rounded-lg border border-outline-variant w-full max-w-lg">
+<div class="flex-1 relative">
+<input checked="" class="sr-only segmented-control-input" id="priority-low" name="priority" type="radio" value="low"/>
+<label class="cursor-pointer flex items-center justify-center py-2 px-3 rounded-md text-on-surface-variant font-body-sm text-body-sm font-medium transition-all hover:bg-surface-variant border border-transparent" for="priority-low">
+                                        Low
+                                    </label>
+</div>
+<div class="flex-1 relative">
+<input class="sr-only segmented-control-input" id="priority-medium" name="priority" type="radio" value="medium"/>
+<label class="cursor-pointer flex items-center justify-center py-2 px-3 rounded-md text-on-surface-variant font-body-sm text-body-sm font-medium transition-all hover:bg-surface-variant border border-transparent" for="priority-medium">
+                                        Medium
+                                    </label>
+</div>
+<div class="flex-1 relative">
+<input class="sr-only segmented-control-input" id="priority-high" name="priority" type="radio" value="high"/>
+<label class="cursor-pointer flex items-center justify-center py-2 px-3 rounded-md text-on-surface-variant font-body-sm text-body-sm font-medium transition-all hover:bg-surface-variant border border-transparent" for="priority-high">
+                                        High
+                                    </label>
+</div>
+<div class="flex-1 relative">
+<input class="sr-only segmented-control-input" id="priority-critical" name="priority" type="radio" value="critical"/>
+<label class="cursor-pointer flex items-center justify-center py-2 px-3 rounded-md text-on-surface-variant font-body-sm text-body-sm font-medium transition-all hover:bg-surface-variant border border-transparent" for="priority-critical">
+                                        Critical
+                                    </label>
+</div>
+</div>
+</div>
+</div>
+<!-- Linkage Section -->
+<div class="space-y-6">
+<h3 class="font-label-md text-label-md text-primary uppercase tracking-wider border-b border-outline-variant pb-2">Entity Linkage</h3>
+<div class="bg-surface-container-low border border-outline-variant rounded-md p-4 flex flex-col gap-3">
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-1">Link this case to an existing TradeMatchly entity (Company or User).</p>
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px]">link</span>
+<input class="w-full bg-surface border border-outline-variant rounded-md pl-10 pr-4 py-2.5 font-body-md text-body-md text-primary placeholder-on-surface-variant/50 focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary/20 transition-all" id="entityLink" placeholder="Search by Company Name, Registration Number, or User Email..." type="text"/>
+<!-- Mock Dropdown / Results state (hidden by default, shown for design representation) -->
+<div class="absolute top-full left-0 right-0 mt-1 bg-surface border border-outline-variant rounded-md shadow-sm z-10 hidden">
+<!-- Search results would go here -->
+</div>
+</div>
+</div>
+</div>
+<!-- Description & Evidence Section -->
+<div class="space-y-6">
+<h3 class="font-label-md text-label-md text-primary uppercase tracking-wider border-b border-outline-variant pb-2">Findings &amp; Evidence</h3>
+<!-- Case Description -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-2" for="description">Initial Description</label>
+<textarea class="w-full bg-surface border border-outline-variant rounded-md px-4 py-3 font-body-md text-body-md text-primary placeholder-on-surface-variant/50 focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary/20 transition-all resize-y min-h-[100px]" id="description" placeholder="Detail the initial findings, trigger events, and background context..." rows="4"></textarea>
+</div>
+<!-- Evidence Upload Dropzone -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-2">Attachments &amp; Evidence</label>
+<div class="border-2 border-dashed border-outline-variant rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors flex flex-col items-center justify-center py-8 px-6 text-center cursor-pointer group">
+<span class="material-symbols-outlined text-outline group-hover:text-secondary text-4xl mb-3 transition-colors">cloud_upload</span>
+<p class="font-body-md text-body-md text-primary font-medium mb-1">Drag and drop files here</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">or <span class="text-secondary font-medium">browse files</span> (Max 50MB per file)</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-2 text-[10px]">Supported formats: PDF, JPG, PNG, CSV, TXT</p>
+</div>
+</div>
+</div>
+<!-- Settings Section -->
+<div class="space-y-6">
+<h3 class="font-label-md text-label-md text-primary uppercase tracking-wider border-b border-outline-variant pb-2">Visibility &amp; Settings</h3>
+<div class="flex items-center justify-between py-2">
+<div>
+<p class="font-body-md text-body-md text-primary font-medium">Public Visibility</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-md">If active, the linked entity will be notified and can view basic case status in their portal.</p>
+</div>
+<!-- Toggle Switch -->
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-outline-variant after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-secondary"></div>
+</label>
+</div>
+</div>
+</form>
+</div>
+<!-- Modal Footer (Actions) -->
+<div class="px-6 py-4 border-t border-outline-variant bg-surface-bright flex justify-end gap-3 rounded-b-xl">
+<button class="px-5 py-2.5 rounded-md border border-outline-variant bg-surface text-on-surface font-label-md text-label-md hover:bg-surface-container transition-colors focus:outline-none focus:ring-2 focus:ring-secondary/20" type="button">
+                    Cancel
+                </button>
+<button class="px-5 py-2.5 rounded-md bg-secondary text-white font-label-md text-label-md hover:bg-secondary/90 transition-colors shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary" type="submit">
+                    Create Investigation Case
+                </button>
+</div>
+</div>
+</div>
+</body></html>

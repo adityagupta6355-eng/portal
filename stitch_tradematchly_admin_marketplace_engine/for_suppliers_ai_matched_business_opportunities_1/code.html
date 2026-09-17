@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>For Suppliers - Find buyers who actually need what you sell.</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container-lowest": "#ffffff",
+                    "risk-red": "#dc2626",
+                    "on-secondary-container": "#fffbff",
+                    "surface-tint": "#565e74",
+                    "on-primary-fixed": "#131b2e",
+                    "verified-emerald": "#059669",
+                    "on-surface": "#1b1b1d",
+                    "primary-fixed-dim": "#bec6e0",
+                    "tertiary-container": "#271901",
+                    "on-secondary": "#ffffff",
+                    "on-background": "#1b1b1d",
+                    "on-tertiary-container": "#98805d",
+                    "surface-variant": "#e4e2e4",
+                    "on-secondary-fixed-variant": "#3322cc",
+                    "surface-container-highest": "#e4e2e4",
+                    "data-text": "#1e293b",
+                    "primary-container": "#131b2e",
+                    "surface-container-low": "#f6f3f5",
+                    "error": "#ba1a1a",
+                    "on-tertiary-fixed-variant": "#574425",
+                    "secondary-fixed": "#e2dfff",
+                    "on-secondary-fixed": "#0f0069",
+                    "primary-fixed": "#dae2fd",
+                    "on-error-container": "#93000a",
+                    "primary": "#000000",
+                    "outline-variant": "#c6c6cd",
+                    "surface-dim": "#dcd9db",
+                    "on-tertiary": "#ffffff",
+                    "inverse-surface": "#303032",
+                    "risk-amber": "#d97706",
+                    "background": "#fcf8fa",
+                    "on-primary-fixed-variant": "#3f465c",
+                    "tertiary-fixed": "#fcdeb5",
+                    "on-tertiary-fixed": "#271901",
+                    "on-primary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "on-surface-variant": "#45464d",
+                    "surface-bright": "#fcf8fa",
+                    "secondary-fixed-dim": "#c3c0ff",
+                    "tertiary-fixed-dim": "#dec29a",
+                    "inverse-primary": "#bec6e0",
+                    "surface-border": "#e2e8f0",
+                    "error-container": "#ffdad6",
+                    "inverse-on-surface": "#f3f0f2",
+                    "secondary": "#4b41e1",
+                    "tertiary": "#000000",
+                    "secondary-container": "#655dfb",
+                    "outline": "#76777d",
+                    "surface": "#fcf8fa",
+                    "surface-container-high": "#eae7e9",
+                    "in-progress-blue": "#2563eb",
+                    "surface-container": "#f0edef",
+                    "on-primary-container": "#7c839b"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "base": "4px",
+                    "container-padding": "24px",
+                    "section-gap": "32px",
+                    "gutter": "16px",
+                    "table-cell-padding": "12px",
+                    "sidebar-width": "260px"
+            },
+            "fontFamily": {
+                    "body-md": [
+                            "Inter"
+                    ],
+                    "headline-md": [
+                            "Inter"
+                    ],
+                    "label-lg": [
+                            "Inter"
+                    ],
+                    "label-md": [
+                            "Inter"
+                    ],
+                    "data-mono": [
+                            "jetbrainsMono"
+                    ],
+                    "headline-lg": [
+                            "Inter"
+                    ],
+                    "headline-sm": [
+                            "Inter"
+                    ],
+                    "body-lg": [
+                            "Inter"
+                    ],
+                    "display-lg": [
+                            "Inter"
+                    ],
+                    "body-sm": [
+                            "Inter"
+                    ]
+            },
+            "fontSize": {
+                    "body-md": [
+                            "14px",
+                            {
+                                    "lineHeight": "20px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-md": [
+                            "22px",
+                            {
+                                    "lineHeight": "28px",
+                                    "letterSpacing": "-0.01em",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "label-lg": [
+                            "14px",
+                            {
+                                    "lineHeight": "20px",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "label-md": [
+                            "12px",
+                            {
+                                    "lineHeight": "16px",
+                                    "letterSpacing": "0.02em",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "data-mono": [
+                            "13px",
+                            {
+                                    "lineHeight": "18px",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "headline-lg": [
+                            "28px",
+                            {
+                                    "lineHeight": "34px",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "headline-sm": [
+                            "18px",
+                            {
+                                    "lineHeight": "24px",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "body-lg": [
+                            "16px",
+                            {
+                                    "lineHeight": "24px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "display-lg": [
+                            "36px",
+                            {
+                                    "lineHeight": "44px",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "body-sm": [
+                            "13px",
+                            {
+                                    "lineHeight": "18px",
+                                    "fontWeight": "400"
+                            }
+                    ]
+            }
+        },
+        },
+      }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen">
+<!-- Top Navigation -->
+<header class="bg-surface-container-lowest dark:bg-surface-container-lowest border-b border-outline-variant shadow-sm flex justify-between items-center px-6 h-16 z-40 fixed top-0 right-0 w-full">
+<div class="flex items-center gap-6">
+<div class="text-headline-sm font-headline-sm font-bold text-primary dark:text-primary">TradeMatchly Supplier Portal</div>
+<nav class="hidden md:flex gap-6 ml-8">
+<a class="text-on-surface-variant font-medium text-label-md font-label-md hover:text-primary transition-colors duration-200" href="#">Directory</a>
+<a class="text-on-surface-variant font-medium text-label-md font-label-md hover:text-primary transition-colors duration-200" href="#">Help Center</a>
+<a class="text-on-surface-variant font-medium text-label-md font-label-md hover:text-primary transition-colors duration-200" href="#">API</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:text-primary transition-colors duration-200">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors duration-200">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">settings</span>
+</button>
+<button class="bg-primary-container text-on-primary text-label-md font-label-md px-4 py-2 rounded h-[32px] flex items-center justify-center hover:bg-primary-container/90 transition-colors">
+                Save Changes
+             </button>
+<img alt="User Profile Avatar" class="w-8 h-8 rounded-full border border-surface-border object-cover" data-alt="A small circular user profile avatar showing a professional looking business person in a light, corporate setting. Deep structural tones, professional modern aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFsmb4HA_OZso_FOnTVbjBd7-MbnsDb1L9TT2fS292XZPRkUHCVsFGbjag61zf9K-oX4kX07xuHLVp_UF29HD3huecB95QPV_XzJr9N66LNi6f2LwXFzQql3bxKY5Y5OpQSSa2hNvqLSmJOqauULP_zJQoLZc_u0LWqpy6Qt2l2bP_IRo8J_UImJFh1GymNqDrKw05udMj8jfU-2LbHD3_d_6x2rXv-mscobtpBKu6J0GV277EUBxG"/>
+</div>
+</header>
+<main class="pt-16 pb-24 px-container-padding max-w-[1440px] mx-auto">
+<!-- Hero Section -->
+<section class="py-20 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<div class="space-y-6">
+<span class="inline-block px-3 py-1 bg-primary-fixed/20 text-primary font-label-md text-label-md rounded-full border border-primary-fixed">For Suppliers</span>
+<h1 class="text-display-lg font-display-lg text-primary tracking-tight">Find buyers who actually need what you sell.</h1>
+<p class="text-body-lg font-body-lg text-on-surface-variant max-w-lg">
+                    Stop wasting time on mismatched inquiries. Our AI-driven engine connects your inventory directly with verified global buyers actively sourcing your specific commodities.
+                </p>
+<div class="pt-4 flex gap-4">
+<button class="bg-primary-container text-on-primary text-label-lg font-label-lg px-6 py-3 rounded-md h-[40px] flex items-center justify-center hover:bg-primary-container/90 transition-colors shadow-sm">
+                        Find Buyers
+                    </button>
+<button class="bg-surface-container-lowest text-primary border border-surface-border text-label-lg font-label-lg px-6 py-3 rounded-md h-[40px] flex items-center justify-center hover:bg-surface-container-high transition-colors shadow-sm">
+                        View Match Feed
+                    </button>
+</div>
+</div>
+<!-- Demo Card -->
+<div class="relative">
+<!-- Decorative background elements -->
+<div class="absolute inset-0 bg-gradient-to-tr from-primary-fixed/10 to-transparent rounded-2xl transform rotate-3 scale-105 -z-10"></div>
+<div class="absolute -top-4 -right-4 w-24 h-24 bg-secondary/5 rounded-full blur-2xl -z-10"></div>
+<div class="bg-surface-container-lowest rounded-xl border border-surface-border shadow-[0_10px_25px_-5px_rgba(0,0,0,0.1),0_8px_10px_-6px_rgba(0,0,0,0.1)] p-6 backdrop-blur-sm relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-verified-emerald/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-bl-full"></div>
+<div class="flex justify-between items-start mb-6">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded bg-primary-container/5 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">package</span>
+</div>
+<div>
+<h3 class="text-headline-sm font-headline-sm text-primary">New Buyer Opportunity</h3>
+<p class="text-label-md font-label-md text-on-surface-variant">Posted 2 mins ago</p>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="inline-flex items-center gap-1 bg-verified-emerald/10 text-verified-emerald px-2.5 py-1 rounded-full text-label-md font-label-md">
+<span class="material-symbols-outlined text-[14px]">bolt</span>
+                                93% Match
+                            </span>
+</div>
+</div>
+<div class="space-y-4 mb-6">
+<div>
+<h4 class="text-headline-md font-headline-md text-primary mb-1">Basmati Rice (1121 Sella)</h4>
+<p class="text-body-md font-body-md text-on-surface-variant">Premium long-grain, export quality required for Middle East market distribution.</p>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-surface-container-low p-3 rounded-lg border border-surface-border/50">
+<p class="text-label-md font-label-md text-on-surface-variant mb-1">Volume</p>
+<p class="text-body-md font-body-md text-primary font-medium">20 Containers (TEU)</p>
+</div>
+<div class="bg-surface-container-low p-3 rounded-lg border border-surface-border/50">
+<p class="text-label-md font-label-md text-on-surface-variant mb-1">Destination</p>
+<p class="text-body-md font-body-md text-primary font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">location_on</span>
+                                    Dubai, UAE
+                                </p>
+</div>
+</div>
+</div>
+<div class="border-t border-outline-variant/30 pt-4 flex items-center justify-between">
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest border-2 border-surface-container-lowest flex items-center justify-center text-label-md text-on-surface-variant">
+                                JD
+                             </div>
+<div class="w-8 h-8 rounded-full bg-surface-container-highest border-2 border-surface-container-lowest flex items-center justify-center text-label-md text-on-surface-variant">
+                                AS
+                             </div>
+<div class="w-8 h-8 rounded-full bg-surface-container-highest border-2 border-surface-container-lowest flex items-center justify-center text-label-md text-on-surface-variant">
+                                +3
+                             </div>
+</div>
+<button class="bg-primary-container text-on-primary text-label-md font-label-md px-4 py-2 rounded h-[32px] hover:bg-primary-container/90 transition-colors">
+                            Draft Quote
+                        </button>
+</div>
+</div>
+</div>
+</section>
+</main>
+</body></html>

@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI Matching Results - Global Sourcing Hub</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed-variant": "#3f465c",
+                        "in-progress-blue": "#2563eb",
+                        "surface-container": "#f0edef",
+                        "primary": "#000000",
+                        "surface-tint": "#565e74",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed-dim": "#dec29a",
+                        "secondary-fixed": "#e2dfff",
+                        "on-primary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "secondary": "#4b41e1",
+                        "on-tertiary-fixed": "#271901",
+                        "inverse-surface": "#303032",
+                        "surface": "#fcf8fa",
+                        "on-secondary-container": "#fffbff",
+                        "data-text": "#1e293b",
+                        "background": "#fcf8fa",
+                        "secondary-fixed-dim": "#c3c0ff",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed": "#fcdeb5",
+                        "on-secondary-fixed": "#0f0069",
+                        "on-error-container": "#93000a",
+                        "on-error": "#ffffff",
+                        "on-surface-variant": "#45464d",
+                        "error": "#ba1a1a",
+                        "primary-fixed-dim": "#bec6e0",
+                        "on-primary-container": "#7c839b",
+                        "outline-variant": "#c6c6cd",
+                        "on-surface": "#1b1b1d",
+                        "risk-amber": "#d97706",
+                        "on-tertiary-fixed-variant": "#574425",
+                        "on-background": "#1b1b1d",
+                        "on-tertiary-container": "#98805d",
+                        "secondary-container": "#655dfb",
+                        "primary-container": "#131b2e",
+                        "surface-bright": "#fcf8fa",
+                        "on-secondary-fixed-variant": "#3322cc",
+                        "surface-container-highest": "#e4e2e4",
+                        "surface-border": "#e2e8f0",
+                        "inverse-on-surface": "#f3f0f2",
+                        "surface-dim": "#dcd9db",
+                        "on-primary-fixed": "#131b2e",
+                        "tertiary": "#000000",
+                        "surface-container-high": "#eae7e9",
+                        "tertiary-container": "#271901",
+                        "inverse-primary": "#bec6e0",
+                        "surface-container-low": "#f6f3f5",
+                        "surface-variant": "#e4e2e4",
+                        "primary-fixed": "#dae2fd",
+                        "risk-red": "#dc2626",
+                        "outline": "#76777d",
+                        "verified-emerald": "#059669"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-gap": "32px",
+                        "container-padding": "24px",
+                        "gutter": "16px",
+                        "sidebar-width": "260px",
+                        "table-cell-padding": "12px",
+                        "base": "4px"
+                    },
+                    "fontFamily": {
+                        "headline-sm": ["Inter"],
+                        "data-mono": ["JetBrains Mono"],
+                        "label-lg": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "data-mono": ["13px", { "lineHeight": "18px", "fontWeight": "500" }],
+                        "label-lg": ["14px", { "lineHeight": "20px", "fontWeight": "600" }],
+                        "display-lg": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg": ["28px", { "lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+                        "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-md": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .circular-progress {
+            transform: rotate(-90deg);
+        }
+        .circular-progress-circle {
+            stroke-dasharray: 251.2; /* 2 * pi * r (r=40) */
+            transition: stroke-dashoffset 1s ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen flex">
+<!-- SideNavBar -->
+<nav class="w-[260px] h-full fixed left-0 top-0 bg-primary-container dark:bg-primary-container flex flex-col h-screen py-6 z-50">
+<div class="px-6 mb-8 flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-white font-headline-sm">GS</div>
+<div>
+<h1 class="text-headline-md font-headline-md font-bold text-on-primary">Global Sourcing Hub</h1>
+<p class="text-label-md font-label-md text-on-primary-container">Verified Supplier Network</p>
+</div>
+</div>
+<div class="px-4 mb-6">
+<button class="w-full h-10 bg-secondary text-white font-label-lg rounded hover:bg-secondary/90 transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">add</span>
+                New Sourcing Request
+            </button>
+</div>
+<div class="flex-1 overflow-y-auto px-2 space-y-1">
+<a class="flex items-center gap-3 text-on-primary-container hover:text-white px-4 py-3 hover:bg-white/5 transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 text-on-primary-container hover:text-white px-4 py-3 hover:bg-white/5 transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined">language</span>
+<span class="font-label-md">Global Sourcing</span>
+</a>
+<a class="flex items-center gap-3 bg-white/10 text-white border-l-4 border-secondary-container px-4 py-3 opacity-90 transition-all rounded-r-lg" href="#">
+<span class="material-symbols-outlined">psychology</span>
+<span class="font-label-md">AI Matching</span>
+</a>
+<a class="flex items-center gap-3 text-on-primary-container hover:text-white px-4 py-3 hover:bg-white/5 transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined">conveyor_belt</span>
+<span class="font-label-md">Supply Chain</span>
+</a>
+<a class="flex items-center gap-3 text-on-primary-container hover:text-white px-4 py-3 hover:bg-white/5 transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined">account_balance</span>
+<span class="font-label-md">Financials</span>
+</a>
+</div>
+<div class="mt-auto px-2 space-y-1 pt-4 border-t border-white/10">
+<a class="flex items-center gap-3 text-on-primary-container hover:text-white px-4 py-3 hover:bg-white/5 transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-md">Settings</span>
+</a>
+<a class="flex items-center gap-3 text-on-primary-container hover:text-white px-4 py-3 hover:bg-white/5 transition-colors duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="font-label-md">Support</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Area -->
+<div class="flex-1 ml-[260px] flex flex-col min-h-screen">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-surface docked full-width top-0 sticky z-40 border-b border-outline-variant shadow-sm flex justify-between items-center w-full px-container-padding h-16">
+<div class="flex items-center gap-6">
+<span class="text-headline-sm font-headline-lg text-primary dark:text-on-surface">Executive Precision Trade</span>
+<div class="hidden md:flex gap-6 mt-4">
+<a class="text-on-surface-variant hover:text-primary pb-4 hover:text-primary transition-colors font-label-lg" href="#">Marketplace</a>
+<a class="text-secondary font-bold border-b-2 border-secondary pb-4 scale-95 duration-150 font-label-lg" href="#">Analytics</a>
+<a class="text-on-surface-variant hover:text-primary pb-4 hover:text-primary transition-colors font-label-lg" href="#">Contracts</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">apps</span>
+</button>
+<div class="flex gap-3 ml-2 border-l border-outline-variant pl-4">
+<button class="h-8 px-4 border border-outline-variant rounded text-label-md font-label-md hover:bg-surface-variant transition-colors">Export Data</button>
+<button class="h-8 px-4 bg-primary text-white rounded text-label-md font-label-md hover:bg-primary/90 transition-colors">Create Request</button>
+</div>
+<img alt="Executive User Avatar" class="w-8 h-8 rounded-full border border-outline-variant ml-2" data-alt="A small, professional headshot of an executive user, neutral background, crisp lighting, corporate attire. 50-100 words detailed description of a polished corporate avatar." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbAeNP8Ce4_dAi21ySf-ZLeFsRRs9f-fF6kZoe4IxZ6ata8OlPWf7CS15fMRDUSEGxZp4QeAP167rfXRDAx4LbCH48gGGun9yn2SkBg365cpQmlk6UwwUug93RSipys8U25S8WqOwJ4NBxxO-XSlL-RgV0212nt71Oi1qCTAgMN0A2ixMRg7dP2vDruLqHeA5sv6hpAtRINhoQMny5C4DRziKgQ0yo-dauyHGi-JawLG4NL3yDTTSi"/>
+</div>
+</header>
+<!-- Context & Filters -->
+<main class="p-container-padding flex gap-8 max-w-[1440px] mx-auto w-full">
+<!-- Left Sidebar (Filters) -->
+<aside class="w-64 shrink-0 flex flex-col gap-6">
+<div class="bg-white border border-surface-border rounded-lg p-5 shadow-[0_1px_3px_rgba(0,0,0,0.05)]">
+<h3 class="text-headline-sm font-headline-sm text-primary mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px]">filter_alt</span>
+                        Refine Matches
+                    </h3>
+<div class="space-y-6">
+<div>
+<label class="text-label-md font-label-md text-on-surface-variant mb-2 block">Minimum Match Score</label>
+<input class="w-full accent-secondary" max="100" min="0" type="range" value="80"/>
+<div class="flex justify-between text-data-mono text-on-surface-variant mt-1">
+<span>0%</span>
+<span>80%</span>
+<span>100%</span>
+</div>
+</div>
+<div class="h-px bg-outline-variant opacity-50"></div>
+<div>
+<label class="text-label-md font-label-md text-on-surface-variant mb-2 block">Supplier Region</label>
+<div class="space-y-2">
+<label class="flex items-center gap-2 text-body-sm">
+<input checked="" class="rounded border-outline-variant text-secondary focus:ring-secondary" type="checkbox"/>
+                                    South Asia (India, etc.)
+                                </label>
+<label class="flex items-center gap-2 text-body-sm">
+<input checked="" class="rounded border-outline-variant text-secondary focus:ring-secondary" type="checkbox"/>
+                                    Southeast Asia
+                                </label>
+<label class="flex items-center gap-2 text-body-sm">
+<input class="rounded border-outline-variant text-secondary focus:ring-secondary" type="checkbox"/>
+                                    South America
+                                </label>
+</div>
+</div>
+<div class="h-px bg-outline-variant opacity-50"></div>
+<div>
+<label class="text-label-md font-label-md text-on-surface-variant mb-2 block">Verification Level</label>
+<div class="space-y-2">
+<label class="flex items-center gap-2 text-body-sm">
+<input checked="" class="rounded border-outline-variant text-secondary focus:ring-secondary" type="checkbox"/>
+                                    Trade Verified
+                                </label>
+<label class="flex items-center gap-2 text-body-sm">
+<input class="rounded border-outline-variant text-secondary focus:ring-secondary" type="checkbox"/>
+                                    Premium Supplier
+                                </label>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<!-- Results Feed -->
+<div class="flex-1 flex flex-col gap-6">
+<!-- Query Context Card -->
+<div class="bg-white border border-surface-border rounded-lg p-6 shadow-[0_1px_3px_rgba(0,0,0,0.05)] relative overflow-hidden">
+<div class="absolute top-0 right-0 w-64 h-full bg-gradient-to-l from-secondary/5 to-transparent pointer-events-none"></div>
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 rounded bg-secondary/10 flex items-center justify-center text-secondary shrink-0 mt-1">
+<span class="material-symbols-outlined">target</span>
+</div>
+<div class="flex-1">
+<h2 class="text-label-md font-label-md text-on-surface-variant mb-1 uppercase tracking-wider">Current Requirement</h2>
+<p class="text-headline-sm font-headline-sm text-primary mb-3 leading-relaxed">"I need 500 MT of food-grade turmeric powder from India, CIF Rotterdam, delivery in October."</p>
+<div class="flex items-center gap-2">
+<span class="flex h-2 w-2 relative">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-verified-emerald opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-verified-emerald"></span>
+</span>
+<span class="text-body-sm font-body-sm text-verified-emerald font-medium">AI Analysis Complete</span>
+<span class="text-outline-variant mx-2">|</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">12 High-Probability Matches Found</span>
+</div>
+</div>
+<button class="h-8 px-4 border border-outline-variant rounded text-label-md font-label-md hover:bg-surface-variant transition-colors flex items-center gap-2 shrink-0">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+                            Edit Query
+                        </button>
+</div>
+</div>
+<!-- Results List -->
+<div class="space-y-4">
+<!-- Supplier Card 1 -->
+<div class="bg-white border border-surface-border rounded-lg p-6 shadow-[0_1px_3px_rgba(0,0,0,0.05)] hover:shadow-md transition-shadow group">
+<div class="flex gap-6">
+<!-- Match Score Radial -->
+<div class="shrink-0 w-24 h-24 relative flex items-center justify-center">
+<svg class="w-full h-full circular-progress" viewbox="0 0 100 100">
+<circle class="text-surface-variant stroke-current" cx="50" cy="50" fill="transparent" r="40" stroke-width="8"></circle>
+<circle class="text-verified-emerald stroke-current circular-progress-circle" cx="50" cy="50" fill="transparent" r="40" stroke-linecap="round" stroke-width="8" style="stroke-dashoffset: calc(251.2 - (251.2 * 94) / 100);"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-headline-md font-headline-md font-bold text-primary">94%</span>
+</div>
+</div>
+<!-- Core Info -->
+<div class="flex-1">
+<div class="flex justify-between items-start mb-2">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<h3 class="text-headline-sm font-headline-sm text-primary">ABC Spices Pvt. Ltd.</h3>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-verified-emerald/10 text-verified-emerald text-[10px] font-label-md uppercase tracking-wide">
+<span class="material-symbols-outlined text-[12px]">verified</span>
+                                                Trade Verified
+                                            </span>
+</div>
+<div class="flex items-center gap-4 text-body-sm text-on-surface-variant">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">location_on</span> India</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">security</span> Trust Score: <span class="font-data-mono font-bold text-primary">91/100</span></span>
+</div>
+</div>
+<div class="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="h-8 px-4 border border-outline-variant rounded text-label-md font-label-md hover:bg-surface-variant transition-colors">View Details</button>
+<button class="h-8 px-4 bg-secondary text-white rounded text-label-md font-label-md hover:bg-secondary/90 transition-colors">Send RFQ</button>
+</div>
+</div>
+<!-- Match Rationale -->
+<div class="mt-4 grid grid-cols-3 gap-4">
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-verified-emerald text-[18px] mt-0.5">check_circle</span>
+<div>
+<div class="text-label-md font-label-md text-primary">Product Match</div>
+<div class="text-body-sm text-on-surface-variant">Exact match for food-grade turmeric</div>
+</div>
+</div>
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-verified-emerald text-[18px] mt-0.5">check_circle</span>
+<div>
+<div class="text-label-md font-label-md text-primary">Capacity Match</div>
+<div class="text-body-sm text-on-surface-variant">Confirmed 500 MT availability</div>
+</div>
+</div>
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-in-progress-blue text-[18px] mt-0.5">local_shipping</span>
+<div>
+<div class="text-label-md font-label-md text-primary">Logistics Match</div>
+<div class="text-body-sm text-on-surface-variant">Frequent CIF Rotterdam shipments</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Supplier Card 2 -->
+<div class="bg-white border border-surface-border rounded-lg p-6 shadow-[0_1px_3px_rgba(0,0,0,0.05)] hover:shadow-md transition-shadow group">
+<div class="flex gap-6">
+<!-- Match Score Radial -->
+<div class="shrink-0 w-24 h-24 relative flex items-center justify-center">
+<svg class="w-full h-full circular-progress" viewbox="0 0 100 100">
+<circle class="text-surface-variant stroke-current" cx="50" cy="50" fill="transparent" r="40" stroke-width="8"></circle>
+<circle class="text-verified-emerald stroke-current circular-progress-circle" cx="50" cy="50" fill="transparent" r="40" stroke-linecap="round" stroke-width="8" style="stroke-dashoffset: calc(251.2 - (251.2 * 88) / 100);"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-headline-md font-headline-md font-bold text-primary">88%</span>
+</div>
+</div>
+<!-- Core Info -->
+<div class="flex-1">
+<div class="flex justify-between items-start mb-2">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<h3 class="text-headline-sm font-headline-sm text-primary">Global Spice Ventures</h3>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-verified-emerald/10 text-verified-emerald text-[10px] font-label-md uppercase tracking-wide">
+<span class="material-symbols-outlined text-[12px]">verified</span>
+                                                Trade Verified
+                                            </span>
+</div>
+<div class="flex items-center gap-4 text-body-sm text-on-surface-variant">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">location_on</span> Vietnam</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">security</span> Trust Score: <span class="font-data-mono font-bold text-primary">85/100</span></span>
+</div>
+</div>
+<div class="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="h-8 px-4 border border-outline-variant rounded text-label-md font-label-md hover:bg-surface-variant transition-colors">View Details</button>
+<button class="h-8 px-4 bg-secondary text-white rounded text-label-md font-label-md hover:bg-secondary/90 transition-colors">Send RFQ</button>
+</div>
+</div>
+<!-- Match Rationale -->
+<div class="mt-4 grid grid-cols-3 gap-4">
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-verified-emerald text-[18px] mt-0.5">check_circle</span>
+<div>
+<div class="text-label-md font-label-md text-primary">Product Match</div>
+<div class="text-body-sm text-on-surface-variant">High quality turmeric powder</div>
+</div>
+</div>
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-risk-amber text-[18px] mt-0.5">warning</span>
+<div>
+<div class="text-label-md font-label-md text-primary">Capacity Note</div>
+<div class="text-body-sm text-on-surface-variant">400 MT confirmed, 100 MT pending</div>
+</div>
+</div>
+<div class="flex items-start gap-2">
+<span class="material-symbols-outlined text-in-progress-blue text-[18px] mt-0.5">local_shipping</span>
+<div>
+<div class="text-label-md font-label-md text-primary">Logistics Match</div>
+<div class="text-body-sm text-on-surface-variant">CIF delivery standard practice</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

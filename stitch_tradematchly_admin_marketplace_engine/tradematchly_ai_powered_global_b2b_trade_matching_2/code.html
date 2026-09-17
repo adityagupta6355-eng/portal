@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TradeMatchly - Global Commerce Optimized</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-surface-variant": "#45464d",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "on-secondary-fixed": "#0f0069",
+                        "secondary-container": "#655dfb",
+                        "inverse-on-surface": "#f3f0f2",
+                        "primary-container": "#131b2e",
+                        "tertiary-fixed-dim": "#dec29a",
+                        "tertiary": "#000000",
+                        "on-tertiary-container": "#98805d",
+                        "surface-border": "#e2e8f0",
+                        "surface-container-highest": "#e4e2e4",
+                        "surface-container-low": "#f6f3f5",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-high": "#eae7e9",
+                        "error": "#ba1a1a",
+                        "data-text": "#1e293b",
+                        "surface-container": "#f0edef",
+                        "tertiary-container": "#271901",
+                        "secondary": "#4b41e1",
+                        "surface-variant": "#e4e2e4",
+                        "risk-red": "#dc2626",
+                        "error-container": "#ffdad6",
+                        "outline-variant": "#c6c6cd",
+                        "in-progress-blue": "#2563eb",
+                        "verified-emerald": "#059669",
+                        "surface-dim": "#dcd9db",
+                        "surface": "#fcf8fa",
+                        "secondary-fixed": "#e2dfff",
+                        "surface-bright": "#fcf8fa",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-fixed-variant": "#3322cc",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed": "#131b2e",
+                        "on-tertiary-fixed-variant": "#574425",
+                        "background": "#fcf8fa",
+                        "primary-fixed-dim": "#bec6e0",
+                        "risk-amber": "#d97706",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed": "#271901",
+                        "on-background": "#1b1b1d",
+                        "tertiary-fixed": "#fcdeb5",
+                        "on-error-container": "#93000a",
+                        "inverse-primary": "#bec6e0",
+                        "surface-tint": "#565e74",
+                        "on-surface": "#1b1b1d",
+                        "primary-fixed": "#dae2fd",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-container": "#fffbff",
+                        "on-primary-container": "#7c839b",
+                        "primary": "#000000",
+                        "outline": "#76777d",
+                        "inverse-surface": "#303032",
+                        "secondary-fixed-dim": "#c3c0ff"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "base": "4px",
+                        "section-gap": "32px",
+                        "container-padding": "24px",
+                        "sidebar-width": "260px",
+                        "gutter": "16px",
+                        "table-cell-padding": "12px"
+                    },
+                    fontFamily: {
+                        "headline-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "label-lg": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "data-mono": ["jetbrainsMono"],
+                        "headline-md": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    fontSize: {
+                        "headline-lg": ["28px", { lineHeight: "34px", letterSpacing: "-0.02em", fontWeight: "700" }],
+                        "label-md": ["12px", { lineHeight: "16px", letterSpacing: "0.02em", fontWeight: "600" }],
+                        "label-lg": ["14px", { lineHeight: "20px", fontWeight: "600" }],
+                        "display-lg": ["36px", { lineHeight: "44px", letterSpacing: "-0.02em", fontWeight: "700" }],
+                        "body-sm": ["13px", { lineHeight: "18px", fontWeight: "400" }],
+                        "data-mono": ["13px", { lineHeight: "18px", fontWeight: "500" }],
+                        "headline-md": ["22px", { lineHeight: "28px", letterSpacing: "-0.01em", fontWeight: "600" }],
+                        "headline-sm": ["18px", { lineHeight: "24px", fontWeight: "600" }],
+                        "body-lg": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+                        "body-md": ["14px", { lineHeight: "20px", fontWeight: "400" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+        .mesh-gradient {
+            background-image: radial-gradient(at 0% 0%, hsla(242,92%,70%,1) 0, transparent 50%), radial-gradient(at 50% 0%, hsla(225,39%,30%,1) 0, transparent 50%), radial-gradient(at 100% 0%, hsla(339,49%,30%,1) 0, transparent 50%);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-lg antialiased">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-primary-container/80 backdrop-blur-md border-b border-outline-variant/30 shadow-sm transition-all duration-300 ease-in-out">
+<div class="flex justify-between items-center h-20 px-container-padding max-w-[1440px] mx-auto">
+<a class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed" href="#">
+                TradeMatchly
+            </a>
+<div class="hidden md:flex space-x-8">
+<a class="text-on-surface-variant dark:text-on-primary-container hover:text-primary font-label-lg text-label-lg transition-colors" href="#">Platform</a>
+<a class="text-on-surface-variant dark:text-on-primary-container hover:text-primary font-label-lg text-label-lg transition-colors" href="#">For Buyers</a>
+<a class="text-on-surface-variant dark:text-on-primary-container hover:text-primary font-label-lg text-label-lg transition-colors" href="#">For Suppliers</a>
+<a class="text-on-surface-variant dark:text-on-primary-container hover:text-primary font-label-lg text-label-lg transition-colors" href="#">Intelligence</a>
+<a class="text-on-surface-variant dark:text-on-primary-container hover:text-primary font-label-lg text-label-lg transition-colors" href="#">Resources</a>
+</div>
+<div class="flex items-center space-x-4">
+<a class="text-on-surface hover:text-primary font-label-lg text-label-lg transition-colors hidden sm:block" href="#">Login</a>
+<a class="bg-primary text-on-primary hover:bg-on-surface-variant transition-colors px-6 py-2.5 rounded-lg font-label-lg text-label-lg h-10 flex items-center justify-center" href="#">
+                    Get Started
+                </a>
+</div>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="pt-24">
+<!-- Hero Section -->
+<section class="relative pt-20 pb-section-gap px-container-padding overflow-hidden">
+<div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(circle at 2px 2px, rgba(15, 23, 42, 0.15) 1px, transparent 0); background-size: 32px 32px;"></div>
+<div class="max-w-[1152px] mx-auto relative z-10 text-center">
+<h1 class="font-display-lg text-display-lg md:text-[56px] md:leading-[64px] font-bold text-primary mb-6 max-w-4xl mx-auto tracking-tight">
+                    Find the right global trading partner.
+                </h1>
+<p class="font-headline-sm text-headline-sm text-on-surface-variant mb-12 max-w-2xl mx-auto">
+                    AI-powered buyer and supplier matching for global B2B trade.
+                </p>
+<!-- AI Search Box -->
+<div class="max-w-3xl mx-auto mb-8 relative">
+<div class="glass-panel rounded-xl p-2 shadow-lg shadow-primary-container/5 transition-all focus-within:shadow-secondary/20 focus-within:ring-2 focus-within:ring-secondary/50">
+<div class="relative flex items-center">
+<span aria-hidden="true" class="material-symbols-outlined text-secondary ml-4 mr-2">search</span>
+<input class="w-full bg-transparent border-none text-body-lg text-primary placeholder:text-on-surface-variant/60 focus:ring-0 h-14 outline-none" placeholder="I need 500 MT of food-grade turmeric powder from India, CIF Rotterdam, delivery in October." type="text"/>
+<button aria-label="Voice search" class="p-3 text-on-surface-variant hover:text-primary transition-colors rounded-lg hover:bg-surface-container-low mr-1">
+<span class="material-symbols-outlined">mic</span>
+</button>
+<button class="bg-primary text-on-primary px-6 h-12 rounded-lg font-label-lg text-label-lg hover:bg-on-surface-variant transition-colors whitespace-nowrap flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">auto_awesome</span>
+                                Match
+                            </button>
+</div>
+</div>
+<div class="flex flex-wrap items-center justify-center gap-3 mt-6">
+<span class="text-body-sm text-on-surface-variant font-medium">Try:</span>
+<button class="px-4 py-1.5 rounded-full border border-surface-border bg-surface-container-lowest text-body-sm text-on-surface hover:border-secondary hover:text-secondary transition-colors">Basmati rice exporters</button>
+<button class="px-4 py-1.5 rounded-full border border-surface-border bg-surface-container-lowest text-body-sm text-on-surface hover:border-secondary hover:text-secondary transition-colors">Textile manufacturers in India</button>
+</div>
+</div>
+<!-- Hero Visual - Match Engine -->
+<div class="mt-20 max-w-5xl mx-auto relative h-[400px] rounded-2xl bg-surface-container-lowest border border-surface-border shadow-sm overflow-hidden flex items-center justify-center p-8 hidden md:flex">
+<!-- Abstract representation of the matching engine -->
+<div class="w-full flex items-center justify-between relative z-10">
+<!-- Requirement Node -->
+<div class="bg-surface p-6 rounded-xl border border-surface-border w-64 text-left shadow-sm">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-10 h-10 rounded-lg bg-primary-container text-on-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined">description</span>
+</div>
+<span class="font-label-lg text-label-lg text-primary">Requirement</span>
+</div>
+<div class="space-y-2">
+<div class="h-2 w-full bg-surface-container-highest rounded-full"></div>
+<div class="h-2 w-4/5 bg-surface-container-highest rounded-full"></div>
+<div class="h-2 w-3/4 bg-surface-container-highest rounded-full"></div>
+</div>
+</div>
+<!-- Mesh AI Node -->
+<div class="relative flex flex-col items-center">
+<div class="absolute w-full h-0.5 bg-gradient-to-r from-surface-border via-secondary to-surface-border top-1/2 -translate-y-1/2 -z-10 w-[200px] -left-[100px]"></div>
+<div class="absolute w-full h-0.5 bg-gradient-to-r from-surface-border via-secondary to-surface-border top-1/2 -translate-y-1/2 -z-10 w-[200px] -right-[100px]"></div>
+<div class="w-24 h-24 rounded-full bg-gradient-to-br from-secondary to-primary-container flex items-center justify-center shadow-lg shadow-secondary/20 relative animate-pulse">
+<span class="material-symbols-outlined text-[40px] text-on-primary">hub</span>
+<!-- Orbit rings -->
+<div class="absolute inset-0 border-2 border-secondary/30 rounded-full animate-[spin_4s_linear_infinite]" style="width: 120%; height: 120%; top:-10%; left:-10%;"></div>
+</div>
+<span class="mt-4 font-label-lg text-label-lg text-primary">Mesh AI</span>
+</div>
+<!-- Match Result Node -->
+<div class="bg-surface p-6 rounded-xl border border-verified-emerald/30 w-64 text-left shadow-sm relative overflow-hidden">
+<div class="absolute top-0 right-0 w-16 h-16 bg-verified-emerald/10 rounded-bl-full flex items-start justify-end p-2">
+<span class="material-symbols-outlined text-verified-emerald text-[20px]">verified</span>
+</div>
+<div class="flex items-center gap-3 mb-4">
+<div class="w-12 h-12 rounded-full overflow-hidden border border-surface-border bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant">factory</span>
+</div>
+<div>
+<div class="font-label-lg text-label-lg text-primary">Verified Supplier</div>
+<div class="text-verified-emerald font-label-md text-label-md">94% Match Score</div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between items-center text-body-sm text-on-surface-variant">
+<span>Capacity</span> <span class="font-medium text-primary">High</span>
+</div>
+<div class="flex justify-between items-center text-body-sm text-on-surface-variant">
+<span>Certifications</span> <span class="font-medium text-primary">ISO, FDA</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Trust Strip -->
+<section class="border-y border-surface-border bg-surface-container-lowest py-8">
+<div class="max-w-[1440px] mx-auto px-container-padding flex flex-wrap justify-center md:justify-between items-center gap-8 opacity-70">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[24px]">psychology</span>
+<span class="font-label-lg text-label-lg text-on-surface-variant uppercase tracking-wider">AI-Powered Matching</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[24px]">verified_user</span>
+<span class="font-label-lg text-label-lg text-on-surface-variant uppercase tracking-wider">Verified Businesses</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[24px]">public</span>
+<span class="font-label-lg text-label-lg text-on-surface-variant uppercase tracking-wider">Global Trade Network</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[24px]">request_quote</span>
+<span class="font-label-lg text-label-lg text-on-surface-variant uppercase tracking-wider">RFQ &amp; Quote Workflow</span>
+</div>
+</div>
+</section>
+<!-- Buyers vs Suppliers -->
+<section class="py-24 bg-surface px-container-padding">
+<div class="max-w-[1152px] mx-auto">
+<div class="grid md:grid-cols-2 gap-8">
+<!-- For Buyers -->
+<div class="bg-surface-container-lowest rounded-2xl p-10 border border-surface-border shadow-sm hover:shadow-md transition-shadow">
+<div class="w-16 h-16 rounded-xl bg-primary-fixed/20 flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-[32px] text-primary">shopping_cart</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg text-primary mb-4">For Buyers</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8">
+                        Source products globally with confidence. Let our AI find verified suppliers that match your exact requirements, capacity needs, and compliance standards.
+                    </p>
+<ul class="space-y-4 mb-8">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-verified-emerald mt-0.5">check_circle</span>
+<span class="text-on-surface font-body-md text-body-md">Instant AI supplier matching</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-verified-emerald mt-0.5">check_circle</span>
+<span class="text-on-surface font-body-md text-body-md">Verified supplier credentials</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-verified-emerald mt-0.5">check_circle</span>
+<span class="text-on-surface font-body-md text-body-md">Streamlined RFQ process</span>
+</li>
+</ul>
+<button class="w-full bg-surface text-primary border border-surface-border hover:bg-surface-container-highest transition-colors px-6 py-3 rounded-lg font-label-lg text-label-lg">
+                        I want to buy products
+                    </button>
+</div>
+<!-- For Suppliers -->
+<div class="bg-surface-container-lowest rounded-2xl p-10 border border-surface-border shadow-sm hover:shadow-md transition-shadow">
+<div class="w-16 h-16 rounded-xl bg-secondary-fixed/50 flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-[32px] text-secondary">factory</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg text-primary mb-4">For Suppliers</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8">
+                        Connect with serious buyers globally. Receive highly relevant inquiries matched to your production capabilities and target markets.
+                    </p>
+<ul class="space-y-4 mb-8">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-verified-emerald mt-0.5">check_circle</span>
+<span class="text-on-surface font-body-md text-body-md">High-intent buyer leads</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-verified-emerald mt-0.5">check_circle</span>
+<span class="text-on-surface font-body-md text-body-md">Showcase capabilities &amp; compliance</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-verified-emerald mt-0.5">check_circle</span>
+<span class="text-on-surface font-body-md text-body-md">Secure quote submission</span>
+</li>
+</ul>
+<button class="w-full bg-surface text-primary border border-surface-border hover:bg-surface-container-highest transition-colors px-6 py-3 rounded-lg font-label-lg text-label-lg">
+                        I want to supply products
+                    </button>
+</div>
+</div>
+</div>
+</section>
+<!-- The Problem Section -->
+<section class="py-24 bg-surface-container-lowest px-container-padding">
+<div class="max-w-[1152px] mx-auto text-center">
+<h2 class="font-display-lg text-display-lg md:text-[40px] md:leading-[48px] font-bold text-primary mb-6">Global trade is still too fragmented.</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-16">
+                Finding the right partner usually means sifting through endless directories, sending emails into the void, and struggling to verify trust.
+            </p>
+<div class="grid md:grid-cols-2 gap-8 items-stretch">
+<!-- Old Way -->
+<div class="bg-surface p-8 rounded-2xl border border-error-container relative overflow-hidden text-left">
+<div class="absolute top-0 left-0 w-full h-1 bg-error"></div>
+<h4 class="font-headline-sm text-headline-sm text-error mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined">cancel</span> The Old Way
+                </h4>
+<div class="space-y-4">
+<div class="flex items-center gap-4 bg-surface-container-lowest p-4 rounded-lg border border-surface-border opacity-60">
+<span class="material-symbols-outlined text-outline">search</span>
+<span class="text-body-md text-on-surface">Endless keyword searching</span>
+</div>
+<div class="flex items-center gap-4 bg-surface-container-lowest p-4 rounded-lg border border-surface-border opacity-60">
+<span class="material-symbols-outlined text-outline">mail</span>
+<span class="text-body-md text-on-surface">Spamming generic RFQs</span>
+</div>
+<div class="flex items-center gap-4 bg-surface-container-lowest p-4 rounded-lg border border-surface-border opacity-60">
+<span class="material-symbols-outlined text-outline">help</span>
+<span class="text-body-md text-on-surface">Uncertain verification</span>
+</div>
+</div>
+</div>
+<!-- TradeMatchly Way -->
+<div class="bg-primary-container p-8 rounded-2xl relative overflow-hidden text-left shadow-lg">
+<div class="absolute top-0 left-0 w-full h-1 bg-secondary"></div>
+<h4 class="font-headline-sm text-headline-sm text-on-primary-container mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">check_circle</span> The TradeMatchly Way
+                </h4>
+<div class="space-y-4">
+<div class="flex items-center gap-4 bg-surface-container-lowest/10 p-4 rounded-lg border border-surface-container-lowest/20 backdrop-blur-sm">
+<span class="material-symbols-outlined text-secondary-fixed">auto_awesome</span>
+<span class="text-body-md text-on-primary-container">AI understands complex intent</span>
+</div>
+<div class="flex items-center gap-4 bg-surface-container-lowest/10 p-4 rounded-lg border border-surface-container-lowest/20 backdrop-blur-sm">
+<span class="material-symbols-outlined text-secondary-fixed">target</span>
+<span class="text-body-md text-on-primary-container">Precision matching algorithm</span>
+</div>
+<div class="flex items-center gap-4 bg-surface-container-lowest/10 p-4 rounded-lg border border-surface-container-lowest/20 backdrop-blur-sm">
+<span class="material-symbols-outlined text-verified-emerald">verified</span>
+<span class="text-body-md text-on-primary-container">Pre-verified trusted network</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- How it Works -->
+<section class="py-24 bg-surface px-container-padding">
+<div class="max-w-[1152px] mx-auto">
+<div class="text-center mb-16">
+<h2 class="font-headline-lg text-headline-lg font-bold text-primary mb-4">How it works</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">From requirement to closed deal in 5 simple steps.</p>
+</div>
+<div class="relative">
+<!-- Connecting Line -->
+<div class="hidden md:block absolute top-[52px] left-0 w-full h-0.5 bg-surface-border"></div>
+<div class="grid grid-cols-1 md:grid-cols-5 gap-8">
+<!-- Step 1 -->
+<div class="relative flex flex-col items-center text-center">
+<div class="w-12 h-12 rounded-full bg-surface-container-lowest border-2 border-primary text-primary flex items-center justify-center font-bold text-headline-sm mb-4 relative z-10">1</div>
+<h4 class="font-label-lg text-label-lg text-primary mb-2">Describe</h4>
+<p class="text-body-sm text-on-surface-variant">Detail your needs in plain English. Mesh AI structures the data.</p>
+</div>
+<!-- Step 2 -->
+<div class="relative flex flex-col items-center text-center">
+<div class="w-12 h-12 rounded-full bg-surface-container-lowest border-2 border-secondary text-secondary flex items-center justify-center font-bold text-headline-sm mb-4 relative z-10 shadow-lg shadow-secondary/20">2</div>
+<h4 class="font-label-lg text-label-lg text-primary mb-2">Match</h4>
+<p class="text-body-sm text-on-surface-variant">The engine finds suppliers meeting specs, capacity, and compliance.</p>
+</div>
+<!-- Step 3 -->
+<div class="relative flex flex-col items-center text-center">
+<div class="w-12 h-12 rounded-full bg-surface-container-lowest border-2 border-verified-emerald text-verified-emerald flex items-center justify-center font-bold text-headline-sm mb-4 relative z-10">3</div>
+<h4 class="font-label-lg text-label-lg text-primary mb-2">Verify</h4>
+<p class="text-body-sm text-on-surface-variant">Review detailed supplier profiles, credentials, and match scores.</p>
+</div>
+<!-- Step 4 -->
+<div class="relative flex flex-col items-center text-center">
+<div class="w-12 h-12 rounded-full bg-surface-container-lowest border-2 border-primary text-primary flex items-center justify-center font-bold text-headline-sm mb-4 relative z-10">4</div>
+<h4 class="font-label-lg text-label-lg text-primary mb-2">Connect</h4>
+<p class="text-body-sm text-on-surface-variant">Send structured RFQs and manage communications in one place.</p>
+</div>
+<!-- Step 5 -->
+<div class="relative flex flex-col items-center text-center">
+<div class="w-12 h-12 rounded-full bg-surface-container-lowest border-2 border-primary text-primary flex items-center justify-center font-bold text-headline-sm mb-4 relative z-10">5</div>
+<h4 class="font-label-lg text-label-lg text-primary mb-2">Trade</h4>
+<p class="text-body-sm text-on-surface-variant">Negotiate, finalize terms, and execute the deal securely.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Final CTA -->
+<section class="py-24 bg-primary-container px-container-padding text-center">
+<div class="max-w-4xl mx-auto">
+<h2 class="font-display-lg text-display-lg md:text-[40px] md:leading-[48px] font-bold text-surface-container-lowest mb-6">Ready to optimize your global trade?</h2>
+<p class="font-body-lg text-body-lg text-on-primary-container mb-12">
+                Join thousands of verified businesses finding the right partners on TradeMatchly.
+            </p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center">
+<button class="bg-secondary text-on-secondary px-8 py-4 rounded-xl font-label-lg text-label-lg hover:bg-secondary/90 transition-colors shadow-lg shadow-secondary/20 flex items-center justify-center gap-2">
+                    I'm a Buyer
+                </button>
+<button class="bg-surface text-primary px-8 py-4 rounded-xl font-label-lg text-label-lg hover:bg-surface-container-lowest transition-colors shadow-md flex items-center justify-center gap-2">
+                    I'm a Supplier
+                </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full pt-section-gap pb-8 bg-primary-container dark:bg-tertiary-container mt-section-gap border-t border-on-primary-container/20">
+<div class="grid grid-cols-2 md:grid-cols-5 gap-gutter px-container-padding max-w-[1440px] mx-auto">
+<div class="col-span-2 md:col-span-1 mb-8 md:mb-0">
+<a class="font-headline-sm text-headline-sm font-bold text-surface-container-lowest block mb-4" href="#">
+                    TradeMatchly
+                </a>
+<p class="font-body-sm text-body-sm text-on-primary-container/80">
+                    Global Commerce Optimized.
+                </p>
+</div>
+<div class="flex flex-col space-y-3">
+<span class="font-label-md text-label-md text-surface-container-lowest uppercase tracking-wider mb-2">Company</span>
+<a class="font-body-sm text-body-sm text-on-primary-container/80 hover:text-secondary-fixed transition-colors" href="#">About Us</a>
+<a class="font-body-sm text-body-sm text-on-primary-container/80 hover:text-secondary-fixed transition-colors" href="#">Careers</a>
+<a class="font-body-sm text-body-sm text-on-primary-container/80 hover:text-secondary-fixed transition-colors" href="#">Press</a>
+</div>
+<div class="flex flex-col space-y-3">
+<span class="font-label-md text-label-md text-surface-container-lowest uppercase tracking-wider mb-2">Legal</span>
+<a class="font-body-sm text-body-sm text-on-primary-container/80 hover:text-secondary-fixed transition-colors" href="#">Privacy Policy</a>
+<a class="font-body-sm text-body-sm text-on-primary-container/80 hover:text-secondary-fixed transition-colors" href="#">Terms of Service</a>
+<a class="font-body-sm text-body-sm text-on-primary-container/80 hover:text-secondary-fixed transition-colors" href="#">Cookie Settings</a>
+</div>
+<div class="flex flex-col space-y-3">
+<span class="font-label-md text-label-md text-surface-container-lowest uppercase tracking-wider mb-2">Solutions</span>
+<a class="font-body-sm text-body-sm text-on-primary-container/80 hover:text-secondary-fixed transition-colors" href="#">Global Logistics</a>
+<a class="font-body-sm text-body-sm text-on-primary-container/80 hover:text-secondary-fixed transition-colors" href="#">Market Intelligence</a>
+<a class="font-body-sm text-body-sm text-on-primary-container/80 hover:text-secondary-fixed transition-colors" href="#">Trade Finance</a>
+</div>
+<div class="flex flex-col space-y-3">
+<span class="font-label-md text-label-md text-surface-container-lowest uppercase tracking-wider mb-2">Services</span>
+<a class="font-body-sm text-body-sm text-on-primary-container/80 hover:text-secondary-fixed transition-colors" href="#">Customs Clearance</a>
+<a class="font-body-sm text-body-sm text-on-primary-container/80 hover:text-secondary-fixed transition-colors" href="#">Supplier Verification</a>
+</div>
+</div>
+<div class="px-container-padding max-w-[1440px] mx-auto mt-12 pt-8 border-t border-on-primary-container/20">
+<p class="font-body-sm text-body-sm text-on-primary-container/80 text-center md:text-left">
+                © 2024 TradeMatchly Inc. Global Commerce Optimized.
+            </p>
+</div>
+</footer>
+</body></html>

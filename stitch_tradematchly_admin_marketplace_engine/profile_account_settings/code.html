@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Profile &amp; Account Settings</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-tertiary": "#ffffff",
+                      "secondary": "#4b41e1",
+                      "surface-bright": "#f7f9fb",
+                      "surface": "#f7f9fb",
+                      "tertiary-fixed-dim": "#b7c8e1",
+                      "surface-tint": "#565e74",
+                      "on-primary-fixed": "#131b2e",
+                      "outline-variant": "#c6c6cd",
+                      "on-error": "#ffffff",
+                      "on-primary-container": "#7c839b",
+                      "surface-variant": "#e0e3e5",
+                      "on-secondary-fixed": "#0f0069",
+                      "error": "#ba1a1a",
+                      "outline": "#76777d",
+                      "primary": "#000000",
+                      "surface-dim": "#d8dadc",
+                      "surface-border": "#e2e8f0",
+                      "verified-emerald": "#059669",
+                      "inverse-surface": "#2d3133",
+                      "in-progress-blue": "#2563eb",
+                      "surface-container-low": "#f2f4f6",
+                      "surface-container-lowest": "#ffffff",
+                      "primary-fixed-dim": "#bec6e0",
+                      "on-primary-fixed-variant": "#3f465c",
+                      "on-tertiary-fixed-variant": "#38485d",
+                      "tertiary-fixed": "#d3e4fe",
+                      "on-surface-variant": "#45464d",
+                      "on-secondary-container": "#fffbff",
+                      "error-container": "#ffdad6",
+                      "secondary-container": "#655dfb",
+                      "on-primary": "#ffffff",
+                      "inverse-on-surface": "#eff1f3",
+                      "on-tertiary-fixed": "#0b1c30",
+                      "on-tertiary-container": "#75859d",
+                      "surface-container-high": "#e6e8ea",
+                      "tertiary-container": "#0b1c30",
+                      "surface-container": "#eceef0",
+                      "inverse-primary": "#bec6e0",
+                      "on-secondary-fixed-variant": "#3322cc",
+                      "surface-container-highest": "#e0e3e5",
+                      "on-surface": "#191c1e",
+                      "tertiary": "#000000",
+                      "primary-container": "#131b2e",
+                      "primary-fixed": "#dae2fd",
+                      "secondary-fixed-dim": "#c3c0ff",
+                      "on-background": "#191c1e",
+                      "secondary-fixed": "#e2dfff",
+                      "on-secondary": "#ffffff",
+                      "risk-amber": "#d97706",
+                      "on-error-container": "#93000a",
+                      "risk-red": "#dc2626",
+                      "background": "#f7f9fb"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "touch-target": "2.75rem",
+                      "stack-lg": "1.5rem",
+                      "margin-mobile": "1rem",
+                      "gutter-mobile": "0.75rem",
+                      "stack-md": "1rem",
+                      "stack-sm": "0.5rem"
+              },
+              "fontFamily": {
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "headline-sm": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Inter"
+                      ],
+                      "data-mono": [
+                              "JetBrains Mono"
+                      ],
+                      "label-md": [
+                              "Inter"
+                      ],
+                      "body-sm": [
+                              "Inter"
+                      ],
+                      "headline-lg": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "body-lg": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-sm": [
+                              "18px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-md": [
+                              "22px",
+                              {
+                                      "lineHeight": "28px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "data-mono": [
+                              "13px",
+                              {
+                                      "lineHeight": "18px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "label-md": [
+                              "11px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.06em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg": [
+                              "28px",
+                              {
+                                      "lineHeight": "34px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background antialiased min-h-screen pb-[5rem]">
+<!-- TopAppBar -->
+<header class="bg-surface dark:bg-background text-primary dark:text-on-background font-headline-sm text-headline-sm-mobile border-b border-surface-border dark:border-outline-variant flex items-center w-full px-margin-mobile h-touch-target sticky top-0 z-40">
+<button class="mr-4 flex items-center justify-center h-full active:opacity-70 transition-opacity hover:bg-surface-container-low dark:hover:bg-surface-variant transition-colors rounded-full w-10">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<span class="font-headline-md text-headline-md-mobile font-bold text-primary dark:text-on-background flex-1 text-center pr-10">Account Settings</span>
+</header>
+<main class="px-margin-mobile pt-stack-lg pb-stack-lg flex flex-col gap-stack-lg max-w-3xl mx-auto">
+<!-- Header Section -->
+<section class="flex flex-col items-center justify-center text-center">
+<div class="relative mb-4">
+<img class="w-24 h-24 rounded-full object-cover border-4 border-surface shadow-sm" data-alt="A professional headshot portrait of a female executive with confident posture. She is wearing a modern dark navy blazer, set against a clean, bright, minimalist office background. Soft, high-key natural lighting illuminates her face, highlighting the corporate modern aesthetic. Deep blacks, pristine whites, and slate grey tones dominate." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGiLP357JaPQwtXgNGRRlhysgBz1yWqjdlmfiYGURgjH_LojfPRP1iidhioZ8L1M0QRYLmGWI2T_0HMErAjS-nANchfXznfwtrVSPU4lNep5otxbePyhzr09-vWLnEKVyhjk57LdI3mn1GYNL0gwWkKnVb-jfqoq3I5HaPrfCDCyo96lpy6uwzVq3Lej0bNV8Nyf-1P-Kcm_5u5tkoedFFqD202_jFBfL5_LVt80pfWzSJLXy_sx63"/>
+<div class="absolute bottom-0 right-0 bg-verified-emerald/10 text-verified-emerald rounded-full p-1 border-2 border-surface flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px] font-bold" data-icon="verified">verified</span>
+</div>
+</div>
+<h1 class="font-headline-lg text-headline-lg-mobile text-primary mb-1">Sarah Jenkins</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mb-2">Export Manager, ABC Spices Pvt. Ltd.</p>
+<span class="inline-flex items-center gap-1 bg-verified-emerald/10 text-verified-emerald px-2 py-1 rounded-full font-label-md text-label-md uppercase tracking-wider">
+<span class="material-symbols-outlined text-[14px]" data-icon="verified">verified</span>
+                Verified Supplier
+            </span>
+</section>
+<!-- Account Completion Card -->
+<section class="bg-surface-container-lowest rounded-xl p-4 shadow-sm border border-surface-border">
+<div class="flex justify-between items-center mb-3">
+<h2 class="font-headline-sm text-headline-sm-mobile text-primary">Profile Strength</h2>
+<span class="font-data-mono text-data-mono text-in-progress-blue">78%</span>
+</div>
+<div class="w-full bg-surface-variant rounded-full h-2 mb-4 overflow-hidden">
+<div class="bg-in-progress-blue h-2 rounded-full" style="width: 78%"></div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-3">Complete 2 more steps to unlock full trading privileges.</p>
+<button class="w-full bg-surface-container-low hover:bg-surface-container border border-surface-border text-primary font-label-md text-label-md uppercase tracking-wider py-2 rounded-lg transition-colors flex items-center justify-center gap-2 h-11">
+<span>Complete Profile</span>
+<span class="material-symbols-outlined text-[16px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</section>
+<!-- Settings Groups -->
+<section class="flex flex-col gap-4">
+<!-- Group 1 -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm border border-surface-border overflow-hidden">
+<div class="px-4 py-3 border-b border-surface-border bg-surface-bright">
+<h3 class="font-label-md text-label-md text-outline uppercase tracking-wider">Account</h3>
+</div>
+<div class="flex flex-col divide-y divide-surface-border">
+<a class="flex items-center justify-between p-4 hover:bg-surface-container-low transition-colors active:bg-surface-container" href="#">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-outline" data-icon="person">person</span>
+<span class="font-body-md text-body-md text-primary">Personal Information</span>
+</div>
+<span class="material-symbols-outlined text-outline" data-icon="chevron_right">chevron_right</span>
+</a>
+<a class="flex items-center justify-between p-4 hover:bg-surface-container-low transition-colors active:bg-surface-container" href="#">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-outline" data-icon="badge">badge</span>
+<span class="font-body-md text-body-md text-primary">Professional Identity</span>
+</div>
+<span class="material-symbols-outlined text-outline" data-icon="chevron_right">chevron_right</span>
+</a>
+<a class="flex items-center justify-between p-4 hover:bg-surface-container-low transition-colors active:bg-surface-container" href="#">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-outline" data-icon="storefront">storefront</span>
+<span class="font-body-md text-body-md text-primary">Company Profile</span>
+</div>
+<span class="material-symbols-outlined text-outline" data-icon="chevron_right">chevron_right</span>
+</a>
+</div>
+</div>
+<!-- Group 2 -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm border border-surface-border overflow-hidden">
+<div class="px-4 py-3 border-b border-surface-border bg-surface-bright">
+<h3 class="font-label-md text-label-md text-outline uppercase tracking-wider">Security &amp; Preferences</h3>
+</div>
+<div class="flex flex-col divide-y divide-surface-border">
+<a class="flex items-center justify-between p-4 hover:bg-surface-container-low transition-colors active:bg-surface-container" href="#">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-outline" data-icon="lock">lock</span>
+<span class="font-body-md text-body-md text-primary">Security</span>
+</div>
+<span class="material-symbols-outlined text-outline" data-icon="chevron_right">chevron_right</span>
+</a>
+<a class="flex items-center justify-between p-4 hover:bg-surface-container-low transition-colors active:bg-surface-container" href="#">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-outline" data-icon="notifications">notifications</span>
+<span class="font-body-md text-body-md text-primary">Notifications</span>
+</div>
+<span class="material-symbols-outlined text-outline" data-icon="chevron_right">chevron_right</span>
+</a>
+<a class="flex items-center justify-between p-4 hover:bg-surface-container-low transition-colors active:bg-surface-container" href="#">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-outline" data-icon="tune">tune</span>
+<span class="font-body-md text-body-md text-primary">Preferences</span>
+</div>
+<span class="material-symbols-outlined text-outline" data-icon="chevron_right">chevron_right</span>
+</a>
+</div>
+</div>
+</section>
+<!-- Account Actions -->
+<section class="flex flex-col gap-3 mt-4">
+<button class="w-full bg-surface-container-lowest border border-surface-border text-primary font-label-md text-label-md uppercase tracking-wider py-2 rounded-lg transition-colors flex items-center justify-center gap-2 h-11 hover:bg-surface-container-low">
+<span class="material-symbols-outlined text-[18px]" data-icon="swap_horiz">swap_horiz</span>
+<span>Switch to Buyer Account</span>
+</button>
+<button class="w-full bg-error-container/10 border border-error-container text-error font-label-md text-label-md uppercase tracking-wider py-2 rounded-lg transition-colors flex items-center justify-center gap-2 h-11 hover:bg-error-container/20">
+<span class="material-symbols-outlined text-[18px]" data-icon="logout">logout</span>
+<span>Log Out</span>
+</button>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="bg-surface-container-lowest dark:bg-surface-container-lowest fixed bottom-0 w-full z-50 rounded-t-xl border-t border-surface-border dark:border-outline-variant shadow-sm flex justify-around items-center px-gutter-mobile py-2 md:hidden">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline px-3 py-1 hover:bg-surface-container dark:hover:bg-surface-container-high active:scale-95 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-md text-label-md mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline px-3 py-1 hover:bg-surface-container dark:hover:bg-surface-container-high active:scale-95 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="insights">insights</span>
+<span class="font-label-md text-label-md mt-1">Opportunities</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline px-3 py-1 hover:bg-surface-container dark:hover:bg-surface-container-high active:scale-95 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="request_quote">request_quote</span>
+<span class="font-label-md text-label-md mt-1">RFQs</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline px-3 py-1 hover:bg-surface-container dark:hover:bg-surface-container-high active:scale-95 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="chat">chat</span>
+<span class="font-label-md text-label-md mt-1">Messages</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed bg-secondary-container/10 rounded-xl px-3 py-1 hover:bg-surface-container dark:hover:bg-surface-container-high active:scale-95 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="person" data-weight="fill" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-label-md text-label-md mt-1">Profile</span>
+</a>
+</nav>
+</body></html>

@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Trade Intelligence - TradeMatchly Admin</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=JetBrains+Mono:wght@400&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container-high": "#eae7e9",
+                      "secondary-container": "#645efb",
+                      "on-tertiary-fixed": "#271901",
+                      "on-secondary-fixed-variant": "#3323cc",
+                      "inverse-surface": "#303032",
+                      "on-primary-container": "#7c839b",
+                      "on-tertiary-fixed-variant": "#574425",
+                      "on-error": "#ffffff",
+                      "tertiary-fixed": "#fcdeb5",
+                      "surface-container-highest": "#e4e2e4",
+                      "primary-fixed-dim": "#bec6e0",
+                      "on-error-container": "#93000a",
+                      "surface-variant": "#e4e2e4",
+                      "secondary-fixed": "#e2dfff",
+                      "surface-container-low": "#f6f3f5",
+                      "surface-dim": "#dcd9db",
+                      "on-tertiary": "#ffffff",
+                      "on-primary": "#ffffff",
+                      "on-primary-fixed": "#131b2e",
+                      "on-secondary-container": "#fffbff",
+                      "background": "#fcf8fa",
+                      "secondary-fixed-dim": "#c3c0ff",
+                      "tertiary-container": "#271901",
+                      "inverse-primary": "#bec6e0",
+                      "surface-container": "#f0edef",
+                      "tertiary-fixed-dim": "#dec29a",
+                      "surface-tint": "#565e74",
+                      "surface": "#fcf8fa",
+                      "inverse-on-surface": "#f3f0f2",
+                      "on-surface-variant": "#45464d",
+                      "surface-bright": "#fcf8fa",
+                      "primary-fixed": "#dae2fd",
+                      "on-secondary-fixed": "#0f0069",
+                      "outline-variant": "#c6c6cd",
+                      "error-container": "#ffdad6",
+                      "surface-container-lowest": "#ffffff",
+                      "secondary": "#4b41e1",
+                      "on-background": "#1b1b1d",
+                      "on-tertiary-container": "#98805d",
+                      "primary-container": "#131b2e",
+                      "primary": "#000000",
+                      "tertiary": "#000000",
+                      "error": "#ba1a1a",
+                      "on-primary-fixed-variant": "#3f465c",
+                      "on-secondary": "#ffffff",
+                      "outline": "#76777d",
+                      "on-surface": "#1b1b1d"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "gutter": "20px",
+                      "md": "16px",
+                      "xs": "4px",
+                      "sm": "8px",
+                      "lg": "24px",
+                      "base": "4px",
+                      "container-max": "1440px",
+                      "xl": "32px"
+              },
+              "fontFamily": {
+                      "display-lg": [
+                              "Inter"
+                      ],
+                      "label-md": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Inter"
+                      ],
+                      "data-mono": [
+                              "jetbrainsMono"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "headline-sm": [
+                              "Inter"
+                      ],
+                      "body-sm": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "display-lg": [
+                              "36px",
+                              {
+                                      "lineHeight": "44px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-md": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "data-mono": [
+                              "13px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-lg": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-sm": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md h-screen flex overflow-hidden">
+<!-- SideNavBar -->
+<aside class="hidden md:flex flex-col h-screen w-64 docked left-0 bg-surface-container dark:bg-surface-container-high shadow-sm bg-surface-container-low dark:bg-surface-dim py-lg px-md z-20">
+<div class="mb-lg px-sm">
+<h1 class="font-display-lg text-display-lg font-bold text-primary dark:text-primary-fixed">TradeIntel</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Enterprise Admin</p>
+</div>
+<nav class="flex-1 overflow-y-auto space-y-xs">
+<!-- Navigation Items (15 items) -->
+<a class="flex items-center px-sm py-sm rounded text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-highest dark:hover:bg-on-surface-variant transition-colors" href="#">
+<span class="material-symbols-outlined mr-sm" data-icon="dashboard">dashboard</span>
+                Dashboard
+            </a>
+<a class="flex items-center px-sm py-sm rounded text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-highest dark:hover:bg-on-surface-variant transition-colors" href="#">
+<span class="material-symbols-outlined mr-sm" data-icon="group">group</span>
+                Users
+            </a>
+<a class="flex items-center px-sm py-sm rounded text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-highest dark:hover:bg-on-surface-variant transition-colors" href="#">
+<span class="material-symbols-outlined mr-sm" data-icon="business">business</span>
+                Companies
+            </a>
+<a class="flex items-center px-sm py-sm rounded text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-highest dark:hover:bg-on-surface-variant transition-colors" href="#">
+<span class="material-symbols-outlined mr-sm" data-icon="verified_user">verified_user</span>
+                Verification
+            </a>
+<a class="flex items-center px-sm py-sm rounded text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-highest dark:hover:bg-on-surface-variant transition-colors" href="#">
+<span class="material-symbols-outlined mr-sm" data-icon="inventory_2">inventory_2</span>
+                Products
+            </a>
+<a class="flex items-center px-sm py-sm rounded text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-highest dark:hover:bg-on-surface-variant transition-colors" href="#">
+<span class="material-symbols-outlined mr-sm" data-icon="handshake">handshake</span>
+                Trade
+            </a>
+<a class="flex items-center px-sm py-sm rounded text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-highest dark:hover:bg-on-surface-variant transition-colors" href="#">
+<span class="material-symbols-outlined mr-sm" data-icon="security">security</span>
+                Trust &amp; Risk
+            </a>
+<a class="flex items-center px-sm py-sm rounded text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-highest dark:hover:bg-on-surface-variant transition-colors" href="#">
+<span class="material-symbols-outlined mr-sm" data-icon="description">description</span>
+                Documents
+            </a>
+<a class="flex items-center px-sm py-sm rounded text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-highest dark:hover:bg-on-surface-variant transition-colors" href="#">
+<span class="material-symbols-outlined mr-sm" data-icon="forum">forum</span>
+                Communication
+            </a>
+<a class="flex items-center px-sm py-sm rounded text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-highest dark:hover:bg-on-surface-variant transition-colors" href="#">
+<span class="material-symbols-outlined mr-sm" data-icon="auto_awesome">auto_awesome</span>
+                Mesh AI
+            </a>
+<!-- Active Tab: Intelligence -->
+<a class="flex items-center px-sm py-sm rounded bg-surface-container-highest text-secondary font-bold border-r-4 border-secondary transition-transform scale-[0.99]" href="#" style="font-variation-settings: 'FILL' 1;">
+<span class="material-symbols-outlined mr-sm text-secondary" data-icon="insights" data-weight="fill">insights</span>
+                Intelligence
+            </a>
+<a class="flex items-center px-sm py-sm rounded text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-highest dark:hover:bg-on-surface-variant transition-colors" href="#">
+<span class="material-symbols-outlined mr-sm" data-icon="payments">payments</span>
+                Revenue
+            </a>
+<a class="flex items-center px-sm py-sm rounded text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-highest dark:hover:bg-on-surface-variant transition-colors" href="#">
+<span class="material-symbols-outlined mr-sm" data-icon="help_center">help_center</span>
+                Support
+            </a>
+<a class="flex items-center px-sm py-sm rounded text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-highest dark:hover:bg-on-surface-variant transition-colors" href="#">
+<span class="material-symbols-outlined mr-sm" data-icon="article">article</span>
+                Content
+            </a>
+<a class="flex items-center px-sm py-sm rounded text-on-surface-variant dark:text-outline-variant hover:bg-surface-container-highest dark:hover:bg-on-surface-variant transition-colors" href="#">
+<span class="material-symbols-outlined mr-sm" data-icon="settings">settings</span>
+                Administration
+            </a>
+</nav>
+<div class="mt-auto pt-lg border-t border-outline-variant">
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded-full bg-surface-variant flex items-center justify-center overflow-hidden">
+<img alt="Admin User" class="object-cover w-full h-full" data-alt="A small, professional portrait headshot of an enterprise administrator in a corporate setting. Clean lighting, neutral background, modern corporate style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCECIuQBNh1pDHWG5Od35067H5EagMsuizMBBOofOrp7SADGxSaxdxV_kPwpLOeH4r08_zFGt-THzWAbq6g2HUSA-7-nkUGf6_gEc9QCF9e6357cn-wRUB0DdiFP8lcYUqmtS3kx0m9vq-IZ3jH37tI_qNCFADNNpItYxnKg2GYYPM1ji1h9wX_jiGPw2cqc4lclgYwnB6WNs3j4H69GmJTvNnb-XXhpBoH6qt8rdl2gAZKWoFMiTuS"/>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Admin User</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<div class="flex-1 flex flex-col h-screen overflow-hidden bg-background">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center w-full px-lg max-w-container-max mx-auto h-16 bg-surface-container-lowest dark:bg-surface-container border-b border-outline-variant dark:border-outline z-10 shrink-0">
+<div class="flex items-center gap-lg">
+<!-- Mobile menu button (hidden on md) -->
+<button class="md:hidden text-on-surface-variant p-sm rounded hover:bg-surface-variant">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<div class="font-headline-sm text-headline-sm font-bold text-primary dark:text-primary-fixed">Trade Intelligence</div>
+</div>
+<div class="flex items-center gap-md">
+<button class="text-on-surface-variant dark:text-outline-variant hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors p-sm rounded-full hover:bg-surface-variant">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="text-on-surface-variant dark:text-outline-variant hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors p-sm rounded-full hover:bg-surface-variant">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+</button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant cursor-pointer hover:opacity-80 transition-opacity">
+<img alt="Administrator Profile" class="object-cover w-full h-full" data-alt="A small, professional portrait headshot of an administrator in a corporate setting. Clean lighting, neutral background, modern corporate style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBuJjBn31uv1-2L9tiZeAyQ1iuZswyq7eooTHjoZsIeTkY1NgUq1TIC5lfGJFmx5apbVNnOoGLTrwEh1i-idWv9vArxeMLXRISUKRZJYFs1BrCQLWyy06M7s9r2Deb7S-4w-2dTR_dY_w_HKlZ_4HiFemBrlCd1zsWG09tuMx-VnJnWk382hUTBg0m58SnQ59RfieydZHQWUd8ZC1pxiKe_P2LvAWrMCn9aoBSUO1GpEFW69qBa18yz"/>
+</div>
+</div>
+</header>
+<!-- Page Content -->
+<main class="flex-1 overflow-y-auto p-lg max-w-container-max mx-auto w-full">
+<!-- Page Header & Filters -->
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-lg gap-md">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-background mb-xs">Trade Intelligence</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Global market trends, demand analysis, and country-level trade insights.</p>
+</div>
+<div class="flex items-center bg-surface-container-lowest border border-outline-variant rounded-lg p-xs text-sm">
+<button class="px-md py-sm rounded-md hover:bg-surface-variant font-label-md text-label-md text-on-surface-variant transition-colors">30 Days</button>
+<button class="px-md py-sm rounded-md bg-secondary-container text-on-secondary-fixed-variant font-label-md text-label-md transition-colors shadow-sm">90 Days</button>
+<button class="px-md py-sm rounded-md hover:bg-surface-variant font-label-md text-label-md text-on-surface-variant transition-colors">1 Year</button>
+</div>
+</div>
+<!-- KPI Cards Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-md mb-xl">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest border border-[#e2e8f0] rounded-lg p-md shadow-[0_2px_4px_rgba(0,0,0,0.04)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.08)] transition-shadow">
+<div class="flex justify-between items-start mb-sm">
+<p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Global Trade Volume</p>
+<span class="material-symbols-outlined text-outline">language</span>
+</div>
+<div class="flex items-baseline gap-sm">
+<h3 class="font-display-lg text-display-lg text-on-background">$1.2B</h3>
+<span class="font-label-md text-label-md text-[#10b981] bg-[#10b981]/10 px-xs py-1 rounded flex items-center">
+<span class="material-symbols-outlined text-[14px] mr-[2px]">trending_up</span> +8.4%
+                        </span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest border border-[#e2e8f0] rounded-lg p-md shadow-[0_2px_4px_rgba(0,0,0,0.04)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.08)] transition-shadow">
+<div class="flex justify-between items-start mb-sm">
+<p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Active Trade Routes</p>
+<span class="material-symbols-outlined text-outline">route</span>
+</div>
+<div class="flex items-baseline gap-sm">
+<h3 class="font-display-lg text-display-lg text-on-background">4,280</h3>
+<span class="font-label-md text-label-md text-[#10b981] bg-[#10b981]/10 px-xs py-1 rounded flex items-center">
+<span class="material-symbols-outlined text-[14px] mr-[2px]">trending_up</span> +12%
+                        </span>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-lowest border border-[#e2e8f0] rounded-lg p-md shadow-[0_2px_4px_rgba(0,0,0,0.04)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.08)] transition-shadow">
+<div class="flex justify-between items-start mb-sm">
+<p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">High-Growth Categories</p>
+<span class="material-symbols-outlined text-outline">category</span>
+</div>
+<div class="flex items-baseline gap-sm mb-xs">
+<h3 class="font-display-lg text-display-lg text-on-background">12</h3>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">Machinery, Electronics, Textiles</p>
+</div>
+<!-- Card 4 -->
+<div class="bg-surface-container-lowest border border-[#e2e8f0] rounded-lg p-md shadow-[0_2px_4px_rgba(0,0,0,0.04)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.08)] transition-shadow">
+<div class="flex justify-between items-start mb-sm">
+<p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Emerging Markets</p>
+<span class="material-symbols-outlined text-outline">public</span>
+</div>
+<div class="flex items-baseline gap-sm mb-xs">
+<h3 class="font-display-lg text-display-lg text-on-background">5</h3>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">Vietnam, Mexico, Brazil, India...</p>
+</div>
+</div>
+<!-- Bento Grid Layout for Main Content -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-md mb-xl">
+<!-- Market Demand Trends (Spans 2 columns) -->
+<div class="lg:col-span-2 bg-surface-container-lowest border border-[#e2e8f0] rounded-lg p-md shadow-[0_2px_4px_rgba(0,0,0,0.04)] flex flex-col">
+<div class="flex justify-between items-center mb-md">
+<h3 class="font-headline-sm text-headline-sm font-semibold text-on-background">Market Demand Trends</h3>
+<button class="text-secondary hover:text-secondary-fixed-dim font-label-md text-label-md flex items-center">
+                            View Full Report <span class="material-symbols-outlined text-[16px] ml-xs">arrow_forward</span>
+</button>
+</div>
+<!-- Chart Placeholder -->
+<div class="flex-1 bg-surface-container-low rounded border border-outline-variant min-h-[300px] flex items-center justify-center relative overflow-hidden">
+<div class="bg-cover bg-center absolute inset-0 opacity-60 mix-blend-multiply" data-alt="A modern, minimalist abstract line chart visualization depicting rising market demand trends over time. Soft corporate colors, deep navy and indigo lines on a light, clean background. High tech financial data style." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC2Oycs5NDy3GFYiGcTRbTe-Np2upcXFPnML1pTZ5gezc-9DGIeSs8Ca4U9nW8sG4XYFtLp9X51wag5Cx_-mr4bV0dId_06ndquT74hwalFawYr6IZ0v6sYHaqoSzm4l1ip_1dIz0W7OCCd6mxKK-7xVE55xlkNRCbbx-zLfcz8Wib7KFYaO7QPJkdZgca-XHQtMtyI4QJJsFxA8A0wJ8iRtyBoGB0zI_eHZF8parjviCIfsnsXzWQA')"></div>
+<p class="font-body-md text-body-md text-on-surface-variant relative z-10 bg-surface-container-lowest/80 backdrop-blur-sm px-md py-sm rounded border border-outline-variant shadow-sm">Interactive Chart Visualization (Demand vs Supply)</p>
+</div>
+</div>
+<!-- Geographic Insights -->
+<div class="bg-surface-container-lowest border border-[#e2e8f0] rounded-lg p-md shadow-[0_2px_4px_rgba(0,0,0,0.04)] flex flex-col">
+<h3 class="font-headline-sm text-headline-sm font-semibold text-on-background mb-md">Geographic Insights</h3>
+<div class="flex-1 flex flex-col gap-md">
+<!-- Importing -->
+<div class="bg-[#f1f5f9] rounded p-sm border border-outline-variant/50">
+<h4 class="font-label-md text-label-md text-on-surface-variant mb-sm">Top Importing Countries</h4>
+<ul class="space-y-sm">
+<li class="flex justify-between items-center">
+<span class="font-body-sm text-body-sm text-on-background font-medium">United States</span>
+<span class="font-data-mono text-data-mono text-[#10b981]">+4.2%</span>
+</li>
+<li class="flex justify-between items-center">
+<span class="font-body-sm text-body-sm text-on-background font-medium">Germany</span>
+<span class="font-data-mono text-data-mono text-[#10b981]">+2.1%</span>
+</li>
+<li class="flex justify-between items-center">
+<span class="font-body-sm text-body-sm text-on-background font-medium">United Kingdom</span>
+<span class="font-data-mono text-data-mono text-outline-variant">-0.5%</span>
+</li>
+</ul>
+</div>
+<!-- Exporting -->
+<div class="bg-[#f1f5f9] rounded p-sm border border-outline-variant/50">
+<h4 class="font-label-md text-label-md text-on-surface-variant mb-sm">Top Exporting Countries</h4>
+<ul class="space-y-sm">
+<li class="flex justify-between items-center">
+<span class="font-body-sm text-body-sm text-on-background font-medium">China</span>
+<span class="font-data-mono text-data-mono text-[#10b981]">+5.8%</span>
+</li>
+<li class="flex justify-between items-center">
+<span class="font-body-sm text-body-sm text-on-background font-medium">Vietnam</span>
+<span class="font-data-mono text-data-mono text-[#10b981]">+8.4%</span>
+</li>
+<li class="flex justify-between items-center">
+<span class="font-body-sm text-body-sm text-on-background font-medium">Mexico</span>
+<span class="font-data-mono text-data-mono text-[#10b981]">+6.1%</span>
+</li>
+</ul>
+</div>
+<div class="mt-auto h-32 rounded border border-outline-variant bg-surface-container-low overflow-hidden relative">
+<div class="bg-cover bg-center absolute inset-0 opacity-50 mix-blend-multiply" data-alt="A stylized, minimalist dotted map of the world showing trade routes and hot spots in subtle corporate blues and indigos. Clean, professional data visualization aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDB0UOKNqkXYH1eBXYSsgbchV3DVR-O9qCwgbo0pOEg34fDuadsOrmDPaJ2me6bStYioFvawFEh29DrWybS1ehtRZORm9M7Z-QkdCSNH-Cb6Rpomm2jv1pnqAXNeW9HZ13WWmfGBkPGcfZNHL1-yRu5VUcQx9xf5_sddZiQBO2pGqLLNJ8is2iJ7eU8Di3QrGmE_M_KxFdb-4CYB6rcd0TvGjtSF31K557yMfe_uE2ggSgP9yird6OX')"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="font-label-md text-label-md text-on-surface-variant bg-surface-container-lowest/80 px-sm py-xs rounded">Mini-Map View</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Category Intelligence Table (Full Width) -->
+<div class="lg:col-span-3 bg-surface-container-lowest border border-[#e2e8f0] rounded-lg shadow-[0_2px_4px_rgba(0,0,0,0.04)] overflow-hidden flex flex-col">
+<div class="p-md border-b border-[#e2e8f0] flex justify-between items-center bg-surface-bright">
+<h3 class="font-headline-sm text-headline-sm font-semibold text-on-background">Category Intelligence</h3>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-outline-variant text-[18px]">search</span>
+<input class="pl-[32px] pr-sm py-xs border border-[#cbd5e1] rounded font-body-sm text-body-sm w-64 focus:border-secondary focus:ring-1 focus:ring-secondary/20 outline-none transition-all" placeholder="Search categories..." type="text"/>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse min-w-[800px]">
+<thead>
+<tr class="bg-[#f1f5f9] border-b border-[#e2e8f0]">
+<th class="px-md py-sm font-label-md text-label-md text-on-surface-variant font-semibold">Category</th>
+<th class="px-md py-sm font-label-md text-label-md text-on-surface-variant font-semibold">Demand Score (0-100)</th>
+<th class="px-md py-sm font-label-md text-label-md text-on-surface-variant font-semibold">Supply Score (0-100)</th>
+<th class="px-md py-sm font-label-md text-label-md text-on-surface-variant font-semibold">Opportunity Index</th>
+<th class="px-md py-sm font-label-md text-label-md text-on-surface-variant font-semibold">Top Regions</th>
+<th class="px-md py-sm font-label-md text-label-md text-on-surface-variant font-semibold text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="font-body-md text-body-md">
+<tr class="border-b border-[#e2e8f0] hover:bg-surface-container-low transition-colors h-[48px]">
+<td class="px-md py-sm font-medium text-on-background">Agricultural Products</td>
+<td class="px-md py-sm">
+<div class="flex items-center gap-sm">
+<span class="font-data-mono w-8">88</span>
+<div class="w-24 h-2 bg-surface-variant rounded-full overflow-hidden"><div class="h-full bg-secondary w-[88%]"></div></div>
+</div>
+</td>
+<td class="px-md py-sm">
+<div class="flex items-center gap-sm">
+<span class="font-data-mono w-8">62</span>
+<div class="w-24 h-2 bg-surface-variant rounded-full overflow-hidden"><div class="h-full bg-outline-variant w-[62%]"></div></div>
+</div>
+</td>
+<td class="px-md py-sm">
+<span class="inline-flex items-center px-2 py-1 rounded bg-[#10b981]/10 text-[#047857] font-label-md text-label-md font-bold">High</span>
+</td>
+<td class="px-md py-sm text-on-surface-variant">APAC, LATAM</td>
+<td class="px-md py-sm text-right">
+<button class="text-secondary hover:text-secondary-fixed-dim font-label-md text-label-md">Details</button>
+</td>
+</tr>
+<tr class="border-b border-[#e2e8f0] hover:bg-surface-container-low transition-colors h-[48px]">
+<td class="px-md py-sm font-medium text-on-background">Consumer Electronics</td>
+<td class="px-md py-sm">
+<div class="flex items-center gap-sm">
+<span class="font-data-mono w-8">94</span>
+<div class="w-24 h-2 bg-surface-variant rounded-full overflow-hidden"><div class="h-full bg-secondary w-[94%]"></div></div>
+</div>
+</td>
+<td class="px-md py-sm">
+<div class="flex items-center gap-sm">
+<span class="font-data-mono w-8">85</span>
+<div class="w-24 h-2 bg-surface-variant rounded-full overflow-hidden"><div class="h-full bg-outline-variant w-[85%]"></div></div>
+</div>
+</td>
+<td class="px-md py-sm">
+<span class="inline-flex items-center px-2 py-1 rounded bg-[#f59e0b]/10 text-[#b45309] font-label-md text-label-md font-bold">Medium</span>
+</td>
+<td class="px-md py-sm text-on-surface-variant">NA, EU, APAC</td>
+<td class="px-md py-sm text-right">
+<button class="text-secondary hover:text-secondary-fixed-dim font-label-md text-label-md">Details</button>
+</td>
+</tr>
+<tr class="border-b border-[#e2e8f0] hover:bg-surface-container-low transition-colors h-[48px] bg-surface-bright">
+<td class="px-md py-sm font-medium text-on-background">Industrial Machinery</td>
+<td class="px-md py-sm">
+<div class="flex items-center gap-sm">
+<span class="font-data-mono w-8">72</span>
+<div class="w-24 h-2 bg-surface-variant rounded-full overflow-hidden"><div class="h-full bg-secondary w-[72%]"></div></div>
+</div>
+</td>
+<td class="px-md py-sm">
+<div class="flex items-center gap-sm">
+<span class="font-data-mono w-8">90</span>
+<div class="w-24 h-2 bg-surface-variant rounded-full overflow-hidden"><div class="h-full bg-outline-variant w-[90%]"></div></div>
+</div>
+</td>
+<td class="px-md py-sm">
+<span class="inline-flex items-center px-2 py-1 rounded bg-[#ef4444]/10 text-[#b91c1c] font-label-md text-label-md font-bold">Low</span>
+</td>
+<td class="px-md py-sm text-on-surface-variant">EU, NA</td>
+<td class="px-md py-sm text-right">
+<button class="text-secondary hover:text-secondary-fixed-dim font-label-md text-label-md">Details</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- Intelligence Data Sources (Footer Legend) -->
+<div class="border-t border-[#e2e8f0] pt-md mt-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-md">
+<div class="flex items-center gap-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]">info</span>
+<span class="font-label-md text-label-md font-semibold">Intelligence Data Sources</span>
+</div>
+<div class="flex flex-wrap gap-md font-body-sm text-body-sm text-on-surface-variant">
+<div class="flex items-center gap-xs">
+<div class="w-3 h-3 rounded-full bg-secondary"></div>
+                        Platform Data (Verified)
+                    </div>
+<div class="flex items-center gap-xs">
+<div class="w-3 h-3 rounded-full bg-outline-variant"></div>
+                        Licensed Trade Data
+                    </div>
+<div class="flex items-center gap-xs">
+<div class="w-3 h-3 rounded-full border border-secondary bg-surface-container-lowest"></div>
+                        AI Estimates (Confidence &gt; 85%)
+                    </div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

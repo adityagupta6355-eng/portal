@@ -1,0 +1,7 @@
+import OpportunitiesPage from "@/components/opportunities/page";
+
+export default function Analytics() {
+    return (
+        <OpportunitiesPage />
+    )
+}

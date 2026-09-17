@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Buyer Solutions - TradeMatchly</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface": "#fcf8fa",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-high": "#eae7e9",
+                        "on-secondary-fixed": "#0f0069",
+                        "on-primary": "#ffffff",
+                        "primary-fixed": "#dae2fd",
+                        "on-surface-variant": "#45464d",
+                        "verified-emerald": "#059669",
+                        "on-tertiary-container": "#98805d",
+                        "surface-container": "#f0edef",
+                        "on-error": "#ffffff",
+                        "secondary-fixed": "#e2dfff",
+                        "surface-border": "#e2e8f0",
+                        "on-secondary-fixed-variant": "#3322cc",
+                        "inverse-primary": "#bec6e0",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "primary": "#000000",
+                        "surface-variant": "#e4e2e4",
+                        "risk-red": "#dc2626",
+                        "inverse-on-surface": "#f3f0f2",
+                        "on-primary-fixed": "#131b2e",
+                        "on-tertiary": "#ffffff",
+                        "on-surface": "#1b1b1d",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed-variant": "#574425",
+                        "secondary-container": "#655dfb",
+                        "in-progress-blue": "#2563eb",
+                        "on-secondary": "#ffffff",
+                        "background": "#fcf8fa",
+                        "outline-variant": "#c6c6cd",
+                        "surface-tint": "#565e74",
+                        "on-primary-container": "#7c839b",
+                        "surface-container-highest": "#e4e2e4",
+                        "error": "#ba1a1a",
+                        "surface-dim": "#dcd9db",
+                        "on-background": "#1b1b1d",
+                        "on-tertiary-fixed": "#271901",
+                        "on-secondary-container": "#fffbff",
+                        "tertiary-fixed": "#fcdeb5",
+                        "inverse-surface": "#303032",
+                        "tertiary": "#000000",
+                        "secondary": "#4b41e1",
+                        "primary-fixed-dim": "#bec6e0",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#c3c0ff",
+                        "surface-container-low": "#f6f3f5",
+                        "outline": "#76777d",
+                        "tertiary-container": "#271901",
+                        "tertiary-fixed-dim": "#dec29a",
+                        "surface-bright": "#fcf8fa",
+                        "data-text": "#1e293b",
+                        "primary-container": "#131b2e",
+                        "risk-amber": "#d97706"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "sidebar-width": "260px",
+                        "base": "4px",
+                        "table-cell-padding": "12px",
+                        "gutter": "16px",
+                        "section-gap": "32px",
+                        "container-padding": "24px"
+                    },
+                    fontFamily: {
+                        "headline-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "label-lg": ["Inter"],
+                        "data-mono": ["jetbrainsMono"]
+                    },
+                    fontSize: {
+                        "headline-lg": ["28px", { "lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+                        "headline-md": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "display-lg": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+                        "label-lg": ["14px", { "lineHeight": "20px", "fontWeight": "600" }],
+                        "data-mono": ["13px", { "lineHeight": "18px", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .symbol-filled {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Custom scrollbar for tables/containers */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #c6c6cd;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #76777d;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col">
+<!-- Top Navigation -->
+<nav class="bg-surface dark:bg-surface-container-lowest text-primary dark:text-on-surface font-body-md text-body-md border-b border-outline-variant dark:border-outline shadow-sm dark:shadow-none sticky top-0 z-50">
+<div class="flex justify-between items-center px-container-padding h-16 w-full max-w-[1440px] mx-auto">
+<div class="flex items-center gap-8">
+<a class="font-headline-sm text-headline-sm font-bold text-primary dark:text-on-surface hover:opacity-80 transition-opacity" href="#">
+                    TradeMatchly
+                </a>
+<div class="hidden md:flex gap-6 items-center h-full">
+<a class="text-secondary dark:text-secondary-fixed font-bold border-b-2 border-secondary pb-1 h-full flex items-center cursor-pointer active:opacity-80" href="#">
+                        For Buyers
+                    </a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-colors duration-200 px-3 py-2 rounded h-full flex items-center cursor-pointer active:opacity-80" href="#">
+                        For Suppliers
+                    </a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-colors duration-200 px-3 py-2 rounded h-full flex items-center cursor-pointer active:opacity-80" href="#">
+                        Resources
+                    </a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex relative w-64">
+<span class="material-symbols-outlined absolute left-3 top-1/2 transform -translate-y-1/2 text-outline" data-icon="search">search</span>
+<input class="w-full h-10 pl-10 pr-3 border border-surface-border rounded-DEFAULT bg-surface-container-lowest focus:outline-none focus:ring-1 focus:ring-secondary focus:border-secondary transition-all font-body-sm" placeholder="Search..." type="text"/>
+</div>
+<button class="bg-primary text-on-primary hover:bg-opacity-90 h-10 px-6 rounded-DEFAULT font-label-md transition-colors shadow-sm cursor-pointer active:opacity-80">
+                    Get Started
+                </button>
+</div>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="flex-grow flex flex-col">
+<!-- Hero Section -->
+<section class="relative pt-24 pb-32 px-container-padding overflow-hidden">
+<div class="absolute inset-0 z-0 bg-surface-container-lowest">
+<!-- Abstract subtle background pattern could go here -->
+<div class="absolute right-0 top-0 w-1/2 h-full bg-gradient-to-l from-surface-container-high to-transparent opacity-50"></div>
+</div>
+<div class="relative z-10 max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-section-gap items-center">
+<div class="flex flex-col gap-6">
+<span class="font-label-md text-label-md text-secondary uppercase tracking-wider">Buyer Solutions</span>
+<h1 class="font-display-lg text-display-lg text-primary">
+                        Intelligent Sourcing for Global Importers.
+                    </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+                        Find verified suppliers that match your exact requirements, not just keywords. Streamline your procurement process with AI-driven matching and secure workflows.
+                    </p>
+<div class="flex gap-4 mt-4">
+<button class="bg-primary text-on-primary h-10 px-6 rounded-DEFAULT font-label-md hover:bg-opacity-90 transition-colors shadow-sm flex items-center gap-2">
+                            Find Suppliers
+                            <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<button class="bg-surface-container-lowest text-primary border border-surface-border h-10 px-6 rounded-DEFAULT font-label-md hover:bg-surface-container-low transition-colors shadow-sm flex items-center gap-2">
+                            Explore How it Works
+                        </button>
+</div>
+<div class="mt-8 flex items-center gap-4 text-on-surface-variant font-body-sm">
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full bg-surface-container-high border-2 border-surface-container-lowest flex items-center justify-center text-xs font-bold text-primary">10k+</div>
+</div>
+<span>Trusted by Importers Worldwide</span>
+</div>
+</div>
+<!-- Interactive Product Showcase Placeholder -->
+<div class="relative h-[500px] w-full rounded-xl bg-surface-container-lowest border border-surface-border shadow-md overflow-hidden flex flex-col">
+<!-- Top Bar Mockup -->
+<div class="h-12 border-b border-surface-border flex items-center px-4 bg-surface-container-low">
+<div class="flex gap-2">
+<div class="w-3 h-3 rounded-full bg-risk-red opacity-50"></div>
+<div class="w-3 h-3 rounded-full bg-risk-amber opacity-50"></div>
+<div class="w-3 h-3 rounded-full bg-verified-emerald opacity-50"></div>
+</div>
+<div class="mx-auto font-label-md text-on-surface-variant">AI Extraction Engine</div>
+</div>
+<div class="flex-grow p-6 flex flex-col gap-6 bg-surface-bright">
+<!-- Input Mockup -->
+<div class="bg-surface-container-lowest border border-surface-border rounded-lg p-4 shadow-sm">
+<p class="font-body-md text-on-surface-variant mb-2">Natural Language Request:</p>
+<div class="font-body-lg text-primary p-3 bg-surface-container-low rounded">
+                                "Looking for 50,000 units of organic cotton t-shirts, FOB Shanghai, delivery by Q3, ISO 9001 certified."
+                            </div>
+</div>
+<!-- Connecting Line/Animation Placeholder -->
+<div class="flex justify-center">
+<span class="material-symbols-outlined text-secondary animate-bounce" data-icon="arrow_downward">arrow_downward</span>
+</div>
+<!-- Extracted Data Mockup -->
+<div class="grid grid-cols-2 gap-4">
+<div class="border border-surface-border rounded p-3 bg-surface-container-lowest">
+<span class="font-label-md text-on-surface-variant block mb-1">Product</span>
+<span class="font-body-md text-primary font-medium">Organic Cotton T-Shirts</span>
+</div>
+<div class="border border-surface-border rounded p-3 bg-surface-container-lowest">
+<span class="font-label-md text-on-surface-variant block mb-1">Volume</span>
+<span class="font-data-mono text-data-mono text-primary">50,000 units</span>
+</div>
+<div class="border border-surface-border rounded p-3 bg-surface-container-lowest">
+<span class="font-label-md text-on-surface-variant block mb-1">Incoterms</span>
+<span class="font-body-md text-primary font-medium">FOB Shanghai</span>
+</div>
+<div class="border border-surface-border rounded p-3 bg-surface-container-lowest">
+<span class="font-label-md text-on-surface-variant block mb-1">Quality/Cert</span>
+<span class="inline-flex items-center gap-1 bg-verified-emerald bg-opacity-10 text-verified-emerald px-2 py-1 rounded font-label-md text-[10px]">
+<span class="material-symbols-outlined text-[12px] symbol-filled" data-icon="verified">verified</span>
+                                    ISO 9001
+                                </span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Value Proposition Section -->
+<section class="py-24 px-container-padding bg-surface-container-lowest border-y border-surface-border">
+<div class="max-w-[1440px] mx-auto">
+<div class="text-center mb-16">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-4">Precision Procurement</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
+                        We move beyond simple keyword searches to provide a comprehensive, data-driven sourcing environment designed for professionals.
+                    </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Feature 1 -->
+<div class="p-6 border border-surface-border rounded-xl bg-surface hover:shadow-md transition-shadow">
+<div class="w-12 h-12 rounded-lg bg-primary-fixed flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-primary text-2xl" data-icon="radar">radar</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-2">Smart Supplier Discovery</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                            Advanced matching algorithms based on real capacity, confirmed certifications, and historical performance metrics.
+                        </p>
+</div>
+<!-- Feature 2 -->
+<div class="p-6 border border-surface-border rounded-xl bg-surface hover:shadow-md transition-shadow">
+<div class="w-12 h-12 rounded-lg bg-verified-emerald bg-opacity-10 flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-verified-emerald text-2xl" data-icon="shield_locked">shield_locked</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-2">Verification &amp; Trust</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                            Navigate risk confidently with our rigorous 5-level verification ladder, from basic business registration to on-site factory audits.
+                        </p>
+</div>
+<!-- Feature 3 -->
+<div class="p-6 border border-surface-border rounded-xl bg-surface hover:shadow-md transition-shadow">
+<div class="w-12 h-12 rounded-lg bg-secondary-fixed flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-secondary text-2xl" data-icon="account_tree">account_tree</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-2">Connected Workflow</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                            Seamlessly transition from supplier match discovery to structured RFQ issuance, directly into a secure Deal Workspace.
+                        </p>
+</div>
+<!-- Feature 4 -->
+<div class="p-6 border border-surface-border rounded-xl bg-surface hover:shadow-md transition-shadow">
+<div class="w-12 h-12 rounded-lg bg-surface-container-highest flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-on-surface text-2xl" data-icon="compare_arrows">compare_arrows</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-2">Quote Comparison</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                            Utilize standardized side-by-side analysis views to evaluate incoming offers objectively across price, terms, and lead times.
+                        </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Audience Section -->
+<section class="py-24 px-container-padding bg-surface">
+<div class="max-w-[1440px] mx-auto">
+<div class="mb-12">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-2">Built for Your Sourcing Model</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Tailored environments for distinct procurement strategies.</p>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter auto-rows-[240px]">
+<!-- Large Card (2 cols) -->
+<div class="md:col-span-2 relative rounded-xl border border-surface-border bg-surface-container-lowest overflow-hidden group cursor-pointer shadow-sm hover:shadow-md transition-all">
+<div class="absolute inset-0 bg-cover bg-center opacity-10 group-hover:opacity-20 transition-opacity" data-alt="A clean, modern office desk with multiple monitors displaying data dashboards and procurement metrics, sharp focus, professional corporate lighting, high-end B2B aesthetic, deep navy and pristine white colors." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBVJdVREHzxQE9uJodHjfCc1faMNEraelbboaACE_7xJgz3omyBfy7C-XWtu0P_3xmYA7Vets6Vdgo8gVrsd4yYTaNssWeOl7jeDx8FU-edIrDwJj7fKtqD-Jh-m1karDxJD8ZzPSxk2zXjiGicsjLLzLht-VoRUWZ095d2L6-4VDvCwlUkRVNKdSDM1GGLJISWvLesctBU5UWRXXle6rGvKH2EofyXgSMeYDz-u2uWu3hGH7qqYhcO')"></div>
+<div class="relative z-10 p-8 h-full flex flex-col justify-end bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/80 to-transparent">
+<div class="w-10 h-10 rounded bg-primary text-on-primary flex items-center justify-center mb-4">
+<span class="material-symbols-outlined" data-icon="corporate_fare">corporate_fare</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-2">Procurement Teams</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-lg">Enterprise-grade tools for multi-user collaboration, approval workflows, and extensive spend analytics.</p>
+</div>
+</div>
+<!-- Small Card -->
+<div class="relative rounded-xl border border-surface-border bg-surface-container-lowest p-6 shadow-sm hover:shadow-md transition-all cursor-pointer flex flex-col justify-between group">
+<div class="w-10 h-10 rounded bg-secondary-fixed text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="category">category</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-2 group-hover:text-secondary transition-colors">Private Label Importers</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">OEM/ODM matching with IP protection frameworks and sample tracking capabilities.</p>
+</div>
+</div>
+<!-- Small Card -->
+<div class="relative rounded-xl border border-surface-border bg-surface-container-lowest p-6 shadow-sm hover:shadow-md transition-all cursor-pointer flex flex-col justify-between group">
+<div class="w-10 h-10 rounded bg-surface-container-high text-on-surface flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="precision_manufacturing">precision_manufacturing</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-2 group-hover:text-secondary transition-colors">Industrial Sourcing</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Focus on strict compliance, technical specifications, and raw material provenance.</p>
+</div>
+</div>
+<!-- Large Card (2 cols) -->
+<div class="md:col-span-2 relative rounded-xl border border-surface-border bg-primary overflow-hidden group cursor-pointer shadow-sm hover:shadow-md transition-all">
+<div class="absolute inset-0 bg-cover bg-center opacity-20 group-hover:opacity-30 transition-opacity mix-blend-overlay" data-alt="A bright, organized modern warehouse interior viewed from a high angle, showing clean pallets and logistics operations, high contrast, professional corporate lighting, deep navy and pristine white colors." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA81XXQ1FWVllG3YEaNgJiPJPMzuShZH1ZE5ktRmE8UPzN2wO7yi2xR5EQSBXIZmHTrEDpN9NgNUspTlueUIv9oMBQDKYB8G83ZyWd88TRQ6iQq60FkvPbv3bLxtFJWMkvYzSgWe4ms8Za__g6TasskUiCepY-aeEnBNF5OymrKuQ1hUeGMGQb5-IG71ujiElJ1qvb8qYFymGh6uOryy_8Cvn81HAA-bmeQqBYbKfSepGj2Mtez3K41')"></div>
+<div class="relative z-10 p-8 h-full flex flex-col justify-end">
+<div class="w-10 h-10 rounded bg-surface-container-lowest text-primary flex items-center justify-center mb-4">
+<span class="material-symbols-outlined" data-icon="storefront">storefront</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-primary mb-2">Retail &amp; Wholesale</h3>
+<p class="font-body-md text-body-md text-inverse-primary max-w-lg">Discover trend-responsive suppliers, manage MOQs, and optimize inventory replenishment cycles quickly.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-highest dark:bg-surface-dim text-on-surface dark:text-on-background font-body-sm text-body-sm mt-auto">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-section-gap px-container-padding py-12 max-w-[1440px] mx-auto">
+<div class="flex flex-col gap-4 col-span-1 md:col-span-1">
+<span class="font-headline-sm text-headline-sm font-bold text-primary dark:text-on-background">
+                    TradeMatchly
+                </span>
+<p class="text-on-surface-variant dark:text-on-surface-variant mt-2 max-w-xs">
+                    Intelligent B2B sourcing and supplier management for global trade.
+                </p>
+</div>
+<div class="col-span-1 md:col-span-3 flex flex-wrap gap-x-12 gap-y-8 justify-start md:justify-end">
+<div class="flex flex-col gap-3">
+<span class="font-label-md text-on-surface font-semibold mb-1 uppercase tracking-wider">Navigation</span>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-on-primary-fixed transition-colors" href="#">Company</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-on-primary-fixed transition-colors" href="#">Resources</a>
+</div>
+<div class="flex flex-col gap-3">
+<span class="font-label-md text-on-surface font-semibold mb-1 uppercase tracking-wider">Legal</span>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-on-primary-fixed transition-colors" href="#">Legal</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-on-primary-fixed transition-colors" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-on-primary-fixed transition-colors" href="#">Terms of Service</a>
+</div>
+</div>
+<div class="col-span-1 md:col-span-4 mt-8 pt-8 border-t border-outline-variant/30 flex justify-between items-center text-on-surface-variant dark:text-on-surface-variant">
+<p>© 2024 TradeMatchly Inc. All rights reserved.</p>
+<div class="flex gap-4">
+<!-- Social icons placeholders -->
+<span class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors text-[20px]" data-icon="language">language</span>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

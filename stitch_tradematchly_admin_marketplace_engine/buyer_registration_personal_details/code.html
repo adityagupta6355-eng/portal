@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Buyer Registration - Step 1</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed-variant": "#3322cc",
+                        "surface-bright": "#fcf8fa",
+                        "secondary-fixed-dim": "#c3c0ff",
+                        "inverse-on-surface": "#f3f0f2",
+                        "secondary-fixed": "#e2dfff",
+                        "verified-emerald": "#059669",
+                        "primary-fixed": "#dae2fd",
+                        "tertiary-container": "#271901",
+                        "primary": "#000000",
+                        "in-progress-blue": "#2563eb",
+                        "data-text": "#1e293b",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "inverse-primary": "#bec6e0",
+                        "inverse-surface": "#303032",
+                        "surface-container-high": "#eae7e9",
+                        "on-tertiary-fixed": "#271901",
+                        "outline-variant": "#c6c6cd",
+                        "on-background": "#1b1b1d",
+                        "on-tertiary-fixed-variant": "#574425",
+                        "on-surface-variant": "#45464d",
+                        "secondary": "#4b41e1",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#dec29a",
+                        "on-surface": "#1b1b1d",
+                        "on-secondary-container": "#fffbff",
+                        "surface-border": "#e2e8f0",
+                        "surface-tint": "#565e74",
+                        "on-error-container": "#93000a",
+                        "on-secondary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "surface-container-low": "#f6f3f5",
+                        "primary-container": "#131b2e",
+                        "on-secondary-fixed": "#0f0069",
+                        "risk-red": "#dc2626",
+                        "on-primary-fixed": "#131b2e",
+                        "risk-amber": "#d97706",
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#dcd9db",
+                        "error": "#ba1a1a",
+                        "on-primary-container": "#7c839b",
+                        "secondary-container": "#655dfb",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary": "#000000",
+                        "on-error": "#ffffff",
+                        "surface": "#fcf8fa",
+                        "surface-variant": "#e4e2e4",
+                        "surface-container-highest": "#e4e2e4",
+                        "outline": "#76777d",
+                        "surface-container": "#f0edef",
+                        "primary-fixed-dim": "#bec6e0",
+                        "on-tertiary-container": "#98805d",
+                        "background": "#fcf8fa",
+                        "tertiary-fixed": "#fcdeb5"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-padding": "24px",
+                        "table-cell-padding": "12px",
+                        "section-gap": "32px",
+                        "base": "4px",
+                        "sidebar-width": "260px",
+                        "gutter": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "label-lg": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "data-mono": ["jetbrainsMono"],
+                        "headline-lg": ["Inter"],
+                        "body-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "label-lg": ["14px", { "lineHeight": "20px", "fontWeight": "600" }],
+                        "display-lg": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "data-mono": ["13px", { "lineHeight": "18px", "fontWeight": "500" }],
+                        "headline-lg": ["28px", { "lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: theme('colors.background'); color: theme('colors.on-background'); }
+        .structured-input {
+            border: 1px solid theme('colors.surface-border');
+            height: 40px;
+            width: 100%;
+            border-radius: theme('borderRadius.DEFAULT');
+            padding: 0 12px;
+            background-color: theme('colors.surface-container-lowest');
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            transition: all 0.2s ease;
+        }
+        .structured-input:focus {
+            outline: none;
+            border-color: theme('colors.secondary');
+            box-shadow: 0 0 0 2px theme('colors.secondary-fixed-dim');
+        }
+        .card-elevation {
+            box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex">
+<!-- TopAppBar (Hidden navigation shell due to transactional page intent) -->
+<header class="w-full h-16 flex items-center justify-between sticky top-0 z-50 bg-primary-container border-b border-outline-variant/30 shadow-sm px-container-padding fixed lg:hidden">
+<div class="font-headline-md text-headline-md font-bold text-on-primary">TradeMatchly</div>
+</header>
+<!-- SideNavBar -->
+<aside class="w-sidebar-width h-full fixed left-0 top-0 hidden lg:flex flex-col bg-primary-container border-r border-outline-variant/20 pt-16 z-40">
+<div class="px-container-padding pb-6 mb-6 border-b border-outline-variant/20">
+<div class="font-headline-md text-headline-md font-bold text-on-primary mb-6">TradeMatchly</div>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container font-headline-sm">BR</div>
+<div>
+<div class="font-headline-sm text-headline-sm text-on-primary">Registration</div>
+<div class="font-body-sm text-body-sm text-on-primary-container">Step 1 of 4</div>
+</div>
+</div>
+</div>
+<nav class="flex-1 px-4 flex flex-col gap-2">
+<a class="flex items-center gap-3 bg-white/10 text-on-primary border-l-4 border-secondary px-4 py-3 rounded-r-DEFAULT hover:bg-white/5 transition-all scale-[0.98]" href="#">
+<span class="material-symbols-outlined" data-icon="person_search" style="font-variation-settings: 'FILL' 1;">person_search</span>
+<span class="font-label-lg text-label-lg">Role Selection</span>
+</a>
+<a class="flex items-center gap-3 text-on-primary-container px-4 py-3 opacity-70 hover:bg-white/5 hover:opacity-100 transition-all border-l-4 border-transparent hover:border-outline-variant/50" href="#">
+<span class="material-symbols-outlined" data-icon="business">business</span>
+<span class="font-label-lg text-label-lg">Company Profile</span>
+</a>
+<a class="flex items-center gap-3 text-on-primary-container px-4 py-3 opacity-70 hover:bg-white/5 hover:opacity-100 transition-all border-l-4 border-transparent hover:border-outline-variant/50" href="#">
+<span class="material-symbols-outlined" data-icon="fact_check">fact_check</span>
+<span class="font-label-lg text-label-lg">Sourcing Preferences</span>
+</a>
+<a class="flex items-center gap-3 text-on-primary-container px-4 py-3 opacity-70 hover:bg-white/5 hover:opacity-100 transition-all border-l-4 border-transparent hover:border-outline-variant/50" href="#">
+<span class="material-symbols-outlined" data-icon="verified_user">verified_user</span>
+<span class="font-label-lg text-label-lg">Verification</span>
+</a>
+</nav>
+</aside>
+<!-- Main Canvas -->
+<main class="flex-1 lg:ml-sidebar-width flex flex-col pt-16 lg:pt-0">
+<div class="flex-1 w-full max-w-[1152px] mx-auto p-container-padding md:p-section-gap flex flex-col items-center justify-center">
+<div class="w-full max-w-2xl">
+<!-- Progress Indicator -->
+<div class="mb-8 flex items-center justify-between relative">
+<div class="absolute left-0 top-1/2 -translate-y-1/2 w-full h-1 bg-surface-border z-0 rounded-full">
+<div class="h-full bg-secondary w-1/4 rounded-full"></div>
+</div>
+<div class="relative z-10 flex flex-col items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-secondary text-on-secondary flex items-center justify-center font-label-md shadow-md">1</div>
+<span class="font-label-md text-label-md text-secondary">Role</span>
+</div>
+<div class="relative z-10 flex flex-col items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center font-label-md border border-surface-border">2</div>
+<span class="font-label-md text-label-md text-on-surface-variant">Company</span>
+</div>
+<div class="relative z-10 flex flex-col items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center font-label-md border border-surface-border">3</div>
+<span class="font-label-md text-label-md text-on-surface-variant">Sourcing</span>
+</div>
+<div class="relative z-10 flex flex-col items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center font-label-md border border-surface-border">4</div>
+<span class="font-label-md text-label-md text-on-surface-variant">Verify</span>
+</div>
+</div>
+<!-- Header -->
+<div class="text-center mb-section-gap">
+<h1 class="font-display-lg text-display-lg text-primary mb-4">Let's set up your Buyer account.</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg mx-auto">Help us understand your sourcing needs to provide the best AI-matched suppliers.</p>
+</div>
+<!-- Registration Form Card -->
+<div class="bg-surface-container-lowest rounded-xl p-8 card-elevation border border-surface-border">
+<form class="space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Full Name -->
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-label-md text-on-surface" for="fullName">Full Name</label>
+<input class="structured-input" id="fullName" placeholder="Jane Doe" type="text"/>
+</div>
+<!-- Business Email -->
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-label-md text-on-surface" for="email">Business Email</label>
+<input class="structured-input" id="email" placeholder="jane@company.com" type="email"/>
+</div>
+<!-- Phone Number -->
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-label-md text-on-surface" for="phone">Phone Number</label>
+<div class="flex gap-2">
+<select class="structured-input w-24">
+<option>+1</option>
+<option>+44</option>
+<option>+91</option>
+</select>
+<input class="structured-input flex-1" id="phone" placeholder="(555) 000-0000" type="tel"/>
+</div>
+</div>
+<!-- Job Title -->
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-label-md text-on-surface" for="jobTitle">Job Title / Role</label>
+<input class="structured-input" id="jobTitle" placeholder="e.g. Procurement Manager" type="text"/>
+</div>
+<!-- Company Name -->
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-label-md text-on-surface" for="companyName">Company Name</label>
+<input class="structured-input" id="companyName" placeholder="Acme Corp" type="text"/>
+</div>
+<!-- Country of Operation -->
+<div class="flex flex-col gap-2">
+<label class="font-label-md text-label-md text-on-surface" for="country">Country of Operation</label>
+<select class="structured-input" id="country">
+<option disabled="" selected="" value="">Select Country</option>
+<option>United States</option>
+<option>United Kingdom</option>
+<option>Germany</option>
+<option>Japan</option>
+</select>
+</div>
+</div>
+<!-- Actions -->
+<div class="pt-6 border-t border-surface-border flex items-center justify-between mt-8">
+<button class="h-10 px-6 rounded-DEFAULT border border-surface-border text-on-surface font-label-md text-label-md hover:bg-surface-container-high transition-colors" type="button">
+                                Back
+                            </button>
+<button class="h-10 px-6 rounded-DEFAULT bg-primary-container text-on-primary font-label-md text-label-md hover:opacity-90 transition-opacity" type="button">
+                                Continue to Company Profile
+                            </button>
+</div>
+</form>
+</div>
+</div>
+</div>
+<!-- Footer (Hidden navigation shell due to transactional page intent, but providing simple copyright) -->
+<footer class="w-full py-6 mt-auto bg-surface-container-low border-t border-outline-variant/50 flex flex-col md:flex-row justify-between items-center px-container-padding max-w-[1152px] mx-auto">
+<span class="font-body-sm text-body-sm text-on-surface-variant">© 2024 TradeMatchly Global. All rights reserved.</span>
+<div class="flex gap-4 mt-4 md:mt-0 font-label-md text-label-md text-on-surface-variant">
+<a class="hover:text-secondary hover:underline transition-colors" href="#">Support</a>
+<a class="hover:text-secondary hover:underline transition-colors" href="#">Privacy Policy</a>
+</div>
+</footer>
+</main>
+</body></html>

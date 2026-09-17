@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Get Started - TradeMatchly</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "verified-emerald": "#059669",
+                    "surface-container-highest": "#e4e2e4",
+                    "on-background": "#1b1b1d",
+                    "surface": "#fcf8fa",
+                    "on-primary-fixed-variant": "#3f465c",
+                    "tertiary-fixed-dim": "#dec29a",
+                    "on-primary-fixed": "#131b2e",
+                    "outline": "#76777d",
+                    "secondary-fixed": "#e2dfff",
+                    "outline-variant": "#c6c6cd",
+                    "on-secondary-container": "#fffbff",
+                    "on-primary": "#ffffff",
+                    "surface-container": "#f0edef",
+                    "surface-tint": "#565e74",
+                    "tertiary-container": "#271901",
+                    "on-secondary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "on-surface": "#1b1b1d",
+                    "on-secondary-fixed-variant": "#3322cc",
+                    "on-tertiary-fixed-variant": "#574425",
+                    "secondary-container": "#655dfb",
+                    "risk-amber": "#d97706",
+                    "surface-bright": "#fcf8fa",
+                    "tertiary": "#000000",
+                    "risk-red": "#dc2626",
+                    "in-progress-blue": "#2563eb",
+                    "primary-fixed": "#dae2fd",
+                    "on-tertiary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "inverse-surface": "#303032",
+                    "inverse-primary": "#bec6e0",
+                    "on-secondary-fixed": "#0f0069",
+                    "surface-container-low": "#f6f3f5",
+                    "on-error-container": "#93000a",
+                    "on-primary-container": "#7c839b",
+                    "surface-variant": "#e4e2e4",
+                    "primary-fixed-dim": "#bec6e0",
+                    "tertiary-fixed": "#fcdeb5",
+                    "inverse-on-surface": "#f3f0f2",
+                    "primary": "#000000",
+                    "primary-container": "#131b2e",
+                    "surface-border": "#e2e8f0",
+                    "surface-container-high": "#eae7e9",
+                    "error": "#ba1a1a",
+                    "on-surface-variant": "#45464d",
+                    "background": "#fcf8fa",
+                    "secondary": "#4b41e1",
+                    "surface-dim": "#dcd9db",
+                    "on-tertiary-fixed": "#271901",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-container": "#98805d",
+                    "secondary-fixed-dim": "#c3c0ff",
+                    "data-text": "#1e293b"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "16px",
+                    "table-cell-padding": "12px",
+                    "base": "4px",
+                    "section-gap": "32px",
+                    "container-padding": "24px",
+                    "sidebar-width": "260px"
+            },
+            "fontFamily": {
+                    "body-sm": [
+                            "Inter"
+                    ],
+                    "data-mono": [
+                            "jetbrainsMono"
+                    ],
+                    "body-lg": [
+                            "Inter"
+                    ],
+                    "headline-sm": [
+                            "Inter"
+                    ],
+                    "label-md": [
+                            "Inter"
+                    ],
+                    "display-lg": [
+                            "Inter"
+                    ],
+                    "headline-md": [
+                            "Inter"
+                    ],
+                    "body-md": [
+                            "Inter"
+                    ],
+                    "headline-lg": [
+                            "Inter"
+                    ],
+                    "label-lg": [
+                            "Inter"
+                    ]
+            },
+            "fontSize": {
+                    "body-sm": [
+                            "13px",
+                            {
+                                    "lineHeight": "18px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "data-mono": [
+                            "13px",
+                            {
+                                    "lineHeight": "18px",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "body-lg": [
+                            "16px",
+                            {
+                                    "lineHeight": "24px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-sm": [
+                            "18px",
+                            {
+                                    "lineHeight": "24px",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "label-md": [
+                            "12px",
+                            {
+                                    "lineHeight": "16px",
+                                    "letterSpacing": "0.02em",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "display-lg": [
+                            "36px",
+                            {
+                                    "lineHeight": "44px",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "headline-md": [
+                            "22px",
+                            {
+                                    "lineHeight": "28px",
+                                    "letterSpacing": "-0.01em",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "body-md": [
+                            "14px",
+                            {
+                                    "lineHeight": "20px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-lg": [
+                            "28px",
+                            {
+                                    "lineHeight": "34px",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "label-lg": [
+                            "14px",
+                            {
+                                    "lineHeight": "20px",
+                                    "fontWeight": "600"
+                            }
+                    ]
+            }
+    },
+        },
+      }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-lg antialiased min-h-screen flex flex-col pt-16">
+<!-- Suppressed navigation shell for onboarding journey -->
+<!-- TopNavBar component intentionally hidden as per JSON suppression rule for transactional/onboarding flows -->
+<!-- Top Branding Anchor (Simplified for Onboarding) -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-container-padding h-16 max-w-[1440px] mx-auto bg-surface dark:bg-surface-container-lowest border-b border-outline-variant dark:border-outline">
+<div class="flex items-center gap-4">
+<span class="text-headline-lg font-headline-lg text-primary dark:text-primary-fixed">TradeMatchly</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-label-lg font-label-lg text-on-surface-variant hover:text-secondary transition-colors duration-200">Help</button>
+<button class="h-10 px-4 bg-primary text-on-primary rounded text-label-lg font-label-lg hover:bg-surface-tint transition-colors">Contact Sales</button>
+</div>
+</header>
+<main class="flex-grow flex flex-col items-center justify-center p-container-padding">
+<div class="w-full max-w-5xl text-center mb-12">
+<h1 class="text-display-lg font-display-lg text-on-background mb-4">How will you use TradeMatchly?</h1>
+<p class="text-body-lg font-body-lg text-on-surface-variant max-w-2xl mx-auto">Select your primary role to begin your specialized onboarding journey.</p>
+</div>
+<div class="w-full max-w-5xl grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+<!-- Buyer Card -->
+<div class="bg-surface-container-lowest border border-surface-border rounded-lg p-8 flex flex-col shadow-[0_1px_3px_rgba(0,0,0,0.05)] hover:-translate-y-1 hover:shadow-[0_10px_15px_rgba(0,0,0,0.1)] transition-all duration-300 group cursor-pointer h-full">
+<div class="w-12 h-12 rounded-full bg-secondary-fixed flex items-center justify-center mb-6 group-hover:bg-secondary group-hover:text-on-secondary transition-colors text-secondary-container">
+<span class="material-symbols-outlined" data-icon="shopping_cart" style="font-variation-settings: 'FILL' 1;">shopping_cart</span>
+</div>
+<h2 class="text-headline-md font-headline-md text-on-background mb-2">I'm a Buyer</h2>
+<h3 class="text-body-md font-body-md text-secondary font-semibold mb-4">Find Suppliers &amp; Source Products</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant flex-grow mb-8">
+                    Tell us what you need and let Mesh AI find the most relevant, verified global suppliers for your requirements.
+                </p>
+<button class="w-full h-10 bg-primary-container text-on-primary rounded text-label-lg font-label-lg hover:bg-surface-tint transition-colors mt-auto">Continue as Buyer</button>
+</div>
+<!-- Supplier Card -->
+<div class="bg-surface-container-lowest border border-surface-border rounded-lg p-8 flex flex-col shadow-[0_1px_3px_rgba(0,0,0,0.05)] hover:-translate-y-1 hover:shadow-[0_10px_15px_rgba(0,0,0,0.1)] transition-all duration-300 group cursor-pointer h-full relative overflow-hidden">
+<div class="w-12 h-12 rounded-full bg-secondary-fixed flex items-center justify-center mb-6 group-hover:bg-secondary group-hover:text-on-secondary transition-colors text-secondary-container">
+<span class="material-symbols-outlined" data-icon="factory" style="font-variation-settings: 'FILL' 1;">factory</span>
+</div>
+<h2 class="text-headline-md font-headline-md text-on-background mb-2">I'm a Supplier</h2>
+<h3 class="text-body-md font-body-md text-secondary font-semibold mb-4">Find Buyers &amp; Sell Globally</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant flex-grow mb-8">
+                    Showcase your products to serious international buyers and receive AI-matched opportunities that fit your capabilities.
+                </p>
+<button class="w-full h-10 bg-primary-container text-on-primary rounded text-label-lg font-label-lg hover:bg-surface-tint transition-colors mt-auto relative z-10">Continue as Supplier</button>
+<!-- Subtle background pattern for visual interest on desktop cards -->
+<div class="absolute inset-0 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:16px_16px] opacity-20 z-0 pointer-events-none"></div>
+</div>
+<!-- Both Card -->
+<div class="bg-surface-container-lowest border border-surface-border rounded-lg p-8 flex flex-col shadow-[0_1px_3px_rgba(0,0,0,0.05)] hover:-translate-y-1 hover:shadow-[0_10px_15px_rgba(0,0,0,0.1)] transition-all duration-300 group cursor-pointer h-full">
+<div class="w-12 h-12 rounded-full bg-secondary-fixed flex items-center justify-center mb-6 group-hover:bg-secondary group-hover:text-on-secondary transition-colors text-secondary-container">
+<span class="material-symbols-outlined" data-icon="handshake" style="font-variation-settings: 'FILL' 1;">handshake</span>
+</div>
+<h2 class="text-headline-md font-headline-md text-on-background mb-2">I'm Both</h2>
+<h3 class="text-body-md font-body-md text-secondary font-semibold mb-4">Buy and Sell Internationally</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant flex-grow mb-8">
+                    Access the complete TradeMatchly network to manage both your sourcing needs and global sales in one platform.
+                </p>
+<button class="w-full h-10 bg-primary-container text-on-primary rounded text-label-lg font-label-lg hover:bg-surface-tint transition-colors mt-auto">Continue as Both</button>
+</div>
+</div>
+<div class="text-center mt-8">
+<p class="text-body-md font-body-md text-on-surface-variant">
+                Already have an account? 
+                <a class="text-secondary font-semibold hover:underline transition-all" href="#">Log In</a>
+</p>
+</div>
+</main>
+</body></html>

@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI Extraction Engine - TradeMatchly</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed": "#131b2e",
+                        "surface-variant": "#e4e2e4",
+                        "tertiary-fixed-dim": "#dec29a",
+                        "surface-tint": "#565e74",
+                        "on-error": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed": "#e2dfff",
+                        "on-tertiary-container": "#98805d",
+                        "surface": "#fcf8fa",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "background": "#fcf8fa",
+                        "data-text": "#1e293b",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed": "#fcdeb5",
+                        "inverse-primary": "#bec6e0",
+                        "on-surface": "#1b1b1d",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-low": "#f6f3f5",
+                        "on-secondary-fixed": "#0f0069",
+                        "tertiary-container": "#271901",
+                        "surface-container": "#f0edef",
+                        "on-error-container": "#93000a",
+                        "verified-emerald": "#059669",
+                        "risk-amber": "#d97706",
+                        "surface-border": "#e2e8f0",
+                        "risk-red": "#dc2626",
+                        "primary-container": "#131b2e",
+                        "inverse-surface": "#303032",
+                        "on-secondary-container": "#fffbff",
+                        "error": "#ba1a1a",
+                        "inverse-on-surface": "#f3f0f2",
+                        "on-surface-variant": "#45464d",
+                        "surface-container-high": "#eae7e9",
+                        "primary-fixed": "#dae2fd",
+                        "outline-variant": "#c6c6cd",
+                        "secondary": "#4b41e1",
+                        "secondary-fixed-dim": "#c3c0ff",
+                        "primary-fixed-dim": "#bec6e0",
+                        "on-background": "#1b1b1d",
+                        "in-progress-blue": "#2563eb",
+                        "surface-container-highest": "#e4e2e4",
+                        "on-secondary-fixed-variant": "#3322cc",
+                        "tertiary": "#000000",
+                        "outline": "#76777d",
+                        "secondary-container": "#655dfb",
+                        "on-tertiary-fixed": "#271901",
+                        "on-tertiary": "#ffffff",
+                        "primary": "#000000",
+                        "surface-dim": "#dcd9db",
+                        "on-primary-container": "#7c839b",
+                        "on-tertiary-fixed-variant": "#574425",
+                        "surface-bright": "#fcf8fa"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-padding": "24px",
+                        "sidebar-width": "260px",
+                        "section-gap": "32px",
+                        "base": "4px",
+                        "gutter": "16px",
+                        "table-cell-padding": "12px"
+                    },
+                    "fontFamily": {
+                        "label-lg": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "data-mono": ["jetbrainsMono"]
+                    },
+                    "fontSize": {
+                        "label-lg": ["14px", { "lineHeight": "20px", "fontWeight": "600" }],
+                        "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-md": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+                        "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "headline-lg": ["28px", { "lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "display-lg": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "data-mono": ["13px", { "lineHeight": "18px", "fontWeight": "500" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background-color: #cbd5e1;
+            border-radius: 4px;
+        }
+        .typing-indicator span {
+            animation: blink 1.4s infinite both;
+            height: 6px;
+            width: 6px;
+            background-color: #2563eb;
+            border-radius: 50%;
+            display: inline-block;
+            margin: 0 1px;
+        }
+        .typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+        .typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+        @keyframes blink {
+            0% { opacity: 0.2; transform: scale(0.8); }
+            20% { opacity: 1; transform: scale(1.2); }
+            100% { opacity: 0.2; transform: scale(0.8); }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md h-screen overflow-hidden flex selection:bg-secondary-fixed selection:text-on-secondary-fixed">
+<!-- Side Navigation Shell -->
+<aside class="fixed left-0 top-0 h-full w-[260px] bg-primary-container z-40 hidden md:flex flex-col">
+<div class="flex flex-col h-full py-6">
+<!-- Brand -->
+<div class="px-6 mb-8">
+<h1 class="font-headline-sm text-headline-sm font-bold text-surface">TradeMatchly</h1>
+<p class="font-body-sm text-body-sm text-on-primary-container mt-1">Buyer Portal</p>
+</div>
+<!-- Primary Nav -->
+<nav class="flex-1 space-y-1 mt-4">
+<a class="flex items-center gap-3 px-4 py-3 bg-white/10 text-white border-l-4 border-secondary transition-all opacity-100" href="#">
+<span class="material-symbols-outlined" data-icon="psychology">psychology</span>
+<span class="font-label-lg text-label-lg">AI Sourcing</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary-container/70 hover:text-white hover:bg-white/5 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="factory">factory</span>
+<span class="font-label-lg text-label-lg">Suppliers</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary-container/70 hover:text-white hover:bg-white/5 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="local_shipping">local_shipping</span>
+<span class="font-label-lg text-label-lg">Shipments</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary-container/70 hover:text-white hover:bg-white/5 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+<span class="font-label-lg text-label-lg">Invoices</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary-container/70 hover:text-white hover:bg-white/5 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-label-lg text-label-lg">Analytics</span>
+</a>
+</nav>
+<!-- CTA -->
+<div class="px-4 mt-8">
+<button class="w-full h-10 bg-secondary hover:bg-secondary/90 text-on-secondary font-label-md text-label-md rounded transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">add</span>
+                    New Request
+                </button>
+</div>
+<!-- Footer Nav -->
+<div class="mt-auto pt-6 border-t border-white/10 px-2 space-y-1">
+<a class="flex items-center gap-3 px-4 py-2 text-on-primary-container/70 hover:text-white hover:bg-white/5 transition-colors duration-200 rounded" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-lg text-label-lg">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-on-primary-container/70 hover:text-white hover:bg-white/5 transition-colors duration-200 rounded" href="#">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+<span class="font-label-lg text-label-lg">Support</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<div class="flex-1 flex flex-col min-w-0 md:ml-[260px] h-full">
+<!-- Top App Bar -->
+<header class="docked full-width top-0 bg-surface border-b border-outline-variant shadow-sm z-30">
+<div class="flex justify-between items-center h-16 px-gutter w-full">
+<!-- Search (Left) -->
+<div class="flex-1 flex items-center max-w-md">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[20px]">search</span>
+<input class="w-full h-10 pl-10 pr-4 bg-surface-container-low border border-surface-border rounded-lg text-body-sm font-body-sm focus:border-secondary focus:ring-1 focus:ring-secondary/30 transition-all outline-none text-on-surface placeholder:text-on-surface-variant" placeholder="Search orders, suppliers, or products..." type="text"/>
+</div>
+</div>
+<!-- Actions & Profile -->
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center text-on-surface-variant hover:text-secondary hover:bg-surface-container rounded-full transition-colors active:scale-95 duration-150 relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-risk-red rounded-full border border-surface"></span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center text-on-surface-variant hover:text-secondary hover:bg-surface-container rounded-full transition-colors active:scale-95 duration-150">
+<span class="material-symbols-outlined" data-icon="apps">apps</span>
+</button>
+<div class="h-6 w-px bg-outline-variant mx-1"></div>
+<button class="flex items-center gap-2 hover:opacity-80 transition-opacity">
+<img alt="Buyer profile" class="w-8 h-8 rounded-full object-cover border border-surface-border" data-alt="Professional headshot of a corporate executive in a modern office setting, bright lighting, cool corporate tones, high quality, 8k resolution, photorealistic, wearing a dark suit." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzyZAOZ4Dp2TT1PLIbq4MnRaMANMPwMA9YszjSQ3w0MR6v3B4ayrByW1IgdJG2ZkGDP_qkPJjoZrTAMShTNPvf1FQQfDIxI6iYTfVhms-Qr5gHXSY09H1FUNn2Eo0e3A2C4yHS4geux-CcKAtCO7n8i8FLaQkVb5lOIQtKqp-3ixQepKcHkEf-mTpfABa9Bj3ZAp7A5AJcqsB5lcUEcEapnR0zv0Zqvjdv_JZPA2fW-C0qGbxNe6d0"/>
+<div class="hidden sm:block text-left">
+<p class="font-label-md text-label-md text-on-surface leading-tight">Admin User</p>
+<p class="font-body-sm text-[11px] text-on-surface-variant leading-tight">Procurement</p>
+</div>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Workspace -->
+<main class="flex-1 overflow-y-auto custom-scrollbar p-container-padding bg-background">
+<!-- Page Header -->
+<div class="mb-section-gap">
+<h2 class="font-headline-md text-headline-md text-on-surface">AI Sourcing Request</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Describe your requirements in natural language and let AI structure the quote request.</p>
+</div>
+<!-- Two Column Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 h-[calc(100%-80px)]">
+<!-- Left Column: Input -->
+<div class="lg:col-span-7 flex flex-col gap-6">
+<div class="bg-surface-container-lowest rounded-xl border border-surface-border shadow-[0_1px_3px_rgba(0,0,0,0.05)] p-6 flex-1 flex flex-col">
+<label class="font-label-lg text-label-lg text-on-surface mb-2 block" for="ai-prompt">Tell us what you need.</label>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4">e.g., I need 10,000 liters of synthetic industrial lubricants, specifically high-temperature resistant, for delivery to Mumbai by Q4.</p>
+<div class="relative flex-1 mb-6">
+<textarea class="w-full h-full min-h-[200px] resize-none border border-surface-border rounded-lg p-4 font-body-lg text-body-lg text-on-surface focus:border-secondary focus:ring-2 focus:ring-secondary/20 transition-all outline-none bg-surface-container-low/50 custom-scrollbar" id="ai-prompt" placeholder="Start typing your requirements here..."></textarea>
+<!-- Formatting Tools Toolbar -->
+<div class="absolute bottom-2 left-2 right-2 flex items-center justify-between bg-surface-container-lowest border border-surface-border rounded-md px-2 py-1 shadow-sm">
+<div class="flex items-center gap-1 text-on-surface-variant">
+<button class="p-1 hover:bg-surface-container rounded hover:text-primary transition-colors"><span class="material-symbols-outlined text-[18px]">format_bold</span></button>
+<button class="p-1 hover:bg-surface-container rounded hover:text-primary transition-colors"><span class="material-symbols-outlined text-[18px]">format_italic</span></button>
+<div class="w-px h-4 bg-outline-variant mx-1"></div>
+<button class="p-1 hover:bg-surface-container rounded hover:text-primary transition-colors"><span class="material-symbols-outlined text-[18px]">format_list_bulleted</span></button>
+</div>
+<span class="font-body-sm text-[11px] text-on-surface-variant">0/1000 characters</span>
+</div>
+</div>
+<!-- Demo Chips -->
+<div class="mb-6">
+<p class="font-label-md text-label-md text-on-surface-variant mb-2">Common templates:</p>
+<div class="flex flex-wrap gap-2">
+<button class="px-3 py-1.5 bg-surface-container border border-outline-variant rounded-full font-body-sm text-body-sm text-on-surface hover:bg-surface-container-high hover:border-outline transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">science</span> Aluminum Sheets
+                                </button>
+<button class="px-3 py-1.5 bg-surface-container border border-outline-variant rounded-full font-body-sm text-body-sm text-on-surface hover:bg-surface-container-high hover:border-outline transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">recycling</span> Recycled Plastics
+                                </button>
+<button class="px-3 py-1.5 bg-surface-container border border-outline-variant rounded-full font-body-sm text-body-sm text-on-surface hover:bg-surface-container-high hover:border-outline transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">precision_manufacturing</span> Machined Parts
+                                </button>
+</div>
+</div>
+<!-- Actions -->
+<div class="flex items-center justify-between mt-auto pt-4 border-t border-surface-border">
+<button class="flex items-center gap-2 px-4 h-10 border border-outline-variant rounded text-on-surface font-label-md text-label-md hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[18px]">attach_file</span>
+                                Attach Specs
+                            </button>
+<button class="flex items-center gap-2 px-6 h-10 bg-primary-container text-on-primary font-label-md text-label-md rounded hover:bg-primary-container/90 transition-colors shadow-sm" id="process-btn">
+<span class="material-symbols-outlined text-[18px]">auto_awesome</span>
+                                Process Request
+                            </button>
+</div>
+</div>
+</div>
+<!-- Right Column: AI Extraction Engine -->
+<div class="lg:col-span-5 flex flex-col">
+<div class="bg-surface-container-lowest rounded-xl border border-surface-border shadow-[0_1px_3px_rgba(0,0,0,0.05)] flex-1 flex flex-col overflow-hidden relative">
+<!-- Subtle Background Pattern for AI context -->
+<div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: radial-gradient(#131b2e 1px, transparent 1px); background-size: 20px 20px;"></div>
+<!-- Header -->
+<div class="p-5 border-b border-surface-border bg-surface/50 backdrop-blur-sm flex items-center justify-between z-10">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-secondary/10 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined">memory</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface leading-tight">AI Extraction Engine</h3>
+<div class="flex items-center gap-2 mt-0.5">
+<div class="w-2 h-2 rounded-full bg-outline" id="ai-status-indicator"></div>
+<span class="font-body-sm text-[12px] text-on-surface-variant" id="ai-status-text">Waiting for input...</span>
+</div>
+</div>
+</div>
+<button class="text-on-surface-variant hover:text-primary transition-colors p-1">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+<!-- Extraction Fields -->
+<div class="p-5 flex-1 overflow-y-auto custom-scrollbar z-10 space-y-4" id="extraction-fields">
+<!-- Field: Product -->
+<div class="extraction-group group">
+<label class="font-label-md text-[11px] uppercase tracking-wider text-on-surface-variant mb-1 flex justify-between">
+                                    Product Category
+                                    <span class="opacity-0 group-hover:opacity-100 transition-opacity text-[10px] text-secondary cursor-pointer">Edit</span>
+</label>
+<div class="h-10 bg-surface-container-low border border-surface-border rounded-md px-3 flex items-center text-on-surface-variant font-body-sm">
+<span class="italic opacity-60">Pending extraction...</span>
+</div>
+</div>
+<!-- Field: Grade/Spec -->
+<div class="extraction-group group">
+<label class="font-label-md text-[11px] uppercase tracking-wider text-on-surface-variant mb-1 flex justify-between">
+                                    Grade / Specification
+                                    <span class="opacity-0 group-hover:opacity-100 transition-opacity text-[10px] text-secondary cursor-pointer">Edit</span>
+</label>
+<div class="h-10 bg-surface-container-low border border-surface-border rounded-md px-3 flex items-center text-on-surface-variant font-body-sm">
+<span class="italic opacity-60">Pending extraction...</span>
+</div>
+</div>
+<!-- Two Column Row -->
+<div class="grid grid-cols-2 gap-4">
+<!-- Field: Quantity -->
+<div class="extraction-group group">
+<label class="font-label-md text-[11px] uppercase tracking-wider text-on-surface-variant mb-1 flex justify-between">
+                                        Quantity
+                                    </label>
+<div class="h-10 bg-surface-container-low border border-surface-border rounded-md px-3 flex items-center text-on-surface-variant font-data-mono text-[13px]">
+<span class="italic opacity-60 font-body-sm">Pending...</span>
+</div>
+</div>
+<!-- Field: Unit -->
+<div class="extraction-group group">
+<label class="font-label-md text-[11px] uppercase tracking-wider text-on-surface-variant mb-1 flex justify-between">
+                                        Unit
+                                    </label>
+<div class="h-10 bg-surface-container-low border border-surface-border rounded-md px-3 flex items-center text-on-surface-variant font-body-sm">
+<span class="italic opacity-60">Pending...</span>
+</div>
+</div>
+</div>
+<!-- Field: Destination -->
+<div class="extraction-group group">
+<label class="font-label-md text-[11px] uppercase tracking-wider text-on-surface-variant mb-1 flex justify-between">
+                                    Destination
+                                    <span class="opacity-0 group-hover:opacity-100 transition-opacity text-[10px] text-secondary cursor-pointer">Edit</span>
+</label>
+<div class="h-10 bg-surface-container-low border border-surface-border rounded-md px-3 flex items-center text-on-surface-variant font-body-sm gap-2">
+<span class="material-symbols-outlined text-[16px] opacity-40">location_on</span>
+<span class="italic opacity-60">Pending extraction...</span>
+</div>
+</div>
+<!-- Two Column Row -->
+<div class="grid grid-cols-2 gap-4">
+<!-- Field: Timeline -->
+<div class="extraction-group group">
+<label class="font-label-md text-[11px] uppercase tracking-wider text-on-surface-variant mb-1 flex justify-between">
+                                        Timeline
+                                    </label>
+<div class="h-10 bg-surface-container-low border border-surface-border rounded-md px-3 flex items-center text-on-surface-variant font-body-sm gap-2">
+<span class="material-symbols-outlined text-[16px] opacity-40">event</span>
+<span class="italic opacity-60">Pending...</span>
+</div>
+</div>
+<!-- Field: Incoterm -->
+<div class="extraction-group group">
+<label class="font-label-md text-[11px] uppercase tracking-wider text-on-surface-variant mb-1 flex justify-between">
+                                        Incoterm Preference
+                                    </label>
+<div class="h-10 bg-surface-container-low border border-surface-border rounded-md px-3 flex items-center text-on-surface-variant font-body-sm">
+<span class="italic opacity-60">Pending...</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Confidence Score Footer (Hidden initially) -->
+<div class="p-4 border-t border-surface-border bg-surface-container-low hidden z-10" id="confidence-footer">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-[12px] text-on-surface-variant">Extraction Confidence</span>
+<span class="font-data-mono text-[13px] text-verified-emerald">98%</span>
+</div>
+<div class="w-full h-1 bg-surface-border rounded-full mt-2 overflow-hidden">
+<div class="h-full bg-verified-emerald rounded-full w-[98%]"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<script>
+        // Micro-interactions for the AI simulation
+        document.addEventListener('DOMContentLoaded', () => {
+            const textarea = document.getElementById('ai-prompt');
+            const processBtn = document.getElementById('process-btn');
+            const statusIndicator = document.getElementById('ai-status-indicator');
+            const statusText = document.getElementById('ai-status-text');
+            const fieldsContainer = document.getElementById('extraction-fields');
+            const confidenceFooter = document.getElementById('confidence-footer');
+            
+            let typingTimer;
+
+            textarea.addEventListener('input', () => {
+                clearTimeout(typingTimer);
+                
+                if(textarea.value.length > 0) {
+                    statusIndicator.className = 'w-2 h-2 rounded-full bg-in-progress-blue animate-pulse';
+                    statusText.innerHTML = '<div class="typing-indicator flex items-center h-full pt-1"><span></span><span></span><span></span></div>';
+                    
+                    typingTimer = setTimeout(() => {
+                        statusIndicator.className = 'w-2 h-2 rounded-full bg-outline';
+                        statusText.textContent = 'Ready to process';
+                    }, 1000);
+                } else {
+                    statusIndicator.className = 'w-2 h-2 rounded-full bg-outline';
+                    statusText.textContent = 'Waiting for input...';
+                }
+            });
+
+            processBtn.addEventListener('click', () => {
+                if(textarea.value.length < 10) return; // Basic validation
+                
+                // Simulate Processing
+                statusIndicator.className = 'w-2 h-2 rounded-full bg-in-progress-blue animate-pulse';
+                statusText.textContent = 'Processing request...';
+                processBtn.disabled = true;
+                processBtn.innerHTML = '<span class="material-symbols-outlined text-[18px] animate-spin">sync</span> Processing...';
+                processBtn.className = 'flex items-center gap-2 px-6 h-10 bg-surface-container-high text-on-surface-variant font-label-md text-label-md rounded shadow-sm cursor-not-allowed';
+
+                // Simulate UI population delay
+                setTimeout(() => {
+                    statusIndicator.className = 'w-2 h-2 rounded-full bg-verified-emerald';
+                    statusText.textContent = 'Extraction Complete';
+                    
+                    // Replace fields with mockup data based on the prompt example
+                    fieldsContainer.innerHTML = `
+                        <!-- Field: Product -->
+                        <div class="extraction-group group animate-[fadeIn_0.3s_ease-out]">
+                            <label class="font-label-md text-[11px] uppercase tracking-wider text-on-surface-variant mb-1 flex justify-between">
+                                Product Category
+                                <span class="opacity-0 group-hover:opacity-100 transition-opacity text-[10px] text-secondary cursor-pointer">Edit</span>
+                            </label>
+                            <div class="h-10 bg-white border border-verified-emerald/30 shadow-[0_0_0_1px_rgba(5,150,105,0.1)] rounded-md px-3 flex items-center text-data-text font-body-sm relative overflow-hidden">
+                                <div class="absolute left-0 top-0 bottom-0 w-1 bg-verified-emerald"></div>
+                                <span class="pl-2">Industrial Lubricants</span>
+                            </div>
+                        </div>
+
+                        <!-- Field: Grade/Spec -->
+                        <div class="extraction-group group animate-[fadeIn_0.4s_ease-out]">
+                            <label class="font-label-md text-[11px] uppercase tracking-wider text-on-surface-variant mb-1 flex justify-between">
+                                Grade / Specification
+                                <span class="opacity-0 group-hover:opacity-100 transition-opacity text-[10px] text-secondary cursor-pointer">Edit</span>
+                            </label>
+                            <div class="h-10 bg-white border border-verified-emerald/30 shadow-[0_0_0_1px_rgba(5,150,105,0.1)] rounded-md px-3 flex items-center text-data-text font-body-sm relative overflow-hidden">
+                                <div class="absolute left-0 top-0 bottom-0 w-1 bg-verified-emerald"></div>
+                                <span class="pl-2">Synthetic, High-Temperature Resistant</span>
+                            </div>
+                        </div>
+
+                        <!-- Two Column Row -->
+                        <div class="grid grid-cols-2 gap-4 animate-[fadeIn_0.5s_ease-out]">
+                            <!-- Field: Quantity -->
+                            <div class="extraction-group group">
+                                <label class="font-label-md text-[11px] uppercase tracking-wider text-on-surface-variant mb-1 flex justify-between">
+                                    Quantity
+                                </label>
+                                <div class="h-10 bg-white border border-verified-emerald/30 rounded-md px-3 flex items-center text-data-text font-data-mono text-[13px] relative overflow-hidden">
+                                    <div class="absolute left-0 top-0 bottom-0 w-1 bg-verified-emerald"></div>
+                                    <span class="pl-2">10,000</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Field: Unit -->
+                            <div class="extraction-group group">
+                                <label class="font-label-md text-[11px] uppercase tracking-wider text-on-surface-variant mb-1 flex justify-between">
+                                    Unit
+                                </label>
+                                <div class="h-10 bg-white border border-verified-emerald/30 rounded-md px-3 flex items-center text-data-text font-body-sm relative overflow-hidden">
+                                    <div class="absolute left-0 top-0 bottom-0 w-1 bg-verified-emerald"></div>
+                                    <span class="pl-2">Liters</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Field: Destination -->
+                        <div class="extraction-group group animate-[fadeIn_0.6s_ease-out]">
+                            <label class="font-label-md text-[11px] uppercase tracking-wider text-on-surface-variant mb-1 flex justify-between">
+                                Destination
+                                <span class="opacity-0 group-hover:opacity-100 transition-opacity text-[10px] text-secondary cursor-pointer">Edit</span>
+                            </label>
+                            <div class="h-10 bg-white border border-verified-emerald/30 rounded-md px-3 flex items-center text-data-text font-body-sm gap-2 relative overflow-hidden">
+                                <div class="absolute left-0 top-0 bottom-0 w-1 bg-verified-emerald"></div>
+                                <span class="material-symbols-outlined text-[16px] text-on-surface-variant pl-2">location_on</span>
+                                <span>Mumbai, IN</span>
+                            </div>
+                        </div>
+
+                        <!-- Two Column Row -->
+                        <div class="grid grid-cols-2 gap-4 animate-[fadeIn_0.7s_ease-out]">
+                            <!-- Field: Timeline -->
+                            <div class="extraction-group group">
+                                <label class="font-label-md text-[11px] uppercase tracking-wider text-on-surface-variant mb-1 flex justify-between">
+                                    Timeline
+                                </label>
+                                <div class="h-10 bg-white border border-verified-emerald/30 rounded-md px-3 flex items-center text-data-text font-body-sm gap-2 relative overflow-hidden">
+                                    <div class="absolute left-0 top-0 bottom-0 w-1 bg-verified-emerald"></div>
+                                    <span class="material-symbols-outlined text-[16px] text-on-surface-variant pl-2">event</span>
+                                    <span>Q4 2024</span>
+                                </div>
+                            </div>
+
+                            <!-- Field: Incoterm (Inferred) -->
+                            <div class="extraction-group group">
+                                <label class="font-label-md text-[11px] uppercase tracking-wider text-risk-amber mb-1 flex justify-between items-center">
+                                    <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[12px]">lightbulb</span> Inferred</span>
+                                    <span class="opacity-0 group-hover:opacity-100 transition-opacity text-[10px] text-secondary cursor-pointer">Edit</span>
+                                </label>
+                                <div class="h-10 bg-[#fffbeb] border border-risk-amber/30 rounded-md px-3 flex items-center text-data-text font-body-sm relative overflow-hidden">
+                                    <div class="absolute left-0 top-0 bottom-0 w-1 bg-risk-amber"></div>
+                                    <span class="pl-2">CIF</span>
+                                    <span class="material-symbols-outlined text-[14px] text-risk-amber ml-auto cursor-help" title="Suggested based on delivery requirement">info</span>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+
+                    confidenceFooter.classList.remove('hidden');
+                    
+                    // Reset Button
+                    processBtn.disabled = false;
+                    processBtn.innerHTML = '<span class="material-symbols-outlined text-[18px]">check_circle</span> Structure Complete';
+                    processBtn.className = 'flex items-center gap-2 px-6 h-10 bg-verified-emerald text-white font-label-md text-label-md rounded shadow-sm hover:bg-verified-emerald/90 transition-colors';
+
+                }, 1500);
+            });
+        });
+    </script>
+<style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</body></html>

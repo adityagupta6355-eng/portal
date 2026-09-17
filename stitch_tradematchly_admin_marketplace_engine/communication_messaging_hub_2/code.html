@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TradeGlobal Pro - Communication &amp; Messaging Hub</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed": "#fcdeb5",
+                        "on-tertiary-container": "#98805d",
+                        "surface-dim": "#dcd9db",
+                        "surface-container": "#f0edef",
+                        "on-secondary-container": "#fffbff",
+                        "outline-variant": "#c6c6cd",
+                        "data-text": "#1e293b",
+                        "on-error": "#ffffff",
+                        "inverse-primary": "#bec6e0",
+                        "secondary-container": "#655dfb",
+                        "outline": "#76777d",
+                        "surface-tint": "#565e74",
+                        "primary-container": "#131b2e",
+                        "background": "#fcf8fa",
+                        "surface-variant": "#e4e2e4",
+                        "on-error-container": "#93000a",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed-variant": "#574425",
+                        "tertiary": "#000000",
+                        "risk-amber": "#d97706",
+                        "on-primary-fixed": "#131b2e",
+                        "risk-red": "#dc2626",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "on-secondary": "#ffffff",
+                        "surface": "#fcf8fa",
+                        "primary-fixed-dim": "#bec6e0",
+                        "surface-container-highest": "#e4e2e4",
+                        "secondary": "#4b41e1",
+                        "on-surface": "#1b1b1d",
+                        "verified-emerald": "#059669",
+                        "surface-container-low": "#f6f3f5",
+                        "on-tertiary-fixed": "#271901",
+                        "primary-fixed": "#dae2fd",
+                        "secondary-fixed-dim": "#c3c0ff",
+                        "on-secondary-fixed-variant": "#3322cc",
+                        "primary": "#000000",
+                        "on-background": "#1b1b1d",
+                        "surface-bright": "#fcf8fa",
+                        "surface-container-high": "#eae7e9",
+                        "tertiary-container": "#271901",
+                        "inverse-on-surface": "#f3f0f2",
+                        "inverse-surface": "#303032",
+                        "on-primary-container": "#7c839b",
+                        "in-progress-blue": "#2563eb",
+                        "secondary-fixed": "#e2dfff",
+                        "on-primary": "#ffffff",
+                        "on-surface-variant": "#45464d",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed": "#0f0069",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#dec29a",
+                        "on-tertiary": "#ffffff",
+                        "surface-border": "#e2e8f0"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-gap": "32px",
+                        "container-padding": "24px",
+                        "sidebar-width": "260px",
+                        "base": "4px",
+                        "gutter": "16px",
+                        "table-cell-padding": "12px"
+                    },
+                    "fontFamily": {
+                        "headline-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "label-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "data-mono": ["jetbrainsMono"],
+                        "headline-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+                        "display-lg": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-lg": ["14px", { "lineHeight": "20px", "fontWeight": "600" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "data-mono": ["13px", { "lineHeight": "18px", "fontWeight": "500" }],
+                        "headline-lg": ["28px", { "lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-md": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background-color: theme('colors.outline-variant');
+            border-radius: 20px;
+        }
+        .message-bubble-in {
+            border-bottom-left-radius: 4px;
+        }
+        .message-bubble-out {
+            border-bottom-right-radius: 4px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased overflow-hidden h-screen flex">
+<!-- SideNavBar -->
+<nav class="fixed left-0 top-0 h-full w-[260px] bg-primary-container flex flex-col py-6 z-20">
+<div class="px-6 mb-8 flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-secondary flex items-center justify-center text-on-secondary font-headline-sm">TG</div>
+<div>
+<h1 class="font-headline-sm text-headline-sm font-bold text-on-primary">TradeGlobal Pro</h1>
+<p class="font-label-md text-label-md text-on-primary-container">Enterprise Supplier Portal</p>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto custom-scrollbar flex flex-col gap-1">
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary-container hover:bg-white/5 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary-container hover:bg-white/5 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="explore">explore</span>
+<span>Opportunities</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary-container hover:bg-white/5 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="request_quote">request_quote</span>
+<span>RFQs</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary-container hover:bg-white/5 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+<span>Quotes</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary-container hover:bg-white/5 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="handshake">handshake</span>
+<span>Negotiations</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary-container hover:bg-white/5 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="contract">contract</span>
+<span>Deals</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary-container hover:bg-white/5 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span>Products</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary-container hover:bg-white/5 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="groups">groups</span>
+<span>Buyers</span>
+</a>
+<div class="mt-4 mb-2 px-4 font-label-md text-label-md text-on-primary-container uppercase tracking-wider opacity-60">Company</div>
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary-container hover:bg-white/5 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="business">business</span>
+<span>Company Profile</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary-container hover:bg-white/5 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="verified_user">verified_user</span>
+<span>Verification</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary-container hover:bg-white/5 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="folder_open">folder_open</span>
+<span>Documents</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary-container hover:bg-white/5 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span>Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary-container hover:bg-white/5 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="military_tech">military_tech</span>
+<span>Reputation</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-white/10 text-on-primary border-l-4 border-secondary transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="mail" data-weight="fill" style="font-variation-settings: 'FILL' 1;">mail</span>
+<span>Messages</span>
+</a>
+</div>
+<div class="mt-auto pt-4 px-4 border-t border-white/10">
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary-container hover:bg-white/5 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Wrapper -->
+<div class="ml-[260px] flex-1 flex flex-col h-full bg-canvas">
+<!-- TopNavBar -->
+<header class="h-16 bg-surface border-b border-surface-border flex items-center justify-between px-8 flex-shrink-0 z-10 shadow-sm">
+<div class="flex items-center w-96">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-lg">search</span>
+<input class="w-full h-10 pl-10 pr-4 bg-surface-container-low border border-surface-border rounded-lg text-body-sm font-body-sm focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-all" placeholder="Search messages, RFQs, Deals..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container transition-colors relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined">help_outline</span>
+</button>
+<div class="h-6 w-px bg-surface-border mx-2"></div>
+<button class="flex items-center gap-3 hover:bg-surface-container-low p-1.5 rounded-lg transition-colors">
+<img alt="Profile" class="w-8 h-8 rounded-full object-cover border border-surface-border" data-alt="A professional headshot of a corporate user in a modern office setting, bright lighting, high quality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAC8uIUoFXnX21M2wyqIuTHZQSagSaf4fXzqS526zPIpiuM6uYWoQntxCRI9Qd_CLl_q2Kn3bgDx9Sbnj91hAlufTEwzlBURxT_dyDrBFbXj7PaJGuhThWcoyTJk1i61Yp-Dty7BTGkEgQYUV2Q9ImOQatgK2weXCi-LqpvhWimLab8RnZfOXU_xoNZfUSTO3LG4E-QrCjDt-ccTY7azJ_g8gDvr8IY-8aCADJsSzglIAfKJtU7gi5i"/>
+<div class="text-left hidden md:block">
+<div class="font-label-md text-label-md text-on-surface">Alex Mercer</div>
+<div class="text-[11px] text-on-surface-variant">Admin</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-sm">expand_more</span>
+</button>
+</div>
+</header>
+<!-- Messaging Workspace -->
+<main class="flex-1 flex overflow-hidden">
+<!-- Conversation List (Left Panel) -->
+<aside class="w-80 bg-surface border-r border-surface-border flex flex-col flex-shrink-0">
+<div class="p-4 border-b border-surface-border">
+<div class="flex items-center justify-between mb-4">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Inbox</h2>
+<button class="text-secondary hover:bg-secondary/10 p-1.5 rounded transition-colors">
+<span class="material-symbols-outlined text-[20px]">edit_square</span>
+</button>
+</div>
+<div class="flex gap-2">
+<button class="flex-1 py-1.5 bg-surface-container text-on-surface font-label-md text-label-md rounded-md">All</button>
+<button class="flex-1 py-1.5 text-on-surface-variant hover:bg-surface-container-low font-label-md text-label-md rounded-md transition-colors relative">
+                            Active
+                            <span class="absolute top-1.5 right-2 w-1.5 h-1.5 bg-secondary rounded-full"></span>
+</button>
+<button class="flex-1 py-1.5 text-on-surface-variant hover:bg-surface-container-low font-label-md text-label-md rounded-md transition-colors">Archived</button>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto custom-scrollbar">
+<!-- Conversation Item: Active/Selected -->
+<div class="p-4 bg-secondary/5 border-l-2 border-secondary cursor-pointer hover:bg-secondary/10 transition-colors">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-label-lg text-label-lg text-on-surface truncate pr-2">Dutch Spice Imports</h3>
+<span class="font-label-md text-[11px] text-on-surface-variant whitespace-nowrap">10:42 AM</span>
+</div>
+<div class="flex items-center gap-2 mb-2">
+<span class="px-1.5 py-0.5 rounded bg-risk-amber/10 text-risk-amber font-label-md text-[10px] uppercase">Negotiating</span>
+<span class="font-data-mono text-[11px] text-on-surface-variant">RFQ #TM-10482</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">Could we discuss the shipping terms for the Q3 delivery? We prefer FOB over CIF for this specific order.</p>
+</div>
+<!-- Conversation Item: Unread -->
+<div class="p-4 border-b border-surface-border cursor-pointer hover:bg-surface-container-low transition-colors">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-label-lg text-label-lg text-on-surface font-bold truncate pr-2">Global Spice Ventures</h3>
+<div class="flex flex-col items-end gap-1">
+<span class="font-label-md text-[11px] text-secondary font-bold whitespace-nowrap">Yesterday</span>
+<span class="w-4 h-4 rounded-full bg-secondary text-white flex items-center justify-center font-label-md text-[10px]">2</span>
+</div>
+</div>
+<div class="flex items-center gap-2 mb-2">
+<span class="px-1.5 py-0.5 rounded bg-risk-red/10 text-risk-red font-label-md text-[10px] uppercase">Action Req</span>
+<span class="font-data-mono text-[11px] text-on-surface-variant">Deal #DL-1042</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface font-medium line-clamp-2">Please review the updated compliance documents we uploaded. The customs team needs these by Friday.</p>
+</div>
+<!-- Conversation Item: Normal -->
+<div class="p-4 border-b border-surface-border cursor-pointer hover:bg-surface-container-low transition-colors">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-label-lg text-label-lg text-on-surface truncate pr-2">Nordic Organics Ltd.</h3>
+<span class="font-label-md text-[11px] text-on-surface-variant whitespace-nowrap">Oct 24</span>
+</div>
+<div class="flex items-center gap-2 mb-2">
+<span class="px-1.5 py-0.5 rounded bg-verified-emerald/10 text-verified-emerald font-label-md text-[10px] uppercase">Active</span>
+<span class="font-data-mono text-[11px] text-on-surface-variant">RFQ #TM-09921</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">Thank you for the prompt response. We will proceed.</p>
+</div>
+</div>
+</aside>
+<!-- Active Chat Window (Main Panel) -->
+<section class="flex-1 flex flex-col bg-surface-bright relative">
+<!-- Chat Header -->
+<div class="h-[72px] px-6 border-b border-surface-border flex items-center justify-between bg-surface/80 backdrop-blur-sm z-10 flex-shrink-0">
+<div class="flex items-center gap-4">
+<img alt="Company Logo" class="w-10 h-10 rounded border border-surface-border bg-white" data-alt="Corporate logo of Dutch Spice Imports, clean minimal geometric design, high contrast, professional." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCFrdoa4brUmaypEmXnbA1Yq-T5qNtebGlw9sum4ZB089ueHOaO10vWqqSYxj12W7uG7bQBhI7g-GoXuT0qeumk7Z51SMLqCK5kzmLEuwzS01pjJXlfo06PN5OXSyqQ-nX14HCDp33fNaLUXjhoko_B831XL65_HRiJig9LExQkJ4_y4qBM-1zu74hBYNnQt7R8OY-_LMUL6VcOAEc9XG9V55BP6qQYjgbXGGgp4MPVHxg57sjeoRA"/>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Dutch Spice Imports</h2>
+<div class="flex items-center gap-2">
+<span class="font-label-md text-[12px] text-on-surface-variant flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-verified-emerald"></span> Online
+                                </span>
+<span class="text-surface-border">|</span>
+<span class="font-label-md text-[12px] text-on-surface-variant">Rep: Sarah Jenkins</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<button class="h-8 px-3 rounded border border-surface-border hover:bg-surface-container-low font-label-md text-label-md text-on-surface flex items-center gap-2 transition-colors">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+                            View RFQ
+                        </button>
+<button class="w-8 h-8 rounded border border-surface-border hover:bg-surface-container-low flex items-center justify-center text-on-surface-variant transition-colors">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Mesh AI Summary Banner -->
+<div class="px-6 py-3 bg-surface-container-low border-b border-surface-border flex items-start gap-3 flex-shrink-0">
+<div class="w-6 h-6 rounded bg-secondary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[14px] text-secondary">smart_toy</span>
+</div>
+<div>
+<div class="font-label-md text-[11px] text-secondary uppercase tracking-wider mb-0.5">Mesh AI Summary</div>
+<p class="font-body-sm text-body-sm text-on-surface">Buyer requested revised shipping terms (FOB vs CIF). Next recommended step: Respond to counter-offer with updated logistics pricing.</p>
+</div>
+</div>
+<!-- Chat History -->
+<div class="flex-1 overflow-y-auto custom-scrollbar p-6 flex flex-col gap-6">
+<div class="flex justify-center">
+<span class="px-3 py-1 bg-surface-container rounded-full font-label-md text-[11px] text-on-surface-variant">Today</span>
+</div>
+<!-- System Message -->
+<div class="flex justify-center">
+<div class="bg-surface border border-surface-border rounded-lg p-3 max-w-md w-full flex items-center gap-3 shadow-sm">
+<div class="w-8 h-8 rounded-full bg-primary-container text-on-primary flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[16px]">description</span>
+</div>
+<div class="flex-1">
+<p class="font-label-md text-[13px] text-on-surface">RFQ #TM-10482 Created</p>
+<p class="font-body-sm text-[12px] text-on-surface-variant">Standard Cinnamon Bark, 500kg</p>
+</div>
+<span class="font-label-md text-[11px] text-on-surface-variant">09:15 AM</span>
+</div>
+</div>
+<!-- Buyer Message -->
+<div class="flex gap-3 max-w-[80%]">
+<img alt="Sarah" class="w-8 h-8 rounded-full border border-surface-border" data-alt="Headshot of Sarah Jenkins, professional buyer, bright office lighting, approachable." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhgFv-dq6MOGBBodh8apoa9epsPGtxDM4eLuQOkDETDd8ni3BOb2UYg-2L-LQrnR2_v3wOWdP5aORa7DfwWdEHDrSQCI24v7BgoJ8iQxViTsFWxKbGyFxTc6UFVZk_lIPsQI2PJcqTgPdxI3VRXHshhqBR9T8-L7rdKZZZlCZhSM3lcVLiSKg7Tiq6oM-KqEr8SJzm-vyZD4stezH3QpqAbmZZZ2XaLKkb45h6g9SOnhFyVleirzW5"/>
+<div>
+<div class="flex items-baseline gap-2 mb-1">
+<span class="font-label-md text-[12px] text-on-surface">Sarah Jenkins</span>
+<span class="font-label-md text-[10px] text-on-surface-variant">09:30 AM</span>
+</div>
+<div class="bg-surface border border-surface-border p-3 rounded-lg message-bubble-in shadow-sm">
+<p class="font-body-sm text-body-sm text-on-surface">Hello team, thanks for accepting the RFQ. We are reviewing the initial pricing. Could we discuss the shipping terms for the Q3 delivery? We prefer FOB over CIF for this specific order given our current logistics setup in port.</p>
+</div>
+</div>
+</div>
+<!-- Supplier (My) Message -->
+<div class="flex gap-3 max-w-[80%] self-end flex-row-reverse">
+<div class="w-8 h-8 rounded-full bg-secondary text-white flex items-center justify-center font-label-md text-[12px]">AM</div>
+<div class="flex flex-col items-end">
+<div class="flex items-baseline gap-2 mb-1 flex-row-reverse">
+<span class="font-label-md text-[12px] text-on-surface">You</span>
+<span class="font-label-md text-[10px] text-on-surface-variant">10:15 AM</span>
+</div>
+<div class="bg-secondary text-white p-3 rounded-lg message-bubble-out shadow-sm">
+<p class="font-body-sm text-body-sm">Hi Sarah, understood. We can certainly accommodate FOB terms. I'll need to check with our logistics team on the exact deduction from the unit price. I should have an updated quote for you shortly.</p>
+</div>
+</div>
+</div>
+<!-- System Card: Counter Offer -->
+<div class="flex justify-center my-2">
+<div class="bg-surface border border-secondary/30 rounded-lg p-4 max-w-md w-full shadow-sm relative overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-secondary"></div>
+<div class="flex justify-between items-start mb-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">sync_alt</span>
+<span class="font-label-md text-label-md text-on-surface">New Counter Offer Submitted</span>
+</div>
+<span class="font-label-md text-[11px] text-on-surface-variant">10:42 AM</span>
+</div>
+<div class="bg-surface-container-low p-3 rounded flex justify-between items-center mb-3">
+<div>
+<div class="font-label-md text-[11px] text-on-surface-variant mb-1">Proposed Terms</div>
+<div class="font-data-mono text-[13px] text-on-surface font-medium">FOB, $4.20/kg</div>
+</div>
+<div class="text-right">
+<div class="font-label-md text-[11px] text-on-surface-variant mb-1">Previous</div>
+<div class="font-data-mono text-[13px] text-on-surface-variant line-through">CIF, $4.65/kg</div>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="flex-1 h-8 rounded bg-secondary text-white font-label-md text-[12px] hover:bg-secondary/90 transition-colors">Accept Offer</button>
+<button class="flex-1 h-8 rounded border border-surface-border text-on-surface font-label-md text-[12px] hover:bg-surface-container-low transition-colors">Decline / Revise</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Message Input -->
+<div class="p-4 bg-surface border-t border-surface-border flex-shrink-0">
+<div class="border border-surface-border rounded-lg bg-surface-container-lowest focus-within:border-secondary focus-within:ring-1 focus-within:ring-secondary transition-all">
+<textarea class="w-full h-20 p-3 bg-transparent border-none resize-none font-body-sm text-body-sm focus:ring-0" placeholder="Type a message or press '/' for quick commands..."></textarea>
+<div class="flex items-center justify-between p-2 border-t border-surface-border/50 bg-surface-container-low/50 rounded-b-lg">
+<div class="flex items-center gap-1">
+<button class="p-1.5 text-on-surface-variant hover:text-secondary hover:bg-secondary/10 rounded transition-colors" title="Attach Document">
+<span class="material-symbols-outlined text-[20px]">attach_file</span>
+</button>
+<button class="p-1.5 text-on-surface-variant hover:text-secondary hover:bg-secondary/10 rounded transition-colors" title="Insert Template">
+<span class="material-symbols-outlined text-[20px]">subject</span>
+</button>
+<button class="p-1.5 text-on-surface-variant hover:text-secondary hover:bg-secondary/10 rounded transition-colors" title="Request Clarification">
+<span class="material-symbols-outlined text-[20px]">help_center</span>
+</button>
+</div>
+<button class="h-8 px-4 rounded bg-secondary text-white font-label-md text-label-md hover:bg-secondary/90 transition-colors flex items-center gap-2">
+                                Send <span class="material-symbols-outlined text-[16px]">send</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Context Sidebar (Right Panel) -->
+<aside class="w-72 bg-surface border-l border-surface-border flex flex-col flex-shrink-0 hidden xl:flex">
+<div class="p-4 border-b border-surface-border flex-shrink-0">
+<h2 class="font-headline-sm text-[16px] text-on-surface">Context Info</h2>
+</div>
+<div class="flex-1 overflow-y-auto custom-scrollbar p-4 space-y-6">
+<!-- Buyer Profile Summary -->
+<div class="bg-surface-container-lowest border border-surface-border rounded-lg p-4 shadow-sm">
+<div class="flex items-start justify-between mb-3">
+<div class="font-label-md text-[11px] text-on-surface-variant uppercase tracking-wide">Buyer Profile</div>
+<span class="material-symbols-outlined text-[16px] text-verified-emerald">verified</span>
+</div>
+<div class="flex items-center gap-3 mb-4">
+<img alt="Logo" class="w-10 h-10 rounded border border-surface-border object-cover" data-alt="Small logo of Dutch Spice Imports, high contrast, clean." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbYtpNBWkcJBB2xpQb_dFsrJ9m3je07QEovNXv0yBBrzBEFV5CLrsWIDW8pCaAgj-hYfF_J8t02x9dhuRSSbXci_tG3lT4H_FZLzQUEjWQPKmRCpgZnuGuF7acVbXwrJxuov30i78b7tgudtxz4NXydJILH2x9XnPQ120mEjge_kPvkNvj--zPutGs3V_J8dA-8jDLStsrKE8B1_-amXWT4-qTNy23st46HocqSfvbN4f39PWuPnse"/>
+<div>
+<h3 class="font-label-lg text-[14px] text-on-surface font-bold">Dutch Spice Imports</h3>
+<div class="font-label-md text-[11px] text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">location_on</span> Amsterdam, NL
+                                </div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-3 mb-4">
+<div class="bg-surface-container-low p-2 rounded">
+<div class="font-label-md text-[10px] text-on-surface-variant mb-1">Trust Score</div>
+<div class="font-data-mono text-[14px] text-verified-emerald font-bold">94/100</div>
+</div>
+<div class="bg-surface-container-low p-2 rounded">
+<div class="font-label-md text-[10px] text-on-surface-variant mb-1">Avg. Payment</div>
+<div class="font-data-mono text-[14px] text-on-surface">14 Days</div>
+</div>
+</div>
+<button class="w-full py-1.5 border border-surface-border rounded text-on-surface font-label-md text-[12px] hover:bg-surface-container-low transition-colors">View Full Profile</button>
+</div>
+<!-- Deal/RFQ Snapshot -->
+<div class="bg-surface-container-lowest border border-surface-border rounded-lg p-4 shadow-sm">
+<div class="flex items-start justify-between mb-3">
+<div class="font-label-md text-[11px] text-on-surface-variant uppercase tracking-wide">Active RFQ</div>
+<span class="font-data-mono text-[11px] text-secondary font-medium">#TM-10482</span>
+</div>
+<div class="space-y-3">
+<div>
+<div class="font-label-md text-[11px] text-on-surface-variant">Product</div>
+<div class="font-body-sm text-[13px] text-on-surface">Standard Cinnamon Bark (Grade A)</div>
+</div>
+<div class="flex justify-between border-t border-surface-border pt-2">
+<div class="font-label-md text-[11px] text-on-surface-variant">Quantity</div>
+<div class="font-data-mono text-[12px] text-on-surface">500 kg</div>
+</div>
+<div class="flex justify-between border-t border-surface-border pt-2">
+<div class="font-label-md text-[11px] text-on-surface-variant">Target Price</div>
+<div class="font-data-mono text-[12px] text-on-surface">$4.50 / kg</div>
+</div>
+<div class="flex justify-between border-t border-surface-border pt-2">
+<div class="font-label-md text-[11px] text-on-surface-variant">Delivery</div>
+<div class="font-body-sm text-[12px] text-on-surface">Q3 (Sep 2024)</div>
+</div>
+<div class="flex justify-between border-t border-surface-border pt-2">
+<div class="font-label-md text-[11px] text-on-surface-variant">Incoterms</div>
+<div class="font-body-sm text-[12px] text-risk-amber font-bold">FOB (Requested)</div>
+</div>
+</div>
+</div>
+</div>
+</aside>
+</main>
+</div>
+</body></html>

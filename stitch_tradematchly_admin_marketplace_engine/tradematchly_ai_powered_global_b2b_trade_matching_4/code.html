@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TradeMatchly - Find the right global trading partner</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container-lowest": "#ffffff",
+                      "risk-red": "#dc2626",
+                      "on-secondary-container": "#fffbff",
+                      "surface-tint": "#565e74",
+                      "on-primary-fixed": "#131b2e",
+                      "verified-emerald": "#059669",
+                      "on-surface": "#1b1b1d",
+                      "primary-fixed-dim": "#bec6e0",
+                      "tertiary-container": "#271901",
+                      "on-secondary": "#ffffff",
+                      "on-background": "#1b1b1d",
+                      "on-tertiary-container": "#98805d",
+                      "surface-variant": "#e4e2e4",
+                      "on-secondary-fixed-variant": "#3322cc",
+                      "surface-container-highest": "#e4e2e4",
+                      "data-text": "#1e293b",
+                      "primary-container": "#131b2e",
+                      "surface-container-low": "#f6f3f5",
+                      "error": "#ba1a1a",
+                      "on-tertiary-fixed-variant": "#574425",
+                      "secondary-fixed": "#e2dfff",
+                      "on-secondary-fixed": "#0f0069",
+                      "primary-fixed": "#dae2fd",
+                      "on-error-container": "#93000a",
+                      "primary": "#000000",
+                      "outline-variant": "#c6c6cd",
+                      "surface-dim": "#dcd9db",
+                      "on-tertiary": "#ffffff",
+                      "inverse-surface": "#303032",
+                      "risk-amber": "#d97706",
+                      "background": "#fcf8fa",
+                      "on-primary-fixed-variant": "#3f465c",
+                      "tertiary-fixed": "#fcdeb5",
+                      "on-tertiary-fixed": "#271901",
+                      "on-primary": "#ffffff",
+                      "on-error": "#ffffff",
+                      "on-surface-variant": "#45464d",
+                      "surface-bright": "#fcf8fa",
+                      "secondary-fixed-dim": "#c3c0ff",
+                      "tertiary-fixed-dim": "#dec29a",
+                      "inverse-primary": "#bec6e0",
+                      "surface-border": "#e2e8f0",
+                      "error-container": "#ffdad6",
+                      "inverse-on-surface": "#f3f0f2",
+                      "secondary": "#4b41e1",
+                      "tertiary": "#000000",
+                      "secondary-container": "#655dfb",
+                      "outline": "#76777d",
+                      "surface": "#fcf8fa",
+                      "surface-container-high": "#eae7e9",
+                      "in-progress-blue": "#2563eb",
+                      "surface-container": "#f0edef",
+                      "on-primary-container": "#7c839b"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "base": "4px",
+                      "container-padding": "24px",
+                      "section-gap": "32px",
+                      "gutter": "16px",
+                      "table-cell-padding": "12px",
+                      "sidebar-width": "260px"
+              },
+              "fontFamily": {
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Inter"
+                      ],
+                      "label-lg": [
+                              "Inter"
+                      ],
+                      "label-md": [
+                              "Inter"
+                      ],
+                      "data-mono": [
+                              "jetbrainsMono"
+                      ],
+                      "headline-lg": [
+                              "Inter"
+                      ],
+                      "headline-sm": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "display-lg": [
+                              "Inter"
+                      ],
+                      "body-sm": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "body-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-md": [
+                              "22px",
+                              {
+                                      "lineHeight": "28px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-lg": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-md": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.02em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "data-mono": [
+                              "13px",
+                              {
+                                      "lineHeight": "18px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-lg": [
+                              "28px",
+                              {
+                                      "lineHeight": "34px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-sm": [
+                              "18px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-lg": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-lg": [
+                              "36px",
+                              {
+                                      "lineHeight": "44px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-sm": [
+                              "13px",
+                              {
+                                      "lineHeight": "18px",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+        .text-gradient {
+            background: linear-gradient(to right, #0f172a, #2563eb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col antialiased">
+<!-- Top Navigation (Landing Page version, no side nav) -->
+<nav class="fixed top-0 left-0 w-full h-16 bg-surface-container-lowest/90 backdrop-blur-md border-b border-surface-border z-50 flex justify-between items-center px-6 md:px-container-padding">
+<div class="flex items-center gap-2">
+<img alt="TradeMatchly Logo" class="h-8 w-8 object-cover rounded-md" src="https://lh3.googleusercontent.com/aida/AEtjO1W2hoULEk30BGtol6rhIl18X5SesW7dFpNggDZ41PvGvFx-IwybXt0RyRuZmgDG5_GnGN5DCdkpFmn-34_eXZQ9GZm8tF5n7-3YA1yaShAVXhWehUuMVTuKtbPGgRk-gL5qwV93YU5t7FFhi8IBXXSojp6h81-7M2pL8oSxMkHQH2tCDeG-GBD1GX2hwPrH3_3kcba_9trw0hEt31p4fAB1emsyPzSq3TrQVq_zdSr-Z1zTLndHnuTDeA"/>
+<span class="font-headline-sm text-headline-sm text-primary">TradeMatchly</span>
+</div>
+<div class="hidden md:flex items-center gap-6">
+<a class="text-on-surface-variant font-body-sm text-body-sm hover:text-primary transition-colors" href="#">How it Works</a>
+<a class="text-on-surface-variant font-body-sm text-body-sm hover:text-primary transition-colors" href="#">Solutions</a>
+<a class="text-on-surface-variant font-body-sm text-body-sm hover:text-primary transition-colors" href="#">Pricing</a>
+</div>
+<div class="flex items-center gap-4">
+<a class="text-primary font-label-md text-label-md hidden md:block" href="#">Log In</a>
+<button class="bg-primary text-on-primary font-label-md text-label-md px-4 py-2 rounded-DEFAULT hover:opacity-90 transition-opacity">Get Started</button>
+</div>
+</nav>
+<main class="flex-grow pt-16">
+<!-- Hero Section -->
+<section class="hero-gradient relative pt-24 pb-32 px-6 md:px-container-padding overflow-hidden">
+<div class="max-w-[1152px] mx-auto text-center relative z-10">
+<h1 class="font-display-lg text-display-lg md:text-[56px] md:leading-[64px] font-bold text-primary mb-6 tracking-tight">
+                    Find the right <span class="text-gradient">global trading partner.</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-10">
+                    TradeMatchly uses advanced AI to analyze millions of data points, instantly matching buyers with verified, capable suppliers across the globe.
+                </p>
+<!-- AI Sourcing Input -->
+<div class="glass-panel max-w-3xl mx-auto rounded-lg p-4 flex flex-col md:flex-row items-center gap-4 shadow-xl">
+<div class="flex-grow w-full relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full pl-12 pr-4 py-4 rounded-md border-surface-border bg-white focus:border-secondary focus:ring-1 focus:ring-secondary font-body-md text-body-md shadow-sm outline-none transition-all" placeholder="I need 500 MT of food-grade turmeric powder..." type="text"/>
+</div>
+<button class="w-full md:w-auto bg-primary text-on-primary font-label-lg text-label-lg px-8 py-4 rounded-md hover:bg-primary-container transition-colors flex items-center justify-center gap-2 flex-shrink-0">
+<span class="material-symbols-outlined">auto_awesome</span>
+                        Source Now
+                    </button>
+</div>
+</div>
+<!-- Abstract background elements -->
+<div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
+<div class="absolute top-[-10%] right-[-5%] w-[40%] h-[60%] rounded-full bg-primary-fixed-dim/20 blur-[100px]"></div>
+<div class="absolute bottom-[-10%] left-[-5%] w-[40%] h-[60%] rounded-full bg-secondary-fixed/30 blur-[100px]"></div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-surface-border py-12 px-6 md:px-container-padding">
+<div class="max-w-[1152px] mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="flex items-center gap-2">
+<img alt="TradeMatchly Logo" class="h-6 w-6 object-cover rounded-md grayscale opacity-70" src="https://lh3.googleusercontent.com/aida/AEtjO1W2hoULEk30BGtol6rhIl18X5SesW7dFpNggDZ41PvGvFx-IwybXt0RyRuZmgDG5_GnGN5DCdkpFmn-34_eXZQ9GZm8tF5n7-3YA1yaShAVXhWehUuMVTuKtbPGgRk-gL5qwV93YU5t7FFhi8IBXXSojp6h81-7M2pL8oSxMkHQH2tCDeG-GBD1GX2hwPrH3_3kcba_9trw0hEt31p4fAB1emsyPzSq3TrQVq_zdSr-Z1zTLndHnuTDeA"/>
+<span class="font-headline-sm text-body-sm font-semibold text-on-surface-variant">TradeMatchly</span>
+</div>
+<div class="flex gap-6 text-body-sm text-on-surface-variant font-body-sm">
+<a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="hover:text-primary transition-colors" href="#">Contact</a>
+</div>
+</div>
+</footer>
+</body></html>

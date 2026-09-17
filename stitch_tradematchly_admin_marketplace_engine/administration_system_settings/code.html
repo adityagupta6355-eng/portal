@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TradeMatchly Administration</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&amp;family=JetBrains+Mono:wght@400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "tertiary": "#000000",
+                      "error": "#ba1a1a",
+                      "on-secondary-container": "#fffbff",
+                      "on-primary-container": "#7c839b",
+                      "on-primary-fixed": "#131b2e",
+                      "tertiary-fixed": "#fcdeb5",
+                      "surface": "#fcf8fa",
+                      "on-primary-fixed-variant": "#3f465c",
+                      "inverse-primary": "#bec6e0",
+                      "surface-container-low": "#f6f3f5",
+                      "on-tertiary-fixed-variant": "#574425",
+                      "on-surface": "#1b1b1d",
+                      "surface-container-highest": "#e4e2e4",
+                      "surface-container-lowest": "#ffffff",
+                      "inverse-surface": "#303032",
+                      "secondary-fixed-dim": "#c3c0ff",
+                      "tertiary-fixed-dim": "#dec29a",
+                      "on-error": "#ffffff",
+                      "tertiary-container": "#271901",
+                      "surface-container": "#f0edef",
+                      "outline-variant": "#c6c6cd",
+                      "on-background": "#1b1b1d",
+                      "surface-bright": "#fcf8fa",
+                      "surface-dim": "#dcd9db",
+                      "on-tertiary-container": "#98805d",
+                      "error-container": "#ffdad6",
+                      "secondary-fixed": "#e2dfff",
+                      "primary-fixed-dim": "#bec6e0",
+                      "background": "#fcf8fa",
+                      "on-tertiary": "#ffffff",
+                      "on-secondary": "#ffffff",
+                      "primary-container": "#131b2e",
+                      "on-primary": "#ffffff",
+                      "secondary": "#4b41e1",
+                      "surface-container-high": "#eae7e9",
+                      "primary": "#000000",
+                      "surface-variant": "#e4e2e4",
+                      "surface-tint": "#565e74",
+                      "inverse-on-surface": "#f3f0f2",
+                      "on-tertiary-fixed": "#271901",
+                      "on-secondary-fixed-variant": "#3323cc",
+                      "primary-fixed": "#dae2fd",
+                      "on-secondary-fixed": "#0f0069",
+                      "on-surface-variant": "#45464d",
+                      "on-error-container": "#93000a",
+                      "outline": "#76777d",
+                      "secondary-container": "#645efb"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "xs": "4px",
+                      "lg": "24px",
+                      "gutter": "20px",
+                      "xl": "32px",
+                      "base": "4px",
+                      "md": "16px",
+                      "container-max": "1440px",
+                      "sm": "8px"
+              },
+              "fontFamily": {
+                      "display-lg": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "label-md": [
+                              "Inter"
+                      ],
+                      "data-mono": [
+                              "jetbrainsMono"
+                      ],
+                      "headline-sm": [
+                              "Inter"
+                      ],
+                      "body-sm": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "display-lg": [
+                              "36px",
+                              {
+                                      "lineHeight": "44px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-lg": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-md": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "data-mono": [
+                              "13px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-sm": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      }
+              },
+          }
+        }
+      </script>
+<style type="text/tailwindcss">
+        @layer utilities {
+            .glass-panel {
+                @apply bg-surface-container-lowest border border-outline-variant rounded-xl shadow-[0_2px_12px_rgba(0,0,0,0.04)] overflow-hidden;
+            }
+            .input-field {
+                @apply w-full border border-outline-variant rounded-DEFAULT px-md py-sm font-body-md text-on-surface bg-surface-container-lowest focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all;
+            }
+            .btn-primary {
+                @apply bg-secondary text-white font-label-md text-label-md px-md py-sm rounded-DEFAULT hover:opacity-90 transition-opacity flex items-center justify-center gap-xs;
+            }
+            .toggle-switch {
+                @apply relative inline-flex h-5 w-9 items-center rounded-full bg-outline-variant transition-colors focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2;
+            }
+            .toggle-switch[aria-checked="true"] {
+                @apply bg-secondary;
+            }
+            .toggle-knob {
+                @apply inline-block h-4 w-4 transform rounded-full bg-white transition-transform;
+            }
+            .toggle-switch[aria-checked="true"] .toggle-knob {
+                @apply translate-x-4;
+            }
+            .toggle-switch[aria-checked="false"] .toggle-knob {
+                @apply translate-x-1;
+            }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md min-h-screen flex antialiased">
+<!-- SideNavBar -->
+<nav class="fixed left-0 top-0 h-full flex flex-col z-40 bg-surface border-r border-outline-variant docked h-screen w-64">
+<div class="p-lg border-b border-outline-variant flex flex-col items-start gap-md">
+<div class="flex items-center gap-sm">
+<div class="h-10 w-10 bg-secondary rounded-DEFAULT flex items-center justify-center text-white">
+<span class="material-symbols-outlined font-[FILL]">admin_panel_settings</span>
+</div>
+<div>
+<h1 class="font-display-lg text-[20px] leading-tight font-bold text-primary">TradeMatchly</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant">System Administration</p>
+</div>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto py-md">
+<ul class="flex flex-col gap-xs px-sm">
+<li>
+<a class="flex items-center gap-3 px-4 py-3 text-secondary font-bold border-r-4 border-secondary bg-surface-container-low transition-colors scale-[0.98] duration-150" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">settings</span>
+<span class="font-label-md text-label-md">General</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors" href="#">
+<span class="material-symbols-outlined">public</span>
+<span class="font-label-md text-label-md">Countries &amp; Regions</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-label-md text-label-md">Currencies</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors" href="#">
+<span class="material-symbols-outlined">category</span>
+<span class="font-label-md text-label-md">Product Catalog</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors" href="#">
+<span class="material-symbols-outlined">gavel</span>
+<span class="font-label-md text-label-md">Trade Terms</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors" href="#">
+<span class="material-symbols-outlined">verified_user</span>
+<span class="font-label-md text-label-md">Verification Rules</span>
+</a>
+</li>
+</ul>
+</div>
+<div class="border-t border-outline-variant p-sm">
+<ul class="flex flex-col gap-xs">
+<li>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="font-label-md text-label-md">Support</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors" href="#">
+<span class="material-symbols-outlined">history</span>
+<span class="font-label-md text-label-md">Logs</span>
+</a>
+</li>
+</ul>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-1 ml-64 min-h-screen flex flex-col bg-surface-container-low">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center w-full px-lg h-16 sticky top-0 z-50 bg-surface-container-lowest border-b border-outline-variant shadow-sm max-w-[calc(1440px-256px)] mx-auto">
+<div class="flex items-center gap-lg">
+<span class="font-headline-md text-headline-md font-bold text-primary">System Administration</span>
+</div>
+<div class="flex flex-1 max-w-md mx-lg hidden md:block">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full bg-surface border border-outline-variant rounded-full pl-10 pr-4 py-2 font-body-sm text-body-sm focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary" placeholder="Search settings..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<button class="text-on-surface-variant hover:text-primary transition-opacity">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-opacity">
+<span class="material-symbols-outlined">settings_suggest</span>
+</button>
+<div class="h-8 w-8 rounded-full bg-surface-dim overflow-hidden border border-outline-variant">
+<img alt="Admin User Avatar" class="w-full h-full object-cover" data-alt="A small, professional portrait of a corporate administrator in a modern office setting. High-key lighting, corporate modern aesthetic, sharp focus." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKCOn2u5L2rdKb8C1-zHTBP3BMkk_1OpTLJFIlPWJs8WZp4Hjnvfbe6Oc_5zFvDdTdkAJlurpLC8pd2J5qz6gkpoVsY-BnEJRRMVHH3swAg0OssXAR_cvZtaNdNsbEDmQmdcQdUaWeaF_vL4A1a8xbH-gYWM7hUaoVW2RA8_9V7RO0K4fuNh1fEFju_QU1GSJ_hPmW_IqSvnkyAMD9xdwYn21m4eDGM_NluAF4Diklj7Abl0BGmd81"/>
+</div>
+<button class="btn-primary ml-sm">
+<span class="material-symbols-outlined text-[18px]">save</span>
+                    Save Global Changes
+                 </button>
+</div>
+</header>
+<!-- Page Content -->
+<div class="flex-1 p-lg max-w-[calc(1440px-256px)] w-full mx-auto flex flex-col gap-lg">
+<!-- Dashboard/Grid Layout -->
+<div class="grid grid-cols-1 xl:grid-cols-3 gap-lg">
+<!-- Left Column (Platform Config & Currency) -->
+<div class="flex flex-col gap-lg xl:col-span-1">
+<!-- Platform Configuration -->
+<section class="glass-panel p-lg flex flex-col gap-md">
+<div class="flex items-center gap-sm mb-xs">
+<span class="material-symbols-outlined text-secondary">tune</span>
+<h2 class="font-headline-sm text-headline-sm text-primary">Platform Configuration</h2>
+</div>
+<div class="flex flex-col gap-md">
+<div class="flex flex-col gap-xs">
+<label class="font-label-md text-label-md text-on-surface-variant">Site Name</label>
+<input class="input-field" type="text" value="TradeMatchly Global Platform"/>
+</div>
+<div class="flex flex-col gap-xs">
+<label class="font-label-md text-label-md text-on-surface-variant">Contact Email (Admin Support)</label>
+<input class="input-field" type="email" value="admin-ops@tradematchly.com"/>
+</div>
+<div class="flex flex-col gap-xs">
+<label class="font-label-md text-label-md text-on-surface-variant">Default Timezone</label>
+<select class="input-field appearance-none">
+<option>UTC (Coordinated Universal Time)</option>
+<option>EST (Eastern Standard Time)</option>
+<option>GMT (Greenwich Mean Time)</option>
+<option>SGT (Singapore Time)</option>
+</select>
+</div>
+<div class="mt-sm p-md bg-surface border border-outline-variant rounded-DEFAULT flex items-center justify-between">
+<div>
+<h3 class="font-label-md text-label-md text-on-surface">Maintenance Mode</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Disable user access for updates</p>
+</div>
+<button aria-checked="false" class="toggle-switch" onclick="this.setAttribute('aria-checked', this.getAttribute('aria-checked') === 'true' ? 'false' : 'true')" role="switch" type="button">
+<span class="toggle-knob"></span>
+</button>
+</div>
+</div>
+</section>
+<!-- Currency & Exchange -->
+<section class="glass-panel p-lg flex flex-col gap-md">
+<div class="flex items-center gap-sm mb-xs">
+<span class="material-symbols-outlined text-secondary">currency_exchange</span>
+<h2 class="font-headline-sm text-headline-sm text-primary">Currency &amp; Exchange</h2>
+</div>
+<div class="flex flex-col gap-xs border-b border-outline-variant pb-md">
+<label class="font-label-md text-label-md text-on-surface-variant">Primary Platform Currency</label>
+<div class="flex items-center gap-sm mt-xs">
+<div class="h-8 w-12 bg-surface border border-outline-variant rounded-DEFAULT flex items-center justify-center font-data-mono text-data-mono font-bold">USD</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Used for global reporting and base conversions.</span>
+</div>
+</div>
+<div class="flex flex-col gap-xs pt-xs">
+<h3 class="font-label-md text-label-md text-on-surface">Supported Currencies &amp; Sync</h3>
+<ul class="flex flex-col gap-xs mt-sm">
+<li class="flex items-center justify-between p-sm hover:bg-surface rounded-DEFAULT transition-colors">
+<div class="flex items-center gap-md">
+<span class="font-data-mono text-data-mono font-bold w-8">EUR</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Euro</span>
+</div>
+<span class="px-2 py-1 bg-green-100/50 text-green-800 text-[10px] font-bold rounded-DEFAULT uppercase tracking-wider">Synced 1m ago</span>
+</li>
+<li class="flex items-center justify-between p-sm hover:bg-surface rounded-DEFAULT transition-colors">
+<div class="flex items-center gap-md">
+<span class="font-data-mono text-data-mono font-bold w-8">GBP</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">British Pound</span>
+</div>
+<span class="px-2 py-1 bg-green-100/50 text-green-800 text-[10px] font-bold rounded-DEFAULT uppercase tracking-wider">Synced 1m ago</span>
+</li>
+<li class="flex items-center justify-between p-sm hover:bg-surface rounded-DEFAULT transition-colors">
+<div class="flex items-center gap-md">
+<span class="font-data-mono text-data-mono font-bold w-8">JPY</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Japanese Yen</span>
+</div>
+<span class="px-2 py-1 bg-amber-100/50 text-amber-800 text-[10px] font-bold rounded-DEFAULT uppercase tracking-wider">Sync Delayed</span>
+</li>
+<li class="flex items-center justify-between p-sm hover:bg-surface rounded-DEFAULT transition-colors">
+<div class="flex items-center gap-md">
+<span class="font-data-mono text-data-mono font-bold w-8">SGD</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Singapore Dollar</span>
+</div>
+<span class="px-2 py-1 bg-green-100/50 text-green-800 text-[10px] font-bold rounded-DEFAULT uppercase tracking-wider">Synced 1m ago</span>
+</li>
+</ul>
+</div>
+</section>
+</div>
+<!-- Right Column (Regions & Rules) -->
+<div class="flex flex-col gap-lg xl:col-span-2">
+<!-- Regional & Trade Controls -->
+<section class="glass-panel flex flex-col">
+<div class="p-lg border-b border-outline-variant flex justify-between items-center bg-surface-bright">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-secondary">public</span>
+<h2 class="font-headline-sm text-headline-sm text-primary">Regional &amp; Trade Controls</h2>
+</div>
+<button class="text-secondary font-label-md text-label-md flex items-center gap-xs hover:underline">
+<span class="material-symbols-outlined text-[16px]">add</span> Add Region
+                            </button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface border-b border-outline-variant">
+<th class="p-md font-label-md text-label-md text-on-surface-variant font-semibold">Region Name</th>
+<th class="p-md font-label-md text-label-md text-on-surface-variant font-semibold">Jurisdiction Count</th>
+<th class="p-md font-label-md text-label-md text-on-surface-variant font-semibold text-center">Trading Enabled</th>
+<th class="p-md font-label-md text-label-md text-on-surface-variant font-semibold text-center">Strict KYC/AML req.</th>
+<th class="p-md font-label-md text-label-md text-on-surface-variant font-semibold text-right">Actions</th>
+</tr>
+</thead>
+<tbody>
+<tr class="border-b border-outline-variant/50 hover:bg-surface/50 transition-colors h-12">
+<td class="p-md font-body-md text-body-md font-medium text-on-surface">Europe (EU &amp; UK)</td>
+<td class="p-md font-data-mono text-data-mono text-on-surface-variant">32 Entities</td>
+<td class="p-md text-center">
+<button aria-checked="true" class="toggle-switch" onclick="this.setAttribute('aria-checked', this.getAttribute('aria-checked') === 'true' ? 'false' : 'true')" role="switch" type="button"><span class="toggle-knob"></span></button>
+</td>
+<td class="p-md text-center">
+<button aria-checked="true" class="toggle-switch" onclick="this.setAttribute('aria-checked', this.getAttribute('aria-checked') === 'true' ? 'false' : 'true')" role="switch" type="button"><span class="toggle-knob"></span></button>
+</td>
+<td class="p-md text-right">
+<button class="text-on-surface-variant hover:text-secondary"><span class="material-symbols-outlined text-[20px]">more_vert</span></button>
+</td>
+</tr>
+<tr class="border-b border-outline-variant/50 hover:bg-surface/50 transition-colors h-12">
+<td class="p-md font-body-md text-body-md font-medium text-on-surface">APAC (Asia-Pacific)</td>
+<td class="p-md font-data-mono text-data-mono text-on-surface-variant">18 Entities</td>
+<td class="p-md text-center">
+<button aria-checked="true" class="toggle-switch" onclick="this.setAttribute('aria-checked', this.getAttribute('aria-checked') === 'true' ? 'false' : 'true')" role="switch" type="button"><span class="toggle-knob"></span></button>
+</td>
+<td class="p-md text-center">
+<button aria-checked="false" class="toggle-switch" onclick="this.setAttribute('aria-checked', this.getAttribute('aria-checked') === 'true' ? 'false' : 'true')" role="switch" type="button"><span class="toggle-knob"></span></button>
+</td>
+<td class="p-md text-right">
+<button class="text-on-surface-variant hover:text-secondary"><span class="material-symbols-outlined text-[20px]">more_vert</span></button>
+</td>
+</tr>
+<tr class="border-b border-outline-variant/50 hover:bg-surface/50 transition-colors h-12">
+<td class="p-md font-body-md text-body-md font-medium text-on-surface">Americas (NA &amp; LATAM)</td>
+<td class="p-md font-data-mono text-data-mono text-on-surface-variant">24 Entities</td>
+<td class="p-md text-center">
+<button aria-checked="true" class="toggle-switch" onclick="this.setAttribute('aria-checked', this.getAttribute('aria-checked') === 'true' ? 'false' : 'true')" role="switch" type="button"><span class="toggle-knob"></span></button>
+</td>
+<td class="p-md text-center">
+<button aria-checked="true" class="toggle-switch" onclick="this.setAttribute('aria-checked', this.getAttribute('aria-checked') === 'true' ? 'false' : 'true')" role="switch" type="button"><span class="toggle-knob"></span></button>
+</td>
+<td class="p-md text-right">
+<button class="text-on-surface-variant hover:text-secondary"><span class="material-symbols-outlined text-[20px]">more_vert</span></button>
+</td>
+</tr>
+<tr class="hover:bg-surface/50 transition-colors h-12">
+<td class="p-md font-body-md text-body-md font-medium text-on-surface">MEA (Middle East &amp; Africa)</td>
+<td class="p-md font-data-mono text-data-mono text-on-surface-variant">14 Entities</td>
+<td class="p-md text-center">
+<button aria-checked="false" class="toggle-switch" onclick="this.setAttribute('aria-checked', this.getAttribute('aria-checked') === 'true' ? 'false' : 'true')" role="switch" type="button"><span class="toggle-knob"></span></button>
+</td>
+<td class="p-md text-center">
+<button aria-checked="true" class="toggle-switch" onclick="this.setAttribute('aria-checked', this.getAttribute('aria-checked') === 'true' ? 'false' : 'true')" role="switch" type="button"><span class="toggle-knob"></span></button>
+</td>
+<td class="p-md text-right">
+<button class="text-on-surface-variant hover:text-secondary"><span class="material-symbols-outlined text-[20px]">more_vert</span></button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Global Trade Rules (Bento style grid inside) -->
+<section class="glass-panel p-lg flex flex-col gap-md">
+<div class="flex items-center gap-sm mb-xs">
+<span class="material-symbols-outlined text-secondary">gavel</span>
+<h2 class="font-headline-sm text-headline-sm text-primary">Global Trade Rules</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<!-- Incoterms -->
+<div class="bg-surface border border-outline-variant p-md rounded-lg flex flex-col gap-sm">
+<h3 class="font-label-md text-label-md text-on-surface font-semibold">Default Incoterms®</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-xs">Select preferred commercial terms for new contracts.</p>
+<div class="flex flex-wrap gap-xs">
+<label class="flex items-center gap-xs px-3 py-1.5 border border-secondary bg-secondary/10 text-secondary rounded-full font-label-md text-label-md cursor-pointer transition-colors">
+<input checked="" class="hidden" name="incoterm" type="radio"/> CIF
+                                    </label>
+<label class="flex items-center gap-xs px-3 py-1.5 border border-outline-variant text-on-surface-variant hover:bg-surface-variant rounded-full font-label-md text-label-md cursor-pointer transition-colors">
+<input class="hidden" name="incoterm" type="radio"/> FOB
+                                    </label>
+<label class="flex items-center gap-xs px-3 py-1.5 border border-outline-variant text-on-surface-variant hover:bg-surface-variant rounded-full font-label-md text-label-md cursor-pointer transition-colors">
+<input class="hidden" name="incoterm" type="radio"/> EXW
+                                    </label>
+<label class="flex items-center gap-xs px-3 py-1.5 border border-outline-variant text-on-surface-variant hover:bg-surface-variant rounded-full font-label-md text-label-md cursor-pointer transition-colors">
+<input class="hidden" name="incoterm" type="radio"/> DDP
+                                    </label>
+</div>
+</div>
+<!-- MOQ -->
+<div class="bg-surface border border-outline-variant p-md rounded-lg flex flex-col gap-sm">
+<h3 class="font-label-md text-label-md text-on-surface font-semibold">Global Minimum Order Quantity (MOQ)</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-xs">Set baseline trade minimums across all categories.</p>
+<div class="flex items-center gap-sm">
+<div class="relative flex-1">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 font-data-mono text-on-surface-variant">$</span>
+<input class="input-field pl-8 font-data-mono" type="number" value="10000"/>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">USD base</span>
+</div>
+<div class="flex items-center gap-xs mt-xs">
+<input checked="" class="rounded text-secondary focus:ring-secondary border-outline-variant" id="enforce_moq" type="checkbox"/>
+<label class="font-body-sm text-body-sm text-on-surface" for="enforce_moq">Strictly enforce across regions</label>
+</div>
+</div>
+<!-- Compliance -->
+<div class="bg-surface border border-outline-variant p-md rounded-lg flex flex-col gap-sm md:col-span-2">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-label-md text-label-md text-on-surface font-semibold">Automated Compliance Checks</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Halt trades if parties appear on international sanction lists (OFAC, UN).</p>
+</div>
+<button aria-checked="true" class="toggle-switch" onclick="this.setAttribute('aria-checked', this.getAttribute('aria-checked') === 'true' ? 'false' : 'true')" role="switch" type="button"><span class="toggle-knob"></span></button>
+</div>
+<div class="mt-sm pt-sm border-t border-outline-variant/50">
+<a class="text-secondary font-label-md text-label-md flex items-center gap-xs hover:underline" href="#">
+                                         Configure sanction lists <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</div>
+</main>
+</body></html>
