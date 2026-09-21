@@ -178,12 +178,12 @@ export default function ActivityPage() {
 
   const handleActivityAction = (activity: ActivityItem) => {
     if (activity.type === "quote") {
-      router.push("/supplier/quotes/new");
+      router.push("/supplier/rfqs");
       return;
     }
 
     if (activity.type === "buyer") {
-      router.push("/supplier/negotiations");
+      router.push("/supplier/message");
       return;
     }
 
@@ -242,118 +242,47 @@ export default function ActivityPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#f7f7fa]">
-
-      <header className="border-b border-[#e4e4e8] bg-white">
-
-        <div className="mx-auto flex max-w-[1200px] items-center justify-between px-5 py-5">
-
-          <div className="flex items-center gap-4">
-
-            <button
-              onClick={() => router.back()}
-              className="flex h-9 w-9 items-center justify-center rounded-md border border-[#e1e1e6] bg-white text-[#555] hover:bg-[#f7f7fa]"
-              title="Back"
-            >
-              <ArrowLeft size={17} />
-            </button>
-
-            <div>
-
-              <div className="flex flex-wrap items-center gap-3">
-
-                <h1 className="text-2xl font-bold text-[#20222a]">
-                  All Recent Activity &amp; Audit Trail
-                </h1>
-
-                <span className="flex items-center gap-1.5 rounded-full bg-[#e8f8ef] px-2.5 py-1 text-[10px] font-semibold text-[#159966]">
-
-                  <span className="h-1.5 w-1.5 rounded-full bg-[#1da66a]" />
-
-                  LIVE FEED
-
-                </span>
-
-              </div>
-
-              <p className="mt-1.5 text-[13px] text-[#858894]">
-                Complete history of activity across your supplier account
-              </p>
-
-            </div>
-
-          </div>
-
-
-          <div className="flex items-center gap-2">
-
-            <button
-              onClick={handleDownload}
-              className="flex items-center gap-2 rounded-md border border-[#dedee4] bg-white px-3.5 py-2.5 text-[13px] font-semibold text-[#555] hover:bg-[#f7f7fa]"
-            >
-              <Download size={15} />
-              CSV
-            </button>
-
-            <button
-              onClick={() => router.push("/supplier")}
-              className="flex h-9 w-9 items-center justify-center rounded-md border border-[#dedee4] text-[#777]"
-              title="Close"
-            >
-              <X size={16} />
-            </button>
-
-          </div>
-
-        </div>
-
-      </header>
-
-      <div className="border-b border-[#f0d58e] bg-[#fff9e8]">
-
-        <div className="mx-auto flex max-w-[1200px] items-center justify-between gap-4 px-5 py-4">
-
-          <div className="flex items-center gap-3">
-
-            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#fff0c7] text-[#db8b19]">
-              <TriangleAlert size={17} />
-            </div>
-
-            <div>
-
-              <div className="flex flex-wrap items-center gap-2">
-
-                <p className="text-[13px] font-bold text-[#8b5b16]">
-                  Activity Sync Incomplete
-                </p>
-
-                <span className="rounded-full bg-[#f6dfa9] px-2.5 py-1 text-[10px] font-semibold text-[#966719]">
-                  3 EVENTS PENDING
-                </span>
-
-              </div>
-
-              <p className="mt-1 text-[11px] text-[#b17b28]">
-                Some recent account events are still being synchronized.
-              </p>
-
-            </div>
-
-          </div>
-
+    <div className="space-y-6">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200 pb-4">
+        <div className="flex items-center gap-4">
           <button
-            className="flex items-center gap-1.5 text-[13px] font-semibold text-[#8b5b16]"
-            onClick={() => window.location.reload()}
+            onClick={() => router.back()}
+            className="flex h-9 w-9 items-center justify-center rounded-md border border-[#e1e1e6] bg-white text-[#555] hover:bg-[#f7f7fa]"
+            title="Back"
           >
-            <RefreshCw size={14} />
-            Sync Now
+            <ArrowLeft size={17} />
           </button>
 
+          <div>
+            <div className="flex flex-wrap items-center gap-3">
+              <h1 className="text-2xl font-bold tracking-tight text-slate-900">
+                All Recent Activity &amp; Audit Trail
+              </h1>
+
+              <span className="flex items-center gap-1.5 rounded-full bg-[#e8f8ef] px-2.5 py-1 text-[10px] font-semibold text-[#159966]">
+                <span className="h-1.5 w-1.5 rounded-full bg-[#1da66a]" />
+                LIVE FEED
+              </span>
+            </div>
+
+            <p className="mt-1 text-sm text-slate-500">
+              Complete history of activity across your supplier account
+            </p>
+          </div>
         </div>
 
+        <div className="flex items-center gap-2">
+          <button
+            onClick={handleDownload}
+            className="flex items-center gap-2 rounded-md border border-[#dedee4] bg-white px-3.5 py-2 text-sm font-semibold text-[#555] hover:bg-[#f7f7fa]"
+          >
+            <Download size={15} />
+            CSV
+          </button>
+        </div>
       </div>
 
-      <main className="mx-auto max-w-[1200px] px-5 py-6">
+      <div className="space-y-5">
 
 
         <section className="mb-5 rounded-md border border-[#e2e2e7] bg-white p-4">
@@ -730,7 +659,7 @@ export default function ActivityPage() {
 
         </div>
 
-      </main>
+      </div>
 
     </div>
   );

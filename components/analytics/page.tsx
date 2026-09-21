@@ -12,6 +12,7 @@ import {
   Globe2,
   ArrowUpRight,
 } from "lucide-react";
+import BackButton from "@/components/common/BackButton";
 
 const growthData = [
   { label: "W1", value: 42 },
@@ -79,18 +80,21 @@ export default function AnalyticsPage() {
   const [showPeriod, setShowPeriod] = useState(false);
 
   return (
-    <div className="min-h-screen bg-[#faf9fc]">
-      <div className="p-6">
-        <div className="mb-6 flex items-center justify-between">
-          <div>
-            <h1 className="text-[28px] font-bold text-[#1d1d1f]">
-              Analytics
-            </h1>
+    <div className="w-full space-y-6">
+      <div>
+        <BackButton label="Back to Dashboard" fallbackHref="/supplier" />
+      </div>
 
-            <p className="mt-1 text-[13px] text-[#777]">
-              Business performance at a glance
-            </p>
-          </div>
+      <div className="flex items-center justify-between">
+        <div>
+          <h1 className="text-2xl font-bold tracking-tight text-slate-900">
+            Analytics
+          </h1>
+
+          <p className="mt-1 text-sm text-slate-500">
+            Business performance, engagement, and pipeline insights at a glance.
+          </p>
+        </div>
 
           <div className="relative">
             <button
@@ -385,6 +389,5 @@ export default function AnalyticsPage() {
           </div>
         </div>
       </div>
-    </div>
   );
 }

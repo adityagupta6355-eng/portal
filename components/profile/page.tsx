@@ -18,6 +18,7 @@ import {
   MessageSquare,
   Sparkles,
 } from "lucide-react";
+import BackButton from "@/components/common/BackButton";
 
 const menuItems = [
   {
@@ -57,10 +58,20 @@ export default function ProfilePage() {
   const router = useRouter();
 
   return (
-    <div className="min-h-screen bg-[#faf9fc]">
-      <div className="p-6">
+    <div className="w-full space-y-6">
+      <div>
+        <BackButton label="Back to Dashboard" fallbackHref="/supplier" />
+      </div>
+      <div className="border-b border-slate-200 pb-4">
+        <h1 className="text-2xl font-bold tracking-tight text-slate-900">
+          My Company & Profile
+        </h1>
+        <p className="mt-1 text-sm text-slate-500">
+          Manage your verified exporter profile, organization details, and account preferences.
+        </p>
+      </div>
 
-        <div className="rounded-md border border-[#e5e3e9] bg-white p-5">
+      <div className="rounded-md border border-[#e5e3e9] bg-white p-5">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
               <div className="flex h-16 w-16 items-center justify-center rounded-full border border-[#e1e6ed] bg-[#f3f5f8]">
@@ -281,8 +292,6 @@ export default function ProfilePage() {
           <LogOut size={18} />
           Logout
         </button>
-
       </div>
-    </div>
   );
 }

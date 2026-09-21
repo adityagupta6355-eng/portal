@@ -2,6 +2,7 @@
 
 import { ArrowLeft, FileText, Package, User } from "lucide-react";
 import { useParams, useRouter } from "next/navigation";
+import BackButton from "@/components/common/BackButton";
 
 const rfqs = [
   {
@@ -140,22 +141,18 @@ export default function RFQDetailsPage() {
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
+      <div>
+        <BackButton label="Back to RFQs" fallbackHref="/supplier/rfqs" />
+      </div>
 
       <div className="flex items-center gap-3">
-        <button
-          onClick={() => router.back()}
-          className="rounded-md border border-[#d0d5dd] bg-white p-2 text-[#667085] hover:bg-[#f9fafb]"
-        >
-          <ArrowLeft size={17} />
-        </button>
-
         <div>
-          <h1 className="text-[26px] font-bold text-[#101828]">
+          <h1 className="text-2xl font-bold tracking-tight text-slate-900">
             RFQ Details
           </h1>
 
-          <p className="mt-1 text-[13px] text-[#667085]">
+          <p className="mt-1 text-sm text-slate-500">
             Review buyer request and supplier requirements.
           </p>
         </div>
@@ -163,9 +160,7 @@ export default function RFQDetailsPage() {
 
       <div className="rounded-lg border border-[#e4e7ec] bg-white p-5">
         <div className="flex items-start justify-between">
-
           <div className="flex items-start gap-4">
-
             <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-[#eef4ff]">
               <FileText
                 size={22}
@@ -186,7 +181,6 @@ export default function RFQDetailsPage() {
                 {rfq.description}
               </p>
             </div>
-
           </div>
 
           <span
@@ -200,11 +194,10 @@ export default function RFQDetailsPage() {
           >
             {rfq.status}
           </span>
-
         </div>
       </div>
-      <div className="rounded-lg border border-[#e4e7ec] bg-white p-5">
 
+      <div className="rounded-lg border border-[#e4e7ec] bg-white p-5">
         <div className="mb-5 flex items-center gap-2">
           <Package
             size={18}
@@ -217,28 +210,29 @@ export default function RFQDetailsPage() {
         </div>
 
         <div className="grid grid-cols-2 gap-4">
-
           <DetailCard
             label="Product"
             value={rfq.product}
           />
+
           <DetailCard
             label="Description"
             value={rfq.description}
           />
+
           <DetailCard
             label="RFQ ID"
             value={rfq.id}
           />
+
           <DetailCard
             label="Estimated Value"
             value={rfq.estimated}
           />
-
         </div>
       </div>
-      <div className="rounded-lg border border-[#e4e7ec] bg-white p-5">
 
+      <div className="rounded-lg border border-[#e4e7ec] bg-white p-5">
         <div className="mb-5 flex items-center gap-2">
           <User
             size={18}
@@ -251,11 +245,11 @@ export default function RFQDetailsPage() {
         </div>
 
         <div className="grid grid-cols-2 gap-4">
-
           <DetailCard
             label="Buyer"
             value={rfq.buyer}
           />
+
           <DetailCard
             label="Buyer Initials"
             value={rfq.initials}
@@ -270,11 +264,10 @@ export default function RFQDetailsPage() {
             label="Incoterm"
             value={rfq.incoterm}
           />
-
         </div>
       </div>
-      <div className="rounded-lg border border-[#e4e7ec] bg-white p-5">
 
+      <div className="rounded-lg border border-[#e4e7ec] bg-white p-5">
         <div className="mb-5 flex items-center gap-2">
           <FileText
             size={18}
@@ -287,7 +280,6 @@ export default function RFQDetailsPage() {
         </div>
 
         <div className="grid grid-cols-2 gap-4">
-
           <DetailCard
             label="Required Quantity"
             value={rfq.requirement}
@@ -307,18 +299,15 @@ export default function RFQDetailsPage() {
             label="Estimated Value"
             value={rfq.estimated}
           />
-
         </div>
       </div>
 
       <div className="rounded-lg border border-[#e4e7ec] bg-white p-5">
-
         <h2 className="text-[18px] font-bold text-[#101828]">
           Match Score
         </h2>
 
         <div className="mt-5 flex items-center gap-5">
-
           <div className="flex h-20 w-20 items-center justify-center rounded-full bg-[#ecfdf3]">
             <span className="text-[23px] font-bold text-[#027a48]">
               {rfq.matchScore}%
@@ -326,27 +315,21 @@ export default function RFQDetailsPage() {
           </div>
 
           <div className="flex-1">
-
             <p className="text-[14px] font-semibold text-[#344054]">
               Product Match
             </p>
 
             <p className="mt-1 text-[12px] text-[#667085]">
-              This RFQ has a {rfq.matchScore}% match
-              with your supplier profile.
+              This RFQ has a {rfq.matchScore}% match with your supplier profile.
             </p>
 
             <div className="mt-3 h-2 w-full overflow-hidden rounded-full bg-[#eaecf0]">
               <div
                 className="h-full rounded-full bg-[#12b76a]"
-                style={{
-                  width: `${rfq.matchScore}%`,
-                }}
+                style={{ width: `${rfq.matchScore}%` }}
               />
             </div>
-
           </div>
-
         </div>
       </div>
 
@@ -358,7 +341,6 @@ export default function RFQDetailsPage() {
           Back to RFQs
         </button>
       </div>
-
     </div>
   );
-} 
+}

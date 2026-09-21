@@ -1,6 +1,7 @@
 "use client";
 
 import { FileText, BadgeCheck, Clock3, Plus } from "lucide-react";
+import BackButton from "@/components/common/BackButton";
 
 const stats = [
   {
@@ -28,19 +29,21 @@ const stats = [
 
 export default function DocumentsPage() {
   return (
-    <div className="min-h-screen bg-[#faf9fc]">
-      <div className="p-6">
+    <div className="w-full space-y-6">
+      <div>
+        <BackButton label="Back to Dashboard" fallbackHref="/supplier" />
+      </div>
 
-        <div className="mb-6 flex items-center justify-between">
-          <div>
-            <h1 className="text-[28px] font-bold text-[#1d1d1f]">
-              Documents
-            </h1>
+      <div className="flex items-center justify-between">
+        <div>
+          <h1 className="text-2xl font-bold tracking-tight text-slate-900">
+            Documents
+          </h1>
 
-            <p className="mt-1 text-[13px] text-[#777]">
-              Store and manage your trade credentials.
-            </p>
-          </div>
+          <p className="mt-1 text-sm text-slate-500">
+            Store and manage your trade credentials and certifications.
+          </p>
+        </div>
 
           <button
             type="button"
@@ -84,8 +87,6 @@ export default function DocumentsPage() {
             );
           })}
         </div>
-
-      </div>
     </div>
   );
 }

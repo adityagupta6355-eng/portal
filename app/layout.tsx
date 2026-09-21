@@ -2,7 +2,7 @@ import "./globals.css";
 
 export const metadata = {
   title: "TradeMatchly Supplier Portal",
-  description: "Supplier marketplace dashboard"
+  description: "Supplier marketplace dashboard",
 };
 
 export default function RootLayout({

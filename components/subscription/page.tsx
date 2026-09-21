@@ -14,21 +14,25 @@ import {
   Users,
   Zap,
 } from "lucide-react";
+import BackButton from "@/components/common/BackButton";
 
 export default function SubscriptionPage() {
   return (
-    <div className="min-h-screen bg-[#f7f7fa] p-6 pb-10">
-      <div className="w-full">
-        <div className="mb-5 flex items-start justify-between">
-          <div>
-            <h1 className="text-2xl font-bold text-[#101828]">
-              Subscription
-            </h1>
+    <div className="w-full space-y-6">
+      <div>
+        <BackButton label="Back to Dashboard" fallbackHref="/supplier" />
+      </div>
 
-            <p className="mt-1 text-sm text-gray-500">
-              Manage your plan, usage, and billing
-            </p>
-          </div>
+      <div className="flex items-start justify-between">
+        <div>
+          <h1 className="text-2xl font-bold tracking-tight text-slate-900">
+            Subscription & Plans
+          </h1>
+
+          <p className="mt-1 text-sm text-slate-500">
+            Manage your subscription plan, usage quotas, and billing.
+          </p>
+        </div>
 
           <div className="flex rounded-lg bg-[#f1f2f5] p-1">
             <button
@@ -313,7 +317,6 @@ export default function SubscriptionPage() {
             </button>
           </div>
         </section>
-      </div>
     </div>
   );
 }

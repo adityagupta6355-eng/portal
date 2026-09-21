@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import BackButton from "@/components/common/BackButton";
 import {
   User,
   Mail,
@@ -8,7 +9,6 @@ import {
   Smartphone,
   Bell,
   Globe2,
-  Moon,
   ShieldCheck,
   FileLock2,
   CircleHelp,
@@ -23,20 +23,22 @@ export default function SettingsPage() {
   const [emailNotifications, setEmailNotifications] = useState(true);
   const [opportunityAlerts, setOpportunityAlerts] = useState(true);
   const [messageSounds, setMessageSounds] = useState(true);
-  const [darkMode, setDarkMode] = useState(false);
 
   return (
-    <div className="min-h-screen bg-[#f7f7fa]">
-      <div className="w-full p-6 pb-10">
-        <div className="mb-5">
-          <h1 className="text-[24px] font-bold text-[#101828]">
-            Settings
-          </h1>
+    <div className="space-y-6">
+      <div>
+        <BackButton label="Back" fallbackHref="/supplier" />
+      </div>
 
-          <p className="mt-1 text-[13px] text-[#667085]">
-            Manage your app preferences and security
-          </p>
-        </div>
+      <div>
+        <h1 className="text-2xl font-bold tracking-tight text-slate-900">
+          Settings
+        </h1>
+
+        <p className="mt-1 text-sm text-slate-500">
+          Manage your system preferences, security, and team notifications.
+        </p>
+      </div>
 
         <section className="mb-6">
           <h2 className="mb-3 text-[18px] font-semibold text-[#101828]">
@@ -131,14 +133,6 @@ export default function SettingsPage() {
               }
               title="Region & currency"
               description="India · USD"
-            />
-
-            <ToggleRow
-              icon={<Moon size={20} className="text-[#5546e8]" />}
-              title="Dark mode"
-              description="Use the dark TradeMatchly theme"
-              enabled={darkMode}
-              onToggle={() => setDarkMode(!darkMode)}
               last
             />
           </div>
@@ -234,7 +228,6 @@ export default function SettingsPage() {
             />
           </button>
         </section>
-      </div>
     </div>
   );
 }

@@ -12,13 +12,14 @@ import {
   Camera,
   Check,
 } from "lucide-react";
+import BackButton from "@/components/common/BackButton";
 
 export default function EditProfilePage() {
   const router = useRouter();
 
-  const [fullName, setFullName] = useState("Sarah Jenkins");
-  const [jobTitle, setJobTitle] = useState("Export Manager");
-  const [email, setEmail] = useState("sarah@agricorpglobal.com");
+  const [fullName, setFullName] = useState("Sarah Patel");
+  const [jobTitle, setJobTitle] = useState("Export Director");
+  const [email, setEmail] = useState("sarah@abcspices.com");
   const [phone, setPhone] = useState("+91 98765 43210");
 
   const handleSave = () => {
@@ -30,31 +31,28 @@ export default function EditProfilePage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#faf9fc]">
-      <div className="p-6">
-        <div className="mx-auto max-w-[1100px]">
+    <div className="space-y-6">
+      <div className="flex items-center justify-between">
+        <BackButton label="Back to Profile" fallbackHref="/supplier/profile" />
+        <button
+          type="button"
+          onClick={handleSave}
+          className="rounded-lg bg-indigo-600 px-4 py-2 text-xs font-semibold text-white shadow-sm hover:bg-indigo-700 transition"
+        >
+          Save Changes
+        </button>
+      </div>
 
-          <div className="flex h-14 items-center justify-between rounded-md border border-[#e5e3e9] bg-white px-4">
-            <button
-              type="button"
-              onClick={handleCancel}
-              className="flex h-9 w-9 items-center justify-center rounded-md text-[#222] transition hover:bg-[#f1f4f7]"
-            >
-              <ArrowLeft size={20} strokeWidth={2} />
-            </button>
+      <div className="border-b border-slate-200 pb-4">
+        <h1 className="text-2xl font-bold tracking-tight text-slate-900">
+          Edit Profile Information
+        </h1>
+        <p className="mt-1 text-sm text-slate-500">
+          Update primary exporter contact details and corporate identity.
+        </p>
+      </div>
 
-            <h1 className="text-[24px] font-bold text-[#1d1d1f]">
-              Edit Profile
-            </h1>
-
-            <button
-              type="button"
-              onClick={handleSave}
-              className="text-[13px] font-semibold text-[#5146e5]"
-            >
-              Save
-            </button>
-          </div>
+      <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
 
           <div className="mt-6 flex flex-col items-center">
             <div className="relative">
@@ -224,6 +222,5 @@ export default function EditProfilePage() {
 
         </div>
       </div>
-    </div>
   );
 }

@@ -12,6 +12,7 @@ import {
   MoreHorizontal,
   Search,
 } from "lucide-react";
+import BackButton from "@/components/common/BackButton";
 
 const rfqs = [
   {
@@ -315,14 +316,18 @@ export default function RFQsPage() {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="w-full space-y-6">
+      <div>
+        <BackButton label="Back to Dashboard" fallbackHref="/supplier" />
+      </div>
+
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-[28px] font-bold text-[#101828]">
+          <h1 className="text-2xl font-bold tracking-tight text-slate-900">
             RFQs
           </h1>
 
-          <p className="mt-1 text-[13px] leading-5 text-[#667085]">
+          <p className="mt-1 text-sm text-slate-500">
             Manage and respond to buyer requests for quotation.
           </p>
         </div>

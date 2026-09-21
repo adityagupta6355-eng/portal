@@ -11,6 +11,7 @@ import {
   ShieldCheck,
   TrendingUp,
 } from "lucide-react";
+import BackButton from "@/components/common/BackButton";
 
 const reviews = [
   {
@@ -66,17 +67,20 @@ export default function ReputationPage() {
   const [activeFilter, setActiveFilter] = useState("All");
 
   return (
-    <div className="min-h-screen bg-[#faf9fc]">
-      <div className="p-6">
-        <div className="mb-6 flex items-center justify-between">
-          <div>
-            <h1 className="text-[28px] font-bold text-[#1d1d1f]">
-              Reputation & Reviews
-            </h1>
-            <p className="mt-1 text-[13px] text-[#777]">
-              How verified buyers rate your business
-            </p>
-          </div>
+    <div className="w-full space-y-6">
+      <div>
+        <BackButton label="Back to Dashboard" fallbackHref="/supplier" />
+      </div>
+
+      <div className="flex items-center justify-between">
+        <div>
+          <h1 className="text-2xl font-bold tracking-tight text-slate-900">
+            Reputation & Reviews
+          </h1>
+          <p className="mt-1 text-sm text-slate-500">
+            How verified buyers rate your business and fulfillment reliability.
+          </p>
+        </div>
 
           <button
             type="button"
@@ -367,7 +371,6 @@ export default function ReputationPage() {
           </div>
         </div>
       </div>
-    </div>
   );
 }
 

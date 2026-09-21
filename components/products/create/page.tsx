@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { ArrowRight, X } from "lucide-react";
+import BackButton from "@/components/common/BackButton";
 
 export default function CreateProductPage() {
   const router = useRouter();
@@ -11,21 +12,23 @@ export default function CreateProductPage() {
   const [category, setCategory] = useState("");
 
   return (
-    <div className="min-h-screen bg-[#faf9fc] p-6">
+    <div className="space-y-4">
+      <div>
+        <BackButton label="Back to Products" fallbackHref="/supplier/products" />
+      </div>
 
-     
-      <div className="mx-auto max-w-[950px] rounded-lg border border-[#e5e3e9] bg-white">
+      <div className="rounded-xl border border-slate-200 bg-white shadow-sm overflow-hidden">
 
       
         <div className="flex items-start justify-between border-b border-[#eceaf0] px-6 py-5">
 
           <div>
-            <h1 className="text-[28px] font-bold text-[#171827]">
-             Product basics
+            <h1 className="text-2xl font-bold tracking-tight text-slate-900">
+              Product basics
             </h1>
 
-            <p className="mt-1 text-[13px] text-gray-500">
-              
+            <p className="mt-1 text-sm text-slate-500">
+              Add a new commodity or product listing to your catalog.
             </p>
           </div>
 
@@ -187,17 +190,14 @@ export default function CreateProductPage() {
 
        
         <div className="flex justify-end border-t border-[#eceaf0] px-6 py-4">
-
           <button
-  type="button"
-  onClick={() => {
-    window.location.href = "/supplier/products/pricing";
-  }}
-  className="flex items-center gap-2 rounded-md bg-[#111a32] px-4 py-2 text-[12px] font-semibold text-white hover:bg-[#1d2946]"
->
-  Next: Pricing
-  <ArrowRight size={14} />
-</button>
+            type="button"
+            onClick={() => router.push("/supplier/products/pricing")}
+            className="flex h-11 items-center justify-center gap-2 rounded-xl bg-[#0f172a] px-8 text-sm font-semibold text-white hover:bg-slate-800 shadow-sm transition"
+          >
+            Next: Pricing
+            <ArrowRight size={16} />
+          </button>
         </div>
 
       </div>

@@ -12,17 +12,22 @@ import {
   ArrowRight,
   Sparkles,
 } from "lucide-react";
+import BackButton from "@/components/common/BackButton";
 
 export default function VerificationPage() {
   return (
-    <div className="min-h-screen bg-[#f7f7fa] p-6 pb-24">
+    <div className="w-full space-y-6">
+      <div>
+        <BackButton label="Back to Dashboard" fallbackHref="/supplier" />
+      </div>
+
       {/* Page Header */}
-      <div className="mb-5">
-        <h1 className="text-2xl font-bold text-[#101828]">
+      <div>
+        <h1 className="text-2xl font-bold tracking-tight text-slate-900">
           Verification Center
         </h1>
 
-        <p className="mt-1 text-sm leading-6 text-[#667085]">
+        <p className="mt-1 text-sm text-slate-500">
           Build buyer confidence and unlock trusted trade features.
         </p>
       </div>
