@@ -1,13 +1,15 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import {
   Bell,
   HelpCircle,
   ChevronDown,
   ArrowLeft,
   Menu,
+  LogOut,
 } from "lucide-react";
 import NotificationDrawer from "./NotificationDrawer";
 
@@ -16,7 +18,43 @@ interface HeaderProps {
 }
 
 export default function Header({ onOpenMobileMenu }: HeaderProps) {
+  const router = useRouter();
   const [isNotificationOpen, setIsNotificationOpen] = useState(false);
+  const [isProfileOpen, setIsProfileOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setIsProfileOpen(false);
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  // Logout handler
+  const handleLogout = () => {
+    if (typeof window !== "undefined") {
+      localStorage.removeItem("token");
+      localStorage.removeItem("accessToken");
+      localStorage.removeItem("user");
+      localStorage.removeItem("userName");
+      localStorage.removeItem("userEmail");
+      localStorage.removeItem("email");
+      localStorage.removeItem("tradematchly_supplier_registered");
+      localStorage.removeItem("tradematchly_supplier_profile");
+    }
+    setIsProfileOpen(false);
+    router.push("/login");
+  };
 
   return (
     <>
@@ -69,22 +107,56 @@ export default function Header({ onOpenMobileMenu }: HeaderProps) {
           {/* Divider */}
           <div className="h-6 w-px bg-slate-200" />
 
-          {/* Profile */}
-          <Link
-            href="/supplier/profile"
-            className="flex items-center gap-2 rounded-lg p-1 hover:bg-slate-50 transition"
-          >
-            <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#eeeaff] text-xs font-bold text-[#6355d9]">
-              SP
-            </div>
+          {/* Profile Dropdown */}
+          <div className="relative" ref={dropdownRef}>
+            <button
+              type="button"
+              onClick={() => setIsProfileOpen((prev) => !prev)}
+              className="flex items-center gap-2 rounded-lg p-1 hover:bg-slate-50 transition cursor-pointer"
+              aria-expanded={isProfileOpen}
+              aria-haspopup="true"
+            >
+              <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#eeeaff] text-xs font-bold text-[#6355d9]">
+                SP
+              </div>
 
-            <div className="hidden text-left md:block">
-              <p className="text-xs font-semibold text-slate-800">Sarah Patel</p>
-              <p className="text-[10px] text-slate-400">Supplier Admin</p>
-            </div>
+              <div className="hidden text-left md:block">
+                <p className="text-xs font-semibold text-slate-800">Sarah Patel</p>
+                <p className="text-[10px] text-slate-400">Supplier Admin</p>
+              </div>
 
-            <ChevronDown size={14} className="hidden text-slate-400 sm:block" />
-          </Link>
+              <ChevronDown
+                size={14}
+                className={`hidden text-slate-400 sm:block transition-transform duration-200 ${
+                  isProfileOpen ? "rotate-180" : ""
+                }`}
+              />
+            </button>
+
+            {/* Dropdown Menu */}
+            {isProfileOpen && (
+              <div className="absolute right-0 top-full mt-2 w-48 rounded-xl border border-slate-200 bg-white p-2 shadow-lg z-50 animate-in fade-in zoom-in-95 duration-100">
+                {/* User Details */}
+                <div className="px-2 py-1.5">
+                  <p className="text-xs font-semibold text-slate-800">Sarah Patel</p>
+                  <p className="text-[10px] text-slate-400">Supplier Admin</p>
+                </div>
+
+                {/* Divider */}
+                <div className="my-1 border-t border-slate-100" />
+
+                {/* Logout Button */}
+                <button
+                  type="button"
+                  onClick={handleLogout}
+                  className="flex w-full items-center gap-2 rounded-lg px-2 py-1.5 text-xs font-medium text-red-600 hover:bg-red-50 transition cursor-pointer"
+                >
+                  <LogOut size={14} />
+                  <span>Logout</span>
+                </button>
+              </div>
+            )}
+          </div>
         </div>
       </header>
 
